@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Country(models.Model):
     name = models.CharField(max_length=200)
@@ -97,6 +98,31 @@ class Character(models.Model):
 
     def __str__(self):
         return self.salutation + " " + self.firstname + " " + self.lastname
+
+class PropertyType(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Property(models.Model):
+    name = models.CharField(max_length=100)
+    type = models.ForeignKey('PropertyType', related_name='type')
+
+    def __str__(self):
+        return self.name
+
+class CharacterProperty(models.Model):
+    character = models.ForeignKey('Character', related_name='character')
+    property = models.ForeignKey('Property', related_name='property')
+    value = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(100),
+            MinValueValidator(1)
+        ]
+    )
+
 
 class BoonCategory(models.Model):
     name = models.CharField(max_length=200)

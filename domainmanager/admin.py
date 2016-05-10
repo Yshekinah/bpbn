@@ -17,4 +17,6 @@ admin.site.register(Character)
 admin.site.register(Vampire)
 admin.site.register(BoonCategory)
 admin.site.register(Boon)
-
+admin.site.register(PropertyType)
+admin.site.register(Property)
+admin.site.register(CharacterProperty)
