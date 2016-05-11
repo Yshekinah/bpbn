@@ -22,6 +22,9 @@ class Salutation(models.Model):
 class Gender(models.Model):
     gender = models.CharField(max_length=1)
 
+    def __str__(self):
+        return self.gender
+
 class AgeCategory(models.Model):
     name = models.CharField(max_length=100)
 
