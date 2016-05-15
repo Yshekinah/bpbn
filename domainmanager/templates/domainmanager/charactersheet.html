@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Character: {{character.firstname}} {{character.lastname}} {% endblock %}
+
+{% block sidebar %}
+    <ul>
+        <li>
+            <a href="{% url 'domainmanager:playersummary' character.player.id %}">Back to Player</a>
+        </li>
+
+
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    You are looking at: {{character.firstname}} {{character.lastname}}
+{% endblock %}
