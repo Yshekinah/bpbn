@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 
-from .models import Character, Person
+from .models import Character, Person, CharacterProperty
 
 
 # Create your views here.
@@ -14,7 +14,16 @@ def index(request):
 def charactersheet(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
-    context = {'character': character}
+    characterproperties = get_list_or_404(CharacterProperty, character=character)
+
+    cleanProperties = {}
+
+    # Add all character properties into a "clean" dict, so it can be accessed more easily
+    for cproperty in characterproperties:
+        cleanProperties[cproperty.property.name.replace(" ", "_")] = str(cproperty.value)
+        #print("NAME: " + cproperty.property.name + ", VALUE: ", str(cproperty.value))
+
+    context = {'character': character, 'cleanProperties': cleanProperties}
 
     return render(request, 'domainmanager/charactersheet.html', context)
 

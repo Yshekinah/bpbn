@@ -6,7 +6,7 @@ import sys
 from django.core.management.base import BaseCommand, CommandError
 from domainmanager.models import CharacterProperty, Character,Property
 
-# call by: python manage.py characterManager command=create character=1
+# call by: python manage.py characterManager command=create character=2
 
 class Command(BaseCommand):
 

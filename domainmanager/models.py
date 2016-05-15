@@ -56,6 +56,13 @@ class Bloodline(models.Model):
     def __str__(self):
         return self.name + " descending from " + self.parent_clan.name
 
+class Discipline(models.Model):
+    name = models.CharField(max_length=100)
+    clan = models.ForeignKey('Clan', related_name='clan')
+
+    def __str__(self):
+        return self.name
+
 class Person(models.Model):
     salutation = models.ForeignKey(Salutation, default=Salutation.STANDARD_SALUTATION)
     firstname = models.CharField(max_length=200)
@@ -94,7 +101,7 @@ class Character(models.Model):
     gender = models.ForeignKey(Gender)
     rank = models.ForeignKey(Rank)
     clan_rank = models.IntegerField()
-    function = models.ForeignKey(PoliticalFuntion)
+    function = models.ForeignKey(PoliticalFuntion, default=6)
     age_category = models.ForeignKey(AgeCategory)
     willpower = models.IntegerField()
     humanity = models.IntegerField()
@@ -119,7 +126,7 @@ class Property(models.Model):
         return self.name
 
 class CharacterProperty(models.Model):
-    character = models.ForeignKey('Character', related_name='character')
+    character = models.ForeignKey('Character', related_name='cp_character')
     property = models.ForeignKey('Property', related_name='property')
     value = models.IntegerField(
         default=1,
@@ -132,6 +139,19 @@ class CharacterProperty(models.Model):
     def __str__(self):
         return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(self.value)
 
+class CharacterDiscipline(models.Model):
+    character = models.ForeignKey('Character', related_name='cd_character')
+    discipline = models.ForeignKey('Discipline', related_name='discipline')
+    level = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ]
+    )
+
+    def __str__(self):
+        return self.character.firstname + " " + self.character.lastname + ", " + self.discipline.name + ": " + str(self.level)
 
 class BoonCategory(models.Model):
     name = models.CharField(max_length=200)
