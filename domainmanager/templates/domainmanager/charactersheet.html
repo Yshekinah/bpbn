@@ -15,4 +15,110 @@
 
 {% block content %}
     You are looking at: {{character.firstname}} {{character.lastname}}
+
+    <table border="1">
+
+        <tr>
+            <td colspan="4">Attributes</td>
+        </tr>
+        <tr>
+            <td colspan="2">Physical</td>
+            <td colspan="2">Mental</td>
+        </tr>
+        <tr>
+            <td>Strength</td>
+            <td>{{ cleanProperties.Strength }} </td>
+            <td>Charisma</td>
+            <td>{{ cleanProperties.Charisma }} </td>
+        </tr>
+        <tr>
+            <td>Agility</td>
+            <td>{{ cleanProperties.Agility }} </td>
+            <td>Intelligence</td>
+            <td>{{ cleanProperties.Intelligence }} </td>
+        </tr>
+        <tr>
+            <td>Stamina</td>
+            <td>{{ cleanProperties.Stamina }} </td>
+            <td>Perception</td>
+            <td>{{ cleanProperties.Perception}} </td>
+        </tr>
+        <tr>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Talents</td>
+            <td colspan="2">Skills</td>
+            <td colspan="2">Knowledges</td>
+        </tr>
+        <tr>
+            <td>Brawl</td>
+            <td>{{ cleanProperties.Brawl}} </td>
+            <td>Melee</td>
+            <td>{{ cleanProperties.Melee}} </td>
+            <td>Occult</td>
+            <td>{{ cleanProperties.Occult}} </td>
+        </tr>
+        <tr>
+            <td>Dodge</td>
+            <td>{{ cleanProperties.Dodge}} </td>
+            <td>Firearms</td>
+            <td>{{ cleanProperties.Firearms}} </td>
+            <td>Cainite Lore</td>
+            <td>{{ cleanProperties.Cainite_Lore}} </td>
+        </tr>
+        <tr>
+            <td>Manipulation</td>
+            <td>{{ cleanProperties.Manipulation}} </td>
+            <td>Stealth</td>
+            <td>{{ cleanProperties.Stealth}} </td>
+            <td>Linguistics</td>
+            <td>{{ cleanProperties.Linguistics}} </td>
+        </tr>
+        <tr>
+            <td>Empathy</td>
+            <td>{{ cleanProperties.Empathy}} </td>
+            <td>Meditation</td>
+            <td>{{ cleanProperties.Meditation}} </td>
+            <td>Academics</td>
+            <td>{{ cleanProperties.Academics}} </td>
+        </tr>
+        <tr>
+            <td>Survival</td>
+            <td>{{ cleanProperties.Survival}} </td>
+            <td>Electronics</td>
+            <td>{{ cleanProperties.Electronics}} </td>
+            <td>Science</td>
+            <td>{{ cleanProperties.Science}} </td>
+        </tr>
+        <tr>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td colspan="4">Backgrounds</td>
+        </tr>
+        <tr>
+            <td>Generation</td>
+            <td>{{ cleanProperties.Generation}} </td>
+            <td>Mentor</td>
+            <td>{{ cleanProperties.Mentor}} </td>
+        </tr>
+        <tr>
+            <td>Resources</td>
+            <td>{{ cleanProperties.Resources}} </td>
+            <td>Library</td>
+            <td>{{ cleanProperties.Library}} </td>
+        </tr>
+        <tr>
+            <td>Herd</td>
+            <td>{{ cleanProperties.Herd}} </td>
+            <td>Haven</td>
+            <td>{{ cleanProperties.Haven}} </td>
+        </tr>
+        <tr>
+            <td>Retainers</td>
+            <td>{{ cleanProperties.Retainers}} </td>
+        </tr>
+    </table>
+
 {% endblock %}
