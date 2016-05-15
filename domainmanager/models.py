@@ -12,12 +12,12 @@ class Country(models.Model):
         return self.name
 
 class Salutation(models.Model):
-    salutation = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
 
     STANDARD_SALUTATION = 1
 
     def __str__(self):
-        return self.salutation
+        return self.name
 
 class Gender(models.Model):
     gender = models.CharField(max_length=1)
@@ -54,7 +54,7 @@ class Bloodline(models.Model):
     parent_clan = models.ForeignKey(Clan,blank=True,)
 
     def __str__(self):
-        return self.name
+        return self.name + " descending from " + self.parent_clan.name
 
 class Person(models.Model):
     salutation = models.ForeignKey(Salutation, default=Salutation.STANDARD_SALUTATION)
@@ -65,9 +65,10 @@ class Person(models.Model):
     image = models.ImageField(blank=True)
     date_of_birth = models.DateField()
     description = models.TextField(blank=True)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.salutation) + " " + self.firstname + " " + self.lastname + ", " + str(self.country)
+        return self.salutation.name + " " + self.firstname + " " + self.lastname + ", " + str(self.country)
 
 class Domain(models.Model):
     name = models.CharField(max_length=200)
@@ -81,6 +82,7 @@ class Domain(models.Model):
         return self.name
 
 class Character(models.Model):
+    player = models.ForeignKey('Person',on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation)
     firstname = models.CharField(max_length=200)
     lastname = models.CharField(max_length=200)
@@ -98,9 +100,10 @@ class Character(models.Model):
     humanity = models.IntegerField()
     frenzy = models.IntegerField()
     bloodpool = models.IntegerField()
+    active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.salutation + " " + self.firstname + " " + self.lastname
+        return self.salutation.name + " " + self.firstname + " " + self.lastname
 
 class PropertyType(models.Model):
     name = models.CharField(max_length=100)
@@ -125,6 +128,9 @@ class CharacterProperty(models.Model):
             MinValueValidator(1)
         ]
     )
+
+    def __str__(self):
+        return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(self.value)
 
 
 class BoonCategory(models.Model):

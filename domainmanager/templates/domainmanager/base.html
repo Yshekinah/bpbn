@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+
+        #everything{
+            position:relative
+        }
+        #header{
+
+        }
+        #sidebar{
+            float:left
+        }
+        #content{
+            float:left
+        }
+        #footer{
+            clear:both
+        }
+
+
+    </style>
+    <title>{% block title %}My amazing site{% endblock %}</title>
+</head>
+
+
+<body>
+
+    <div id="everything">
+
+        <div id="header">
+            {% block header %}
+                HEADER
+            {% endblock %}
+        </div>
+
+        <div id="sidebar">
+            {% block sidebar %}
+            <ul>
+                <li><a href="http://127.0.0.1:8000/admin/">Admin</a></li>
+            </ul>
+            {% endblock %}
+        </div>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div id="footer">
+            {% block footer %}
+                FOOTER
+            {% endblock %}
+        </div>
+
+    </div>
+
+</body>
+</html>
