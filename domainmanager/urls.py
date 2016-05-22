@@ -8,12 +8,20 @@ urlpatterns = [
     # ex: /domainmanager/
     url(r'^$', views.index, name='index'),
 
-    # ex: /domainmanager/charactersheet/1
-    # View the charactersheet
+    # List of all characters
+    #  ex: /domainmanager/characters
+    url(r'^characters$', views.characters, name='characters'),
+
+    # View one charactersheet
+    #  ex: /domainmanager/charactersheet/1
     url(r'^charactersheet/(?P<character_id>[0-9]+)$', views.charactersheet, name='charactersheet'),
 
-    # ex: /domainmanager/playersummary/1
+    # List of all players
+    #  ex: /domainmanager/players
+    url(r'^players$', views.players, name='players'),
+
     # List all the characters
-    url(r'^playersummary/(?P<player_id>[0-9]+)$', views.playersummary, name='playersummary')
+    # ex: /domainmanager/playersummary/1
+    url(r'^playersummary/(?P<player_id>[0-9]+)$', views.playersummary, name='playersummary'),
 
 ]

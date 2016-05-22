@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}List of all Characters{% endblock %}
+
+
+{% block content %}
+
+    {% for clan in clans %}
+
+        {{ clan.name }}<br/>
+
+        {% for character in characters %}
+
+            {% if character.clan.id == clan.id %}
+                <a href="{% url 'domainmanager:charactersheet' character.id %}" style="padding-left:4em ">{{ character.firstname }} {{ character.lastname }} <br/></a>
+            {% endif %}
+
+        {% endfor %}
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,14 +1,30 @@
-{% if player %}
-    Player: {{player.firstname}} {{player.lastname}} <br/><br/><br/>
-    Cool Characters:
-    {% if characters %}
-    <ul>
-        {% for character in characters %}
-        <li>
-            <a href="{% url 'domainmanager:charactersheet' character.id %}">{{ character.firstname }} {{character.lastname}}, {{character.clan.name}}</a>
+{% extends 'base.html' %}
 
-        </li>
-        {%  endfor %}
-    </ul>
+{% block title %}List of all characters by {{player.firstname}} {{player.lastname }}{% endblock %}
+
+
+
+{% block sidebar %}
+    <li><a href="{% url 'domainmanager:players' %}">Back to players</a></li>
+
+{% endblock %}
+
+
+{% block content %}
+
+    {% if player %}
+        Player: {{player.firstname}} {{player.lastname}} <br/><br/><br/>
+        Cool Characters:
+        {% if characters %}
+        <ul>
+            {% for character in characters %}
+            <li>
+                <a href="{% url 'domainmanager:charactersheet' character.id %}">{{ character.firstname }} {{character.lastname}}, {{character.clan.name}}</a>
+
+            </li>
+            {%  endfor %}
+        </ul>
+        {% endif %}
     {% endif %}
-{% endif %}
+
+{% endblock %}
