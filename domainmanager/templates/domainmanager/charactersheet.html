@@ -14,111 +14,138 @@
 {% endblock %}
 
 {% block content %}
-    You are looking at: {{character.firstname}} {{character.lastname}}
 
-    <table border="1">
-
-        <tr>
-            <td colspan="4">Attributes</td>
-        </tr>
-        <tr>
-            <td colspan="2">Physical</td>
-            <td colspan="2">Mental</td>
-        </tr>
-        <tr>
-            <td>Strength</td>
-            <td>{{ cleanProperties.Strength }} </td>
-            <td>Charisma</td>
-            <td>{{ cleanProperties.Charisma }} </td>
-        </tr>
-        <tr>
-            <td>Agility</td>
-            <td>{{ cleanProperties.Agility }} </td>
-            <td>Intelligence</td>
-            <td>{{ cleanProperties.Intelligence }} </td>
-        </tr>
-        <tr>
-            <td>Stamina</td>
-            <td>{{ cleanProperties.Stamina }} </td>
-            <td>Perception</td>
-            <td>{{ cleanProperties.Perception}} </td>
-        </tr>
-        <tr>
-            <td colspan="6"></td>
-        </tr>
-        <tr>
-            <td colspan="2">Talents</td>
-            <td colspan="2">Skills</td>
-            <td colspan="2">Knowledges</td>
-        </tr>
-        <tr>
-            <td>Brawl</td>
-            <td>{{ cleanProperties.Brawl}} </td>
-            <td>Melee</td>
-            <td>{{ cleanProperties.Melee}} </td>
-            <td>Occult</td>
-            <td>{{ cleanProperties.Occult}} </td>
-        </tr>
-        <tr>
-            <td>Dodge</td>
-            <td>{{ cleanProperties.Dodge}} </td>
-            <td>Firearms</td>
-            <td>{{ cleanProperties.Firearms}} </td>
-            <td>Cainite Lore</td>
-            <td>{{ cleanProperties.Cainite_Lore}} </td>
-        </tr>
-        <tr>
-            <td>Manipulation</td>
-            <td>{{ cleanProperties.Manipulation}} </td>
-            <td>Stealth</td>
-            <td>{{ cleanProperties.Stealth}} </td>
-            <td>Linguistics</td>
-            <td>{{ cleanProperties.Linguistics}} </td>
-        </tr>
-        <tr>
-            <td>Empathy</td>
-            <td>{{ cleanProperties.Empathy}} </td>
-            <td>Meditation</td>
-            <td>{{ cleanProperties.Meditation}} </td>
-            <td>Academics</td>
-            <td>{{ cleanProperties.Academics}} </td>
-        </tr>
-        <tr>
-            <td>Survival</td>
-            <td>{{ cleanProperties.Survival}} </td>
-            <td>Electronics</td>
-            <td>{{ cleanProperties.Electronics}} </td>
-            <td>Science</td>
-            <td>{{ cleanProperties.Science}} </td>
-        </tr>
-        <tr>
-            <td colspan="6"></td>
-        </tr>
-        <tr>
-            <td colspan="4">Backgrounds</td>
-        </tr>
-        <tr>
-            <td>Generation</td>
-            <td>{{ cleanProperties.Generation}} </td>
-            <td>Mentor</td>
-            <td>{{ cleanProperties.Mentor}} </td>
-        </tr>
-        <tr>
-            <td>Resources</td>
-            <td>{{ cleanProperties.Resources}} </td>
-            <td>Library</td>
-            <td>{{ cleanProperties.Library}} </td>
-        </tr>
-        <tr>
-            <td>Herd</td>
-            <td>{{ cleanProperties.Herd}} </td>
-            <td>Haven</td>
-            <td>{{ cleanProperties.Haven}} </td>
-        </tr>
-        <tr>
-            <td>Retainers</td>
-            <td>{{ cleanProperties.Retainers}} </td>
-        </tr>
-    </table>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{character.firstname}} {{character.lastname}}
+                {% if character.generation != None %}/ {{character.generation}}. Generation{% endif %}
+                {% if character.clan != None %}/ Clan: {{ character.clan.name }}{% endif %}
+                {% if character.bloodline != None %}/ Bloodline: {{character.bloodline.name}}{% endif %}
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Attributes</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Physical</h3>
+                </div>
+                <div class="col-md-3">
+                    <h3>Mental</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Strength</div>
+                <div class="col-md-1">{{ cleanProperties.Strength }}</div>
+                <div class="col-md-2">Charisma</div>
+                <div class="col-md-1">{{ cleanProperties.Charisma }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Agility</div>
+                <div class="col-md-1">{{ cleanProperties.Agility }}</div>
+                <div class="col-md-2">Intelligence</div>
+                <div class="col-md-1">{{ cleanProperties.Intelligence }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Stamina</div>
+                <div class="col-md-1">{{ cleanProperties.Stamina }}</div>
+                <div class="col-md-2">Perception</div>
+                <div class="col-md-1">{{ cleanProperties.Perception }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Talents</h3>
+                </div>
+                <div class="col-md-3">
+                    <h3>Skills</h3>
+                </div>
+                <div class="col-md-3">
+                    <h3>Knowledges</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Brawl</div>
+                <div class="col-md-1">{{ cleanProperties.Brawl }}</div>
+                <div class="col-md-2">Melee</div>
+                <div class="col-md-1">{{ cleanProperties.Melee }}</div>
+                <div class="col-md-2">Occult</div>
+                <div class="col-md-1">{{ cleanProperties.Occult }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Dodge</div>
+                <div class="col-md-1">{{ cleanProperties.Dodge }}</div>
+                <div class="col-md-2">Firearms</div>
+                <div class="col-md-1">{{ cleanProperties.Firearms }}</div>
+                <div class="col-md-2">Cainite Lore</div>
+                <div class="col-md-1">{{ cleanProperties.Cainite_Lore }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Manipulation</div>
+                <div class="col-md-1">{{ cleanProperties.Manipulation }}</div>
+                <div class="col-md-2">Stealth</div>
+                <div class="col-md-1">{{ cleanProperties.Stealth }}</div>
+                <div class="col-md-2">Linguistics</div>
+                <div class="col-md-1">{{ cleanProperties.Linguistics }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Empathy</div>
+                <div class="col-md-1">{{ cleanProperties.Empathy }}</div>
+                <div class="col-md-2">Meditation</div>
+                <div class="col-md-1">{{ cleanProperties.Meditation }}</div>
+                <div class="col-md-2">Academics</div>
+                <div class="col-md-1">{{ cleanProperties.Academics }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Survival</div>
+                <div class="col-md-1">{{ cleanProperties.Survival }}</div>
+                <div class="col-md-2">Electronics</div>
+                <div class="col-md-1">{{ cleanProperties.Electronics }}</div>
+                <div class="col-md-2">Science</div>
+                <div class="col-md-1">{{ cleanProperties.Science }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Backgrounds</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Generation</div>
+                <div class="col-md-1">{{ cleanProperties.Generation }}</div>
+                <div class="col-md-2">Mentor</div>
+                <div class="col-md-1">{{ cleanProperties.Mentor }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Resources</div>
+                <div class="col-md-1">{{ cleanProperties.Resources }}</div>
+                <div class="col-md-2">Library</div>
+                <div class="col-md-1">{{ cleanProperties.Library }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Herd</div>
+                <div class="col-md-1">{{ cleanProperties.Herd }}</div>
+                <div class="col-md-2">Haven</div>
+                <div class="col-md-1">{{ cleanProperties.Haven }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Retainers</div>
+                <div class="col-md-1">{{ cleanProperties.Retainers }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Disciplines</h3>
+                </div>
+            </div>
+            {% for disciplineName, level in cleanDisciplines.items %}
+                <div class="row">
+                    <div class="col-md-2">{{ disciplineName }}</div>
+                    <div class="col-md-1">{{ level }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="panel-footer">Print charactersheet</div>
+    </div>
 
 {% endblock %}

@@ -108,6 +108,7 @@ class Character(models.Model):
     frenzy = models.IntegerField()
     bloodpool = models.IntegerField()
     active = models.BooleanField(default=True)
+    sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
 
     def __str__(self):
         return self.salutation.name + " " + self.firstname + " " + self.lastname

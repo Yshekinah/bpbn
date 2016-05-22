@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}List of all Players{% endblock %}
+
+
+{% block content %}
+
+    {% for player in players%}
+
+        <a href="{% url 'domainmanager:playersummary' player.id %} ">{{ player.firstname }} {{ player.lastname }} </a><br/>
+
+        {% for character in characters %}
+
+            {% if character.player.id == player.id %}
+                <a href="{% url 'domainmanager:charactersheet' character.id %}" style="padding-left:4em ">{{ character.firstname }} {{ character.lastname }} <br/></a>
+            {% endif %}
+
+        {% endfor %}
+
+    {% endfor %}
+
+{% endblock %}
