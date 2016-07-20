@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title %}Character: {{character.firstname}} {{character.lastname}} {% endblock %}
 
 {% block sidebar %}
     <ul>
         <li>
-            <a href="{% url 'domainmanager:playersummary' character.player.id %}">Back to Player</a>
+            <a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Back to Player</a>
         </li>
 
 
@@ -22,6 +23,7 @@
                 {% if character.clan != None %}/ Clan: {{ character.clan.name }}{% endif %}
                 {% if character.bloodline != None %}/ Bloodline: {{character.bloodline.name}}{% endif %}
             </h3>
+            <img src="{% static 'img/gangrel_logo.png' %}" alt="Clan logo" width="100" height="100"/>
         </div>
         <div class="panel-body">
             <div class="row">
