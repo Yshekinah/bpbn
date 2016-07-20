@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.contrib.auth.decorators import login_required
 
-from .models import Character, Person, CharacterProperty, CharacterDiscipline, Clan
+from .models import Character, Person, CharacterProperty, CharacterDiscipline, Clan, Vampire
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -11,6 +13,7 @@ def index(request):
     return HttpResponse("A beast I am, lest a beast I become!")
 
 
+@login_required()
 def characters(request):
     clans = Clan.objects.all().order_by('name')
     characters = Character.objects.all().order_by('clan')
@@ -18,15 +21,22 @@ def characters(request):
 
     return render(request, 'domainmanager/characters.html', context)
 
+
+@login_required()
 def players(request):
-    players = Person.objects.all().order_by('lastname')
+
+    users = User.objects.all()
+
+    #players = Person.objects.all().order_by('lastname')
     characters = Character.objects.all()
-    context = {'players': players, 'characters': characters,}
+    context = {'users': users, 'characters': characters,}
 
     return render(request, 'domainmanager/players.html', context)
 
 
+@login_required()
 def charactersheet(request, character_id):
+
     character = get_object_or_404(Character, pk=character_id)
 
     characterProperties = get_list_or_404(CharacterProperty, character=character)
@@ -45,13 +55,14 @@ def charactersheet(request, character_id):
 
     for cdiscipline in characterDisciplines:
         cleanDisciplines[cdiscipline.discipline.name] = cdiscipline.level
-        print("NAME: " + cdiscipline.discipline.name + ", VALUE: ", str(cdiscipline.level))
+        #print("NAME: " + cdiscipline.discipline.name + ", VALUE: ", str(cdiscipline.level))
 
     context = {'character': character, 'cleanProperties': cleanProperties, 'cleanDisciplines': cleanDisciplines}
 
     return render(request, 'domainmanager/charactersheet.html', context)
 
 
+@login_required()
 def playersummary(request, player_id):
     player = get_object_or_404(Person, pk=player_id)
 
@@ -62,5 +73,15 @@ def playersummary(request, player_id):
     return render(request, 'domainmanager/playersummary.html', context)
 
 
+@login_required()
+def genealogy(request):
+
+    vampires = Vampire.objects.all().filter(generation__lte="6").order_by('pk')
+
+    context = {'vampires': vampires}
+
+    return render(request, 'domainmanager/genealogy.html', context)
+
+@login_required()
 def createCharacter(request):
     return HttpResponse('Have fun')

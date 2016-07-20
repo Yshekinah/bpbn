@@ -1,0 +1,10 @@
+#myOverviewDiv {
+    position: absolute;
+    width:200px;
+    height:100px;
+    top: 10px;
+    left: 10px;
+    background-color: aliceblue;
+    z-index: 300; /* make sure its in front */
+    border: solid 1px blue;
+  }

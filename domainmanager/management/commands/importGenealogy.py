@@ -12,6 +12,8 @@ class Command(BaseCommand):
     COMMAND_CLEANUP = "cleanup"
     COMMAND_DELETE = "delete"
 
+    #Aufruf z.B.: python manage.py importGenealogy import
+
     def add_arguments(self, parser):
         parser.add_argument('command', nargs='+', type=str)
 
@@ -20,12 +22,10 @@ class Command(BaseCommand):
         for command in options['command']:
             if command == self.COMMAND_IMPORT:
 
-                filename = 'D:\Stuff\Django_projects\\bpbn\domainmanager\genealogy_new.csv'
+                filename = 'D:\\Stuff\\Django_projects\\bpbn_github\\bpbn\\domainmanager\\clean_genealogy.csv'
                 vampires = []
                 lineNumber = 0
                 columnNumber = 0
-
-                # Vampire.objects.all().delete()
 
                 with open(filename,mode='r') as csvfile:
                     line = csv.reader(csvfile, dialect='excel', delimiter=';')
@@ -38,8 +38,9 @@ class Command(BaseCommand):
                         for column in row:
                             columnNumber += 1
 
-                            if column != '' and column.find('generáció') == -1 and column.find('gener') == -1:
+                            if column != '' and column.find('generáció') == -1 and column.find('gener') == -1 and column.find('geer') == -1:
                                 vName = re.sub('[!@#$]', '', column)
+                                vName = (re.sub('[^áÁéÉíÍöÖóÓoOüÜúÚuU0-9a-zA-Z\(\) ]+', '', vName))
 
                                 print(vName + " Generation: " + str(lineNumber) + " ColumnStart: " + str(columnNumber))
 
@@ -47,15 +48,15 @@ class Command(BaseCommand):
                                 v.save()
 
                                 if vNameOld != '':
-                                    vs = Vampire.objects.all().filter(name=vNameOld).order_by('-pk')[:1]
-                                    for v in vs:
-                                        v.columnEnd = columnNumber - 1
-                                        v.save()
+                                     vs = Vampire.objects.all().filter(name=vNameOld).order_by('-pk')[:1]
+                                     for v in vs:
+                                         v.columnEnd = columnNumber - 1
+                                         v.save()
 
                                 vNameOld = vName
 
             elif command == self.COMMAND_CLEANUP:
-                vampires = Vampire.objects.all().filter(generation__gte=2).order_by('pk')
+                vampires = Vampire.objects.filter(generation__gte=2).order_by('-pk')
                 for child in vampires:
 
                     print("Found name: " + child.name)
@@ -64,6 +65,7 @@ class Command(BaseCommand):
                     print("Found columnEnd: " + str(child.columnEnd))
 
                     fathers = Vampire.objects.all().filter(generation=child.generation-1).filter(columnStart__lte=child.columnStart).filter(columnEnd__gte=child.columnEnd)
+                            #.order_by('-columnStart')
 
                     for father in fathers:
                         print(">>>> Found Father: " + father.name)
@@ -72,7 +74,7 @@ class Command(BaseCommand):
                         print(">>>> Found Father columnEnd: " + str(father.columnEnd))
                         child.sire = father
                         child.save()
+                        break
 
             elif command == self.COMMAND_DELETE:
                 Vampire.objects.all().delete()
-

@@ -1,8 +1,10 @@
 import datetime
 
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 class Country(models.Model):
     name = models.CharField(max_length=200)
@@ -10,6 +12,7 @@ class Country(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Salutation(models.Model):
     name = models.CharField(max_length=100)
@@ -19,11 +22,13 @@ class Salutation(models.Model):
     def __str__(self):
         return self.name
 
+
 class Gender(models.Model):
     gender = models.CharField(max_length=1)
 
     def __str__(self):
         return self.gender
+
 
 class AgeCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -31,11 +36,13 @@ class AgeCategory(models.Model):
     def __str__(self):
         return self.name
 
+
 class PoliticalFuntion(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
+
 
 class Rank(models.Model):
     name = models.CharField(max_length=100)
@@ -43,18 +50,21 @@ class Rank(models.Model):
     def __str__(self):
         return self.name
 
+
 class Clan(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
+
 class Bloodline(models.Model):
     name = models.CharField(max_length=100)
-    parent_clan = models.ForeignKey(Clan,blank=True,)
+    parent_clan = models.ForeignKey(Clan, blank=True, )
 
     def __str__(self):
         return self.name + " descending from " + self.parent_clan.name
+
 
 class Discipline(models.Model):
     name = models.CharField(max_length=100)
@@ -63,11 +73,10 @@ class Discipline(models.Model):
     def __str__(self):
         return self.name
 
+
 class Person(models.Model):
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     salutation = models.ForeignKey(Salutation, default=Salutation.STANDARD_SALUTATION)
-    firstname = models.CharField(max_length=200)
-    lastname = models.CharField(max_length=200)
-    email = models.EmailField()
     country = models.ForeignKey(Country)
     image = models.ImageField(blank=True)
     date_of_birth = models.DateField()
@@ -75,7 +84,8 @@ class Person(models.Model):
     active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.salutation.name + " " + self.firstname + " " + self.lastname + ", " + str(self.country)
+        return self.user.get_full_name() + ", " + str(self.country)
+
 
 class Domain(models.Model):
     name = models.CharField(max_length=200)
@@ -88,8 +98,9 @@ class Domain(models.Model):
     def __str__(self):
         return self.name
 
+
 class Character(models.Model):
-    player = models.ForeignKey('Person',on_delete=models.CASCADE, default=1)
+    player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation)
     firstname = models.CharField(max_length=200)
     lastname = models.CharField(max_length=200)
@@ -113,11 +124,13 @@ class Character(models.Model):
     def __str__(self):
         return self.salutation.name + " " + self.firstname + " " + self.lastname
 
+
 class PropertyType(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
+
 
 class Property(models.Model):
     name = models.CharField(max_length=100)
@@ -125,6 +138,7 @@ class Property(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class CharacterProperty(models.Model):
     character = models.ForeignKey('Character', related_name='cp_character')
@@ -138,7 +152,9 @@ class CharacterProperty(models.Model):
     )
 
     def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(self.value)
+        return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(
+            self.value)
+
 
 class CharacterDiscipline(models.Model):
     character = models.ForeignKey('Character', related_name='cd_character')
@@ -152,7 +168,9 @@ class CharacterDiscipline(models.Model):
     )
 
     def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + ", " + self.discipline.name + ": " + str(self.level)
+        return self.character.firstname + " " + self.character.lastname + ", " + self.discipline.name + ": " + str(
+            self.level)
+
 
 class BoonCategory(models.Model):
     name = models.CharField(max_length=200)
@@ -179,8 +197,8 @@ class Vampire(models.Model):
     name = models.CharField(max_length=100)
     sire = models.ForeignKey('Vampire', related_name='master', blank=True, null=True)
     generation = models.IntegerField(default=10, blank=True)
-    columnStart = models.IntegerField(default=0,blank=True)
-    columnEnd = models.IntegerField(default=0,blank=True)
+    columnStart = models.IntegerField(default=0, blank=True)
+    columnEnd = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.name
