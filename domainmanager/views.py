@@ -9,15 +9,21 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
+@login_required()
 def index(request):
-    return HttpResponse("A beast I am, lest a beast I become!")
+    return render(request, 'domainmanager/index.html')
 
 
 @login_required()
 def characters(request):
-    clans = Clan.objects.all().order_by('name')
+    clans = Clan.objects.all().exclude(parent__isnull = False).order_by('name')
+    bloodlines = Clan.objects.all().filter(parent__gte = 1).order_by('name')
     characters = Character.objects.all().order_by('clan')
-    context = {'clans': clans, 'characters': characters,}
+
+    for bl in bloodlines:
+        print(bl.name)
+
+    context = {'clans': clans, 'bloodlines': bloodlines, 'characters': characters, }
 
     return render(request, 'domainmanager/characters.html', context)
 
@@ -76,7 +82,7 @@ def playersummary(request, player_id):
 @login_required()
 def genealogy(request):
 
-    vampires = Vampire.objects.all().filter(generation__lte="6").order_by('pk')
+    vampires = Vampire.objects.all().filter(generation__lte="3").order_by('pk')
 
     context = {'vampires': vampires}
 

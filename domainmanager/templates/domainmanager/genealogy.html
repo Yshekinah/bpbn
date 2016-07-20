@@ -83,8 +83,9 @@
                   alignment: go.Spot.TopRight
                 },
                 // only set a desired size if a flag is also present:
-                new go.Binding("desiredSize", "nation", function(){ return new go.Size(34, 26) }),
-                new go.Binding("source", "nation", theNationFlagConverter)),
+                new go.Binding("desiredSize", "clan", function(){ return new go.Size(34, 26) }),
+                new go.Binding("source", "clanImage")),
+                //new go.Binding("source", "clan", theClanConverter)),
               // the additional textual information
               $(go.TextBlock,
                 {
@@ -101,14 +102,14 @@
             $(go.Shape, { strokeWidth: 3, stroke: "#424242" } ));  // dark gray, rounded corner links
 
         var vampireName = "";
-
         var nodeDataArray = [
             {% for vampire in vampires %}
                 {%if vampire.generation == 1 or vampire.sire == None %}
-                    {key: {{ vampire.pk }}, name: "{{ vampire.name }}", nation: "Japan", title: "Allmighty", headOf: "Everyone"},
+                    {key: {{ vampire.pk }}, name: "{{ vampire.name }}", clan: "Touched by HIM", title: "Allmighty", headOf: "Everyone"},
                 {% else %}
-                    <!--{key: {{ vampire.pk }}, sire: "{{ vampire.sire.pk }}", name: "{{ vampire.name }}", nation: "Japan", generation: "{{ vampire.generation }}", headOf: "Everyone"},-->
-                    {key: {{ vampire.pk }}, sire: "{{ vampire.sire.pk }}", name: "{{ vampire.name }}", nation: "Japan", generation: "{{ vampire.generation }}", headOf: "Everyone"},
+                    {key: {{ vampire.pk }}, sire: "{{ vampire.sire.pk }}", name: "{{ vampire.name }}",
+                        clan: "{{ vampire.clan.name }}", generation: "{{ vampire.generation }}",
+                        clanImage: "{% static 'img/logos/' %}{{ vampire.clan.image }} "},
                 {% endif %}
             {% endfor %}
         ];
@@ -122,6 +123,7 @@
           $(go.Overview, "myOverviewDiv",  // the HTML DIV element for the Overview
             { observed: myDiagram, contentAlignment: go.Spot.Center });   // tell it which Diagram to show and pan
         }
+
 
     </script>
 </head>

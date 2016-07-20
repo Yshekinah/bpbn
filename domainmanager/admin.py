@@ -13,7 +13,7 @@ admin.site.register(AgeCategory)
 admin.site.register(PoliticalFuntion)
 admin.site.register(Rank)
 admin.site.register(Clan)
-admin.site.register(Bloodline)
+#admin.site.register(Bloodline)
 admin.site.register(Person)
 admin.site.register(Domain)
 admin.site.register(Character)
@@ -24,6 +24,8 @@ admin.site.register(Property)
 admin.site.register(CharacterProperty)
 admin.site.register(Discipline)
 admin.site.register(CharacterDiscipline)
+admin.site.register(Event)
+admin.site.register(Xp)
 
 
 # Define an inline admin descriptor for Employee model

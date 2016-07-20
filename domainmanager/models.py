@@ -46,6 +46,7 @@ class PoliticalFuntion(models.Model):
 
 class Rank(models.Model):
     name = models.CharField(max_length=100)
+    image = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
@@ -53,18 +54,21 @@ class Rank(models.Model):
 
 class Clan(models.Model):
     name = models.CharField(max_length=100)
+    image = models.CharField(max_length=100, blank=True)
+    # bloodline = models.BooleanField(default=0)
+    parent = models.ForeignKey('Clan', related_name='parentclan', blank=True, null=True)
 
     def __str__(self):
         return self.name
 
 
-class Bloodline(models.Model):
-    name = models.CharField(max_length=100)
-    parent_clan = models.ForeignKey(Clan, blank=True, )
-
-    def __str__(self):
-        return self.name + " descending from " + self.parent_clan.name
-
+# class Bloodline(models.Model):
+#     name = models.CharField(max_length=100)
+#     image = models.CharField(max_length=100, blank=True)
+#     parent_clan = models.ForeignKey(Clan, blank=True, )
+#
+#     def __str__(self):
+#         return self.name + " descending from " + self.parent_clan.name
 
 class Discipline(models.Model):
     name = models.CharField(max_length=100)
@@ -74,9 +78,18 @@ class Discipline(models.Model):
         return self.name
 
 
+class Sect(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Person(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     salutation = models.ForeignKey(Salutation, default=Salutation.STANDARD_SALUTATION)
+    domain = models.ForeignKey('Domain', related_name='person_domain', default=1)
     country = models.ForeignKey(Country)
     image = models.ImageField(blank=True)
     date_of_birth = models.DateField()
@@ -85,6 +98,15 @@ class Person(models.Model):
 
     def __str__(self):
         return self.user.get_full_name() + ", " + str(self.country)
+
+
+class Event(models.Model):
+    name = models.TextField()
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return self.name
 
 
 class Domain(models.Model):
@@ -106,7 +128,7 @@ class Character(models.Model):
     lastname = models.CharField(max_length=200)
     generation = models.IntegerField(default=12)
     clan = models.ForeignKey(Clan)
-    bloodline = models.ForeignKey(Bloodline)
+    sect = models.ForeignKey(Sect, default=1)
     date_of_birth = models.DateField()
     date_of_death = models.DateField()
     gender = models.ForeignKey(Gender)
@@ -118,6 +140,7 @@ class Character(models.Model):
     humanity = models.IntegerField()
     frenzy = models.IntegerField()
     bloodpool = models.IntegerField()
+    domain = models.ForeignKey('Domain', related_name='domain', default=1)
     active = models.BooleanField(default=True)
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
 
@@ -191,6 +214,15 @@ class Boon(models.Model):
         return self.slave.firstname + " " + self.slave.lastname + " owes a " + self.category.name + " to " + self.master.firstname + " " + self.master.lastname
 
 
+class Xp(models.Model):
+    character = models.ForeignKey(Character, related_name="character", blank=False, null=False, default=1)
+    value = models.IntegerField(blank=False, null=False,default=1)
+    event = models.ForeignKey(Event, related_name='event', blank=True, null=True)
+
+    def __str__(self):
+        return self.event.name + " " + str(self.value) + " " + self.character.firstname + " " + self.character.lastname
+
+
 ################################ GENEALOGY ################################
 
 class Vampire(models.Model):
@@ -199,6 +231,7 @@ class Vampire(models.Model):
     generation = models.IntegerField(default=10, blank=True)
     columnStart = models.IntegerField(default=0, blank=True)
     columnEnd = models.IntegerField(default=0, blank=True)
+    clan = models.ForeignKey('Clan', related_name='homeclan', blank=True, null=True)
 
     def __str__(self):
         return self.name

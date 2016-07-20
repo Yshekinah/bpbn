@@ -12,10 +12,25 @@
         {% for character in characters %}
 
             {% if character.clan.id == clan.id %}
-                <a href="{% url 'domainmanager:charactersheet' character.id %}" style="padding-left:4em ">{{ character.firstname }} {{ character.lastname }} <br/></a>
+                    <a href="{% url 'domainmanager:charactersheet' character.id %}" style="padding-left:4em">{{ character.firstname }} {{ character.lastname }}<br/></a>
             {% endif %}
 
         {% endfor %}
+
+        {% for blood in bloodlines %}
+
+            {% if clan.id == blood.parent.id %}
+
+                <p style="padding-left:4em;padding-top:5px;margin-bottom:0px">{{ blood.name }}</p>
+                {% for bcharacter in characters %}
+                    {% if bcharacter.clan.id == blood.id %}
+                        <a href="{% url 'domainmanager:charactersheet' bcharacter.id %}" style="padding-left:8em ">{{ bcharacter.firstname }} {{ bcharacter.lastname }} <br/></a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+        {% endfor %}
+
 
     {% endfor %}
 

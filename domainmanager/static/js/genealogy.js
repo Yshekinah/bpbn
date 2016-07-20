@@ -10,7 +10,7 @@
         // search four different data properties for the string, any of which may match for success
         if (input.value) {  // empty string only clears highlighteds collection
           var results = myDiagram.findNodesByExample({ name: regex },
-                                                     { nation: regex },
+                                                     { clan: regex },
                                                      { title: regex },
                                                      { headOf: regex });
           myDiagram.highlightCollection(results);
@@ -20,13 +20,59 @@
         myDiagram.commitTransaction("highlight search");
     }
 
-    function theNationFlagConverter(nation) {
-      return "https://www.nwoods.com/go/Flags/" + nation.toLowerCase().replace(/\s/g, "-") + "-flag.Png";
+    /**
+    function theClanConverter(columnStart) {
+
+        var dao;
+
+        switch(true) {
+            case columnStart <= 167:
+                dao.clan = "Ventrue";
+                return dao;
+                break;
+           case columnStart <= 203:
+                return "Salubri";
+                break;
+           case columnStart <= 254:
+                return "Cappadozian";
+                break;
+           case columnStart <= 363:
+                return "Malkavian";
+                break;
+           case columnStart <= 492:
+                return "Brujah";
+                break;
+           case columnStart <= 526:
+                return "Assamite";
+                break;
+           case columnStart <= 617:
+                return "Follower of Set";
+                break;
+           case columnStart <= 758:
+                return "Gangrel";
+                break;
+           case columnStart <= 795:
+                return "Ravnos";
+                break;
+           case columnStart <= 826:
+                return "Tzimisce";
+                break;
+           case columnStart <= 950:
+                return "Nosferatu";
+                break;
+           case columnStart <= 1110:
+                return "Toreador";
+                break;
+            default:
+                return "unknown"
+        }
     }
+    **/
 
     function theInfoTextConverter(info) {
       var str = "";
-      if (info.generation) str += "Generation: " + info.generation;
+      if (info.clan) str += "\n\nClan: " + info.clan
+      if (info.generation) str += "\n\nGeneration: " + info.generation;
       if (info.headOf) str += "\n\nHead of: " + info.headOf;
       if (typeof info.sire === "number") {
         var bossinfo = myDiagram.model.findNodeDataForKey(info.sire);
