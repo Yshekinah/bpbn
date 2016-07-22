@@ -2,6 +2,10 @@
 
 {% block title %}List of all Characters{% endblock %}
 
+{% block sidebar %}
+    {{ block.super }}
+    <li><a href="{% url 'domainmanager:charactersheet_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Create new character</a></li>
+{% endblock %}
 
 {% block content %}
 

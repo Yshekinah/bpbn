@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
-
+from .forms import CharacterForm
+from django.shortcuts import redirect
 from .models import Character, Person, CharacterProperty, CharacterDiscipline, Clan, Vampire
 from django.contrib.auth.models import User
 
@@ -16,24 +17,22 @@ def index(request):
 
 @login_required()
 def characters(request):
-    clans = Clan.objects.all().exclude(parent__isnull = False).order_by('name')
-    bloodlines = Clan.objects.all().filter(parent__gte = 1).order_by('name')
+    clans = Clan.objects.all().exclude(parent__isnull=False).order_by('name')
+
+    bloodlines = Clan.objects.all().filter(parent__gte=1).order_by('name')
+
     characters = Character.objects.all().order_by('clan')
 
-    for bl in bloodlines:
-        print(bl.name)
-
-    context = {'clans': clans, 'bloodlines': bloodlines, 'characters': characters, }
+    context = {'clans': clans, 'bloodlines': bloodlines, 'characters': characters,}
 
     return render(request, 'domainmanager/characters.html', context)
 
 
 @login_required()
 def players(request):
-
     users = User.objects.all()
 
-    #players = Person.objects.all().order_by('lastname')
+    # players = Person.objects.all().order_by('lastname')
     characters = Character.objects.all()
     context = {'users': users, 'characters': characters,}
 
@@ -42,7 +41,6 @@ def players(request):
 
 @login_required()
 def charactersheet(request, character_id):
-
     character = get_object_or_404(Character, pk=character_id)
 
     characterProperties = get_list_or_404(CharacterProperty, character=character)
@@ -61,11 +59,48 @@ def charactersheet(request, character_id):
 
     for cdiscipline in characterDisciplines:
         cleanDisciplines[cdiscipline.discipline.name] = cdiscipline.level
-        #print("NAME: " + cdiscipline.discipline.name + ", VALUE: ", str(cdiscipline.level))
+        # print("NAME: " + cdiscipline.discipline.name + ", VALUE: ", str(cdiscipline.level))
 
     context = {'character': character, 'cleanProperties': cleanProperties, 'cleanDisciplines': cleanDisciplines}
 
     return render(request, 'domainmanager/charactersheet.html', context)
+
+
+# Create the character
+@login_required()
+def charactersheet_new(request):
+    if request.method == "POST":
+
+        form = CharacterForm(request.POST)
+
+        if form.is_valid():
+            character = form.save()
+            character.save()
+            return redirect('domainmanager:characters')
+    else:
+        form = CharacterForm()
+
+    return render(request, 'domainmanager/charactersheet_new.html', {'form': form})
+
+
+# Edit the character
+@login_required()
+def charactersheet_edit(request, character_id):
+
+    character = get_object_or_404(Character, pk = character_id)
+
+    if request.method == "POST":
+
+        form = CharacterForm(request.POST, instance = character)
+
+        if form.is_valid():
+            character = form.save()
+            character.save()
+            return redirect('domainmanager:characters')
+    else:
+        form = CharacterForm(instance=character)
+
+    return render(request, 'domainmanager/charactersheet_edit.html', {'form': form})
 
 
 @login_required()
@@ -81,12 +116,12 @@ def playersummary(request, player_id):
 
 @login_required()
 def genealogy(request):
-
     vampires = Vampire.objects.all().filter(generation__lte="3").order_by('pk')
 
     context = {'vampires': vampires}
 
     return render(request, 'domainmanager/genealogy.html', context)
+
 
 @login_required()
 def createCharacter(request):

@@ -18,6 +18,14 @@ urlpatterns = [
     #  ex: /domainmanager/charactersheet/1
     url(r'^charactersheet/(?P<character_id>[0-9]+)$', views.charactersheet, name='charactersheet'),
 
+    # Create / Create one charactersheet
+    #  ex: /domainmanager/charactersheet_new
+    url(r'^charactersheet_new/', views.charactersheet_new, name='charactersheet_new'),
+
+    # Create / Edit one charactersheet
+    #  ex: /domainmanager/charactersheet_new
+    url(r'^charactersheet/(?P<character_id>[0-9]+)edit/', views.charactersheet_edit, name='charactersheet_edit'),
+
     # List of all players
     #  ex: /domainmanager/players
     url(r'^players$', views.players, name='players'),
@@ -28,7 +36,7 @@ urlpatterns = [
 
     # View of the genealogy
     #  ex: /domainmanager/genealogy
-    url(r'^genealogy/', views.genealogy, name='genealogy'),
+    url(r'^genealogy$', views.genealogy, name='genealogy'),
 
 ]
 

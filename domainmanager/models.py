@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+from datetime import date
 
 
 class Country(models.Model):
@@ -123,23 +124,23 @@ class Domain(models.Model):
 
 class Character(models.Model):
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
-    salutation = models.ForeignKey(Salutation)
+    salutation = models.ForeignKey(Salutation, default=1)
     firstname = models.CharField(max_length=200)
     lastname = models.CharField(max_length=200)
     generation = models.IntegerField(default=12)
     clan = models.ForeignKey(Clan)
     sect = models.ForeignKey(Sect, default=1)
-    date_of_birth = models.DateField()
-    date_of_death = models.DateField()
-    gender = models.ForeignKey(Gender)
-    rank = models.ForeignKey(Rank)
-    clan_rank = models.IntegerField()
+    date_of_birth = models.DateField(default=date.today)
+    date_of_death = models.DateField(default=date.today)
+    gender = models.ForeignKey(Gender, default=1)
+    rank = models.ForeignKey(Rank, default=1)
+    clan_rank = models.IntegerField(default=1)
     function = models.ForeignKey(PoliticalFuntion, default=6)
-    age_category = models.ForeignKey(AgeCategory)
-    willpower = models.IntegerField()
-    humanity = models.IntegerField()
-    frenzy = models.IntegerField()
-    bloodpool = models.IntegerField()
+    age_category = models.ForeignKey(AgeCategory, default=1)
+    willpower = models.IntegerField(default=5)
+    humanity = models.IntegerField(default=5)
+    frenzy = models.IntegerField(default=5)
+    bloodpool = models.IntegerField(default=10)
     domain = models.ForeignKey('Domain', related_name='domain', default=1)
     active = models.BooleanField(default=True)
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
@@ -216,7 +217,7 @@ class Boon(models.Model):
 
 class Xp(models.Model):
     character = models.ForeignKey(Character, related_name="character", blank=False, null=False, default=1)
-    value = models.IntegerField(blank=False, null=False,default=1)
+    value = models.IntegerField(blank=False, null=False, default=1)
     event = models.ForeignKey(Event, related_name='event', blank=True, null=True)
 
     def __str__(self):
