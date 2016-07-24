@@ -1,5 +1,5 @@
-from django.conf.urls import url
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
 
 from . import views
@@ -24,7 +24,11 @@ urlpatterns = [
 
     # Create / Edit one charactersheet
     #  ex: /domainmanager/charactersheet_new
-    url(r'^charactersheet/(?P<character_id>[0-9]+)edit/', views.charactersheet_edit, name='charactersheet_edit'),
+    url(r'^charactersheet/(?P<character_id>[0-9]+)/edit/', views.charactersheet_edit, name='charactersheet_edit'),
+
+    # Create / Edit one character's properties
+    #  ex: /domainmanager/characterproperties_new
+    url(r'^characterproperties/(?P<character_id>[0-9]+)/edit/', views.characterproperties_edit, name='characterproperties_edit'),
 
     # List of all players
     #  ex: /domainmanager/players

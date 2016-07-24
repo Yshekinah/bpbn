@@ -2,10 +2,12 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import CharacterForm
+from .forms import CharacterForm, CharacterPropertyForm
 from django.shortcuts import redirect
 from .models import Character, Person, CharacterProperty, CharacterDiscipline, Clan, Vampire
 from django.contrib.auth.models import User
+
+from .logic import characterTools
 
 
 # Create your views here.
@@ -76,6 +78,9 @@ def charactersheet_new(request):
         if form.is_valid():
             character = form.save()
             character.save()
+
+            characterTools.createInitialProperties(character)
+
             return redirect('domainmanager:characters')
     else:
         form = CharacterForm()
@@ -96,12 +101,30 @@ def charactersheet_edit(request, character_id):
         if form.is_valid():
             character = form.save()
             character.save()
-            return redirect('domainmanager:characters')
+            return redirect('domainmanager:charactersheet', character_id)
     else:
         form = CharacterForm(instance=character)
 
     return render(request, 'domainmanager/charactersheet_edit.html', {'form': form})
 
+
+@login_required()
+def characterproperties_edit(request, character_id):
+
+    character = get_object_or_404(Character, pk = character_id)
+
+    if request.method == "POST":
+
+        form = CharacterPropertyForm(request.POST, instance = character)
+
+        if form.is_valid():
+            character = form.save()
+            character.save()
+            return redirect('domainmanager:charactersheet', character_id)
+    else:
+        form = CharacterPropertyForm(instance=character)
+
+    return render(request, 'domainmanager/characterproperties_edit.html', {'form': form})
 
 @login_required()
 def playersummary(request, player_id):

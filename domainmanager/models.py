@@ -1,10 +1,8 @@
-import datetime
-
-from django.db import models
-from django.contrib.auth.models import User
-from django.utils import timezone
-from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import date
+
+from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
 
 
 class Country(models.Model):
@@ -125,8 +123,9 @@ class Domain(models.Model):
 class Character(models.Model):
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
+    nickname = models.CharField(max_length=200, blank=True)
     firstname = models.CharField(max_length=200)
-    lastname = models.CharField(max_length=200)
+    lastname = models.CharField(max_length=200, blank=True)
     generation = models.IntegerField(default=12)
     clan = models.ForeignKey(Clan)
     sect = models.ForeignKey(Sect, default=1)
@@ -141,9 +140,11 @@ class Character(models.Model):
     humanity = models.IntegerField(default=5)
     frenzy = models.IntegerField(default=5)
     bloodpool = models.IntegerField(default=10)
-    domain = models.ForeignKey('Domain', related_name='domain', default=1)
+    domain = models.ForeignKey('Domain', related_name='character_domain', default=1)
     active = models.BooleanField(default=True)
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.salutation.name + " " + self.firstname + " " + self.lastname
@@ -151,6 +152,7 @@ class Character(models.Model):
 
 class PropertyType(models.Model):
     name = models.CharField(max_length=100)
+    domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)
 
     def __str__(self):
         return self.name
@@ -159,21 +161,31 @@ class PropertyType(models.Model):
 class Property(models.Model):
     name = models.CharField(max_length=100)
     type = models.ForeignKey('PropertyType', related_name='type')
+    domain = models.ForeignKey('Domain', related_name='property_domain', default=1)
+    initial = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ]
+    )
 
     def __str__(self):
         return self.name
 
 
 class CharacterProperty(models.Model):
-    character = models.ForeignKey('Character', related_name='cp_character')
-    property = models.ForeignKey('Property', related_name='property')
+    character = models.ForeignKey('Character', related_name='cp_character', on_delete=models.CASCADE)
+    property = models.ForeignKey('Property', related_name='property', on_delete=models.CASCADE)
     value = models.IntegerField(
         default=1,
         validators=[
-            MaxValueValidator(100),
+            MaxValueValidator(10),
             MinValueValidator(1)
         ]
     )
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(
@@ -181,8 +193,8 @@ class CharacterProperty(models.Model):
 
 
 class CharacterDiscipline(models.Model):
-    character = models.ForeignKey('Character', related_name='cd_character')
-    discipline = models.ForeignKey('Discipline', related_name='discipline')
+    character = models.ForeignKey('Character', related_name='cd_character', on_delete=models.CASCADE)
+    discipline = models.ForeignKey('Discipline', related_name='discipline', on_delete=models.CASCADE)
     level = models.IntegerField(
         default=1,
         validators=[
@@ -210,6 +222,8 @@ class Boon(models.Model):
     category = models.ForeignKey(BoonCategory, related_name='category')
     date = models.DateField(blank=True)
     description = models.TextField(blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.slave.firstname + " " + self.slave.lastname + " owes a " + self.category.name + " to " + self.master.firstname + " " + self.master.lastname
@@ -219,6 +233,8 @@ class Xp(models.Model):
     character = models.ForeignKey(Character, related_name="character", blank=False, null=False, default=1)
     value = models.IntegerField(blank=False, null=False, default=1)
     event = models.ForeignKey(Event, related_name='event', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.event.name + " " + str(self.value) + " " + self.character.firstname + " " + self.character.lastname

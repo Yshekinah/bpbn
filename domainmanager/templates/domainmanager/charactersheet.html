@@ -8,6 +8,8 @@
     <li><a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Back to Player</a></li>
     <li><a href="{% url 'domainmanager:charactersheet_edit' character.id %}" class="top-menu"><span
             class="glyphicon glyphicon-pencil">Edit character</span></a></li>
+    <li><a href="{% url 'domainmanager:characterproperties_edit' character.id %}" class="top-menu"><span
+            class="glyphicon glyphicon-pencil">Edit character properties</span></a></li>
     <li><a href="{% url 'domainmanager:charactersheet_new' %}" class="top-menu"><span
             class="glyphicon glyphicon-plus"></span>Create new character</a></li>
 
@@ -22,11 +24,13 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-md-4">
-                <h3 class="panel-title">{{character.firstname}} {{character.lastname}}
+                <h3 class="panel-title">Name: {{character.firstname}} {{character.lastname}}
+                    {% if character.nickname != None %} <br/> Nickname: {{ character.nickname }}{% endif %}
                     {% if character.clan != None %} <br/> Clan: {{ character.clan.name }}{% endif %}
                     {% if character.generation != None %} <br/> {{character.generation}}. Generation{% endif %}
-                    {% if character.sire != None %} <br/> Sire: {{character.sire.firstname}}
-                    {{character.sire.lastname}}{% endif %}
+                    {% if character.sire != None %} <br/>
+                        Sire: <a href="{%  url  'domainmanager:charactersheet' character.sire.id %}">{{character.sire.firstname}} {{character.sire.lastname}}</a>
+                    {% endif %}
                 </h3>
             </div>
             <div class="col-md" align="right" style="padding-right:10px">
@@ -35,8 +39,6 @@
 
         </div>
     </div>
-
-    {% for prop in cleanProperties %}
 
     <div class="panel-body">
         <div class="row">
@@ -161,8 +163,6 @@
         {% endfor %}
     </div>
     <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
-
-    {%endfor%}
 
 </div>
 
