@@ -1,13 +1,12 @@
-from django.http import HttpResponse
-from django.template import loader
-from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import CharacterForm, CharacterPropertyForm
-from django.shortcuts import redirect
-from .models import Character, Person, CharacterProperty, CharacterDiscipline, Clan, Vampire
 from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 
+from .forms import CharacterForm, CharacterPropertyFormSet
 from .logic import characterTools
+from .models import Character, Person, CharacterProperty, CharacterDiscipline, Clan, Vampire
 
 
 # Create your views here.
@@ -91,12 +90,11 @@ def charactersheet_new(request):
 # Edit the character
 @login_required()
 def charactersheet_edit(request, character_id):
-
-    character = get_object_or_404(Character, pk = character_id)
+    character = get_object_or_404(Character, pk=character_id)
 
     if request.method == "POST":
 
-        form = CharacterForm(request.POST, instance = character)
+        form = CharacterForm(request.POST, instance=character)
 
         if form.is_valid():
             character = form.save()
@@ -110,21 +108,25 @@ def charactersheet_edit(request, character_id):
 
 @login_required()
 def characterproperties_edit(request, character_id):
-
-    character = get_object_or_404(Character, pk = character_id)
+    character = Character.objects.get(pk=character_id)
 
     if request.method == "POST":
+        characterForm = CharacterForm(request.POST)
+        propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
+        context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
 
-        form = CharacterPropertyForm(request.POST, instance = character)
-
-        if form.is_valid():
-            character = form.save()
-            character.save()
+        if characterForm.is_valid() and propertiesForm.is_valid():
+            savedCharacter = characterForm.save()
+            savedProperties = propertiesForm.save()
             return redirect('domainmanager:charactersheet', character_id)
-    else:
-        form = CharacterPropertyForm(instance=character)
 
-    return render(request, 'domainmanager/characterproperties_edit.html', {'form': form})
+    else:  # FUNKTIONIERT!
+        characterForm = CharacterForm(instance=character)
+        propertiesForm = CharacterPropertyFormSet(instance=character)
+        context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
+
+    return render(request, 'domainmanager/characterproperties_edit.html', context)
+
 
 @login_required()
 def playersummary(request, player_id):

@@ -120,6 +120,22 @@ class Domain(models.Model):
         return self.name
 
 
+class Property(models.Model):
+    name = models.CharField(max_length=100)
+    type = models.ForeignKey('PropertyType', related_name='type')
+    domain = models.ForeignKey('Domain', related_name='property_domain', default=1)
+    initial = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(0)
+        ]
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Character(models.Model):
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
@@ -145,6 +161,7 @@ class Character(models.Model):
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+    properties = models.ManyToManyField(Property, through='CharacterProperty')
 
     def __str__(self):
         return self.salutation.name + " " + self.firstname + " " + self.lastname
@@ -153,22 +170,6 @@ class Character(models.Model):
 class PropertyType(models.Model):
     name = models.CharField(max_length=100)
     domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)
-
-    def __str__(self):
-        return self.name
-
-
-class Property(models.Model):
-    name = models.CharField(max_length=100)
-    type = models.ForeignKey('PropertyType', related_name='type')
-    domain = models.ForeignKey('Domain', related_name='property_domain', default=1)
-    initial = models.IntegerField(
-        default=1,
-        validators=[
-            MaxValueValidator(10),
-            MinValueValidator(1)
-        ]
-    )
 
     def __str__(self):
         return self.name

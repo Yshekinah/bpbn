@@ -5,10 +5,21 @@
 
 {% block content %}
 
-<h1>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+    <h1>Edit properties</h1>
+
+    <form method="post" action="">{% csrf_token %}
+        {{ characterForm.as_p }}
+
+        <table>
+            {% for form in propertiesForm %}
+                {{ form.as_table }}
+            {% endfor %}
+        </table>
+
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 
+{% endblock %}
+
+{% block social %}
 {% endblock %}
