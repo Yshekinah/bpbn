@@ -5,23 +5,24 @@
 
 {% block sidebar %}
     <ul>
-        <li><a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Back to Player</a></li>
-        <li><a href="{% url 'domainmanager:charactersheet_edit' character.id %}" class="top-menu"><span
-                class="glyphicon glyphicon-pencil">Edit character</span></a></li>
-        <li><a href="{% url 'domainmanager:characterproperties_edit' character.id %}" class="top-menu"><span
-                class="glyphicon glyphicon-pencil">Edit character properties</span></a></li>
-        <li><a href="{% url 'domainmanager:charactersheet_new' %}" class="top-menu"><span
-                class="glyphicon glyphicon-plus"></span>Create new character</a></li>
+        <li>
+            <a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Back to Player</a>
+        </li>
+        <li>
+            <a href="{% url 'domainmanager:charactersheet' character.id %}">Back to charactersheet</a>
+        </li>
+        <li>
+            <a href="{% url 'domainmanager:charactersheet_new' %}" class="top-menu">
+                <span class="glyphicon glyphicon-plus"></span>
+                Create new character
+            </a>
+        </li>
     </ul>
 {% endblock %}
 
 {% block content %}
 
-    <h1>Edit properties</h1>
-
-    <form method="post" action="">{% csrf_token %}
-        {{ characterForm.as_p }}
-
+    {% comment %}
         <table>
             {% for prop in propertiesForm%}
 
@@ -29,32 +30,37 @@
 
             {% endfor %}
         </table>
-
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-
-
+        {% endcomment %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3 class="panel-title">Name: {{ character.firstname }} {{ character.lastname }}
-                        {% if character.nickname != None %} <br/> Nickname: {{ character.nickname }}{% endif %}
-                        {% if character.clan != None %} <br/> Clan: {{ character.clan.name }}{% endif %}
-                        {% if character.generation != None %} <br/> {{ character.generation }}. Generation{% endif %}
-                        {% if character.sire != None %} <br/>
-                            Sire:
-                            <a href="{% url  'domainmanager:charactersheet' character.sire.id %}">{{ character.sire.firstname }} {{ character.sire.lastname }}</a>
-                        {% endif %}
-                    </h3>
-                </div>
-                <div class="col-md" align="right" style="padding-right:10px">
-                    <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo" width="100"
-                         height="100"/>
-                </div>
+            <form method="post" action="">{% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3 class="panel-title">{{ form.firstname.label_tag }} {{ form.firstname }}
+                            <br/>
+                            {{ form.lastname.errors }}
+                            {{ form.lastname.label_tag }} {{ form.lastname }} <br/>
+                            {{ form.nickname.errors }}
+                            {{ form.nickname.label_tag }} {{ form.nickname }} <br/>
+                            {{ form.clan.errors }}
+                            {{ form.clan.label_tag }} {{ form.clan }} <br/>
+                            {{ form.generation.errors }}
+                            {{ form.generation.label_tag }} {{ form.generation }} <br/>
+                            {{ form.sire.errors }}
+                            {{ form.sire.label_tag }} {{ form.sire }} <br/>
+                        </h3>
+                    </div>
+                    <div class="col-md" align="right" style="padding-right:10px">
+                        <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo" width="100"
+                             height="100"/>
+                    </div>
 
-            </div>
+                </div>
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
         </div>
+
 
         <div class="panel-body">
             <div class="row">
@@ -181,6 +187,7 @@
         <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
 
     </div>
+
 
 {% endblock %}
 

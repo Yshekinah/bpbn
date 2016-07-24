@@ -24,7 +24,7 @@ urlpatterns = [
 
     # Create / Edit one charactersheet
     #  ex: /domainmanager/charactersheet_new
-    url(r'^charactersheet/(?P<character_id>[0-9]+)/edit/', views.charactersheet_edit, name='charactersheet_edit'),
+    url(r'^characterinformation/(?P<character_id>[0-9]+)/edit/', views.characterinformation_edit, name='characterinformation_edit'),
 
     # Create / Edit one character's properties
     #  ex: /domainmanager/characterproperties_new

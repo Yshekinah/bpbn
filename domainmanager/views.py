@@ -89,21 +89,26 @@ def charactersheet_new(request):
 
 # Edit the character
 @login_required()
-def charactersheet_edit(request, character_id):
+def characterinformation_edit(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
     if request.method == "POST":
-
         form = CharacterForm(request.POST, instance=character)
 
         if form.is_valid():
             character = form.save()
             character.save()
             return redirect('domainmanager:charactersheet', character_id)
+        else:
+            print("ERROR!")
+            for error in form.errors:
+                print(error)
     else:
         form = CharacterForm(instance=character)
 
-    return render(request, 'domainmanager/charactersheet_edit.html', {'form': form})
+    context = {'form':form, 'character':character}
+
+    return render(request, 'domainmanager/characterinformation_edit.html', context)
 
 
 @login_required()
@@ -113,7 +118,6 @@ def characterproperties_edit(request, character_id):
     if request.method == "POST":
         characterForm = CharacterForm(request.POST)
         propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
-        # context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
 
         if characterForm.is_valid() and propertiesForm.is_valid():
             savedCharacter = characterForm.save()
@@ -126,7 +130,7 @@ def characterproperties_edit(request, character_id):
         # context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
 
     context = {'character': character, 'characterForm': characterForm, 'propertiesForm': propertiesForm}
-    return render(request, 'domainmanager/characterproperties_edit.html', context)
+    return render(request, 'domainmanager/characterinformation_edit.html', context)
 
 
 @login_required()
