@@ -113,7 +113,7 @@ def characterproperties_edit(request, character_id):
     if request.method == "POST":
         characterForm = CharacterForm(request.POST)
         propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
-        context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
+        # context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
 
         if characterForm.is_valid() and propertiesForm.is_valid():
             savedCharacter = characterForm.save()
@@ -123,8 +123,9 @@ def characterproperties_edit(request, character_id):
     else:  # FUNKTIONIERT!
         characterForm = CharacterForm(instance=character)
         propertiesForm = CharacterPropertyFormSet(instance=character)
-        context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
+        # context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
 
+    context = {'character': character, 'characterForm': characterForm, 'propertiesForm': propertiesForm}
     return render(request, 'domainmanager/characterproperties_edit.html', context)
 
 

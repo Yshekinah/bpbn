@@ -481,91 +481,91 @@ model</columns>
         <mandatory>1</mandatory>
         <data-type>VARCHAR(200)(0,-1)|12</data-type>
       </column>
-      <column id="128" parent="15" name="generation">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="129" parent="15" name="date_of_birth">
-        <mandatory>1</mandatory>
-        <data-type>DATE(0,-1)|12</data-type>
-      </column>
-      <column id="130" parent="15" name="date_of_death">
-        <mandatory>1</mandatory>
-        <data-type>DATE(0,-1)|12</data-type>
-      </column>
-      <column id="131" parent="15" name="clan_rank">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="132" parent="15" name="willpower">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="133" parent="15" name="humanity">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="134" parent="15" name="frenzy">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="135" parent="15" name="bloodpool">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="136" parent="15" name="age_category_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="137" parent="15" name="clan_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="138" parent="15" name="function_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="139" parent="15" name="gender_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="140" parent="15" name="rank_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="141" parent="15" name="salutation_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="142" parent="15" name="active">
-        <mandatory>1</mandatory>
-        <data-type>BOOL(0,-1)|4</data-type>
-      </column>
-      <column id="143" parent="15" name="player_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="144" parent="15" name="sect_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="145" parent="15" name="domain_id">
-        <mandatory>1</mandatory>
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="146" parent="15" name="created">
-        <mandatory>1</mandatory>
-        <data-type>DATETIME(0,-1)|12</data-type>
-      </column>
-      <column id="147" parent="15" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>DATETIME(0,-1)|12</data-type>
-      </column>
-      <column id="148" parent="15" name="nickname">
+      <column id="128" parent="15" name="lastname">
         <mandatory>1</mandatory>
         <data-type>VARCHAR(200)(0,-1)|12</data-type>
       </column>
-      <column id="149" parent="15" name="lastname">
+      <column id="129" parent="15" name="generation">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="130" parent="15" name="date_of_birth">
+        <mandatory>1</mandatory>
+        <data-type>DATE(0,-1)|12</data-type>
+      </column>
+      <column id="131" parent="15" name="date_of_death">
+        <mandatory>1</mandatory>
+        <data-type>DATE(0,-1)|12</data-type>
+      </column>
+      <column id="132" parent="15" name="clan_rank">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="133" parent="15" name="willpower">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="134" parent="15" name="humanity">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="135" parent="15" name="frenzy">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="136" parent="15" name="bloodpool">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="137" parent="15" name="age_category_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="138" parent="15" name="clan_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="139" parent="15" name="function_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="140" parent="15" name="gender_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="141" parent="15" name="rank_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="142" parent="15" name="salutation_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="143" parent="15" name="active">
+        <mandatory>1</mandatory>
+        <data-type>BOOL(0,-1)|4</data-type>
+      </column>
+      <column id="144" parent="15" name="player_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="145" parent="15" name="sect_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="146" parent="15" name="domain_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="147" parent="15" name="created">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="148" parent="15" name="timestamp">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="149" parent="15" name="nickname">
         <mandatory>1</mandatory>
         <data-type>VARCHAR(200)(0,-1)|12</data-type>
       </column>
