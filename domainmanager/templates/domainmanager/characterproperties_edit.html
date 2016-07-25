@@ -22,7 +22,7 @@
 
 {% block content %}
 
-{% comment %}
+    {% comment %}
         <table>
             {% for prop in propertiesForm%}
 
@@ -31,29 +31,29 @@
             {% endfor %}
         </table>
         {% endcomment %}
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-md-4">
-                <h3 class="panel-title">Name: {{ character.firstname }} {{ character.lastname }}
-                    {% if character.nickname != None %} <br/> Nickname: {{ character.nickname }}{% endif %}
-                    {% if character.clan != None %} <br/> Clan: {{ character.clan.name }}{% endif %}
-                    {% if character.generation != None %} <br/> {{ character.generation }}. Generation{% endif %}
-                    {% if character.sire != None %} <br/>
-                        Sire:
-                        <a href="{% url  'domainmanager:charactersheet' character.sire.id %}">{{ character.sire.firstname }} {{ character.sire.lastname }}</a>
-                    {% endif %}
-                </h3>
-                <a href="{% url 'domainmanager:characterinformation_edit' character.id %}" class="top-menu"><span
-                        class="glyphicon glyphicon-pencil">Edit character information</span></a>
-            </div>
-            <div class="col-md" align="right" style="padding-right:10px">
-                <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo" width="100"
-                     height="100"/>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="panel-title">Name: {{ character.firstname }} {{ character.lastname }}
+                        {% if character.nickname != None %} <br/> Nickname: {{ character.nickname }}{% endif %}
+                        {% if character.clan != None %} <br/> Clan: {{ character.clan.name }}{% endif %}
+                        {% if character.generation != None %} <br/> {{ character.generation }}. Generation{% endif %}
+                        {% if character.sire != None %} <br/>
+                            Sire:
+                            <a href="{% url  'domainmanager:charactersheet' character.sire.id %}">{{ character.sire.firstname }} {{ character.sire.lastname }}</a>
+                        {% endif %}
+                    </h3>
+                    <a href="{% url 'domainmanager:characterinformation_edit' character.id %}" class="top-menu"><span
+                            class="glyphicon glyphicon-pencil">Edit character information</span></a>
+                </div>
+                <div class="col-md" align="right" style="padding-right:10px">
+                    <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo" width="100"
+                         height="100"/>
+                </div>
             </div>
         </div>
-    </div>
-    {% comment %}
+        {% comment %}
     {% for field in propertiesForm %}
             {%  if field.instance.property.name == 'Strength' %}
                 {{ field.id }}{{ field.character }}{{ field.instance.property.name }}:{{ field.value }}<br/>
@@ -61,151 +61,255 @@
         {% endfor %}
     {% endcomment %}
 
-    <form method="post" action="">{% csrf_token %}
-        {{ propertiesForm.management_form }}
+        <form method="post" action="">{% csrf_token %}
+            {{ propertiesForm.management_form }}
 
-        {% for field in propertiesForm %}
-            {%  if field.instance.property.name != 'Strength' %}
-                {{ field.id }}{{ field.character }}{{ field.instance.property.name }}:{{ field.value }}<br/>
-            {% endif %}
-        {% endfor %}
-
-
-
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Attributes</h3>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Attributes</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Physical</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Physical</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Mental</h3>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <h3>Mental</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1">Strength</div>
-                <div class="col-md-2">
-                    {% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Strength' %}
+                <div class="row">
+                    <div class="col-md-2">Strength</div>
+                    <div class="col-md-1">
+                        {% for field in propertiesForm %}
+                            {% if field.instance.property.name == 'Strength' %}
+                                {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                            {% endif %}
+                        {% endfor %}</div>
+                    <div class="col-md-2">Charisma</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {% if field.instance.property.name == 'Charisma' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
-                    {% endfor %}
+                    {% endfor %}</div>
                 </div>
-                <div class="col-md-2">Charisma</div>
-                <div class="col-md-1">{{ cleanProperties.Charisma }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Agility</div>
-                <div class="col-md-1">{{ cleanProperties.Agility }}</div>
-                <div class="col-md-2">Intelligence</div>
-                <div class="col-md-1">{{ cleanProperties.Intelligence }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Stamina</div>
-                <div class="col-md-1">{{ cleanProperties.Stamina }}</div>
-                <div class="col-md-2">Perception</div>
-                <div class="col-md-1">{{ cleanProperties.Perception }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Talents</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Skills</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Knowledges</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Brawl</div>
-                <div class="col-md-1">{{ cleanProperties.Brawl }}</div>
-                <div class="col-md-2">Melee</div>
-                <div class="col-md-1">{{ cleanProperties.Melee }}</div>
-                <div class="col-md-2">Occult</div>
-                <div class="col-md-1">{{ cleanProperties.Occult }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Dodge</div>
-                <div class="col-md-1">{{ cleanProperties.Dodge }}</div>
-                <div class="col-md-2">Firearms</div>
-                <div class="col-md-1">{{ cleanProperties.Firearms }}</div>
-                <div class="col-md-2">Cainite Lore</div>
-                <div class="col-md-1">{{ cleanProperties.Cainite_Lore }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Manipulation</div>
-                <div class="col-md-1">{{ cleanProperties.Manipulation }}</div>
-                <div class="col-md-2">Stealth</div>
-                <div class="col-md-1">{{ cleanProperties.Stealth }}</div>
-                <div class="col-md-2">Linguistics</div>
-                <div class="col-md-1">{{ cleanProperties.Linguistics }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Empathy</div>
-                <div class="col-md-1">{{ cleanProperties.Empathy }}</div>
-                <div class="col-md-2">Meditation</div>
-                <div class="col-md-1">{{ cleanProperties.Meditation }}</div>
-                <div class="col-md-2">Academics</div>
-                <div class="col-md-1">{{ cleanProperties.Academics }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Survival</div>
-                <div class="col-md-1">{{ cleanProperties.Survival }}</div>
-                <div class="col-md-2">Electronics</div>
-                <div class="col-md-1">{{ cleanProperties.Electronics }}</div>
-                <div class="col-md-2">Science</div>
-                <div class="col-md-1">{{ cleanProperties.Science }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Backgrounds</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Generation</div>
-                <div class="col-md-1">{{ cleanProperties.Generation }}</div>
-                <div class="col-md-2">Mentor</div>
-                <div class="col-md-1">{{ cleanProperties.Mentor }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Resources</div>
-                <div class="col-md-1">{{ cleanProperties.Resources }}</div>
-                <div class="col-md-2">Library</div>
-                <div class="col-md-1">{{ cleanProperties.Library }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Herd</div>
-                <div class="col-md-1">{{ cleanProperties.Herd }}</div>
-                <div class="col-md-2">Haven</div>
-                <div class="col-md-1">{{ cleanProperties.Haven }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Retainers</div>
-                <div class="col-md-1">{{ cleanProperties.Retainers }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Disciplines</h3>
-                </div>
-            </div>
-            {% for disciplineName, level in cleanDisciplines.items %}
                 <div class="row">
-                    <div class="col-md-2">{{ disciplineName }}</div>
-                    <div class="col-md-1">{{ level }}</div>
+                    <div class="col-md-2">Agility</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Agility' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Intelligence</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Intelligence' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
                 </div>
-            {% endfor %}
-        </div>
-        <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
+                <div class="row">
+                    <div class="col-md-2">Stamina</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Stamina' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Perception</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Perception' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Talents</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Skills</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Knowledges</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Brawl</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Brawl' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Melee</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Melee' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Occult</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Occult' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Dodge</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Dodge' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Firearms</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Firearms' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Cainite Lore</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Cainite Lore' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Manipulation</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Manipulation' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Stealth</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Stealth' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Linguistics</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Linguistics' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Empathy</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Empathy' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Meditation</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Meditation' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Academics</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Academics' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Survival</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Survival' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Electronics</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Electronics' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Science</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Science' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Backgrounds</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Generation</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Generation' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Mentor</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Mentor' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Resources</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Resources' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Library</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Library' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Herd</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Herd' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                    <div class="col-md-2">Haven</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Haven' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Retainers</div>
+                    <div class="col-md-1">{% for field in propertiesForm %}
+                        {%  if field.instance.property.name == 'Retainers' %}
+                            {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                        {% endif %}
+                    {% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Disciplines</h3>
+                    </div>
+                </div>
+                {% for field in propertiesForm %}
+                    {%  if field.instance.property.type == 'Discipline' %}
+                        {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                    {% endif %}
+                {% endfor %}
+                {% for disciplineName, level in cleanDisciplines.items %}
+                    <div class="row">
+                        <div class="col-md-2">{{ disciplineName }}</div>
+                        <div class="col-md-1">{{ level }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
 
 
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-</div>
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    </div>
 {% endblock %}
 
 {% block social %}
