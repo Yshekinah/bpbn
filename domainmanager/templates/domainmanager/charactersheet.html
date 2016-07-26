@@ -7,7 +7,7 @@
 <ul>
     <li><a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Players</a></li>
     <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
-    <li><a href="{% url 'domainmanager:charactersheet_new' %}" class="top-menu"><span
+    <li><a href="{% url 'domainmanager:character_create' %}" class="top-menu"><span
             class="glyphicon glyphicon-plus"></span>Create new character</a></li>
 
 
@@ -54,21 +54,21 @@
         </div>
         <div class="row">
             <div class="col-md-2">Strength</div>
-            <div class="col-md-1">{{ cleanProperties.Strength }}</div>
+            <div class="col-md-1">{{ properties.Strength }}</div>
             <div class="col-md-2">Charisma</div>
-            <div class="col-md-1">{{ cleanProperties.Charisma }}</div>
+            <div class="col-md-1">{{ properties.Charisma }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Agility</div>
-            <div class="col-md-1">{{ cleanProperties.Agility }}</div>
+            <div class="col-md-1">{{ properties.Agility }}</div>
             <div class="col-md-2">Intelligence</div>
-            <div class="col-md-1">{{ cleanProperties.Intelligence }}</div>
+            <div class="col-md-1">{{ properties.Intelligence }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Stamina</div>
-            <div class="col-md-1">{{ cleanProperties.Stamina }}</div>
+            <div class="col-md-1">{{ properties.Stamina }}</div>
             <div class="col-md-2">Perception</div>
-            <div class="col-md-1">{{ cleanProperties.Perception }}</div>
+            <div class="col-md-1">{{ properties.Perception }}</div>
         </div>
         <div class="row">
             <div class="col-md-3">
@@ -83,43 +83,43 @@
         </div>
         <div class="row">
             <div class="col-md-2">Brawl</div>
-            <div class="col-md-1">{{ cleanProperties.Brawl }}</div>
+            <div class="col-md-1">{{ properties.Brawl }}</div>
             <div class="col-md-2">Melee</div>
-            <div class="col-md-1">{{ cleanProperties.Melee }}</div>
+            <div class="col-md-1">{{ properties.Melee }}</div>
             <div class="col-md-2">Occult</div>
-            <div class="col-md-1">{{ cleanProperties.Occult }}</div>
+            <div class="col-md-1">{{ properties.Occult }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Dodge</div>
-            <div class="col-md-1">{{ cleanProperties.Dodge }}</div>
+            <div class="col-md-1">{{ properties.Dodge }}</div>
             <div class="col-md-2">Firearms</div>
-            <div class="col-md-1">{{ cleanProperties.Firearms }}</div>
+            <div class="col-md-1">{{ properties.Firearms }}</div>
             <div class="col-md-2">Cainite Lore</div>
-            <div class="col-md-1">{{ cleanProperties.Cainite_Lore }}</div>
+            <div class="col-md-1">{{ properties.Cainite_Lore }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Manipulation</div>
-            <div class="col-md-1">{{ cleanProperties.Manipulation }}</div>
+            <div class="col-md-1">{{ properties.Manipulation }}</div>
             <div class="col-md-2">Stealth</div>
-            <div class="col-md-1">{{ cleanProperties.Stealth }}</div>
+            <div class="col-md-1">{{ properties.Stealth }}</div>
             <div class="col-md-2">Linguistics</div>
-            <div class="col-md-1">{{ cleanProperties.Linguistics }}</div>
+            <div class="col-md-1">{{ properties.Linguistics }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Empathy</div>
-            <div class="col-md-1">{{ cleanProperties.Empathy }}</div>
+            <div class="col-md-1">{{ properties.Empathy }}</div>
             <div class="col-md-2">Meditation</div>
-            <div class="col-md-1">{{ cleanProperties.Meditation }}</div>
+            <div class="col-md-1">{{ properties.Meditation }}</div>
             <div class="col-md-2">Academics</div>
-            <div class="col-md-1">{{ cleanProperties.Academics }}</div>
+            <div class="col-md-1">{{ properties.Academics }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Survival</div>
-            <div class="col-md-1">{{ cleanProperties.Survival }}</div>
+            <div class="col-md-1">{{ properties.Survival }}</div>
             <div class="col-md-2">Electronics</div>
-            <div class="col-md-1">{{ cleanProperties.Electronics }}</div>
+            <div class="col-md-1">{{ properties.Electronics }}</div>
             <div class="col-md-2">Science</div>
-            <div class="col-md-1">{{ cleanProperties.Science }}</div>
+            <div class="col-md-1">{{ properties.Science }}</div>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -128,40 +128,41 @@
         </div>
         <div class="row">
             <div class="col-md-2">Generation</div>
-            <div class="col-md-1">{{ cleanProperties.Generation }}</div>
+            <div class="col-md-1">{{ properties.Generation }}</div>
             <div class="col-md-2">Mentor</div>
-            <div class="col-md-1">{{ cleanProperties.Mentor }}</div>
+            <div class="col-md-1">{{ properties.Mentor }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Resources</div>
-            <div class="col-md-1">{{ cleanProperties.Resources }}</div>
+            <div class="col-md-1">{{ properties.Resources }}</div>
             <div class="col-md-2">Library</div>
-            <div class="col-md-1">{{ cleanProperties.Library }}</div>
+            <div class="col-md-1">{{ properties.Library }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Herd</div>
-            <div class="col-md-1">{{ cleanProperties.Herd }}</div>
+            <div class="col-md-1">{{ properties.Herd }}</div>
             <div class="col-md-2">Haven</div>
-            <div class="col-md-1">{{ cleanProperties.Haven }}</div>
+            <div class="col-md-1">{{ properties.Haven }}</div>
         </div>
         <div class="row">
             <div class="col-md-2">Retainers</div>
-            <div class="col-md-1">{{ cleanProperties.Retainers }}</div>
+            <div class="col-md-1">{{ properties.Retainers }}</div>
         </div>
         <div class="row">
             <div class="col-md-3">
                 <h3>Disciplines</h3>
             </div>
         </div>
-        {% for disciplineName, level in cleanDisciplines.items %}
-        <div class="row">
-            <div class="col-md-2">{{ disciplineName }}</div>
-            <div class="col-md-1">{{ level }}</div>
-        </div>
+        {% for field in disciplines %}
+            <div class="row">
+                <div class="col-md-2">{{ field.property.name }}</div>
+                <div class="col-md-1">{{ field.value }}</div>
+            </div>
         {% endfor %}
         <li><a href="{% url 'domainmanager:characterproperties_edit' character.id %}" class="top-menu"><span
             class="glyphicon glyphicon-pencil">Edit character properties</span></a></li>
     </div>
+
     <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
 
 </div>

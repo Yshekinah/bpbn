@@ -19,15 +19,15 @@ urlpatterns = [
     url(r'^charactersheet/(?P<character_id>[0-9]+)$', views.charactersheet, name='charactersheet'),
 
     # Create / Create one charactersheet
-    #  ex: /domainmanager/charactersheet_new
-    url(r'^charactersheet_new/', views.charactersheet_new, name='charactersheet_new'),
+    #  ex: /domainmanager/character_create
+    url(r'^character_create/', views.character_create, name='character_create'),
 
     # Create / Edit one charactersheet
-    #  ex: /domainmanager/charactersheet_new
+    #  ex: /domainmanager/characterinformation/1/edit
     url(r'^characterinformation/(?P<character_id>[0-9]+)/edit/', views.characterinformation_edit, name='characterinformation_edit'),
 
     # Create / Edit one character's properties
-    #  ex: /domainmanager/characterproperties_new
+    #  ex: /domainmanager/characterproperties/1/edit
     url(r'^characterproperties/(?P<character_id>[0-9]+)/edit/', views.characterproperties_edit, name='characterproperties_edit'),
 
     # List of all players

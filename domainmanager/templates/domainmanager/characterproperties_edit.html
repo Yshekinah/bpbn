@@ -12,7 +12,7 @@
             <a href="{% url 'domainmanager:charactersheet' character.id %}">Back to charactersheet</a>
         </li>
         <li>
-            <a href="{% url 'domainmanager:charactersheet_new' %}" class="top-menu">
+            <a href="{% url 'domainmanager:character_create' %}" class="top-menu">
                 <span class="glyphicon glyphicon-plus"></span>
                 Create new character
             </a>
@@ -293,17 +293,14 @@
                     </div>
                 </div>
                 {% for field in propertiesForm %}
-                    {%  if field.instance.property.type == 'Discipline' %}
-                        {{ field.id }}{{ field.character }}{{ field.value }}<br/>
+                    {%  if field.instance.property.type.name == 'Discipline' %}
+                        <div class="row">
+                            <div class="col-md-2">{{ field.id }}{{ field.character }}{{ field.instance.property.name }}</div>
+                            <div class="col-md-1">{{ field.value }}</div>
+                        </div>
                     {% endif %}
                 {% endfor %}
-                {% for disciplineName, level in cleanDisciplines.items %}
-                    <div class="row">
-                        <div class="col-md-2">{{ disciplineName }}</div>
-                        <div class="col-md-1">{{ level }}</div>
-                    </div>
-                {% endfor %}
-            </div>
+                </div>
             <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
 
 

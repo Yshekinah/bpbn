@@ -22,10 +22,11 @@ admin.site.register(Boon)
 admin.site.register(PropertyType)
 admin.site.register(Property)
 admin.site.register(CharacterProperty)
-admin.site.register(Discipline)
-admin.site.register(CharacterDiscipline)
+#admin.site.register(Discipline)
+#admin.site.register(CharacterDiscipline)
 admin.site.register(Event)
 admin.site.register(Xp)
+admin.site.register(ClanProperty)
 
 
 # Define an inline admin descriptor for Employee model

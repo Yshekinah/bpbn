@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 
-from .forms import CharacterForm, CharacterPropertyFormSet
+from .forms import CharacterForm, CharacterPropertyFormSet, CharacterFormCreate
 from .logic import characterTools
 from .models import Character, Person, Clan, Vampire
 
@@ -43,33 +43,33 @@ def players(request):
 def charactersheet(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
-    cleanProperties = characterTools.getCleanProperties(character)
+    properties = characterTools.getCleanCharacterProperties(character)
+    disciplines = characterTools.getCharacterDisciplines(character)
 
-    cleanDisciplines = characterTools.getCleanDisciplines(character)
-
-    context = {'character': character, 'cleanProperties': cleanProperties, 'cleanDisciplines': cleanDisciplines}
+    context = {'character': character, 'properties': properties, 'disciplines': disciplines}
 
     return render(request, 'domainmanager/charactersheet.html', context)
 
 
 # Create the character
 @login_required()
-def charactersheet_new(request):
+def character_create(request):
     if request.method == "POST":
 
-        form = CharacterForm(request.POST)
+        form = CharacterFormCreate(request.POST)
 
         if form.is_valid():
             character = form.save()
             character.save()
 
             characterTools.createInitialProperties(character)
+            characterTools.createInitialDisciplines(character)
 
             return redirect('domainmanager:characters')
     else:
-        form = CharacterForm()
+        form = CharacterFormCreate()
 
-    return render(request, 'domainmanager/charactersheet_new.html', {'form': form})
+    return render(request, 'domainmanager/character_create.html', {'form': form})
 
 
 # Edit the character
@@ -91,33 +91,11 @@ def characterinformation_edit(request, character_id):
     else:
         form = CharacterForm(instance=character)
 
-    cleanProperties = characterTools.getCleanProperties(character)
-    cleanDisciplines = characterTools.getCleanDisciplines(character)
+    cleanProperties = characterTools.getCleanCharacterProperties(character)
 
-    context = {'form': form, 'character': character, 'cleanProperties': cleanProperties,
-               'cleanDisciplines': cleanDisciplines}
+    context = {'form': form, 'character': character, 'cleanProperties': cleanProperties,}
 
     return render(request, 'domainmanager/characterinformation_edit.html', context)
-
-
-"""
-def characterproperties_edit(request, character_id):
-    character = get_object_or_404(Character, pk=character_id)
-
-    if request.method == "POST":
-        characterForm = CharacterForm(request.POST, instance=character)
-
-        if CharacterForm.is_valid():
-            savedCharacter = CharacterForm.save()
-            return redirect('domainmanager:charactersheet', character_id)
-
-    else:
-        characterForm = CharacterForm(instance=character)
-        characterPropertiesForm = CharacterPropertiesForm(instance=character)
-
-    context = {'character': character, 'characterForm': characterForm, 'characterPropertiesForm': characterPropertiesForm}
-    return render(request, 'domainmanager/characterproperties_edit.html', context)
-"""
 
 
 @login_required()
@@ -125,7 +103,6 @@ def characterproperties_edit(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
     if request.method == "POST":
-        # characterForm = CharacterForm(request.POST)
         propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
 
         if propertiesForm.is_valid():

@@ -51,16 +51,6 @@ class Rank(models.Model):
         return self.name
 
 
-class Clan(models.Model):
-    name = models.CharField(max_length=100)
-    image = models.CharField(max_length=100, blank=True)
-    # bloodline = models.BooleanField(default=0)
-    parent = models.ForeignKey('Clan', related_name='parentclan', blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-
 # class Bloodline(models.Model):
 #     name = models.CharField(max_length=100)
 #     image = models.CharField(max_length=100, blank=True)
@@ -69,12 +59,12 @@ class Clan(models.Model):
 #     def __str__(self):
 #         return self.name + " descending from " + self.parent_clan.name
 
-class Discipline(models.Model):
-    name = models.CharField(max_length=100)
-    clan = models.ForeignKey('Clan', related_name='clan')
-
-    def __str__(self):
-        return self.name
+# class Discipline(models.Model):
+#     name = models.CharField(max_length=100)
+#     clan = models.ForeignKey('Clan', related_name='clan')
+#
+#     def __str__(self):
+#         return self.name
 
 
 class Sect(models.Model):
@@ -136,6 +126,25 @@ class Property(models.Model):
         return self.name
 
 
+class Clan(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.CharField(max_length=100, blank=True)
+    # bloodline = models.BooleanField(default=0)
+    parent = models.ForeignKey('Clan', related_name='parentclan', blank=True, null=True)
+    disciplines = models.ManyToManyField(Property, through='ClanProperty')
+
+    def __str__(self):
+        return self.name
+
+
+class ClanProperty(models.Model):
+    clan = models.ForeignKey(Clan)
+    property = models.ForeignKey(Property)
+
+    def __str__(self):
+        return self.clan.name + " " + self.property.name
+
+
 class Character(models.Model):
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
@@ -193,20 +202,20 @@ class CharacterProperty(models.Model):
             self.value)
 
 
-class CharacterDiscipline(models.Model):
-    character = models.ForeignKey('Character', related_name='cd_character', on_delete=models.CASCADE)
-    discipline = models.ForeignKey('Discipline', related_name='discipline', on_delete=models.CASCADE)
-    level = models.IntegerField(
-        default=1,
-        validators=[
-            MaxValueValidator(10),
-            MinValueValidator(1)
-        ]
-    )
-
-    def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + ", " + self.discipline.name + ": " + str(
-            self.level)
+# class CharacterDiscipline(models.Model):
+#     character = models.ForeignKey('Character', related_name='cd_character', on_delete=models.CASCADE)
+#     discipline = models.ForeignKey('Discipline', related_name='discipline', on_delete=models.CASCADE)
+#     level = models.IntegerField(
+#         default=1,
+#         validators=[
+#             MaxValueValidator(10),
+#             MinValueValidator(1)
+#         ]
+#     )
+#
+#     def __str__(self):
+#         return self.character.firstname + " " + self.character.lastname + ", " + self.discipline.name + ": " + str(
+#             self.level)
 
 
 class BoonCategory(models.Model):
