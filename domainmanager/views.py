@@ -91,9 +91,9 @@ def characterinformation_edit(request, character_id):
     else:
         form = CharacterForm(instance=character)
 
-    cleanProperties = characterTools.getCleanCharacterProperties(character)
+        properties = characterTools.getCleanCharacterProperties(character)
 
-    context = {'form': form, 'character': character, 'cleanProperties': cleanProperties,}
+    context = {'form': form, 'character': character, 'properties': properties,}
 
     return render(request, 'domainmanager/characterinformation_edit.html', context)
 
@@ -106,17 +106,21 @@ def characterproperties_edit(request, character_id):
         propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
 
         if propertiesForm.is_valid():
-            savedProperties = propertiesForm.save()
-            return redirect('domainmanager:charactersheet', character_id)
+
+            savedProperties = propertiesForm.save(commit=False)
+
+            lvlUpResult = characterTools.checkXP(character=character, characterProperties=savedProperties)
+
+            if lvlUpResult == True:
+                propertiesForm.save(commit=True)
+
+                return redirect('domainmanager:charactersheet', character_id)
         else:
             for error in propertiesForm.errors:
                 print(error)
 
     else:  # FUNKTIONIERT!
-        # characterForm = CharacterForm(instance=character)
         propertiesForm = CharacterPropertyFormSet(instance=character)
-        # propertiesForm.fields['property'].widget = widgets.HiddenInput()
-        # context = {'characterForm': characterForm, 'propertiesForm': propertiesForm}
 
     context = {'character': character, 'propertiesForm': propertiesForm}
     return render(request, 'domainmanager/characterproperties_edit.html', context)

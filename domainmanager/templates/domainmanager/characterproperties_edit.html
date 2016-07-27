@@ -1,58 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'charactersheet.html' %}
 {% load staticfiles %}
 
 {% block title %}List of all character's properties for {{ character.firstname }} {{ character.lastname }}{% endblock %}
 
 {% block sidebar %}
     <ul>
-        <li>
-            <a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Back to Player</a>
-        </li>
-        <li>
-            <a href="{% url 'domainmanager:charactersheet' character.id %}">Back to charactersheet</a>
-        </li>
-        <li>
-            <a href="{% url 'domainmanager:character_create' %}" class="top-menu">
-                <span class="glyphicon glyphicon-plus"></span>
-                Create new character
-            </a>
-        </li>
+        {{ block.super }}
     </ul>
 {% endblock %}
 
 {% block content %}
 
-    {% comment %}
-        <table>
-            {% for prop in propertiesForm%}
-
-                    {{ prop.as_table }}
-
-            {% endfor %}
-        </table>
-        {% endcomment %}
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3 class="panel-title">Name: {{ character.firstname }} {{ character.lastname }}
-                        {% if character.nickname != None %} <br/> Nickname: {{ character.nickname }}{% endif %}
-                        {% if character.clan != None %} <br/> Clan: {{ character.clan.name }}{% endif %}
-                        {% if character.generation != None %} <br/> {{ character.generation }}. Generation{% endif %}
-                        {% if character.sire != None %} <br/>
-                            Sire:
-                            <a href="{% url  'domainmanager:charactersheet' character.sire.id %}">{{ character.sire.firstname }} {{ character.sire.lastname }}</a>
-                        {% endif %}
-                    </h3>
-                    <a href="{% url 'domainmanager:characterinformation_edit' character.id %}" class="top-menu"><span
-                            class="glyphicon glyphicon-pencil">Edit character information</span></a>
-                </div>
-                <div class="col-md" align="right" style="padding-right:10px">
-                    <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo" width="100"
-                         height="100"/>
-                </div>
-            </div>
-        </div>
+        {% block characterheader %}
+            {{ block.super }}
+        {% endblock characterheader %}
+
+
         {% comment %}
     {% for field in propertiesForm %}
             {%  if field.instance.property.name == 'Strength' %}
@@ -96,13 +60,13 @@
                 <div class="row">
                     <div class="col-md-2">Agility</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Agility' %}
+                        {% if field.instance.property.name == 'Agility' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Intelligence</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Intelligence' %}
+                        {% if field.instance.property.name == 'Intelligence' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -110,13 +74,13 @@
                 <div class="row">
                     <div class="col-md-2">Stamina</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Stamina' %}
+                        {% if field.instance.property.name == 'Stamina' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Perception</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Perception' %}
+                        {% if field.instance.property.name == 'Perception' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -135,19 +99,19 @@
                 <div class="row">
                     <div class="col-md-2">Brawl</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Brawl' %}
+                        {% if field.instance.property.name == 'Brawl' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Melee</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Melee' %}
+                        {% if field.instance.property.name == 'Melee' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Occult</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Occult' %}
+                        {% if field.instance.property.name == 'Occult' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -155,19 +119,19 @@
                 <div class="row">
                     <div class="col-md-2">Dodge</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Dodge' %}
+                        {% if field.instance.property.name == 'Dodge' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Firearms</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Firearms' %}
+                        {% if field.instance.property.name == 'Firearms' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Cainite Lore</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Cainite Lore' %}
+                        {% if field.instance.property.name == 'Cainite Lore' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -175,19 +139,19 @@
                 <div class="row">
                     <div class="col-md-2">Manipulation</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Manipulation' %}
+                        {% if field.instance.property.name == 'Manipulation' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Stealth</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Stealth' %}
+                        {% if field.instance.property.name == 'Stealth' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Linguistics</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Linguistics' %}
+                        {% if field.instance.property.name == 'Linguistics' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -195,19 +159,19 @@
                 <div class="row">
                     <div class="col-md-2">Empathy</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Empathy' %}
+                        {% if field.instance.property.name == 'Empathy' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Meditation</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Meditation' %}
+                        {% if field.instance.property.name == 'Meditation' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Academics</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Academics' %}
+                        {% if field.instance.property.name == 'Academics' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -215,19 +179,19 @@
                 <div class="row">
                     <div class="col-md-2">Survival</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Survival' %}
+                        {% if field.instance.property.name == 'Survival' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Electronics</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Electronics' %}
+                        {% if field.instance.property.name == 'Electronics' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Science</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Science' %}
+                        {% if field.instance.property.name == 'Science' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -240,13 +204,13 @@
                 <div class="row">
                     <div class="col-md-2">Generation</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Generation' %}
+                        {% if field.instance.property.name == 'Generation' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Mentor</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Mentor' %}
+                        {% if field.instance.property.name == 'Mentor' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -254,13 +218,13 @@
                 <div class="row">
                     <div class="col-md-2">Resources</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Resources' %}
+                        {% if field.instance.property.name == 'Resources' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Library</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Library' %}
+                        {% if field.instance.property.name == 'Library' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -268,13 +232,13 @@
                 <div class="row">
                     <div class="col-md-2">Herd</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Herd' %}
+                        {% if field.instance.property.name == 'Herd' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
                     <div class="col-md-2">Haven</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Haven' %}
+                        {% if field.instance.property.name == 'Haven' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -282,7 +246,7 @@
                 <div class="row">
                     <div class="col-md-2">Retainers</div>
                     <div class="col-md-1">{% for field in propertiesForm %}
-                        {%  if field.instance.property.name == 'Retainers' %}
+                        {% if field.instance.property.name == 'Retainers' %}
                             {{ field.id }}{{ field.character }}{{ field.value }}<br/>
                         {% endif %}
                     {% endfor %}</div>
@@ -293,14 +257,15 @@
                     </div>
                 </div>
                 {% for field in propertiesForm %}
-                    {%  if field.instance.property.type.name == 'Discipline' %}
+                    {% if field.instance.property.type.name == 'Discipline' %}
                         <div class="row">
-                            <div class="col-md-2">{{ field.id }}{{ field.character }}{{ field.instance.property.name }}</div>
+                            <div class="col-md-2">
+                                {{ field.id }}{{ field.character }}{{ field.instance.property.name }}</div>
                             <div class="col-md-1">{{ field.value }}</div>
                         </div>
                     {% endif %}
                 {% endfor %}
-                </div>
+            </div>
             <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
 
 

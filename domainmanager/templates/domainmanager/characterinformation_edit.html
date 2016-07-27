@@ -1,193 +1,55 @@
-{% extends 'base.html' %}
+{% extends 'charactersheet.html' %}
 {% load staticfiles %}
 
 {% block title %}List of all character's properties for {{ character.firstname }} {{ character.lastname }}{% endblock %}
 
 {% block sidebar %}
-    <ul>
-        <li>
-            <a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Back to Player</a>
-        </li>
-        <li>
-            <a href="{% url 'domainmanager:charactersheet' character.id %}">Back to charactersheet</a>
-        </li>
-        <li>
-            <a href="{% url 'domainmanager:character_create' %}" class="top-menu">
-                <span class="glyphicon glyphicon-plus"></span>
-                Create new character
-            </a>
-        </li>
-    </ul>
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
 
-    {% comment %}
-        <table>
-            {% for prop in propertiesForm%}
-
-                    {{ prop.as_table }}
-
-            {% endfor %}
-        </table>
-        {% endcomment %}
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <form method="post" action="">{% csrf_token %}
-                {{ form.non_field_errors }}
+
+        {% block characterheader %}
+            <div class="panel-heading">
                 <div class="row">
-                    <div class="col-md-8">
-                        <h3 class="panel-title">{{ form.firstname.label_tag }} {{ form.firstname }}
-                            <br/>
+                    <div class="col-md-4">
+                        <h3>General Information</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <form method="post" action="">{% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="col-md-8">
+                            <div class="headerpanel">{{ form.firstname.label_tag }} {{ form.firstname }}</div>
                             {{ form.lastname.errors }}
-                            {{ form.lastname.label_tag }} {{ form.lastname }} <br/>
+                            <div class="headerpanel">{{ form.lastname.label_tag }} {{ form.lastname }}</div>
                             {{ form.nickname.errors }}
-                            {{ form.nickname.label_tag }} {{ form.nickname }} <br/>
+                            <div class="headerpanel">{{ form.nickname.label_tag }} {{ form.nickname }}</div>
                             {{ form.clan.errors }}
-                            {{ form.clan.label_tag }} {{ form.clan }} <br/>
+                            <div class="headerpanel">{{ form.clan.label_tag }} {{ form.clan }}</div>
                             {{ form.generation.errors }}
-                            {{ form.generation.label_tag }} {{ form.generation }} <br/>
+                            <div class="headerpanel">{{ form.generation.label_tag }} {{ form.generation }}</div>
                             {{ form.sire.errors }}
-                            {{ form.sire.label_tag }} {{ form.sire }} <br/>
-                        </h3>
-                    </div>
-                    <div class="col-md" align="right" style="padding-right:10px">
-                        <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo" width="100"
-                             height="100"/>
-                    </div>
+                            <div class="headerpanel">{{ form.sire.label_tag }} {{ form.sire }}</div>
+                            </h3>
+                            <button type="submit" class="save btn btn-default">Save</button>
+                        </div>
+                        {% block characterlogo %}
+                            {{ block.super }}
+                        {% endblock characterlogo %}
 
+                    </form>
                 </div>
-                <button type="submit" class="save btn btn-default">Save</button>
-            </form>
-        </div>
+            </div>
+        {% endblock %}
 
-
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Attributes</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Physical</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Mental</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Strength</div>
-                <div class="col-md-1">{{ cleanProperties.Strength }}</div>
-                <div class="col-md-2">Charisma</div>
-                <div class="col-md-1">{{ cleanProperties.Charisma }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Agility</div>
-                <div class="col-md-1">{{ cleanProperties.Agility }}</div>
-                <div class="col-md-2">Intelligence</div>
-                <div class="col-md-1">{{ cleanProperties.Intelligence }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Stamina</div>
-                <div class="col-md-1">{{ cleanProperties.Stamina }}</div>
-                <div class="col-md-2">Perception</div>
-                <div class="col-md-1">{{ cleanProperties.Perception }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Talents</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Skills</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Knowledges</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Brawl</div>
-                <div class="col-md-1">{{ cleanProperties.Brawl }}</div>
-                <div class="col-md-2">Melee</div>
-                <div class="col-md-1">{{ cleanProperties.Melee }}</div>
-                <div class="col-md-2">Occult</div>
-                <div class="col-md-1">{{ cleanProperties.Occult }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Dodge</div>
-                <div class="col-md-1">{{ cleanProperties.Dodge }}</div>
-                <div class="col-md-2">Firearms</div>
-                <div class="col-md-1">{{ cleanProperties.Firearms }}</div>
-                <div class="col-md-2">Cainite Lore</div>
-                <div class="col-md-1">{{ cleanProperties.Cainite_Lore }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Manipulation</div>
-                <div class="col-md-1">{{ cleanProperties.Manipulation }}</div>
-                <div class="col-md-2">Stealth</div>
-                <div class="col-md-1">{{ cleanProperties.Stealth }}</div>
-                <div class="col-md-2">Linguistics</div>
-                <div class="col-md-1">{{ cleanProperties.Linguistics }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Empathy</div>
-                <div class="col-md-1">{{ cleanProperties.Empathy }}</div>
-                <div class="col-md-2">Meditation</div>
-                <div class="col-md-1">{{ cleanProperties.Meditation }}</div>
-                <div class="col-md-2">Academics</div>
-                <div class="col-md-1">{{ cleanProperties.Academics }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Survival</div>
-                <div class="col-md-1">{{ cleanProperties.Survival }}</div>
-                <div class="col-md-2">Electronics</div>
-                <div class="col-md-1">{{ cleanProperties.Electronics }}</div>
-                <div class="col-md-2">Science</div>
-                <div class="col-md-1">{{ cleanProperties.Science }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Backgrounds</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Generation</div>
-                <div class="col-md-1">{{ cleanProperties.Generation }}</div>
-                <div class="col-md-2">Mentor</div>
-                <div class="col-md-1">{{ cleanProperties.Mentor }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Resources</div>
-                <div class="col-md-1">{{ cleanProperties.Resources }}</div>
-                <div class="col-md-2">Library</div>
-                <div class="col-md-1">{{ cleanProperties.Library }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Herd</div>
-                <div class="col-md-1">{{ cleanProperties.Herd }}</div>
-                <div class="col-md-2">Haven</div>
-                <div class="col-md-1">{{ cleanProperties.Haven }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Retainers</div>
-                <div class="col-md-1">{{ cleanProperties.Retainers }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Disciplines</h3>
-                </div>
-            </div>
-            {% for disciplineName, level in cleanDisciplines.items %}
-                <div class="row">
-                    <div class="col-md-2">{{ disciplineName }}</div>
-                    <div class="col-md-1">{{ level }}</div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
+        {% block characterproperties %}
+            {{ block.super }}
+        {% endblock characterproperties %}
 
     </div>
-
 
 {% endblock %}
 

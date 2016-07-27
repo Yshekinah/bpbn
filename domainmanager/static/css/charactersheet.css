@@ -1,0 +1,15 @@
+.headerpanel{
+    padding-top: 5px;
+    font-size: 16px;
+}
+
+.editlink{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.clanimage{
+    height: 100px;
+    max-height: 100px;
+    width: auto;
+}

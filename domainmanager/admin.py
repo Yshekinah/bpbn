@@ -25,7 +25,8 @@ admin.site.register(CharacterProperty)
 #admin.site.register(Discipline)
 #admin.site.register(CharacterDiscipline)
 admin.site.register(Event)
-admin.site.register(Xp)
+admin.site.register(Xpearned)
+admin.site.register(Xpspent)
 admin.site.register(ClanProperty)
 
 

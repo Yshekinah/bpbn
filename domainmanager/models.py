@@ -3,6 +3,7 @@ from datetime import date
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from model_utils import FieldTracker
 
 
 class Country(models.Model):
@@ -179,6 +180,7 @@ class Character(models.Model):
 class PropertyType(models.Model):
     name = models.CharField(max_length=100)
     domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)
+    xpmultiplier = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name
@@ -191,31 +193,16 @@ class CharacterProperty(models.Model):
         default=1,
         validators=[
             MaxValueValidator(10),
-            MinValueValidator(1)
+            MinValueValidator(0)
         ]
     )
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+    tracker = FieldTracker(fields=['value'])
 
     def __str__(self):
         return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(
             self.value)
-
-
-# class CharacterDiscipline(models.Model):
-#     character = models.ForeignKey('Character', related_name='cd_character', on_delete=models.CASCADE)
-#     discipline = models.ForeignKey('Discipline', related_name='discipline', on_delete=models.CASCADE)
-#     level = models.IntegerField(
-#         default=1,
-#         validators=[
-#             MaxValueValidator(10),
-#             MinValueValidator(1)
-#         ]
-#     )
-#
-#     def __str__(self):
-#         return self.character.firstname + " " + self.character.lastname + ", " + self.discipline.name + ": " + str(
-#             self.level)
 
 
 class BoonCategory(models.Model):
@@ -239,16 +226,27 @@ class Boon(models.Model):
         return self.slave.firstname + " " + self.slave.lastname + " owes a " + self.category.name + " to " + self.master.firstname + " " + self.master.lastname
 
 
-class Xp(models.Model):
-    character = models.ForeignKey(Character, related_name="character", blank=False, null=False, default=1)
+class Xpearned(models.Model):
+    character = models.ForeignKey(Character, blank=False, default=1)
     value = models.IntegerField(blank=False, null=False, default=1)
     event = models.ForeignKey(Event, related_name='event', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.event.name + " " + str(self.value) + " " + self.character.firstname + " " + self.character.lastname
+        return self.character.firstname + " " + self.character.lastname + " earned " + str(self.value)  + " at " + self.event.name
 
+class Xpspent(models.Model):
+    character = models.ForeignKey(Character, blank=False, default=1)
+    oldvalue = models.IntegerField(blank=False, null=False, default=1)
+    newvalue = models.IntegerField(blank=False, null=False, default=1)
+    xpcost = models.IntegerField(blank=False, null=False, default=1)
+    property = models.ForeignKey(Property, blank=False, default=1)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.character.firstname + " " + self.character.lastname + " spent " + self.value + " on " + self.property.name
 
 ################################ GENEALOGY ################################
 
