@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block sidebar %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>CAPTION</h3>
+                </div>
+            </div>
+            <form method="post" action="">{% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="fieldWrapper">
+                            {{ form.master.errors }}
+                            {{ form.master.label_tag }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.master }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="fieldWrapper">
+                            {{ form.slave.errors }}
+                            {{ form.slave.label_tag }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.slave }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="fieldWrapper">
+                            {{ form.category.errors }}
+                            {{ form.category.label_tag }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.category }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="fieldWrapper">
+                            {{ form.note.errors }}
+                            {{ form.note.label_tag }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.note }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">&nbsp;</div>
+                    <div class="col-md-4">
+                        <button type="submit" class="save btn btn-default">Create</button>
+                    </div>
+                </div>
+
+
+            </form>
+{% endblock %}

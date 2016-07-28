@@ -1,0 +1,103 @@
+{% extends 'charactersheet.html' %}
+{% load staticfiles %}
+
+{% block title %}Boon overview: Master & slave boons for {{ character.firstname }}
+    {{ character.lastname }} {% endblock %}
+
+{% block sidebar %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% block panel-nav %}
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li id="panel-charactersheet"><a
+                        href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
+                <li id="panel-characterxpsummary"><a
+                        href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a>
+                </li>
+                <li id="panel-boons" class="active"><a
+                        href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a>
+                </li>
+            </ul>
+        </div>
+    {% endblock panel-nav %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Master boons</h3>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Slave</th>
+                <th>Category</th>
+                <th>Note</th>
+                <th>Timestamp</th>
+                <th>Approved by GM</th>
+                <th>Approved by Slave</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in masterBoons %}
+                <tr>
+                    <td>{{ row.slave.firstname }} {{ row.slave.lastname }}</td>
+                    <td>{{ row.category.name }}</td>
+                    <td>{{ row.note }}</td>
+                    <td>{{ row.timestamp }}</td>
+                    <td>{{ row.approvedbygm }}</td>
+                    <td>{{ row.approvedbyslave }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Slave boons</h3>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Master</th>
+                <th>Category</th>
+                <th>Note</th>
+                <th>Timestamp</th>
+                <th>Approved by GM</th>
+                <th>Approved by Slave</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in slaveBoons %}
+                <tr>
+                    <td>{{ row.master.firstname }} {{ row.master.lastname }}</td>
+                    <td>{{ row.category.name }}</td>
+                    <td>{{ row.note }}</td>
+                    <td>{{ row.timestamp }}</td>
+                    <td>{{ row.approvedbygm }}</td>
+                    <td>
+                        {% if row.approvedbyslave != 'waiting' %}{{ row.approvedbyslave }}{% else %}
+                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave "1"%}">Accept boon</a> /
+                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave "2"%}">Decline boon</a> / {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+{% endblock %}

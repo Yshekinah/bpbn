@@ -1,12 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 
-from .forms import CharacterForm, CharacterPropertyFormSet, CharacterFormCreate
+from .forms import CharacterForm, CharacterPropertyFormSet, CharacterFormCreate, BoonForm
 from .logic import characterTools
-from .models import Character, Person, Clan, Vampire
+from .models import Character, Person, Clan, Vampire, Xpearned, Xpspent, Boon
 
 
 # Create your views here.
@@ -127,6 +126,73 @@ def characterproperties_edit(request, character_id):
 
 
 @login_required()
+def characterxpsummary(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+
+    xpEarned = Xpearned.objects.filter(character=character).order_by('-timestamp')
+    xpSpent = Xpspent.objects.filter(character=character).order_by('-timestamp')
+
+    context = {'character': character, 'xpSpent': xpSpent, 'xpEarned': xpEarned}
+    return render(request, 'domainmanager/characterxpsummary.html', context)
+
+
+@login_required()
+def characterboonsummary(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+
+    masterBoons = Boon.objects.filter(master=character).order_by('-timestamp')
+    slaveBoons = Boon.objects.filter(slave=character).order_by('-timestamp')
+
+    context = {'character': character, 'masterBoons': masterBoons, 'slaveBoons': slaveBoons}
+    return render(request, 'domainmanager/characterboonsummary.html', context)
+
+
+@login_required()
+def characterboon_create(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+
+    if request.method == 'POST':
+        form = BoonForm(request.POST)
+
+        if form.is_valid():
+            boon = form.save(commit=False)
+            boon.master = character
+            boon.hash_gm = characterTools.random_string(20)
+            boon.hash_slave = characterTools.random_string(20)
+            boon.save()
+
+            return redirect('domainmanager:charactersheet', character_id)
+
+    else:
+        data = {'master': character}
+        form = BoonForm(initial=data)
+
+    context = {'character': character, 'form': form}
+    return render(request, 'domainmanager/characterboon_create.html', context)
+
+
+@login_required()
+def characterboon_validation(request, boon_id, hash, answer):
+    boon = get_object_or_404(Boon, pk=boon_id)
+
+    if boon.hash_gm == hash:
+        if answer == "1":
+            boon.approvedbygm = 'accepted'
+        else:
+            boon.approvedbygm = 'declined'
+
+    if boon.hash_slave == hash:
+        if answer == "1":
+            boon.approvedbyslave = 'accepted'
+        else:
+            boon.approvedbyslave = 'declined'
+
+    boon.save()
+
+    return redirect('domainmanager:characterboonsummary', boon.slave.id)
+
+
+@login_required()
 def playersummary(request, player_id):
     player = get_object_or_404(Person, pk=player_id)
 
@@ -144,8 +210,3 @@ def genealogy(request):
     context = {'vampires': vampires}
 
     return render(request, 'domainmanager/genealogy.html', context)
-
-
-@login_required()
-def createCharacter(request):
-    return HttpResponse('Have fun')

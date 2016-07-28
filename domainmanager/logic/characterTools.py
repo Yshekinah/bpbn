@@ -1,3 +1,6 @@
+import random
+import string
+
 from django.db import transaction
 from django.db.models import Sum
 from django.shortcuts import get_list_or_404
@@ -85,7 +88,7 @@ def checkXP(character, characterProperties):
 
         return False
 
-
+# Returns the current spendable XP of a character
 def getXPforCharacter(character):
     xpearned = Xpearned.objects.filter(character=character).aggregate(Sum('value'))['value__sum']
     xpspent = Xpspent.objects.filter(character=character).aggregate(Sum('xpcost'))['xpcost__sum']
@@ -93,5 +96,8 @@ def getXPforCharacter(character):
     return xpearned - xpspent
 
 
-def lvLUp(character):
-    return "Not implemented... yet"
+# Gives a random String with length
+# used in creating a boon for security reasons
+def random_string(length=20):
+    pool = string.ascii_letters + string.digits
+    return str(''.join(random.choice(pool) for i in range(length)))

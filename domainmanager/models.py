@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from model_utils import FieldTracker
+from model_utils.fields import StatusField
+from model_utils import Choices
 
 
 class Country(models.Model):
@@ -214,11 +216,19 @@ class BoonCategory(models.Model):
 
 
 class Boon(models.Model):
-    master = models.ForeignKey(Person, related_name='master')
-    slave = models.ForeignKey(Person, related_name='slave')
+    STATUS = Choices('waiting', 'accepted', 'declined')
+    master = models.ForeignKey(Character, related_name='master', blank=True, null=True)
+    slave = models.ForeignKey(Character, related_name='slave')
     category = models.ForeignKey(BoonCategory, related_name='category')
-    date = models.DateField(blank=True)
-    description = models.TextField(blank=True)
+    note = models.TextField(default="please fill out a short decription")
+    approvedbygm = StatusField()
+    #approvedbygm = models.BooleanField(default=False)
+    approvedbygm_note = models.TextField(default="Place for additional notes")
+    approvedbyslave = StatusField()
+    #approvedbyslave = models.BooleanField(default=False)
+    approvedbyslave_note = models.TextField(default="Place for additional notes")
+    hash_slave = models.CharField(max_length=20, default="")
+    hash_gm = models.CharField(max_length=20, default="")
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -234,7 +244,9 @@ class Xpearned(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + " earned " + str(self.value)  + " at " + self.event.name
+        return self.character.firstname + " " + self.character.lastname + " earned " + str(
+            self.value) + " at " + self.event.name
+
 
 class Xpspent(models.Model):
     character = models.ForeignKey(Character, blank=False, default=1)
@@ -247,6 +259,7 @@ class Xpspent(models.Model):
 
     def __str__(self):
         return self.character.firstname + " " + self.character.lastname + " spent " + self.value + " on " + self.property.name
+
 
 ################################ GENEALOGY ################################
 

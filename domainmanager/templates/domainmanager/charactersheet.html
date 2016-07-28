@@ -9,14 +9,26 @@
         <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
         <li><a href="{% url 'domainmanager:character_create' %}" class="top-menu"><span
                 class="glyphicon glyphicon-plus"></span>Create new character</a></li>
+        <li><a href="{% url 'domainmanager:characterboon_create' character.id %}"><span
+                class="glyphicon glyphicon-plus"></span>Create a boon</a></li>
     </ul>
-
 {% endblock %}
 
 {% block content %}
-
+    {% block panel-nav %}
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li class="active" id="panel-charactersheet"><a
+                        href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
+                <li id="panel-characterxpsummary"><a
+                        href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a>
+                </li>
+                <li id="panel-boons"><a href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a>
+                </li>
+            </ul>
+        </div>
+    {% endblock panel-nav %}
     <div class="panel panel-default">
-
         {% block characterheader %}
             <div class="panel-heading">
                 <div class="row">
@@ -192,9 +204,7 @@
             </div>
 
         {% endblock characterproperties %}
-        <div class="panel-footer">
-            <div class="panel-footer"><a href="javascript:window.print()">Print charactersheet</a></div>
-        </div>
+        <div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>
     </div>
 
 {% endblock %}

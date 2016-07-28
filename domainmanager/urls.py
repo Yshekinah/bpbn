@@ -18,6 +18,22 @@ urlpatterns = [
     #  ex: /domainmanager/charactersheet/1
     url(r'^charactersheet/(?P<character_id>[0-9]+)$', views.charactersheet, name='charactersheet'),
 
+    # View xp for one character
+    #  ex: /domainmanager/characterxpsummary/1
+    url(r'^characterxpsummary/(?P<character_id>[0-9]+)$', views.characterxpsummary, name='characterxpsummary'),
+
+    # View boons for one character
+    #  ex: /domainmanager/characterxpsummary/1
+    url(r'^characterboonsummary/(?P<character_id>[0-9]+)$', views.characterboonsummary, name='characterboonsummary'),
+
+    # View boons for one character
+    #  ex: /domainmanager/characterxpsummary/1
+    url(r'^characterboon_create/(?P<character_id>[0-9]+)/create$', views.characterboon_create, name='characterboon_create'),
+
+    # View boons for one character
+    #  ex: /domainmanager/characterxpsummary/1
+    url(r'^characterboon_validation/(?P<boon_id>[0-9]+)/(?P<hash>[A-Za-z0-9]+)/(?P<answer>[0-9]+)$', views.characterboon_validation, name='characterboon_validation'),
+
     # Create / Create one charactersheet
     #  ex: /domainmanager/character_create
     url(r'^character_create/', views.character_create, name='character_create'),
