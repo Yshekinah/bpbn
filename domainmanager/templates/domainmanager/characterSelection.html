@@ -1,0 +1,3 @@
+{% for character in characters %}
+    <li><a href="{% url 'domainmanager:charactersheet' character.id %}">{{ character.firstname }} {{ character.lastname }}</a></li>
+{% endfor %}

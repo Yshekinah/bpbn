@@ -87,6 +87,12 @@ urlpatterns = [
     url(r'^adminboon_validation/(?P<boon_id>[0-9]+)/(?P<hash>[A-Za-z0-9]+)/(?P<answer>[0-9]+)$',
         views.adminboon_validation, name='adminboon_validation'),
 
+    #############################################################SYSTEM#############################################################
+
+
+    # Logout
+    #  ex: /domainmanager/logout
+    url(r'^logout', views.logout, name='logout'),
 ]
 
 if settings.DEBUG:

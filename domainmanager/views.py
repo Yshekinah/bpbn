@@ -1,3 +1,4 @@
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
@@ -17,8 +18,10 @@ def index(request):
 
 @login_required()
 def characters(request):
+    # Just get the main clans
     clans = Clan.objects.all().exclude(parent__isnull=False).order_by('name')
 
+    # Just get the bloodlines
     bloodlines = Clan.objects.all().filter(parent__gte=1).order_by('name')
 
     characters = Character.objects.all().order_by('clan')
@@ -310,3 +313,8 @@ def adminboon_validation(request, boon_id, hash, answer):
     boon.save()
 
     return redirect('domainmanager:adminboons')
+
+
+def logout(request):
+    auth_logout(request)
+    return render(request, 'domainmanager/base.html')

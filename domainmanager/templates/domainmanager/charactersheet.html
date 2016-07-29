@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load lineage %}
 {% load staticfiles %}
 
 {% block title %}Character: {{ character.firstname }} {{ character.lastname }} {% endblock %}
@@ -20,10 +21,14 @@
     {% block panel-nav %}
         <div class="panel-heading">
             <ul class="nav nav-tabs">
-                <li class="active" id="panel-charactersheet"><a href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
-                <li id="panel-characterxpsummary"><a href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a></li>
-                <li id="panel-boons"><a href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a></li>
-                <li id="panel-shopping"><a href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
+                <li class="{% ancestor 'domainmanager:charactersheet' character.id %}"><a
+                        href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
+                <li class="{% ancestor 'domainmanager:characterxpsummary' character.id %}"><a
+                        href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a></li>
+                <li class="{% ancestor 'domainmanager:characterboonsummary' character.id %}"><a
+                        href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a></li>
+                <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
+                        href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
             </ul>
         </div>
     {% endblock panel-nav %}

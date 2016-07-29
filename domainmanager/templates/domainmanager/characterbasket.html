@@ -10,16 +10,7 @@
 
 {% block content %}
     {% block panel-nav %}
-        <div class="panel-heading">
-            <div class="panel-heading">
-                <ul class="nav nav-tabs">
-                    <li id="panel-charactersheet"><a href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
-                    <li id="panel-characterxpsummary"><a href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a></li>
-                    <li id="panel-boons"><a href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a></li>
-                    <li id="panel-shopping" class="active"><a href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
-                </ul>
-            </div>
-        </div>
+        {{ block.super }}
     {% endblock panel-nav %}
 
     <div class="panel panel-default">
@@ -45,8 +36,8 @@
                 <tr>
                     <td>{% if row.property %}{{ row.property }}{% else %}{{ row.newproperty }}{% endif %}</td>
                     <td>{% if row.property %}{{ row.property.type.name }}{% else %}{{ row.newpropertytype }}{% endif %}</td>
-                    <td>{% if row.property %}{{ row.property.type.xpinitialprize}}{% else %}{{ row.newpropertytype.xpinitialprize }}{% endif %}</td>
-                    <td>{{ row.STATUS|getValue:row.approvedbygm}}</td>
+                    <td>{% if row.property %}{{ row.property.type.xpinitialprize }}{% else %}{{ row.newpropertytype.xpinitialprize }}{% endif %}</td>
+                    <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                     <td>{{ row.timestamp }}</td>
                 </tr>
             {% endfor %}
