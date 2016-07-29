@@ -1,5 +1,6 @@
 {% extends 'charactersheet.html' %}
 {% load staticfiles %}
+{% load dataTools %}
 
 {% block title %}Boon overview: Master & slave boons for {{ character.firstname }}
     {{ character.lastname }} {% endblock %}
@@ -84,20 +85,22 @@
                     <td>{{ row.category.name }}</td>
                     <td>{{ row.note }}</td>
                     <td>{{ row.timestamp }}</td>
-                    <td>{{ row.approvedbygm }}</td>
+                    <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
+                    <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
+                    {% comment %}<td>{{ row.STATUS|getValue:row.approvedbygm|slugify }}</td>{% endcomment %}
                     <td>
-                        {% if row.approvedbyslave != 'waiting' %}{{ row.approvedbyslave }}{% else %}
-                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave "1"%}">Accept boon</a> /
-                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave "2"%}">Decline boon</a> / {% endif %}
+                        {% if row.approvedbyslave == row.STATUS.waiting|slugify %}
+                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.accepted %}">Accept</a> /
+                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.declined %}">Decline</a>
+                        {% else %}
+                            {{ row.STATUS|getValue:row.approvedbyslave }}
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
-
-
-
 
 
 {% endblock %}

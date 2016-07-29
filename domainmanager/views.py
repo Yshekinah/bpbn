@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
-from django.shortcuts import render, get_object_or_404
 
-from .forms import CharacterForm, CharacterPropertyFormSet, CharacterFormCreate, BoonForm
+from .forms import BoonForm, CharacterForm, CharacterFormCreate, CharacterPropertyFormSet
 from .logic import characterTools
-from .models import Character, Person, Clan, Vampire, Xpearned, Xpspent, Boon
+from .models import Boon, Character, Clan, Person, Vampire, Xpearned, Xpspent
 
 
 # Create your views here.
@@ -176,20 +176,28 @@ def characterboon_validation(request, boon_id, hash, answer):
     boon = get_object_or_404(Boon, pk=boon_id)
 
     if boon.hash_gm == hash:
-        if answer == "1":
-            boon.approvedbygm = 'accepted'
+        if answer == str(boon.STATUS.accepted):
+            boon.approvedbygm = boon.STATUS.accepted
         else:
-            boon.approvedbygm = 'declined'
+            boon.approvedbygm = boon.STATUS.declined
 
     if boon.hash_slave == hash:
-        if answer == "1":
-            boon.approvedbyslave = 'accepted'
+        if answer == str(boon.STATUS.accepted):
+            boon.approvedbyslave = boon.STATUS.accepted
         else:
-            boon.approvedbyslave = 'declined'
+            boon.approvedbyslave = boon.STATUS.declined
 
     boon.save()
 
     return redirect('domainmanager:characterboonsummary', boon.slave.id)
+
+
+@login_required()
+def charactershopping(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+
+    #context = {'character': character, 'form': form}
+    pass
 
 
 @login_required()

@@ -3,9 +3,9 @@ from datetime import date
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from model_utils import Choices
 from model_utils import FieldTracker
 from model_utils.fields import StatusField
-from model_utils import Choices
 
 
 class Country(models.Model):
@@ -207,6 +207,10 @@ class CharacterProperty(models.Model):
             self.value)
 
 
+class CharacterShopping(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+
+
 class BoonCategory(models.Model):
     name = models.CharField(max_length=200)
     weight = models.IntegerField(default=0)
@@ -216,21 +220,31 @@ class BoonCategory(models.Model):
 
 
 class Boon(models.Model):
-    STATUS = Choices('waiting', 'accepted', 'declined')
+    # _ see: http://stackoverflow.com/questions/5893163/what-is-the-purpose-of-the-single-underscore-variable-in-python
+    # could use it in future versions for a translations
+    # STATUS = Choices(('draft', _('draft')), ('published', _('published')))
+    STATUS = Choices((1, 'waiting', 'Waiting'), (2, 'accepted', 'Accepted'), (3, 'declined', 'Declined'), (4, 'resolved', 'Resolved'))
     master = models.ForeignKey(Character, related_name='master', blank=True, null=True)
     slave = models.ForeignKey(Character, related_name='slave')
     category = models.ForeignKey(BoonCategory, related_name='category')
     note = models.TextField(default="please fill out a short decription")
-    approvedbygm = StatusField()
-    #approvedbygm = models.BooleanField(default=False)
-    approvedbygm_note = models.TextField(default="Place for additional notes")
-    approvedbyslave = StatusField()
-    #approvedbyslave = models.BooleanField(default=False)
-    approvedbyslave_note = models.TextField(default="Place for additional notes")
-    hash_slave = models.CharField(max_length=20, default="")
-    hash_gm = models.CharField(max_length=20, default="")
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+
+    # GM
+    approvedbygm = StatusField(choices=STATUS, default=STATUS.waiting)
+    approvedbygm_note = models.TextField(default="Place for additional notes")
+    hash_gm = models.CharField(max_length=20, default="")
+    # SLAVE
+    approvedbyslave = StatusField(choices=STATUS, default=STATUS.waiting)
+    approvedbyslave_note = models.TextField(default="Place for additional notes")
+    hash_slave = models.CharField(max_length=20, default="")
+    # MASTER
+    approvedbymaster = StatusField(choices=STATUS, default=STATUS.waiting)
+    approvedbymaster_note = models.TextField(default="Place for additional notes")
+    hash_master = models.CharField(max_length=20, default="")
+
+
 
     def __str__(self):
         return self.slave.firstname + " " + self.slave.lastname + " owes a " + self.category.name + " to " + self.master.firstname + " " + self.master.lastname
