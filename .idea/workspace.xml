@@ -2,25 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dffe59e0-7d3b-45dc-8ae6-6a1eda29f76b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domainmanager/logic/adminTools.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/adminbasket.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/adminboons.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterbasket.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/admin.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/apps.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/migrations/0002_auto_20160502_2110.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/models.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/templates/polls/detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/templates/polls/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/templates/polls/results.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/tests.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/urls.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/polls/views.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/admin.py" afterPath="$PROJECT_DIR$/domainmanager/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/forms.py" afterPath="$PROJECT_DIR$/domainmanager/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/logic/characterTools.py" afterPath="$PROJECT_DIR$/domainmanager/logic/characterTools.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/models.py" afterPath="$PROJECT_DIR$/domainmanager/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactershopping.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactershopping.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/playersummary.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/playersummary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/urls.py" afterPath="$PROJECT_DIR$/domainmanager/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/views.py" afterPath="$PROJECT_DIR$/domainmanager/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bpbn/settings.py" afterPath="$PROJECT_DIR$/bpbn/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bpbn/urls.py" afterPath="$PROJECT_DIR$/bpbn/urls.py" />
     </list>
     <ignored path="bpbn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,21 +109,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="characterTools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/logic/characterTools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#783#1005#0" expanded="false" />
-                <element signature="e#1056#1441#0" expanded="false" />
-                <element signature="e#1488#1661#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,17 +131,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="characterboonsummary.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="97" column="25" selection-start-line="88" selection-start-column="20" selection-end-line="97" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="448">
@@ -167,6 +139,16 @@
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bpbn/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -189,11 +171,21 @@
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="204">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="23" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bpbn/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -215,7 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/header.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/footer.html" />
         <option value="$PROJECT_DIR$/domainmanager/updateCharacter.py" />
         <option value="$PROJECT_DIR$/domainmanager/characterManager.py" />
@@ -243,7 +234,6 @@
         <option value="$PROJECT_DIR$/domainmanager/static/css/charactersheet.css" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterproperties_edit.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterinformation_edit.html" />
-        <option value="$PROJECT_DIR$/bpbn/settings.py" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterxp.html" />
         <option value="$PROJECT_DIR$/domainmanager/static/css/base.css" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/form.html" />
@@ -266,6 +256,8 @@
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/adminboons.html" />
         <option value="$PROJECT_DIR$/domainmanager/views.py" />
         <option value="$PROJECT_DIR$/domainmanager/urls.py" />
+        <option value="$PROJECT_DIR$/bpbn/urls.py" />
+        <option value="$PROJECT_DIR$/bpbn/settings.py" />
       </list>
     </option>
   </component>
@@ -789,25 +781,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bpbn/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bpbn/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bpbn/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,16 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/domainmanager/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1237,6 +1204,32 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpbn/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bpbn/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
