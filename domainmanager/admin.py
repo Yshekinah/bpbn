@@ -28,6 +28,7 @@ admin.site.register(Event)
 admin.site.register(Xpearned)
 admin.site.register(Xpspent)
 admin.site.register(ClanProperty)
+admin.site.register(CharacterShopping)
 
 
 # Define an inline admin descriptor for Employee model

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load dataTools %}
+
+{% block title %}GM overview for all player baskets{% endblock %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>GM Shopping cart</h3>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Player</th>
+                <th>Character</th>
+                <th>New property</th>
+                <th>New property type</th>
+                <th>New property prize</th>
+                <th>Approval / Decline by GM</th>
+                <th>Timestamp</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in basket %}
+                <tr>
+                    <td>{{ item.character.player}}</td>
+                    <td>{{ item.character.firstname }} {{ item.character.lastname }} </td>
+                    <td>{% if item.property %}{{ item.property }}{% else %}{{ item.newproperty }}{% endif %}</td>
+                    <td>{% if item.property %}{{ item.property.type.name }}{% else %}{{ item.newpropertytype }}{% endif %}</td>
+                    <td>{% if item.property %}{{ item.property.type.xpinitialprize}}{% else %}{{ item.newpropertytype.xpinitialprize }}{% endif %}</td>
+                    <!-- give item.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
+                    <td>
+                        {% if item.approvedbygm == item.STATUS.waiting|slugify %}
+                            <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.accepted %}">Accept</a> /
+                            <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.declined %}">Decline</a>
+                        {% else %}
+                            {{ item.STATUS|getValue:item.approvedbygm }}
+                        {% endif %}
+                    </td>
+
+                    <td>{{ item.timestamp }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

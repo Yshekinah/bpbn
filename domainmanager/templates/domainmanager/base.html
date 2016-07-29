@@ -14,6 +14,8 @@
           integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
     {% load staticfiles %}
+    <!-- Load custom templates and filters -->
+    {% load dataTools %}
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
@@ -40,7 +42,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="http://127.0.0.1:8000/admin/">Admin area</a></li>
+                <li><a href="http://127.0.0.1:8000/admin/">Django admin</a></li>
+                <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
+                <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
             </ul>
         </div>
     </div>

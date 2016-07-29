@@ -11,6 +11,8 @@
                 class="glyphicon glyphicon-plus"></span>Create new character</a></li>
         <li><a href="{% url 'domainmanager:characterboon_create' character.id %}"><span
                 class="glyphicon glyphicon-plus"></span>Create a boon</a></li>
+        <li><a href="{% url 'domainmanager:charactershopping' character.id %}"><span
+                class="glyphicon glyphicon-plus"></span>Buy something</a></li>
     </ul>
 {% endblock %}
 
@@ -18,13 +20,10 @@
     {% block panel-nav %}
         <div class="panel-heading">
             <ul class="nav nav-tabs">
-                <li class="active" id="panel-charactersheet"><a
-                        href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
-                <li id="panel-characterxpsummary"><a
-                        href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a>
-                </li>
-                <li id="panel-boons"><a href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a>
-                </li>
+                <li class="active" id="panel-charactersheet"><a href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
+                <li id="panel-characterxpsummary"><a href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a></li>
+                <li id="panel-boons"><a href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a></li>
+                <li id="panel-shopping"><a href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
             </ul>
         </div>
     {% endblock panel-nav %}

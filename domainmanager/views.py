@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
-from .forms import BoonForm, CharacterForm, CharacterFormCreate, CharacterPropertyFormSet
-from .logic import characterTools
-from .models import Boon, Character, Clan, Person, Vampire, Xpearned, Xpspent
+from .forms import BoonForm, CharacterForm, CharacterFormCreate, CharacterProperty, CharacterPropertyFormSet, CharacterShoppingForm
+from .logic import adminTools, characterTools
+from .models import Boon, Character, CharacterShopping, Clan, Person, Property, Vampire, Xpearned, Xpspent
 
 
 # Create your views here.
@@ -175,12 +175,6 @@ def characterboon_create(request, character_id):
 def characterboon_validation(request, boon_id, hash, answer):
     boon = get_object_or_404(Boon, pk=boon_id)
 
-    if boon.hash_gm == hash:
-        if answer == str(boon.STATUS.accepted):
-            boon.approvedbygm = boon.STATUS.accepted
-        else:
-            boon.approvedbygm = boon.STATUS.declined
-
     if boon.hash_slave == hash:
         if answer == str(boon.STATUS.accepted):
             boon.approvedbyslave = boon.STATUS.accepted
@@ -196,8 +190,53 @@ def characterboon_validation(request, boon_id, hash, answer):
 def charactershopping(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
-    #context = {'character': character, 'form': form}
-    pass
+    if request.method == 'POST':
+        form = CharacterShoppingForm(request.POST)
+
+        # As this form was not automatically created by a model
+        # we also have to fill out the values manually
+        if form.is_valid():
+            purchasedProperty = CharacterShopping()
+            if form.cleaned_data['property']:
+                purchasedProperty.property = form.cleaned_data['property']
+            if form.cleaned_data['newproperty']:
+                purchasedProperty.newproperty = form.cleaned_data['newproperty']
+            if form.cleaned_data['newpropertytype']:
+                purchasedProperty.newpropertytype = form.cleaned_data['newpropertytype']
+
+            purchasedProperty.character = character
+            purchasedProperty.hash_gm = characterTools.random_string(20)
+            purchasedProperty.save()
+
+        return redirect('domainmanager:characterbasket', character_id)
+
+    else:
+
+        characterProperties = CharacterProperty.objects.filter(character=character)
+
+        list = []
+        for characterProperty in characterProperties:
+            list.append(characterProperty.property.pk)
+
+        form = CharacterShoppingForm()
+
+        # Remove all properties from the selectbox which
+        # the character already owns
+        form.fields['property'].queryset = Property.objects.exclude(id__in=list).order_by('type')
+        form.fields['character'] = character
+
+    context = {'character': character, 'form': form}
+    return render(request, 'domainmanager/charactershopping.html', context)
+
+
+@login_required()
+def characterbasket(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+
+    basket = CharacterShopping.objects.filter(character=character).order_by('-timestamp')
+
+    context = {'character': character, 'basket': basket}
+    return render(request, 'domainmanager/characterbasket.html', context)
 
 
 @login_required()
@@ -218,3 +257,56 @@ def genealogy(request):
     context = {'vampires': vampires}
 
     return render(request, 'domainmanager/genealogy.html', context)
+
+
+#############################################################ADMINAREA#############################################################
+
+@login_required()
+def adminboons(request):
+    adminTools.checkAdmin(request)
+
+    boons = Boon.objects.all().exclude(approvedbyslave__exact=Boon.STATUS.declined)
+
+    context = {'boons': boons}
+    return render(request, 'domainmanager/adminboons.html', context)
+
+
+@login_required()
+def adminbasket(request):
+    adminTools.checkAdmin(request)
+
+    basket = CharacterShopping.objects.filter(approvedbygm__exact=CharacterShopping.STATUS.waiting)
+
+    context = {'basket': basket}
+    return render(request, 'domainmanager/adminbasket.html', context)
+
+
+@login_required()
+def adminshopping_validation(request, property_id, hash, answer):
+    adminTools.checkAdmin(request)
+    property = get_object_or_404(CharacterShopping, pk=property_id)
+
+    if property.hash_gm == hash:
+        if answer == str(property.STATUS.accepted):
+            property.approvedbygm = property.STATUS.accepted
+        else:
+            property.approvedbygm = property.STATUS.declined
+
+    property.save()
+    return render(request, 'domainmanager/adminbasket.html')
+
+
+@login_required()
+def adminboon_validation(request, boon_id, hash, answer):
+    adminTools.checkAdmin(request)
+    boon = get_object_or_404(Boon, pk=boon_id)
+
+    if boon.hash_gm == hash:
+        if answer == str(boon.STATUS.accepted):
+            boon.approvedbygm = boon.STATUS.accepted
+        else:
+            boon.approvedbygm = boon.STATUS.declined
+
+    boon.save()
+
+    return redirect('domainmanager:adminboons')

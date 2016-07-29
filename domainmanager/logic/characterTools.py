@@ -5,18 +5,20 @@ from django.db import transaction
 from django.db.models import Sum
 from django.shortcuts import get_list_or_404
 
-from domainmanager.models import Property, CharacterProperty, ClanProperty, Xpspent, Xpearned
+from domainmanager.models import CharacterProperty, ClanProperty, Property, Xpearned, Xpspent
 
 
-# Create initial character propertes
-# 1 ... Abilites
+# Create initial character properties
+# property types are:
+# 1 ... Abilities
 # 2 ... Attributes
 # 3 ... Backgrounds
 def createInitialProperties(character):
-    properties = Property.objects.filter(domain__exact=character.domain).filter(type__in=[1, 2, 3])
+    properties = Property.objects.filter(domain__exact=character.domain).filter(initalizeatcharactercreation__exact=Property.STATUS.yes)
 
+    # initialze all initalizecharactercreation properties with value = 1
     for property in properties:
-        cp = CharacterProperty(character=character, property=property, value=property.initial)
+        cp = CharacterProperty(character=character, property=property, value=1)
         cp.save()
 
 
@@ -87,6 +89,7 @@ def checkXP(character, characterProperties):
     except ValueError:
 
         return False
+
 
 # Returns the current spendable XP of a character
 def getXPforCharacter(character):
