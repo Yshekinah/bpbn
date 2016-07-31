@@ -89,8 +89,8 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col-md-3">
-                    <h3>Properties<!-- <a href="{% url 'domainmanager:characterproperties_edit' character.id %}" class="top-menu"><span
-                            class="glyphicon glyphicon-pencil"></span></a>--></h3>
+                    <h3>Properties{% comment %}<a href="{% url 'domainmanager:characterproperties_edit' character.id %}" class="top-menu"><span
+                            class="glyphicon glyphicon-pencil"></span></a>{% endcomment %}</h3>
                 </div>
             </div>
         </div>
@@ -141,43 +141,58 @@
             </div>
             <div class="row">
                 <div class="col-md-2">Brawl</div>
-                <div class="col-md-1">{{ properties.Brawl.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Brawl.value }}{% renderLvlUpButton properties.Brawl.id properties.Brawl.value properties.Brawl.name %}</div>
                 <div class="col-md-2">Melee</div>
-                <div class="col-md-1">{{ properties.Melee.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Melee.value }}{% renderLvlUpButton properties.Melee.id properties.Melee.value properties.Melee.name %}</div>
                 <div class="col-md-2">Occult</div>
-                <div class="col-md-1">{{ properties.Occult.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Occult.value }}{% renderLvlUpButton properties.Occult.id properties.Occult.value properties.Occult.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-2">Dodge</div>
-                <div class="col-md-1">{{ properties.Dodge.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Dodge.value }}{% renderLvlUpButton properties.Dodge.id properties.Dodge.value properties.Dodge.name %}</div>
                 <div class="col-md-2">Firearms</div>
-                <div class="col-md-1">{{ properties.Firearms.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Firearms.value }}{% renderLvlUpButton properties.Firearms.id properties.Firearms.value properties.Firearms.name %}</div>
                 <div class="col-md-2">Cainite Lore</div>
-                <div class="col-md-1">{{ properties.Cainite_Lore.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Cainite_Lore.value }}{% renderLvlUpButton properties.Cainite_Lore.id properties.Cainite_Lore.value properties.Cainite_Lore.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-2">Manipulation</div>
-                <div class="col-md-1">{{ properties.Manipulation.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Manipulation.value }}{% renderLvlUpButton properties.Manipulation.id properties.Manipulation.value properties.Manipulation.name %}</div>
                 <div class="col-md-2">Stealth</div>
-                <div class="col-md-1">{{ properties.Stealth.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Stealth.value }}{% renderLvlUpButton properties.Stealth.id properties.Stealth.value properties.Stealth.name %}</div>
                 <div class="col-md-2">Linguistics</div>
-                <div class="col-md-1">{{ properties.Linguistics.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Linguistics.value }}{% renderLvlUpButton properties.Linguistics.id properties.Linguistics.value properties.Linguistics.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-2">Empathy</div>
-                <div class="col-md-1">{{ properties.Empathy.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Empathy.value }}{% renderLvlUpButton properties.Empathy.id properties.Empathy.value properties.Empathy.name %}</div>
                 <div class="col-md-2">Meditation</div>
-                <div class="col-md-1">{{ properties.Meditation.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Meditation.value }}{% renderLvlUpButton properties.Meditation.id properties.Meditation.value properties.Meditation.name %}</div>
                 <div class="col-md-2">Academics</div>
-                <div class="col-md-1">{{ properties.Academics.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Academics.value }}{% renderLvlUpButton properties.Academics.id properties.Academics.value properties.Academics.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-2">Survival</div>
-                <div class="col-md-1">{{ properties.Survival.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Survival.value }}{% renderLvlUpButton properties.Survival.id properties.Survival.value properties.Survival.name %}</div>
                 <div class="col-md-2">Electronics</div>
-                <div class="col-md-1">{{ properties.Electronics.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Electronics.value }}{% renderLvlUpButton properties.Electronics.id properties.Electronics.value properties.Electronics.name %}</div>
                 <div class="col-md-2">Science</div>
-                <div class="col-md-1">{{ properties.Science.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Science.value }}{% renderLvlUpButton properties.Science.id properties.Science.value properties.Science.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -185,26 +200,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2">Generation</div>
-                <div class="col-md-1">{{ properties.Generation.value }}</div>
+                <div class="col-md-2">
+                    Generation</div>
+                <div class="col-md-1">
+                    {{ properties.Generation.value }}{% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
                 <div class="col-md-2">Mentor</div>
-                <div class="col-md-1">{{ properties.Mentor.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Mentor.value }}{% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-2">Resources</div>
-                <div class="col-md-1">{{ properties.Resources.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Resources.value }}{% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
                 <div class="col-md-2">Library</div>
-                <div class="col-md-1">{{ properties.Library.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Library.value }}{% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-2">Herd</div>
-                <div class="col-md-1">{{ properties.Herd.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Herd.value }}{% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
                 <div class="col-md-2">Haven</div>
-                <div class="col-md-1">{{ properties.Haven.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Haven.value }}{% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-2">Retainers</div>
-                <div class="col-md-1">{{ properties.Retainers.value }}</div>
+                <div class="col-md-1">
+                    {{ properties.Retainers.value }}{% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
             </div>
             <div class="row">
                 <div class="col-md-3">

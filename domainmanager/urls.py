@@ -45,7 +45,7 @@ urlpatterns = [
 
     # Create / Edit one character's properties
     #  ex: /domainmanager/characterproperties/1/edit
-    url(r'^characterproperties/(?P<character_id>[0-9]+)/edit/', views.characterproperties_edit, name='characterproperties_edit'),
+    # url(r'^characterproperties/(?P<character_id>[0-9]+)/edit/', views.characterproperties_edit, name='characterproperties_edit'),
 
     # Buy new character stuff e.g. disciplines, rituals, etc...
     #  ex: /domainmanager/charactershopping/1

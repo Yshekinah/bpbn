@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
-from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterProperty, CharacterPropertyFormSet, CharacterShoppingForm
+from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterProperty, CharacterShoppingForm
 from .logic import adminTools, characterTools
 from .models import Boon, Character, CharacterShopping, Clan, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
@@ -265,16 +265,18 @@ def playersummary(request, player_id):
 
 @login_required()
 def lvlup(request, characterproperty_id):
-
-    characterProperty = CharacterProperty.objects.get(pk = characterproperty_id)
+    characterProperty = CharacterProperty.objects.get(pk=characterproperty_id)
     character_id = characterProperty.character.pk
-    characterProperties = CharacterProperty.objects.filter(pk = characterproperty_id)
+    characterProperties = CharacterProperty.objects.filter(pk=characterproperty_id)
 
-    characterTools.checkXP(characterProperty.character, characterProperties)
-    characterProperty.value += 1
-    characterProperty.save()
+    # Is it the correct user?
+    if request.user.pk == characterProperty.character.player.pk:
+        characterTools.checkXP(characterProperty.character, characterProperties)
+        characterProperty.value += 1
+        characterProperty.save()
 
     return redirect('domainmanager:charactersheet', character_id)
+
 
 @login_required()
 def genealogy(request):
