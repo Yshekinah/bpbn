@@ -16,9 +16,15 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row">
-                <div class="col-md-5">
-                    <h3>Shopping cart</h3>
-                </div>
+                {% if basket %}
+                    <div class="col-md-5">
+                        <h3>Shopping cart contains {{ basket|length }} items</h3>
+                    </div>
+                {% else %}
+                    <div class="col-md-5">
+                        <h3>Shopping cart is empty</h3>
+                    </div>
+                {% endif %}
             </div>
         </div>
         <table class="table table-striped">

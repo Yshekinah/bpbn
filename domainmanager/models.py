@@ -119,24 +119,18 @@ class Property(models.Model):
     type = models.ForeignKey('PropertyType', related_name='type')
     domain = models.ForeignKey('Domain', related_name='property_domain', default=1)
     initalizeatcharactercreation = StatusField(choices=STATUS, default=STATUS.no)
-    """initial = models.IntegerField(
-        default=0,
-        validators=[
-            MaxValueValidator(10),
-            MinValueValidator(0)
-        ]
-    )"""
 
     def __str__(self):
         return self.name
 
 
 class Clan(models.Model):
+    STATUS = Choices((1, 'standard', 'Standard clan'), (2, 'restricted', 'Standard clan'))
     name = models.CharField(max_length=100)
     image = models.CharField(max_length=100, blank=True)
-    # bloodline = models.BooleanField(default=0)
     parent = models.ForeignKey('Clan', related_name='parentclan', blank=True, null=True)
     disciplines = models.ManyToManyField(Property, through='ClanProperty')
+    standardclan = StatusField(choices=STATUS, default=STATUS.standard)
 
     def __str__(self):
         return self.name
@@ -154,8 +148,8 @@ class Character(models.Model):
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
     nickname = models.CharField(max_length=200, blank=True)
-    firstname = models.CharField(max_length=200)
-    lastname = models.CharField(max_length=200, blank=True)
+    firstname = models.CharField(max_length=200, blank=True, null=True)
+    lastname = models.CharField(max_length=200, blank=True, null=True)
     generation = models.IntegerField(default=12)
     clan = models.ForeignKey(Clan)
     sect = models.ForeignKey(Sect, default=1)
@@ -176,16 +170,23 @@ class Character(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
     properties = models.ManyToManyField(Property, through='CharacterProperty')
+    secretclan = models.ForeignKey(Clan, related_name='secretclan', blank=True, null=True)
 
     def __str__(self):
         return self.salutation.name + " " + self.firstname + " " + self.lastname
 
 
 class PropertyType(models.Model):
+    STATUS = Choices((1, 'ability', 'Ability'), (2, 'attribute', 'Attribute'), (3, 'background', 'Background'),
+                     (4, 'secondaryability', 'Secondary Ability'), (5, 'discipline', 'Discipline'), (6, 'merit', 'Merit'),
+                     (7, 'flaw', 'Flaw'), (8, 'ritual', 'Ritual'), (9, 'thaumaturgicpath', 'Thaumaturgic Path'),
+                     (10, 'necromantic path', 'Necromantic Path'))
+
     name = models.CharField(max_length=100)
     domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)
     xpmultiplier = models.IntegerField(default=1)
     xpinitialprize = models.IntegerField(default=5)
+    stattype = StatusField(choices=STATUS, default=STATUS.secondaryability)
 
     def __str__(self):
         return self.name
@@ -222,7 +223,7 @@ class CharacterShopping(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        result  = self.character.firstname + " " + self.character.lastname + " "
+        result = self.character.firstname + " " + self.character.lastname + " "
         if self.property:
             result += self.property.name + " "
         if self.newproperty:
@@ -230,6 +231,7 @@ class CharacterShopping(models.Model):
         if self.newpropertytype:
             result += self.newpropertytype.name
         return result
+
 
 class BoonCategory(models.Model):
     name = models.CharField(max_length=200)
@@ -243,7 +245,7 @@ class Boon(models.Model):
     # _ see: http://stackoverflow.com/questions/5893163/what-is-the-purpose-of-the-single-underscore-variable-in-python
     # could use it in future versions for a translations
     # STATUS = Choices(('draft', _('draft')), ('published', _('published')))
-    STATUS = Choices((1, 'waiting', 'Waiting'), (2, 'accepted', 'Accepted'), (3, 'declined', 'Declined'), (4, 'resolved', 'Resolved'))
+    STATUS = Choices((1, 'waiting', 'Waiting for approval'), (2, 'accepted', 'Accepted'), (3, 'declined', 'Declined'), (4, 'resolved', 'Resolved'))
     master = models.ForeignKey(Character, related_name='master', blank=True, null=True)
     slave = models.ForeignKey(Character, related_name='slave')
     category = models.ForeignKey(BoonCategory, related_name='category')
@@ -289,7 +291,7 @@ class Xpspent(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + " spent " + self.value + " on " + self.property.name
+        return self.character.firstname + " " + self.character.lastname + " spent " + str(self.xpcost) + " on " + self.property.name
 
 
 ################################ GENEALOGY ################################

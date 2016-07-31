@@ -31,6 +31,7 @@
                 <th>Timestamp</th>
                 <th>Approved by GM</th>
                 <th>Approved by Slave</th>
+                <th>Approved by Master</th>
             </tr>
             </thead>
             <tbody>
@@ -40,8 +41,13 @@
                     <td>{{ row.category.name }}</td>
                     <td>{{ row.note }}</td>
                     <td>{{ row.timestamp }}</td>
-                    <td>{{ row.approvedbygm }}</td>
-                    <td>{{ row.approvedbyslave }}</td>
+                    <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
+                    <td>{{ row.STATUS|getValue:row.approvedbyslave }}</td>
+                    {% if row.approvedbymaster == row.STATUS.waiting|upper and row.approvedbyslave == row.STATUS.accepted|upper and row.approvedbygm == row.STATUS.accepted|upper %}
+                        <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">Mark as resolved</a></td>
+                    {% else %}
+                        <td>{{ row.STATUS|getValue:row.approvedbymaster }}</td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
@@ -77,7 +83,7 @@
                     <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                     <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
                     <td>
-                        {% if row.approvedbyslave == row.STATUS.waiting|slugify %}
+                        {% if row.approvedbyslave == row.STATUS.waiting|upper %}
                             <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.accepted %}">Accept</a> /
                             <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.declined %}">Decline</a>
                         {% else %}

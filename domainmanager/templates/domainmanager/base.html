@@ -38,7 +38,7 @@
         </div>
         <div class="row">
             <div class="col-md-2">
-                <a class="navbar-brand" href="#">Domainmanager</a>
+                <a class="navbar-brand" href="{% url 'domainmanager:index' %}">Domainmanager</a>
             </div>
             <div class="col-md-10">
 
@@ -63,7 +63,15 @@
                                 {% characterSelection request.user.id %}
                             </ul>
                         </li>
-                        <li><a href="{% url 'domainmanager:logout' %}">Logout</a></li>
+                        <li>
+                            {% if request.session.active_character_id %}
+                                <a href="{% url 'domainmanager:charactersheet' request.session.active_character_id %}">Current
+                                    character: {{ request.session.active_character_name|default:"No character selected" }}</a>
+                            {% else %}
+                                <a href="#">Current character: {{ request.session.active_character_name|default:"No character selected" }}</a>
+                            {% endif %}
+                        </li>
+                        <li align="right"><a href="{% url 'domainmanager:logout' %}">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -84,31 +92,33 @@
             </ul>
         </div>
         <div class="col-md-10">
-            {% block content %}PLEASE SELECT A CHARACTER{% endblock %}
+            {% block content %}
+                THERE could be a NEWS section here
+            {% endblock %}
         </div>
     </div>
 </div>
 
 
 {% block social %}
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-default">
         <div class="container">
             <ul class="nav navbar-nav">
-                <li><a href="mailto:conclave@budapestbynight.live">Mail</a></li>
-                <li><a href="https://www.facebook.com/bpbynight/">Facebook</a></li>
+                <li><a href="mailto:conclave@budapestbynight.live">Write us an Mail</a></li>
+                <li><a href="https://www.facebook.com/bpbynight/">Visit us on Facebook</a></li>
                 <li>
-                    <iframe
+                    <!--<iframe
                             src="https://platform.twitter.com/widgets/tweet_button.html?size=l&url=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&via=twitterdev&related=twitterapi%2Ctwitter&text=custom%20share%20text&hashtags=example%2Cdemo"
                             width="140"
                             height="28"
                             title="Twitter Tweet Button"
                             style="border: 0; overflow: hidden;">
-                    </iframe>
+                    </iframe>-->
                 </li>
                 <li>
-                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbpbynight%2F&width=49&layout=box_count&action=like&show_faces=true&share=true&height=65&appId"
+                    <!--<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbpbynight%2F&width=49&layout=box_count&action=like&show_faces=true&share=true&height=65&appId"
                             width="49" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                            allowTransparency="true"></iframe>
+                            allowTransparency="true"></iframe>-->
                 </li>
             </ul>
         </div>

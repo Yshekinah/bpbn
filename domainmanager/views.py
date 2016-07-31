@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
-from .forms import BoonForm, CharacterForm, CharacterFormCreate, CharacterProperty, CharacterPropertyFormSet, CharacterShoppingForm
+from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterProperty, CharacterPropertyFormSet, CharacterShoppingForm
 from .logic import adminTools, characterTools
-from .models import Boon, Character, CharacterShopping, Clan, Person, Property, Vampire, Xpearned, Xpspent
+from .models import Boon, Character, CharacterShopping, Clan, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
 
 # Create your views here.
@@ -46,9 +46,14 @@ def charactersheet(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
     properties = characterTools.getCleanCharacterProperties(character)
-    disciplines = characterTools.getCharacterDisciplines(character)
+    disciplines = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.discipline)
+    # getCharacterDisciplines(character)
 
     context = {'character': character, 'properties': properties, 'disciplines': disciplines}
+
+    request.session['active_character_id'] = character.pk
+    request.session['active_character_name'] = character.firstname + " " + character.firstname
+    request.session.modified = True
 
     return render(request, 'domainmanager/charactersheet.html', context)
 
@@ -70,6 +75,8 @@ def character_create(request):
             return redirect('domainmanager:characters')
     else:
         form = CharacterFormCreate()
+        # No non-standard clans in character creation
+        form.fields['clan'].queryset = Clan.objects.exclude(standardclan__exact=Clan.STATUS.restricted)
 
     return render(request, 'domainmanager/character_create.html', {'form': form})
 
@@ -80,7 +87,7 @@ def characterinformation_edit(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
     if request.method == "POST":
-        form = CharacterForm(request.POST, instance=character)
+        form = CharacterFormEdit(request.POST, instance=character)
 
         if form.is_valid():
             character = form.save()
@@ -91,10 +98,9 @@ def characterinformation_edit(request, character_id):
             for error in form.errors:
                 print(error)
     else:
-        form = CharacterForm(instance=character)
+        form = CharacterFormEdit(instance=character)
 
-        properties = characterTools.getCleanCharacterProperties(character)
-
+    properties = characterTools.getCleanCharacterProperties(character)
     context = {'form': form, 'character': character, 'properties': properties,}
 
     return render(request, 'domainmanager/characterinformation_edit.html', context)
@@ -162,6 +168,7 @@ def characterboon_create(request, character_id):
             boon.master = character
             boon.hash_gm = characterTools.random_string(20)
             boon.hash_slave = characterTools.random_string(20)
+            boon.hash_master = characterTools.random_string(20)
             boon.save()
 
             return redirect('domainmanager:charactersheet', character_id)
@@ -179,10 +186,10 @@ def characterboon_validation(request, boon_id, hash, answer):
     boon = get_object_or_404(Boon, pk=boon_id)
 
     if boon.hash_slave == hash:
-        if answer == str(boon.STATUS.accepted):
-            boon.approvedbyslave = boon.STATUS.accepted
-        else:
-            boon.approvedbyslave = boon.STATUS.declined
+        boon.approvedbyslave = answer
+
+    if boon.hash_master == hash:
+        boon.approvedbymaster = answer
 
     boon.save()
 
@@ -278,7 +285,7 @@ def adminboons(request):
 def adminbasket(request):
     adminTools.checkAdmin(request)
 
-    basket = CharacterShopping.objects.filter(approvedbygm__exact=CharacterShopping.STATUS.waiting)
+    basket = CharacterShopping.objects.filter(approvedbygm__exact=CharacterShopping.STATUS.waiting).order_by('-timestamp')
 
     context = {'basket': basket}
     return render(request, 'domainmanager/adminbasket.html', context)
@@ -292,10 +299,15 @@ def adminshopping_validation(request, property_id, hash, answer):
     if property.hash_gm == hash:
         if answer == str(property.STATUS.accepted):
             property.approvedbygm = property.STATUS.accepted
+            property.save()
+
+            # handle property creation (if manually created) and XP payment
+            adminTools.addPropertytoCharacter(property, property.character)
+
         else:
             property.approvedbygm = property.STATUS.declined
+            property.save()
 
-    property.save()
     return render(request, 'domainmanager/adminbasket.html')
 
 

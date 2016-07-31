@@ -44,10 +44,13 @@ def getCleanCharacterProperties(character):
 
 
 def getCharacterDisciplines(character):
-    characterDisciplines = CharacterProperty.objects.all().filter(character=character).filter(
+    return CharacterProperty.objects.filter(character=character).filter(
         property__type__name__exact='Discipline')
 
-    return characterDisciplines
+
+def getCharacterProportiesOfType(character, type):
+    return CharacterProperty.objects.filter(character=character).filter(
+        property__type__stattype__exact=type)
 
 
 # immer das nächste Level

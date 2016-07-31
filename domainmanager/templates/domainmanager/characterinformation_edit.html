@@ -14,27 +14,48 @@
         {% block characterheader %}
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <h3>General Information</h3>
                     </div>
                 </div>
+            </div>
+            <div class="panel-body">
                 <div class="row">
                     <form method="post" action="">{% csrf_token %}
                         {{ form.non_field_errors }}
                         <div class="col-md-8">
-                            <div class="headerpanel">{{ form.firstname.label_tag }} {{ form.firstname }}</div>
-                            {{ form.lastname.errors }}
-                            <div class="headerpanel">{{ form.lastname.label_tag }} {{ form.lastname }}</div>
-                            {{ form.nickname.errors }}
-                            <div class="headerpanel">{{ form.nickname.label_tag }} {{ form.nickname }}</div>
-                            {{ form.clan.errors }}
-                            <div class="headerpanel">{{ form.clan.label_tag }} {{ form.clan }}</div>
-                            {{ form.generation.errors }}
-                            <div class="headerpanel">{{ form.generation.label_tag }} {{ form.generation }}</div>
-                            {{ form.sire.errors }}
-                            <div class="headerpanel">{{ form.sire.label_tag }} {{ form.sire }}</div>
-                            </h3>
-                            <button type="submit" class="save btn btn-default">Save</button>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {{ form.firstname.errors }}
+                                    {{ form.firstname.label_tag }}
+                                </div>
+                                <div class="col-md-4">
+                                    {{ form.firstname }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {{ form.lastname.errors }}
+                                    {{ form.lastname.label_tag }}
+                                </div>
+                                <div class="col-md-4">
+                                    {{ form.lastname }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {{ form.nickname.errors }}
+                                    {{ form.nickname.label_tag }}
+                                </div>
+                                <div class="col-md-4">
+                                    {{ form.nickname }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="headerpanel col-md-6" align="right">
+                                    <button type="submit" class="save btn btn-default">Save</button>
+                                </div>
+                            </div>
                         </div>
                         {% block characterlogo %}
                             {{ block.super }}
