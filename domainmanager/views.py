@@ -47,9 +47,15 @@ def charactersheet(request, character_id):
 
     properties = characterTools.getCleanCharacterProperties(character)
     disciplines = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.discipline)
+    rituals = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.ritual)
+    thaumaturgicpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.thaumaturgicpath)
+    necromanticpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.necromanticpath)
+    xpleft = characterTools.getXPforCharacter(character)
+
     # getCharacterDisciplines(character)
 
-    context = {'character': character, 'properties': properties, 'disciplines': disciplines}
+    context = {'character': character, 'properties': properties, 'disciplines': disciplines, 'rituals': rituals,
+               'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft}
 
     request.session['active_character_id'] = character.pk
     request.session['active_character_name'] = character.firstname + " " + character.firstname
@@ -93,10 +99,7 @@ def characterinformation_edit(request, character_id):
             character = form.save()
             character.save()
             return redirect('domainmanager:charactersheet', character_id)
-        else:
-            print("ERROR!")
-            for error in form.errors:
-                print(error)
+
     else:
         form = CharacterFormEdit(instance=character)
 
@@ -106,32 +109,32 @@ def characterinformation_edit(request, character_id):
     return render(request, 'domainmanager/characterinformation_edit.html', context)
 
 
-@login_required()
-def characterproperties_edit(request, character_id):
-    character = get_object_or_404(Character, pk=character_id)
-
-    if request.method == "POST":
-        propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
-
-        if propertiesForm.is_valid():
-
-            savedProperties = propertiesForm.save(commit=False)
-
-            lvlUpResult = characterTools.checkXP(character=character, characterProperties=savedProperties)
-
-            if lvlUpResult == True:
-                propertiesForm.save(commit=True)
-
-                return redirect('domainmanager:charactersheet', character_id)
-        else:
-            for error in propertiesForm.errors:
-                print(error)
-
-    else:  # FUNKTIONIERT!
-        propertiesForm = CharacterPropertyFormSet(instance=character)
-
-    context = {'character': character, 'propertiesForm': propertiesForm}
-    return render(request, 'domainmanager/characterproperties_edit.html', context)
+# @login_required()
+# def characterproperties_edit(request, character_id):
+#     character = get_object_or_404(Character, pk=character_id)
+#
+#     if request.method == "POST":
+#         propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
+#
+#         if propertiesForm.is_valid():
+#
+#             savedProperties = propertiesForm.save(commit=False)
+#
+#             lvlUpResult = characterTools.checkXP(character=character, characterProperties=savedProperties)
+#
+#             if lvlUpResult == True:
+#                 propertiesForm.save(commit=True)
+#
+#                 return redirect('domainmanager:charactersheet', character_id)
+#         else:
+#             for error in propertiesForm.errors:
+#                 print(error)
+#
+#     else:  # FUNKTIONIERT!
+#         propertiesForm = CharacterPropertyFormSet(instance=character)
+#
+#     context = {'character': character, 'propertiesForm': propertiesForm}
+#     return render(request, 'domainmanager/characterproperties_edit.html', context)
 
 
 @login_required()
@@ -259,6 +262,19 @@ def playersummary(request, player_id):
 
     return render(request, 'domainmanager/playersummary.html', context)
 
+
+@login_required()
+def lvlup(request, characterproperty_id):
+
+    characterProperty = CharacterProperty.objects.get(pk = characterproperty_id)
+    character_id = characterProperty.character.pk
+    characterProperties = CharacterProperty.objects.filter(pk = characterproperty_id)
+
+    characterTools.checkXP(characterProperty.character, characterProperties)
+    characterProperty.value += 1
+    characterProperty.save()
+
+    return redirect('domainmanager:charactersheet', character_id)
 
 @login_required()
 def genealogy(request):

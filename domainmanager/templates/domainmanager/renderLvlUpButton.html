@@ -1,0 +1,6 @@
+{% if xpCost %}
+    <button type="button" class="btn btn-info btn-sm"
+            onclick="javascript:showLvlDialog({{ characterproperty.pk }} , {{ characterproperty.value }} , '{{ characterproperty.property.name }}', {{ xpCost }})">
+        +
+    </button>
+{% endif %}

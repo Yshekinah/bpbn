@@ -180,7 +180,7 @@ class PropertyType(models.Model):
     STATUS = Choices((1, 'ability', 'Ability'), (2, 'attribute', 'Attribute'), (3, 'background', 'Background'),
                      (4, 'secondaryability', 'Secondary Ability'), (5, 'discipline', 'Discipline'), (6, 'merit', 'Merit'),
                      (7, 'flaw', 'Flaw'), (8, 'ritual', 'Ritual'), (9, 'thaumaturgicpath', 'Thaumaturgic Path'),
-                     (10, 'necromantic path', 'Necromantic Path'))
+                     (10, 'necromanticpath', 'Necromantic Path'))
 
     name = models.CharField(max_length=100)
     domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)

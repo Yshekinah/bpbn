@@ -38,7 +38,8 @@ def getCleanCharacterProperties(character):
     # Add all character properties into a "clean" dict, so it can be accessed more easily
     # PropertyType is not used
     for cproperty in characterProperties:
-        cleanProperties[cproperty.property.name.replace(" ", "_")] = str(cproperty.value)
+        cleanProperties[cproperty.property.name.replace(" ", "_")] = {'id': str(cproperty.id), 'value': str(cproperty.value),
+                                                                      'name': cproperty.property.name}
 
     return cleanProperties
 
@@ -71,11 +72,15 @@ def checkXP(character, characterProperties):
                 oldValue = property.tracker.previous('value')
                 newValue = property.value
                 xPCost = 0
-                xPMultiplier = 0
 
                 # New value must not be smaller than old value
                 if newValue < oldValue:
                     raise ValueError()
+
+                # This IF is only used if you access the functon from
+                # the character sheets lvlUp button
+                if newValue == oldValue:
+                    newValue += 1
 
                 for i in range(oldValue + 1, newValue + 1):
                     xPCost = xPCost + (i * property.property.type.xpmultiplier)
@@ -98,6 +103,12 @@ def checkXP(character, characterProperties):
 def getXPforCharacter(character):
     xpearned = Xpearned.objects.filter(character=character).aggregate(Sum('value'))['value__sum']
     xpspent = Xpspent.objects.filter(character=character).aggregate(Sum('xpcost'))['xpcost__sum']
+
+    if xpearned == None:
+        xpearned = 0
+
+    if xpspent == None:
+        xpspent = 0
 
     return xpearned - xpspent
 
