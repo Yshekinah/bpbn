@@ -1,12 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% load dataTools %}
+{% load customTags %}
 
 {% block title %}GM Boon overview{% endblock %}
-
-{% block sidebar %}
-    {{ block.super }}
-{% endblock %}
 
 {% block content %}
 
@@ -14,44 +10,23 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col-md-5">
-                    <h3>Boons</h3>
+                    <h3>Boons that need validation</h3>
                 </div>
             </div>
         </div>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Master</th>
-                <th>Slave</th>
-                <th>Category</th>
-                <th>Note</th>
-                <th>Timestamp</th>
-                <th>Approval / Decline by GM</th>
-                <th>Approved by Slave</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for boon in boons %}
-                <tr>
-                    <td>{{ boon.master.firstname }} {{ boon.master.lastname }}</td>
-                    <td>{{ boon.slave.firstname }} {{ boon.slave.lastname }}</td>
-                    <td>{{ boon.category.name }}</td>
-                    <td>{{ boon.note }}</td>
-                    <td>{{ boon.timestamp }}</td>
-                    <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
-                    <td>
-                        {% if boon.approvedbygm == boon.STATUS.waiting|slugify %}
-                            <a href="{% url 'domainmanager:adminboon_validation' boon.id boon.hash_gm boon.STATUS.accepted %}">Accept</a> /
-                            <a href="{% url 'domainmanager:adminboon_validation' boon.id boon.hash_gm boon.STATUS.declined %}">Decline</a>
-                        {% else %}
-                            {{ boon.STATUS|getValue:boon.approvedbygm }}
-                        {% endif %}
-                    </td>
-                    <td>{{ boon.STATUS|getValue:boon.approvedbyslave }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        {% renderAdminBoonsTable currentBoons %}
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Boons logbook</h3>
+                </div>
+            </div>
+        </div>
+        {% renderAdminBoonsTable oldBoons %}
     </div>
 
 

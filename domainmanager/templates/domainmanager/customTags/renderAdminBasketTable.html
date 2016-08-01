@@ -1,0 +1,39 @@
+{% load customTags %}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Player</th>
+        <th>Character</th>
+        <th>Property (from db)</th>
+        <th>Property (manually created)</th>
+        <th>Type</th>
+        <th>Xp prize</th>
+        <th>Approval / Decline by GM</th>
+        <th>Timestamp</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in querySet %}
+        <tr>
+            <td>{{ item.character.player }}</td>
+            <td>{{ item.character.firstname }} {{ item.character.lastname }} </td>
+            <td>{{ item.property }}</td>
+            <td>{{ item.newproperty }}</td>
+            <td>{% if item.property %}{{ item.property.type.name }}{% else %}{{ item.newpropertytype }}{% endif %}</td>
+            <td>{% if item.property %}{{ item.property.type.xpinitialprize }}{% else %}{{ item.newpropertytype.xpinitialprize }}{% endif %}</td>
+            <!-- give item.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
+            <td>
+                {% if item.approvedbygm == item.STATUS.waiting|slugify %}
+                    <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.accepted %}">Accept</a> /
+                    <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.declined %}">Decline</a>
+                {% else %}
+                    {{ item.STATUS|getValue:item.approvedbygm }}
+                {% endif %}
+            </td>
+
+            <td>{{ item.timestamp }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

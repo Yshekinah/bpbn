@@ -1,21 +1,19 @@
 {% extends 'base.html' %}
-{% load dataTools %}
+{% load customTags %}
 {% load lineage %}
 {% load staticfiles %}
 
 {% block title %}Character: {{ character.firstname }} {{ character.lastname }} {% endblock %}
 
 {% block sidebar %}
-    <ul>
-        <li><a href="{% url 'domainmanager:playersummary' character.player.user.id %}">Players</a></li>
-        <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
+    <!--<ul>
         <li><a href="{% url 'domainmanager:character_create' %}" class="top-menu"><span
                 class="glyphicon glyphicon-plus"></span>Create new character</a></li>
         <li><a href="{% url 'domainmanager:characterboon_create' character.id %}"><span
                 class="glyphicon glyphicon-plus"></span>Create a boon</a></li>
         <li><a href="{% url 'domainmanager:charactershopping' character.id %}"><span
                 class="glyphicon glyphicon-plus"></span>Buy something</a></li>
-    </ul>
+    </ul>-->
 {% endblock %}
 
 {% block content %}
@@ -201,7 +199,8 @@
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    Generation</div>
+                    Generation
+                </div>
                 <div class="col-md-1">
                     {{ properties.Generation.value }}{% renderLvlUpButton properties.Generation.id properties.Generation.value properties.Generation.name %}</div>
                 <div class="col-md-2">Mentor</div>

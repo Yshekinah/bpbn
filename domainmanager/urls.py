@@ -79,7 +79,7 @@ urlpatterns = [
 
     # Admin view for all baskets (stuff players want to buy)
     #  ex: /domainmanager/adminbasket
-    url(r'^adminbasket', views.adminbasket, name='adminbasket'),
+    url(r'^adminbasket$', views.adminbasket, name='adminbasket'),
 
     # Admin edit form for all baskets (stuff players want to buy)
     #  ex: /domainmanager/adminshopping_validation

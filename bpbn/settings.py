@@ -62,7 +62,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/'
+            'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/',
+            'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/forms/',
+            'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/customTags/'
         ],
         'APP_DIRS': True,
         'OPTIONS': {

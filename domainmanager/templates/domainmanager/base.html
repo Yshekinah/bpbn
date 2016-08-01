@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
 
     <!-- Load custom templates and filters -->
-    {% load dataTools %}
+    {% load customTags %}
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
@@ -66,21 +66,24 @@
                                 <li><a href="http://127.0.0.1:8000/admin/">Django admin</a></li>
                                 <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
                                 <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
+                                <li><a href="{% url 'domainmanager:playersummary' request.user.id %}">Players</a></li>
+                                <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
                             </ul>
                         </li>
                         <li role="presentation" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 Switch character<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                {% characterSelection request.user.id %}
+                                {% renderCharacterSelection request.user.id %}
+                                <li><a href="{% url 'domainmanager:character_create' %}" class="top-menu"><span
+                                        class="glyphicon glyphicon-plus"></span>Create new character</a></li>
                             </ul>
                         </li>
                         <li>
                             {% if request.session.active_character_id %}
-                                <a href="{% url 'domainmanager:charactersheet' request.session.active_character_id %}">Current
-                                    character: {{ request.session.active_character_name|default:"No character selected" }}</a>
+                                <a href="{% url 'domainmanager:charactersheet' request.session.active_character_id %}">Charactersheet: {{ request.session.active_character_name|default:"No character selected" }}</a>
                             {% else %}
-                                <a href="#">Current character: {{ request.session.active_character_name|default:"No character selected" }}</a>
+                                <a href="#">Charactersheet: {{ request.session.active_character_name|default:"No character selected" }}</a>
                             {% endif %}
                         </li>
                         <li align="right"><a href="{% url 'domainmanager:logout' %}">Logout</a></li>
@@ -89,20 +92,18 @@
             </div>
         </div>
     </div>
-    </div>
 </nav>
 
 
 <div class="container">
     <div class="row">
-        <div class="col-md-2" style="padding-top: 60px">
+        {% comment %}<div class="col-md-2" style="padding-top: 60px">
             <ul>
                 {% block sidebar %}
-                    <li><a href="{% url 'domainmanager:players' %}">Players</a></li>
-                    <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
                 {% endblock %}
             </ul>
         </div>
+        {% endcomment %}
         <div class="col-md-10">
             {% block content %}
                 THERE could be a NEWS section here

@@ -1,6 +1,6 @@
 {% extends 'charactersheet.html' %}
 {% load staticfiles %}
-{% load dataTools %}
+{% load customTags %}
 
 {% block title %}All my bought stuff for: {{ character.firstname }} {{ character.lastname }} {% endblock %}
 
@@ -12,6 +12,27 @@
     {% block panel-nav %}
         {{ block.super }}
     {% endblock panel-nav %}
+
+    <button class="btn btn-default" style="margin-bottom: 20px" onclick="javascript:displayCreateShopping()"><span
+            class="glyphicon glyphicon-plus"></span> Buy
+    </button>
+
+    <!--<a class='ls-modal' href="http://127.0.0.1:8000/domainmanager/" title="View" data-target="#myModal" data-toggle="modal">View 72</a>-->
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Character shopping</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -32,7 +53,7 @@
             <tr>
                 <th>New property</th>
                 <th>New property type</th>
-                <th>New property prize</th>
+                <th>XP cost</th>
                 <th>Approved by GM</th>
                 <th>Timestamp</th>
             </tr>
@@ -50,5 +71,15 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        {% autoescape off %}
+
+            function displayCreateShopping() {
+                $('#myModal').modal('show').find('.modal-body').load('{% url 'domainmanager:charactershopping' character.pk %} ');
+            }
+
+        {% endautoescape %}
+    </script>
 
 {% endblock %}

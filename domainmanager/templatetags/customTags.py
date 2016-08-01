@@ -15,16 +15,17 @@ def getValue(array, key):
 
 
 # Tag for character selection
-# calls characterSelection.html with queryset
+# calls renderCharacterSelection.html with queryset
 # html renders the data
-@register.inclusion_tag('characterSelection.html')
-def characterSelection(id):
+@register.inclusion_tag('customTags/characterSelection.html')
+def renderCharacterSelection(id):
     player = get_object_or_404(Person, pk=id)
     characters = Character.objects.filter(player=player)
     return {'characters': characters}
 
 
-@register.inclusion_tag('renderLvlUpButton.html')
+# Render the lvlUp button in charactersheet
+@register.inclusion_tag('customTags/renderLvlUpButton.html')
 def renderLvlUpButton(characterproperty_id, oldValue, propName):
     characterProperty = CharacterProperty.objects.get(pk=characterproperty_id)
 
@@ -39,3 +40,14 @@ def renderLvlUpButton(characterproperty_id, oldValue, propName):
         return {'characterproperty': characterProperty, 'xpCost': xPCost}
     else:
         pass
+
+
+# Render the admin boons table: Current and already validated boons
+@register.inclusion_tag('customTags/renderAdminBoonsTable.html')
+def renderAdminBoonsTable(querySet):
+    return {'querySet': querySet}
+
+# Render the admin basket table: Current and already bought items
+@register.inclusion_tag('customTags/renderAdminBasketTable.html')
+def renderAdminBasketTable(querySet):
+    return {'querySet': querySet}

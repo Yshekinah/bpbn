@@ -1,0 +1,38 @@
+{% load customTags %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Master</th>
+        <th>Slave</th>
+        <th>Category</th>
+        <!--<th>Note</th>-->
+        <th>Status Slave</th>
+        <th>Status Master</th>
+        <th>Status GM</th>
+        <th>Timestamp</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for currentBoon in querySet %}
+        <tr>
+            <td>{{ currentBoon.master.firstname }} {{ currentBoon.master.lastname }}</td>
+            <td>{{ currentBoon.slave.firstname }} {{ currentBoon.slave.lastname }}</td>
+            <td>{{ currentBoon.category.name }}</td>
+            <!--<td>{{ currentBoon.note }}</td>-->
+            <td>{{ currentBoon.STATUS|getValue:currentBoon.approvedbymaster }}</td>
+            <td>{{ currentBoon.STATUS|getValue:currentBoon.approvedbyslave }}</td>
+            <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
+            <td>
+                {% if currentBoon.approvedbygm == currentBoon.STATUS.waiting|slugify %}
+                    <a href="{% url 'domainmanager:adminboon_validation' currentBoon.id currentBoon.hash_gm currentBoon.STATUS.accepted %}">Accept</a>
+                    /
+                    <a href="{% url 'domainmanager:adminboon_validation' currentBoon.id currentBoon.hash_gm currentBoon.STATUS.declined %}">Decline</a>
+                {% else %}
+                    {{ currentBoon.STATUS|getValue:currentBoon.approvedbygm }}
+                {% endif %}
+            </td>
+            <td>{{ currentBoon.timestamp }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

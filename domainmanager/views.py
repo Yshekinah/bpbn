@@ -1,6 +1,8 @@
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Q
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
@@ -106,7 +108,7 @@ def characterinformation_edit(request, character_id):
     properties = characterTools.getCleanCharacterProperties(character)
     context = {'form': form, 'character': character, 'properties': properties,}
 
-    return render(request, 'domainmanager/characterinformation_edit.html', context)
+    return render(request, 'domainmanager/forms/characterinformation_edit.html', context)
 
 
 # @login_required()
@@ -144,7 +146,10 @@ def characterxpsummary(request, character_id):
     xpEarned = Xpearned.objects.filter(character=character).order_by('-timestamp')
     xpSpent = Xpspent.objects.filter(character=character).order_by('-timestamp')
 
-    context = {'character': character, 'xpSpent': xpSpent, 'xpEarned': xpEarned}
+    valueXpEarned = Xpearned.objects.filter(character=character).aggregate(Sum('value'))['value__sum']
+    valueXpSpent = Xpspent.objects.filter(character=character).aggregate(Sum('xpcost'))['xpcost__sum']
+
+    context = {'character': character, 'xpSpent': xpSpent, 'xpEarned': xpEarned, 'valueXpEarned': valueXpEarned, 'valueXpSpent': valueXpSpent}
     return render(request, 'domainmanager/characterxpsummary.html', context)
 
 
@@ -179,9 +184,10 @@ def characterboon_create(request, character_id):
     else:
         data = {'master': character}
         form = BoonForm(initial=data)
+        form.fields['slave'].queryset = Character.objects.exclude(pk=character.pk).order_by('lastname')
 
     context = {'character': character, 'form': form}
-    return render(request, 'domainmanager/characterboon_create.html', context)
+    return render(request, 'domainmanager/forms/characterboon_create.html', context)
 
 
 @login_required()
@@ -239,7 +245,7 @@ def charactershopping(request, character_id):
         form.fields['character'] = character
 
     context = {'character': character, 'form': form}
-    return render(request, 'domainmanager/charactershopping.html', context)
+    return render(request, 'domainmanager/forms/charactershopping.html', context)
 
 
 @login_required()
@@ -271,9 +277,9 @@ def lvlup(request, characterproperty_id):
 
     # Is it the correct user?
     if request.user.pk == characterProperty.character.player.pk:
-        characterTools.checkXP(characterProperty.character, characterProperties)
-        characterProperty.value += 1
-        characterProperty.save()
+        if characterTools.checkXP(characterProperty.character, characterProperties):
+            characterProperty.value += 1
+            characterProperty.save()
 
     return redirect('domainmanager:charactersheet', character_id)
 
@@ -293,9 +299,14 @@ def genealogy(request):
 def adminboons(request):
     adminTools.checkAdmin(request)
 
-    boons = Boon.objects.all().exclude(approvedbyslave__exact=Boon.STATUS.declined)
+    # get only GM-WAITING & SLAVE-ACCEPTED boons - those the GM has to validate
+    currentBoons = Boon.objects.filter(~Q(approvedbyslave__exact=Boon.STATUS.declined), Q(approvedbygm__exact=Boon.STATUS.waiting)).order_by(
+        '-timestamp')
+    # get the already validated boons for a log view
+    oldBoons = Boon.objects.filter(Q(approvedbygm__exact=Boon.STATUS.accepted) | Q(approvedbygm__exact=Boon.STATUS.declined) | Q(
+        approvedbyslave__exact=Boon.STATUS.declined)).order_by('-timestamp')
 
-    context = {'boons': boons}
+    context = {'currentBoons': currentBoons, 'oldBoons': oldBoons}
     return render(request, 'domainmanager/adminboons.html', context)
 
 
@@ -303,9 +314,10 @@ def adminboons(request):
 def adminbasket(request):
     adminTools.checkAdmin(request)
 
-    basket = CharacterShopping.objects.filter(approvedbygm__exact=CharacterShopping.STATUS.waiting).order_by('-timestamp')
+    currentBasket = CharacterShopping.objects.filter(approvedbygm__exact=CharacterShopping.STATUS.waiting).order_by('-timestamp')
+    oldBasket = CharacterShopping.objects.exclude(approvedbygm__exact=CharacterShopping.STATUS.waiting).order_by('-timestamp')
 
-    context = {'basket': basket}
+    context = {'currentBasket': currentBasket, 'oldBasket': oldBasket}
     return render(request, 'domainmanager/adminbasket.html', context)
 
 
@@ -326,7 +338,7 @@ def adminshopping_validation(request, property_id, hash, answer):
             property.approvedbygm = property.STATUS.declined
             property.save()
 
-    return render(request, 'domainmanager/adminbasket.html')
+    return redirect('domainmanager:adminbasket')
 
 
 @login_required()

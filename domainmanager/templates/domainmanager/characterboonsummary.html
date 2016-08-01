@@ -1,7 +1,7 @@
 {% extends 'charactersheet.html' %}
 {% load lineage %}
 {% load staticfiles %}
-{% load dataTools %}
+{% load customTags %}
 
 {% block title %}Boon overview: Master & slave boons for {{ character.firstname }} {{ character.lastname }} {% endblock %}
 
@@ -13,6 +13,27 @@
     {% block panel-nav %}
         {{ block.super }}
     {% endblock panel-nav %}
+
+    <button class="btn btn-default" style="margin-bottom: 20px" onclick="javascript:displayCreateBoon()"><span
+            class="glyphicon glyphicon-plus"></span> Create a boon
+    </button>
+
+    <!--<a class='ls-modal' href="http://127.0.0.1:8000/domainmanager/" title="View" data-target="#myModal" data-toggle="modal">View 72</a>-->
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Create a boon</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -28,10 +49,10 @@
                 <th>Slave</th>
                 <th>Category</th>
                 <th>Note</th>
-                <th>Timestamp</th>
                 <th>Approved by GM</th>
                 <th>Approved by Slave</th>
                 <th>Approved by Master</th>
+                <th>Timestamp</th>
             </tr>
             </thead>
             <tbody>
@@ -39,15 +60,16 @@
                 <tr>
                     <td>{{ row.slave.firstname }} {{ row.slave.lastname }}</td>
                     <td>{{ row.category.name }}</td>
-                    <td>{{ row.note }}</td>
-                    <td>{{ row.timestamp }}</td>
+                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">#</a></td>
                     <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                     <td>{{ row.STATUS|getValue:row.approvedbyslave }}</td>
                     {% if row.approvedbymaster == row.STATUS.waiting|upper and row.approvedbyslave == row.STATUS.accepted|upper and row.approvedbygm == row.STATUS.accepted|upper %}
-                        <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">Mark as resolved</a></td>
+                        <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">Mark as
+                            resolved</a></td>
                     {% else %}
                         <td>{{ row.STATUS|getValue:row.approvedbymaster }}</td>
                     {% endif %}
+                    <td>{{ row.timestamp }}</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -68,9 +90,9 @@
                 <th>Master</th>
                 <th>Category</th>
                 <th>Note</th>
-                <th>Timestamp</th>
                 <th>Approved by GM</th>
                 <th>Approved by Slave</th>
+                <th>Timestamp</th>
             </tr>
             </thead>
             <tbody>
@@ -78,8 +100,7 @@
                 <tr>
                     <td>{{ row.master.firstname }} {{ row.master.lastname }}</td>
                     <td>{{ row.category.name }}</td>
-                    <td>{{ row.note }}</td>
-                    <td>{{ row.timestamp }}</td>
+                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">#</a></td>
                     <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                     <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
                     <td>
@@ -90,11 +111,35 @@
                             {{ row.STATUS|getValue:row.approvedbyslave }}
                         {% endif %}
                     </td>
+                    <td>{{ row.timestamp }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
+
+    <script>
+        {% autoescape off %}
+            function displayNote(text) {
+                BootstrapDialog.show({
+                    message: text,
+                    buttons: [{
+                        label: 'Ok',
+                        cssClass: 'btn-primary',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                        }
+                    }]
+                });
+            }
+
+
+            function displayCreateBoon() {
+                $('#myModal').modal('show').find('.modal-body').load('{% url 'domainmanager:characterboon_create' character.pk %} ');
+            }
+
+        {% endautoescape %}
+    </script>
 
 {% endblock %}
 
@@ -107,13 +152,3 @@
 </ul>
 {%  endcomment %}
 
-<script>
-    $(document).ready(function () {
-        alert("TEST!")
-        $("#panel-charactersheet").removeClass("active");
-        $("#panel-characterxpsummary").removeClass("active");
-        $("#panel-shopping").removeClass("active");
-        $("#panel-boons").addClass("active");
-    });
-
-</script>

@@ -1,0 +1,66 @@
+{% comment %}{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block sidebar %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    {% endcomment %}
+
+<div class="container">
+    <!--<div class="panel-heading">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Buy stuff:</h3>
+            </div>
+        </div>
+        -->
+    <form method="post" action="{% url 'domainmanager:charactershopping' character.pk %}">{% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.property.errors }}
+                    {{ form.property.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.property }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.newpropertytype.errors }}
+                    {{ form.newpropertytype.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.newpropertytype }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.newproperty.errors }}
+                    {{ form.newproperty.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.newproperty }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-default" style="margin-top: 10px">Buy</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+{% comment %}
+{% endblock %}
+{% endcomment %}
