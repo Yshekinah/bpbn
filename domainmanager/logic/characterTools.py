@@ -3,7 +3,6 @@ import string
 
 from django.db import transaction
 from django.db.models import Sum
-from django.shortcuts import get_list_or_404
 
 from domainmanager.models import CharacterProperty, ClanProperty, Property, Xpearned, Xpspent
 
@@ -31,7 +30,7 @@ def createInitialDisciplines(character):
 
 
 def getCleanCharacterProperties(character):
-    characterProperties = get_list_or_404(CharacterProperty, character=character)
+    characterProperties = CharacterProperty.objects.all().filter(character=character)
 
     cleanProperties = {}
 

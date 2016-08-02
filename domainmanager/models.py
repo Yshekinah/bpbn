@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from model_utils import Choices
-from model_utils import FieldTracker
 from model_utils.fields import StatusField
 
 
@@ -193,8 +192,8 @@ class PropertyType(models.Model):
 
 
 class CharacterProperty(models.Model):
-    character = models.ForeignKey('Character', related_name='cp_character', on_delete=models.CASCADE)
-    property = models.ForeignKey('Property', related_name='property', on_delete=models.CASCADE)
+    character = models.ForeignKey('Character', on_delete=models.CASCADE)
+    property = models.ForeignKey('Property', on_delete=models.CASCADE)
     value = models.IntegerField(
         default=1,
         validators=[
@@ -204,11 +203,9 @@ class CharacterProperty(models.Model):
     )
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
-    tracker = FieldTracker(fields=['value'])
 
     def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(
-            self.value)
+        return self.character.firstname + " " + self.character.lastname + ", " + self.property.name + ": " + str(self.value)
 
 
 class CharacterShopping(models.Model):

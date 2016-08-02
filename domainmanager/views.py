@@ -179,7 +179,7 @@ def characterboon_create(request, character_id):
             boon.hash_master = characterTools.random_string(20)
             boon.save()
 
-            return redirect('domainmanager:charactersheet', character_id)
+            return redirect('domainmanager:characterboonsummary', character_id)
 
     else:
         data = {'master': character}
