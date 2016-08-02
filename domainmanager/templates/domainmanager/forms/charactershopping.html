@@ -1,66 +1,143 @@
-{% comment %}{% extends 'base.html' %}
+{% extends 'base.html' %}
+{% load customTags %}
+{% load lineage %}
 {% load staticfiles %}
-
-{% block sidebar %}
-    {{ block.super }}
-{% endblock %}
-
 {% block content %}
 
-    {% endcomment %}
+    <div class="container">
+        <!--<div class="panel-heading">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Buy stuff:</h3>
+                </div>
+            </div>
+            -->
+        <div class="bs-callout bs-callout-warning hidden">
+            <h4>Oh snap!</h4>
+            <p>This form seems to be invalid :(</p>
+        </div>
 
-<div class="container">
-    <!--<div class="panel-heading">
-        <div class="row">
-            <div class="col-md-4">
-                <h3>Buy stuff:</h3>
-            </div>
+        <div class="bs-callout bs-callout-info hidden">
+            <h4>Yay!</h4>
+            <p>Everything seems to be ok :)</p>
         </div>
-        -->
-    <form method="post" action="{% url 'domainmanager:charactershopping' character.pk %}">{% csrf_token %}
-        {{ form.non_field_errors }}
-        <div class="row">
-            <div class="col-md-2">
-                <div class="fieldWrapper">
-                    {{ form.property.errors }}
-                    {{ form.property.label_tag }}
+
+        <form method="post" action="{% url 'domainmanager:charactershopping' character.pk %}" data-parsley-validate="" id="basketForm">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="fieldWrapper">
+                        {{ form.property.errors }}
+                        {{ form.property.label_tag }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {{ form.property }}
                 </div>
             </div>
-            <div class="col-md-4">
-                {{ form.property }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="fieldWrapper">
-                    {{ form.newpropertytype.errors }}
-                    {{ form.newpropertytype.label_tag }}
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="fieldWrapper">
+                        {{ form.newpropertytype.errors }}
+                        {{ form.newpropertytype.label_tag }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {{ form.newpropertytype }}
                 </div>
             </div>
-            <div class="col-md-4">
-                {{ form.newpropertytype }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="fieldWrapper">
-                    {{ form.newproperty.errors }}
-                    {{ form.newproperty.label_tag }}
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="fieldWrapper">
+                        {{ form.newproperty.errors }}
+                        {{ form.newproperty.label_tag }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {{ form.newproperty }}
                 </div>
             </div>
-            <div class="col-md-4">
-                {{ form.newproperty }}
+            <div class="row">
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-4">
+                    <div class="invalid-form-error-message"></div>
+                    <button type="submit" class="btn btn-default" style="margin-top: 10px" value="validate">Buy</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">&nbsp;</div>
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-default" style="margin-top: 10px">Buy</button>
-            </div>
-        </div>
-    </form>
-</div>
-</div>
-{% comment %}
+        </form>
+    </div>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#id_property').val($('#id_property option:first').val());
+        });
+
+        $('#id_property').attr('data-parsley-required', 'true');
+
+        //$('#id_property').attr('data-parsley-required', 'true');
+
+        $("#id_property").on('click', function () {
+
+            if ($(this).val() == "") {
+                $('#id_newproperty').prop('disabled', false);
+                $('#id_newpropertytype').prop('disabled', false);
+                $('#id_property').removeAttr('data-parsley-required','true');
+            } else {
+                $('#id_newproperty').prop('disabled', true);
+                $('#id_newpropertytype').prop('disabled', true);
+                //$('#id_property').attr('data-parsley-required', 'false');
+                $('#id_property').removeAttr('data-parsley-required', '');
+            }
+        });
+
+        // bind parsley to the form. Exclude all disabled fields
+        $('#boonForm').parsley({
+            excluded: 'input[type=button], input[type=submit], input[type=reset], input[type=hidden], :disabled'
+        });
+
+        // on form submission
+        $('#boonForm').submit(function (e) {
+            // validate form
+            $('#boonForm').parsley().validate();
+
+            // if is valid submit form
+            if ($("#boonForm").parsley().isValid()) {
+                return true;
+            }
+            e.preventDefault();
+        });
+
+        /**
+         $(function () {
+
+            //$('#id_property').removeAttr('required', '');
+            $('#id_property').attr('data-parsley-group', 'block1');
+            $('#id_property').attr('data-parsley-required', 'true');
+            //$('#id_newproperty').removeAttr('required', '');
+            $('#id_newproperty').attr('data-parsley-group', 'block2');
+            //$('#id_newproperty').attr('data-parsley-required', 'true');
+            $('#id_newproperty').attr('data-parsley-length', '[4,50]');
+            //$('#id_newpropertytype').removeAttr('required', '');
+            $('#id_newpropertytype').attr('data-parsley-group', 'block2');
+            $('#id_newpropertytype').attr('data-parsley-required', 'true');
+
+            $('#basketForm').parsley().on('form:validate', function (formInstance) {
+                var ok = formInstance.isValid({group: 'block1', force: true}) || formInstance.isValid({group: 'block2', force: true});
+                $('.invalid-form-error-message')
+                        .html(ok ? '' : 'You must correctly fill out at least Proprty or create a new Property and assign the correct Propertytype!')
+                        .toggleClass('filled', !ok);
+                if (!ok)
+                    formInstance.validationResult = false;
+            }).on('form:submit', function () {
+                document.forms["basketForm"].submit();
+                //return false; // Don't submit form for this demo
+            });
+        });
+         */
+
+    </script>
+
 {% endblock %}
-{% endcomment %}

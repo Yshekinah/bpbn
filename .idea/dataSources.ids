@@ -712,11 +712,11 @@ model</columns>
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="174" parent="16" name="character_id">
+      <column id="174" parent="16" name="value">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="175" parent="16" name="property_id">
+      <column id="175" parent="16" name="character_id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
@@ -728,7 +728,7 @@ model</columns>
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="178" parent="16" name="value">
+      <column id="178" parent="16" name="property_id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
