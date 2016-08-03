@@ -60,12 +60,13 @@
                 <tr>
                     <td>{{ row.slave.firstname }} {{ row.slave.lastname }}</td>
                     <td>{{ row.category.name }}</td>
-                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">#</a></td>
+                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
                     <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                     <td>{{ row.STATUS|getValue:row.approvedbyslave }}</td>
                     {% if row.approvedbymaster == row.STATUS.waiting|upper and row.approvedbyslave == row.STATUS.accepted|upper and row.approvedbygm == row.STATUS.accepted|upper %}
-                        <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">Mark as
-                            resolved</a></td>
+                        <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">
+                            {% renderButton 3 %}
+                        </a></td>
                     {% else %}
                         <td>{{ row.STATUS|getValue:row.approvedbymaster }}</td>
                     {% endif %}
@@ -100,13 +101,13 @@
                 <tr>
                     <td>{{ row.master.firstname }} {{ row.master.lastname }}</td>
                     <td>{{ row.category.name }}</td>
-                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">#</a></td>
+                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
                     <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                     <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
-                    <td>
+                    <td align="center">
                         {% if row.approvedbyslave == row.STATUS.waiting|upper %}
-                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.accepted %}">Accept</a> /
-                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.declined %}">Decline</a>
+                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.accepted %}">{% renderButton 1 %}</a>
+                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.declined %}">{% renderButton 2 %}</a>
                         {% else %}
                             {{ row.STATUS|getValue:row.approvedbyslave }}
                         {% endif %}

@@ -29,7 +29,7 @@ admin.site.register(Xpearned)
 admin.site.register(Xpspent)
 admin.site.register(ClanProperty)
 admin.site.register(CharacterShopping)
-
+admin.site.register(News)
 
 # Define an inline admin descriptor for Employee model
 # which acts a bit like a singleton

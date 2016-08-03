@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+{% for article in news %}
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-8">
+                    Überschrift:{{ article.caption }}<br/>
+                    Text: {{ article.text }}<br/>
+                    Link: {{ article.link }}<br/>LALALA
+                </div>
+                <div></div><img src="{{ article.image.url  }}" width="800px">
+            </div>
+        </div>
+        <div class="panel-footer"></div>
+    </div>
+    <hr/>
+{% endfor %}

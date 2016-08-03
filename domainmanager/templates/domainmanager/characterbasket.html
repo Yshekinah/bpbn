@@ -55,6 +55,7 @@
                 <th>New property type</th>
                 <th>XP cost</th>
                 <th>Approved by GM</th>
+                <th>Cancel</th>
                 <th>Timestamp</th>
             </tr>
             </thead>
@@ -65,6 +66,12 @@
                     <td>{% if row.property %}{{ row.property.type.name }}{% else %}{{ row.newpropertytype }}{% endif %}</td>
                     <td>{% if row.property %}{{ row.property.type.xpinitialprize }}{% else %}{{ row.newpropertytype.xpinitialprize }}{% endif %}</td>
                     <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
+                    <td>
+                        {% if row.approvedbygm == row.STATUS.waiting|slugify %}
+                            <a href="{% url 'domainmanager:charactershopping_cancel' character.pk row.pk %}">
+                                {% renderButton 2 'Cancel' %}
+                            </a>
+                        {% endif %}</td>
                     <td>{{ row.timestamp }}</td>
                 </tr>
             {% endfor %}

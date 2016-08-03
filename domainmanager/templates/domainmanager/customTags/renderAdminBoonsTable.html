@@ -24,9 +24,8 @@
             <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
             <td>
                 {% if currentBoon.approvedbygm == currentBoon.STATUS.waiting|slugify %}
-                    <a href="{% url 'domainmanager:adminboon_validation' currentBoon.id currentBoon.hash_gm currentBoon.STATUS.accepted %}">Accept</a>
-                    /
-                    <a href="{% url 'domainmanager:adminboon_validation' currentBoon.id currentBoon.hash_gm currentBoon.STATUS.declined %}">Decline</a>
+                    <a href="{% url 'domainmanager:adminboon_validation' currentBoon.id currentBoon.hash_gm currentBoon.STATUS.accepted %}">{% renderButton 1 %}</a>
+                    <a href="{% url 'domainmanager:adminboon_validation' currentBoon.id currentBoon.hash_gm currentBoon.STATUS.declined %}">{% renderButton 2 %}</a>
                 {% else %}
                     {{ currentBoon.STATUS|getValue:currentBoon.approvedbygm }}
                 {% endif %}

@@ -25,8 +25,8 @@
             <!-- give item.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
             <td>
                 {% if item.approvedbygm == item.STATUS.waiting|slugify %}
-                    <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.accepted %}">Accept</a> /
-                    <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.declined %}">Decline</a>
+                    <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.accepted %}">{% renderButton 1 %}</a>
+                    <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.declined %}">{% renderButton 2 %}</a>
                 {% else %}
                     {{ item.STATUS|getValue:item.approvedbygm }}
                 {% endif %}

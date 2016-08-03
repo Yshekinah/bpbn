@@ -8,14 +8,17 @@ from django.shortcuts import redirect
 
 from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterProperty, CharacterShoppingForm
 from .logic import adminTools, characterTools
-from .models import Boon, Character, CharacterShopping, Clan, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
+from .models import Boon, Character, CharacterShopping, Clan, News, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
 
 # Create your views here.
 
 @login_required()
 def index(request):
-    return render(request, 'domainmanager/index.html')
+    news = News.objects.all().order_by('-validuntil')
+    context = {'news': news}
+
+    return render(request, 'domainmanager/base.html', context)
 
 
 @login_required()
@@ -193,16 +196,19 @@ def characterboon_create(request, character_id):
 @login_required()
 def characterboon_validation(request, boon_id, hash, answer):
     boon = get_object_or_404(Boon, pk=boon_id)
+    returnToPersonId = 0
 
     if boon.hash_slave == hash:
         boon.approvedbyslave = answer
+        returnToPersonId = boon.slave.pk
 
     if boon.hash_master == hash:
         boon.approvedbymaster = answer
+        returnToPersonId = boon.master.pk
 
     boon.save()
 
-    return redirect('domainmanager:characterboonsummary', boon.slave.id)
+    return redirect('domainmanager:characterboonsummary', returnToPersonId)
 
 
 @login_required()
@@ -246,6 +252,19 @@ def charactershopping(request, character_id):
 
     context = {'character': character, 'form': form}
     return render(request, 'domainmanager/forms/charactershopping.html', context)
+
+
+@login_required()
+def charactershopping_cancel(request, character_id, item_id):
+    item = get_object_or_404(CharacterShopping, pk=item_id)
+
+    if adminTools.userHasCharacter(request, character_id) == False:
+        return render(request, 'domainmanager/index.html')
+
+    if item.approvedbygm == str(item.STATUS.waiting) and str(item.character.id) == character_id:
+        item.delete()
+
+    return redirect('domainmanager:characterbasket', character_id)
 
 
 @login_required()

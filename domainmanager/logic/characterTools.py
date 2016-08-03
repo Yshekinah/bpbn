@@ -68,26 +68,15 @@ def checkXP(character, characterProperties):
     try:
         with transaction.atomic():
             for property in characterProperties:
-                oldValue = property.tracker.previous('value')
-                newValue = property.value
+                oldValue = property.value
                 xPCost = 0
 
-                # New value must not be smaller than old value
-                if newValue < oldValue:
-                    raise ValueError()
-
-                # This IF is only used if you access the functon from
-                # the character sheets lvlUp button
-                if newValue == oldValue:
-                    newValue += 1
-
-                for i in range(oldValue + 1, newValue + 1):
-                    xPCost = xPCost + (i * property.property.type.xpmultiplier)
+                xPCost = xPCost + ((oldValue + 1) * property.property.type.xpmultiplier)
 
                 if characterXP < xPCost:
                     raise ValueError()
 
-                xpSpentEntry = Xpspent(character=character, oldvalue=oldValue, newvalue=newValue,
+                xpSpentEntry = Xpspent(character=character, oldvalue=oldValue, newvalue=(oldValue + 1),
                                        xpcost=xPCost, property=property.property)
                 xpSpentEntry.save()
 

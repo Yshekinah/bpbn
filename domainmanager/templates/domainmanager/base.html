@@ -23,7 +23,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/js/bootstrap-dialog.min.js"></script>
 
-    <script src="{% static 'css/parsley.css' %}"></script>
+    <!--<script src="{% static 'css/parsley.css' %}"></script>-->
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
@@ -101,16 +101,9 @@
 
 <div class="container">
     <div class="row">
-        {% comment %}<div class="col-md-2" style="padding-top: 60px">
-            <ul>
-                {% block sidebar %}
-                {% endblock %}
-            </ul>
-        </div>
-        {% endcomment %}
-        <div class="col-md-10">
+        <div class="col-md-12">
             {% block content %}
-                THERE could be a NEWS section here
+                {% renderNews news %}
             {% endblock %}
         </div>
     </div>

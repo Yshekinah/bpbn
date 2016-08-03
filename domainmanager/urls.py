@@ -48,8 +48,12 @@ urlpatterns = [
     # url(r'^characterproperties/(?P<character_id>[0-9]+)/edit/', views.characterproperties_edit, name='characterproperties_edit'),
 
     # Buy new character stuff e.g. disciplines, rituals, etc...
-    #  ex: /domainmanager/charactershopping/1
+    #  ex: /domainmanager/charactershopping/1/buy
     url(r'^charactershopping/(?P<character_id>[0-9]+)/buy', views.charactershopping, name='charactershopping'),
+
+    # Cancel a previously ordered character stuff e.g. disciplines, rituals, etc...
+    #  ex: /domainmanager/charactershopping/1/cancel
+    url(r'^charactershopping/(?P<character_id>[0-9]+)/(?P<item_id>[0-9]+)/cancel', views.charactershopping_cancel, name='charactershopping_cancel'),
 
     # View character stuff in your basket e.g. disciplines, rituals, etc...
     #  ex: /domainmanager/characterbasket/1
@@ -101,3 +105,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

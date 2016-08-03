@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from domainmanager.models import CharacterProperty, Property, Xpspent
+from domainmanager.models import Character, CharacterProperty, Property, Xpspent
 
 
 # are you an admin?
@@ -8,6 +8,16 @@ def checkAdmin(request):
     if request.user.groups.exclude(name='Admin').exists():
         return render(request, 'domainmanager/index.html')
 
+
+def userHasCharacter(request, character_id):
+    characters = Character.objects.filter(player__pk=request.user.pk)
+    found = False
+
+    for character in characters:
+        if str(character.pk) == character_id:
+            found = True
+
+    return found
 
 # character C bought property P.
 # It was approved by gm

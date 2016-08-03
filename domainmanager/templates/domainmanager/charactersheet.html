@@ -236,7 +236,7 @@
             {% for field in disciplines %}
                 <div class="row">
                     <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }}</div>
+                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
                 </div>
             {% endfor %}
             <div class="row">
@@ -247,7 +247,7 @@
             {% for field in thaumaturgicpaths %}
                 <div class="row">
                     <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }}</div>
+                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
                 </div>
             {% endfor %}
             <div class="row">
@@ -258,7 +258,7 @@
             {% for field in rituals %}
                 <div class="row">
                     <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }}</div>
+                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
                 </div>
             {% endfor %}
             <div class="row">
@@ -269,7 +269,7 @@
             {% for field in necromanticpaths %}
                 <div class="row">
                     <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }}</div>
+                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
                 </div>
             {% endfor %}
         </div>

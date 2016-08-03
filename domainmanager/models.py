@@ -209,7 +209,8 @@ class CharacterProperty(models.Model):
 
 
 class CharacterShopping(models.Model):
-    STATUS = Choices((1, 'waiting', 'Waiting'), (2, 'accepted', 'Accepted'), (3, 'declined', 'Declined'), (4, 'resolved', 'Resolved'))
+    STATUS = Choices((1, 'waiting', 'Waiting'), (2, 'accepted', 'Accepted'), (3, 'declined', 'Declined'), (4, 'resolved', 'Resolved'),
+                     (5, 'canceled', 'Canceled'))
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     property = models.ForeignKey(Property, on_delete=models.CASCADE, blank=True, null=True)
     approvedbygm = StatusField(choices=STATUS, default=STATUS.waiting)
@@ -291,7 +292,34 @@ class Xpspent(models.Model):
         return self.character.firstname + " " + self.character.lastname + " spent " + str(self.xpcost) + " on " + self.property.name
 
 
+class News(models.Model):
+    caption = models.CharField(max_length=250, null=False)
+    preface = models.TextField(default="Add an introduction here")
+    content = models.TextField("Add the main content here")
+    link = models.CharField(max_length=250, null=True, blank=True)
+    validfrom = models.DateField(blank=True, null=True)
+    validuntil = models.DateField(blank=True, null=True)
+    limittoclan = models.ManyToManyField(Clan)
+    thumb = models.ImageField(upload_to="news/", blank=True, null=True)
+    image = models.ImageField(upload_to="news/", blank=True, null=True)
+    shreknetlevel = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(0)
+        ]
+    )
+    attachment = models.FileField(upload_to="attachment/", blank=True, null=True)
+    isvision = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.caption + ": " + self.preface + "..."
+
+
 ################################ GENEALOGY ################################
+
 
 class Vampire(models.Model):
     name = models.CharField(max_length=100)
