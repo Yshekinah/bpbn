@@ -10,7 +10,7 @@
                     Text: {{ article.text }}<br/>
                     Link: {{ article.link }}<br/>LALALA
                 </div>
-                <div></div><img src="{{ article.image.url  }}" width="800px">
+                <div></div>{% if article.image %}<img src="{{ article.image.url  }}" width="600px">{% endif %}
             </div>
         </div>
         <div class="panel-footer"></div>

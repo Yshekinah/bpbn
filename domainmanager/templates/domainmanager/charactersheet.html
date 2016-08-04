@@ -275,38 +275,41 @@
         </div>
 
     {% endblock characterproperties %}
-<div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>
+    <div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>
 
 
-<script type="text/javascript">
-    {% autoescape off %}
-        function showLvlDialog(propId, propValue, propName, xpCost) {
-            BootstrapDialog.show({
-                message: 'Do you really want to raise ' + propName + " to " + (propValue + 1) + "?\n" + 'This will cost ' + xpCost + ' XP',
-                buttons: [{
-                    label: 'Ok',
-                    cssClass: 'btn-primary',
-                    action: function () {
-                        window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
-                    }
-                }, {
-                    icon: 'glyphicon glyphicon-ban-circle',
-                    label: 'Cancel',
-                    cssClass: 'btn-warning',
-                    action: function (dialogItself) {
-                        dialogItself.close();
-                    }
-                }]
+    <script type="text/javascript">
+        {% autoescape off %}
+            function showLvlDialog(propId, propValue, propName, xpCost) {
+                BootstrapDialog.show({
+                    message: 'Do you really want to raise ' + propName + " to " + (propValue + 1) + "?\n" + 'This will cost ' + xpCost + ' XP',
+                    buttons: [{
+                        label: 'Ok',
+                        cssClass: 'btn-primary',
+                        action: function () {
+                            window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
+                        }
+                    }, {
+                        icon: 'glyphicon glyphicon-ban-circle',
+                        label: 'Cancel',
+                        cssClass: 'btn-warning',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                        }
+                    }]
+                });
+            }
+
+            $(document).ready(function () {
+                console.log("JQuery is loaded");
             });
-        }
 
-        $(document).ready(function () {
-            console.log("JQuery is loaded");
-        });
-
-    {% endautoescape %}
-</script>
+        {% endautoescape %}
+    </script>
 
 
 
+{% endblock %}
+
+{% block calendar %}
 {% endblock %}

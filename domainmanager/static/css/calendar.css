@@ -392,14 +392,14 @@
   background-color: #fafafa;
 }
 .cal-month-day {
-  height: 100px;
+  height: 50px;
 }
 [class*="cal-cell"]:hover {
   background-color: #ededed;
 }
 .cal-year-box [class*="span"],
 .cal-month-box [class*="cal-cell"] {
-  min-height: 100px;
+  min-height: 50px;
   border-right: 1px solid #e1e1e1;
   position: relative;
 }

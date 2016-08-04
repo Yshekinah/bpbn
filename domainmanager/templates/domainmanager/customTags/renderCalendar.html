@@ -1,0 +1,72 @@
+{% load staticfiles %}
+{% load customTags %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                Upcoming events:<br/>
+                <ul>{% for event in events %}
+                    <li>{{ event.name }}</li>
+                {% endfor %}</ul>
+            </div>
+            <div class="col-md-8">
+                <div id="calendar"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="panel-body"></div>
+</div>
+
+
+<script type="text/javascript">
+    var calendar = $("#calendar").calendar(
+            {
+                tmpl_path: "/static/calendar_tmpls/",
+                view: 'month',
+                weekbox: false,
+                first_day: 1,
+                width: '50%',
+                format12: false,
+                events_source: function () {
+                    return [{% for event in events %}
+                        {
+                            "id": {{ event.pk }},
+                            "title": "{{ event.name }}",
+                            "url": "http://www.orf.at",
+                            "class": "{{ event.domain.pk|renderCalenderClassByDomain }}",
+                            "start": {{ event.start_date|date:"U" }}000, // Milliseconds
+                            "end": {{ event.end_date|date:"U" }}000 // Milliseconds
+                        },{% endfor %}
+                        {
+                            "id": 101,
+                            "title": "Attila: We are all dead :(",
+                            "url": "http://www.orf.at",
+                            "class": "event-warning",
+                            "start": 1470185200000, // Milliseconds
+                            "end": 1472185200000 // Milliseconds
+                        }
+                    ];
+                },
+                views: {
+                    year: {
+                        slide_events: 1,
+                        enable: 1
+                    },
+                    month: {
+                        slide_events: 1,
+                        enable: 1
+                    },
+                    week: {
+                        enable: 0
+                    },
+                    day: {
+                        enable: 0
+                    }
+                }
+            });
+</script>

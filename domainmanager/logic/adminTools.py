@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from domainmanager.models import Character, CharacterProperty, Property, Xpspent
+from domainmanager.models import Character, CharacterProperty, Domain, Property, Xpspent
 
 
 # are you an admin?
@@ -18,6 +18,17 @@ def userHasCharacter(request, character_id):
             found = True
 
     return found
+
+
+# return a list with ids of all the players domains where he has characters
+def getDomainsFromUserId(user_id):
+    domains = Domain.objects.filter(character_domain__player=user_id)
+    list = []
+    for domain in domains:
+        list.append(domain.pk)
+
+    return list
+
 
 # character C bought property P.
 # It was approved by gm

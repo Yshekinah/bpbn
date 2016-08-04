@@ -1,8 +1,8 @@
 from django import template
 from django.shortcuts import get_object_or_404
 
-from domainmanager.logic import characterTools
-from domainmanager.models import Character, CharacterProperty, Person
+from domainmanager.logic import adminTools, characterTools
+from domainmanager.models import Character, CharacterProperty, Event, News, Person
 
 register = template.Library()
 
@@ -12,6 +12,14 @@ BUTTON_THUMBS_UP = 3
 BUTTON_THUMBS_DOWN = 4
 BUTTON_NOTE = 5
 
+DOMAIN_BUDAPEST = 1
+DOMAIN_WARSAW = 2
+DOMAIN_PRAHA = 3
+DOMAIN_ZAGREB = 4
+
+
+# DOMAIN_GRAZ = 5
+# DOMAIN_VIENNA = 9
 
 # user in characterboonsummary.html to get the
 # triplets in STATUS array for the approvals
@@ -86,5 +94,33 @@ def renderButton(command, caption=None):
 
 # Render the News section
 @register.inclusion_tag('customTags/renderNews.html')
-def renderNews(news):
+def renderNews(request):
+    list = adminTools.getDomainsFromUserId(request.user.pk)
+
+    news = News.objects.filter(domains__id__in=list).order_by('-validuntil')
+
     return {'news': news}
+
+
+# Render the Calendar section
+@register.inclusion_tag('customTags/renderCalendar.html')
+def renderCalendar(request):
+    events = Event.objects.all()
+
+    return {'events': events}
+
+
+# Render the corresponding CSS class for each domain event
+@register.filter
+def renderCalenderClassByDomain(domain_id):
+    if domain_id == DOMAIN_BUDAPEST:
+        return "event-success"
+
+    if domain_id == DOMAIN_WARSAW:
+        return "event-info"
+
+    if domain_id == DOMAIN_PRAHA:
+        return "event-important"
+
+    if domain_id == DOMAIN_ZAGREB:
+        return "event-special"

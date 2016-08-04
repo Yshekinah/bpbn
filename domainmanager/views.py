@@ -15,10 +15,8 @@ from .models import Boon, Character, CharacterShopping, Clan, News, Person, Prop
 
 @login_required()
 def index(request):
-    news = News.objects.all().order_by('-validuntil')
-    context = {'news': news}
 
-    return render(request, 'domainmanager/base.html', context)
+    return render(request, 'domainmanager/base.html')
 
 
 @login_required()

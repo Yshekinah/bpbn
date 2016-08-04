@@ -91,15 +91,6 @@ class Person(models.Model):
         return self.user.get_full_name() + ", " + str(self.country)
 
 
-class Event(models.Model):
-    name = models.TextField()
-    start_date = models.DateField()
-    end_date = models.DateField()
-
-    def __str__(self):
-        return self.name
-
-
 class Domain(models.Model):
     name = models.CharField(max_length=200)
     street = models.CharField(max_length=200)
@@ -107,6 +98,16 @@ class Domain(models.Model):
     country = models.ForeignKey(Country)
     gm = models.ForeignKey('Person', related_name='gm')
     substitute = models.ForeignKey('Person', related_name='substitute')
+
+    def __str__(self):
+        return self.name
+
+
+class Event(models.Model):
+    name = models.TextField()
+    domain = models.ForeignKey(Domain)
+    start_date = models.DateField()
+    end_date = models.DateField()
 
     def __str__(self):
         return self.name
@@ -300,7 +301,7 @@ class News(models.Model):
     validfrom = models.DateField(blank=True, null=True)
     validuntil = models.DateField(blank=True, null=True)
     limittoclan = models.ManyToManyField(Clan)
-    domain = models.ManyToManyField(Domain)
+    domains = models.ManyToManyField(Domain)
     thumb = models.ImageField(upload_to="news/", blank=True, null=True)
     image = models.ImageField(upload_to="news/", blank=True, null=True)
     shreknetlevel = models.IntegerField(
