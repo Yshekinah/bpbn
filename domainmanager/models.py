@@ -177,16 +177,25 @@ class Character(models.Model):
 
 
 class PropertyType(models.Model):
-    STATUS = Choices((1, 'ability', 'Ability'), (2, 'attribute', 'Attribute'), (3, 'background', 'Background'),
-                     (4, 'secondaryability', 'Secondary Ability'), (5, 'discipline', 'Discipline'), (6, 'merit', 'Merit'),
-                     (7, 'flaw', 'Flaw'), (8, 'ritual', 'Ritual'), (9, 'thaumaturgicpath', 'Thaumaturgic Path'),
-                     (10, 'necromanticpath', 'Necromantic Path'))
+    STATUS = Choices((1, 'physical', 'Physical'),
+                     (2, 'social', 'Social'),
+                     (3, 'mental', 'Mental'),
+                     (4, 'talents', 'Talents'),
+                     (5, 'skills', 'Skills'),
+                     (6, 'knowledges', 'Knowledges'),
+                     (7, 'backgrounds', 'Backgrounds'),
+                     (8, 'disciplines', 'Disciplines'),
+                     (9, 'merits', 'Merits'),
+                     (10, 'flaws', 'Flaws'),
+                     (11, 'rituals', 'Rituals'),
+                     (12, 'thaumaturgicpaths', 'Thaumaturgic Paths'),
+                     (13, 'necromanticpaths', 'Necromantic Paths'))
 
     name = models.CharField(max_length=100)
     domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)
     xpmultiplier = models.IntegerField(default=1)
     xpinitialprize = models.IntegerField(default=5)
-    stattype = StatusField(choices=STATUS, default=STATUS.secondaryability)
+    stattype = StatusField(choices=STATUS, default=STATUS.talents)
 
     def __str__(self):
         return self.name

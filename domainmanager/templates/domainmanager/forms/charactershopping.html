@@ -1,97 +1,93 @@
-{% load customTags %}
-{% load lineage %}
-{% load staticfiles %}
-
-    <div class="container">
-        <form method="post" action="{% url 'domainmanager:charactershopping' character.pk %}" id="basketForm">
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="fieldWrapper">
-                        {{ form.property.errors }}
-                        {{ form.property.label_tag }}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    {{ form.property }}
+<div class="container">
+    <form method="post" action="{% url 'domainmanager:charactershopping' character.pk %}" id="basketForm">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.property.errors }}
+                    {{ form.property.label_tag }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="fieldWrapper">
-                        {{ form.newpropertytype.errors }}
-                        {{ form.newpropertytype.label_tag }}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    {{ form.newpropertytype }}
+            <div class="col-md-4">
+                {{ form.property }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.newpropertytype.errors }}
+                    {{ form.newpropertytype.label_tag }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="fieldWrapper">
-                        {{ form.newproperty.errors }}
-                        {{ form.newproperty.label_tag }}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    {{ form.newproperty }}
+            <div class="col-md-4">
+                {{ form.newpropertytype }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.newproperty.errors }}
+                    {{ form.newproperty.label_tag }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">&nbsp;</div>
-                <div class="col-md-4">
-                    <div class="invalid-form-error-message"></div>
-                    <button type="submit" class="btn btn-default" style="margin-top: 10px">Buy</button>
-                </div>
+            <div class="col-md-4">
+                {{ form.newproperty }}
             </div>
-        </form>
-    </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-4">
+                <div class="invalid-form-error-message"></div>
+                <button type="submit" class="btn btn-default" style="margin-top: 10px">Buy</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#basketForm").parsley();
-            $("#id_property").attr('data-parsley-required', 'false');
-            $("#id_property").attr('data-parsley-min', '1');
-            $("#id_newpropertytype").attr('data-parsley-required', 'true');
-            $("#id_newpropertytype").attr('data-parsley-min', '1');
-            $("#id_newproperty").attr('data-parsley-required', 'true');
-            $("#id_newproperty").attr('data-parsley-length', '[4,50]');
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#basketForm").parsley();
+        $("#id_property").attr('data-parsley-required', 'false');
+        $("#id_property").attr('data-parsley-min', '1');
+        $("#id_newpropertytype").attr('data-parsley-required', 'true');
+        $("#id_newpropertytype").attr('data-parsley-min', '1');
+        $("#id_newproperty").attr('data-parsley-required', 'true');
+        $("#id_newproperty").attr('data-parsley-length', '[4,50]');
 
-            $("#id_property").on('change', function () {
-                if ($(this).val() === '') {
-                    console.log("NULL");
-                    $("#id_newproperty")
-                            .css('display', 'inline-block')
-                            .attr('data-parsley-required', 'true')
-                            .parsley();
-                    $("label[for=id_newproperty]")
-                            .css('display', 'inline-block');
-                    $("#id_newpropertytype")
-                            .css('display', 'inline-block')
-                            .attr('data-parsley-required', 'true')
-                            .attr('data-parsley-min', '1')
-                            .parsley();
-                    $("label[for=id_newpropertytype]")
-                            .css('display', 'inline-block');
-                } else {
-                    console.log($(this).val());
-                    $("#id_newproperty")
-                            .css('display', 'none')
-                            .removeAttr('data-parsley-required')
-                            .parsley().destroy();
-                    $("label[for=id_newproperty]")
-                            .css('display', 'none');
-                    $("#id_newpropertytype")
-                            .css('display', 'none')
-                            .removeAttr('data-parsley-required')
-                            .parsley().destroy();
-                    $("label[for=id_newpropertytype]")
-                            .css('display', 'none');
-                }
-            });
+        $("#id_property").on('change', function () {
+            if ($(this).val() === '') {
+                console.log("NULL");
+                $("#id_newproperty")
+                        .css('display', 'inline-block')
+                        .attr('data-parsley-required', 'true')
+                        .parsley();
+                $("label[for=id_newproperty]")
+                        .css('display', 'inline-block');
+                $("#id_newpropertytype")
+                        .css('display', 'inline-block')
+                        .attr('data-parsley-required', 'true')
+                        .attr('data-parsley-min', '1')
+                        .parsley();
+                $("label[for=id_newpropertytype]")
+                        .css('display', 'inline-block');
+            } else {
+                console.log($(this).val());
+                $("#id_newproperty")
+                        .css('display', 'none')
+                        .removeAttr('data-parsley-required')
+                        .parsley().destroy();
+                $("label[for=id_newproperty]")
+                        .css('display', 'none');
+                $("#id_newpropertytype")
+                        .css('display', 'none')
+                        .removeAttr('data-parsley-required')
+                        .parsley().destroy();
+                $("label[for=id_newpropertytype]")
+                        .css('display', 'none');
+            }
         });
+    });
 
-    </script>
+</script>

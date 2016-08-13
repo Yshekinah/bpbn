@@ -1,75 +1,68 @@
 <div class="container">
-    <div class="col-md-12">
 
-        <div class="panel panel-default">
+    <div class="bs-callout bs-callout-warning hidden">
+        <h4>Oh snap!</h4>
+        <p>This form seems to be invalid :(</p>
+    </div>
 
-            <div class="panel-body">
+    <div class="bs-callout bs-callout-info hidden">
+        <h4>Yay!</h4>
+        <p>Everything seems to be ok :)</p>
+    </div>
 
-                <div class="bs-callout bs-callout-warning hidden">
-                    <h4>Oh snap!</h4>
-                    <p>This form seems to be invalid :(</p>
+    <form method="post" action="{% url 'domainmanager:characterboon_create' character.pk %}" id="boonForm" data-parsley-validate="">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.slave.label_tag }}
                 </div>
-
-                <div class="bs-callout bs-callout-info hidden">
-                    <h4>Yay!</h4>
-                    <p>Everything seems to be ok :)</p>
-                </div>
-
-                <form method="post" action="{% url 'domainmanager:characterboon_create' character.pk %}" id="boonForm" data-parsley-validate="">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="fieldWrapper">
-                                {{ form.slave.label_tag }}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            {{ form.slave }}
-                        </div>
-                        <div class="col-md-4">
-                            {% if form.slave.errors %}
-                                <div class="alert alert-warning">{{ form.slave.errors }}</div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="fieldWrapper">
-                                {{ form.category.label_tag }}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            {{ form.category }}
-                        </div>
-                        <div class="col-md-4">
-                            {% if form.category.errors %}
-                                <div class="alert alert-warning">{{ form.category.errors }}</div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="fieldWrapper">
-                                {{ form.note.errors }}
-                                {{ form.note.label_tag }}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            {{ form.note }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">&nbsp;</div>
-                        <div class="col-md-4">
-                            <button type="submit" class="save btn btn-default" value="validate">Create</button>
-                        </div>
-                    </div>
-                </form>
+            </div>
+            <div class="col-md-4">
+                {{ form.slave }}
+            </div>
+            <div class="col-md-4">
+                {% if form.slave.errors %}
+                    <div class="alert alert-warning">{{ form.slave.errors }}</div>
+                {% endif %}
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.category.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.category }}
+            </div>
+            <div class="col-md-4">
+                {% if form.category.errors %}
+                    <div class="alert alert-warning">{{ form.category.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.note.errors }}
+                    {{ form.note.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.note }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-4">
+                <button type="submit" class="save btn btn-default" value="validate">Create</button>
+            </div>
+        </div>
+    </form>
 </div>
+
 
 <script type="text/javascript">
 

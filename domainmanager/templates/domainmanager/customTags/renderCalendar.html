@@ -5,7 +5,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-
+        <h3>Event calendar</h3>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -45,15 +45,7 @@
                             "class": "{{ event.domain.pk|renderCalenderClassByDomain }}",
                             "start": {{ event.start_date|date:"U" }}000, // Milliseconds
                             "end": {{ event.end_date|date:"U" }}000 // Milliseconds
-                        },{% endfor %}
-                        {
-                            "id": 101,
-                            "title": "Attila: We are all dead :(",
-                            "url": "http://www.orf.at",
-                            "class": "event-warning",
-                            "start": 1470185200000, // Milliseconds
-                            "end": 1472185200000 // Milliseconds
-                        }
+                        }{% if not forloop.last %}, {% endif %}{% endfor %}
                     ];
                 },
                 views: {

@@ -29,28 +29,9 @@ def createInitialDisciplines(character):
         cp.save()
 
 
-def getCleanCharacterProperties(character):
-    characterProperties = CharacterProperty.objects.all().filter(character=character)
-
-    cleanProperties = {}
-
-    # Add all character properties into a "clean" dict, so it can be accessed more easily
-    # PropertyType is not used
-    for cproperty in characterProperties:
-        cleanProperties[cproperty.property.name.replace(" ", "_")] = {'id': str(cproperty.id), 'value': str(cproperty.value),
-                                                                      'name': cproperty.property.name}
-
-    return cleanProperties
-
-
-def getCharacterDisciplines(character):
-    return CharacterProperty.objects.filter(character=character).filter(
-        property__type__name__exact='Discipline')
-
-
 def getCharacterProportiesOfType(character, type):
     return CharacterProperty.objects.filter(character=character).filter(
-        property__type__stattype__exact=type)
+        property__type__stattype__exact=type).order_by('property__initalizeatcharactercreation')
 
 
 # immer das nächste Level

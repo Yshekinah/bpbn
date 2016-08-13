@@ -95,7 +95,7 @@
                                 <a href="#">Charactersheet: {{ request.session.active_character_name|default:"No character selected" }}</a>
                             {% endif %}
                         </li>
-                        <li align="right"><a href="{% url 'domainmanager:logout' %}">Logout</a></li>
+                        <li align="right"><a href="{% url 'domainmanager:logout' %}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
                     </ul>
                 </div>
             </div>

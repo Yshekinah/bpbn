@@ -8,14 +8,13 @@ from django.shortcuts import redirect
 
 from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterProperty, CharacterShoppingForm
 from .logic import adminTools, characterTools
-from .models import Boon, Character, CharacterShopping, Clan, News, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
+from .models import Boon, Character, CharacterShopping, Clan, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
 
 # Create your views here.
 
 @login_required()
 def index(request):
-
     return render(request, 'domainmanager/base.html')
 
 
@@ -48,17 +47,28 @@ def players(request):
 def charactersheet(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
-    properties = characterTools.getCleanCharacterProperties(character)
-    disciplines = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.discipline)
-    rituals = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.ritual)
-    thaumaturgicpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.thaumaturgicpath)
-    necromanticpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.necromanticpath)
+    physical = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.physical)
+    social = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.social)
+    mental = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.mental)
+
+    talents = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.talents)
+    skills = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.skills)
+    knowledges = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.knowledges)
+
+    merits = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.merits)
+    flaws = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.flaws)
+    disciplines = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.disciplines)
+    rituals = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.rituals)
+    thaumaturgicpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.thaumaturgicpaths)
+    necromanticpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.necromanticpaths)
     xpleft = characterTools.getXPforCharacter(character)
 
     # getCharacterDisciplines(character)
 
-    context = {'character': character, 'properties': properties, 'disciplines': disciplines, 'rituals': rituals,
-               'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft}
+    context = {'character': character, 'disciplines': disciplines, 'rituals': rituals,
+               'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft,
+               'skills': skills, 'talents': talents, 'knowledges': knowledges, 'merits': merits, 'flaws': flaws, 'physical': physical,
+               'social': social, 'mental': mental}
 
     request.session['active_character_id'] = character.pk
     request.session['active_character_name'] = character.firstname + " " + character.firstname
@@ -106,8 +116,7 @@ def characterinformation_edit(request, character_id):
     else:
         form = CharacterFormEdit(instance=character)
 
-    properties = characterTools.getCleanCharacterProperties(character)
-    context = {'form': form, 'character': character, 'properties': properties,}
+    context = {'form': form, 'character': character}
 
     return render(request, 'domainmanager/forms/characterinformation_edit.html', context)
 
@@ -235,17 +244,23 @@ def charactershopping(request, character_id):
 
     else:
 
+        form = CharacterShoppingForm()
+        xpLeft = characterTools.getXPforCharacter(character)
+
+        # Get all characterproperties from this character
         characterProperties = CharacterProperty.objects.filter(character=character)
 
         list = []
         for characterProperty in characterProperties:
             list.append(characterProperty.property.pk)
 
-        form = CharacterShoppingForm()
-
         # Remove all properties from the selectbox which
         # the character already owns
-        form.fields['property'].queryset = Property.objects.exclude(id__in=list).order_by('type')
+
+        # filter(type__xpinitialprize__lte=xpLeft).
+
+        form.fields['property'].queryset = Property.objects.exclude(id__in=list).filter(type__xpinitialprize__lte=xpLeft).order_by('type')
+        form.fields['newpropertytype'].queryset = PropertyType.objects.filter(xpinitialprize__lte=xpLeft).order_by('stattype')
         form.fields['character'] = character
 
     context = {'character': character, 'form': form}
@@ -376,4 +391,4 @@ def adminboon_validation(request, boon_id, hash, answer):
 
 def logout(request):
     auth_logout(request)
-    return render(request, 'domainmanager/base.html')
+    return redirect('domainmanager:index')

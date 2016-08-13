@@ -1,0 +1,12 @@
+{% load staticfiles %}
+{% load customTags %}
+
+<h3>{{ sectionName }}</h3>
+{% for field in querySet %}
+    <div class="row">
+        <div class="col-md-6">{{ field.property.name }}</div>
+        <div class="col-md-4">{{ field.value }}
+            {% renderLvlUpButton field.id field.value field.property.name %}
+        </div>
+    </div>
+{% endfor %}

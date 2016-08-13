@@ -1,81 +1,65 @@
-{% extends 'charactersheet.html' %}
-{% load staticfiles %}
+<div class="container">
 
-{% block title %}List of all character's properties for {{ character.firstname }} {{ character.lastname }}{% endblock %}
+    <form method="post" action="{% url 'domainmanager:characterinformation_edit' character.pk %}" id="characterForm" data-parsley-validate="">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="row" style="padding-top: 2px;padding-bottom: 3px">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.firstname.label_tag }}
+                </div>
 
-{% block content %}
-
-    <div class="container">
-        <div class="col-md-12">
-
-            <div class="panel panel-default">
-
-                {% block characterheader %}
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h3>General Information</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <form method="post" action="">{% csrf_token %}
-                                {{ form.non_field_errors }}
-                                <div class="col-md-7">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            {{ form.firstname.errors }}
-                                            {{ form.firstname.label_tag }}
-                                        </div>
-                                        <div class="col-md-4">
-                                            {{ form.firstname }}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            {{ form.lastname.errors }}
-                                            {{ form.lastname.label_tag }}
-                                        </div>
-                                        <div class="col-md-4">
-                                            {{ form.lastname }}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            {{ form.nickname.errors }}
-                                            {{ form.nickname.label_tag }}
-                                        </div>
-                                        <div class="col-md-4">
-                                            {{ form.nickname }}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6" align="right">
-                                            <button type="submit" class="save btn btn-default">Save</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% block characterlogo %}
-                                    {{ block.super }}
-                                {% endblock characterlogo %}
-
-                            </form>
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        test
-                    </div>
-                    </div>
-                {% endblock %}
-
-            {% block characterproperties %}
-                {{ block.super }}
-            {% endblock characterproperties %}
-
-
+            </div>
+            <div class="col-md-4">
+                {{ form.firstname }}
+            </div>
         </div>
-    </div>
+        <div class="row" style="padding-top: 2px;padding-bottom: 3px">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.lastname.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.lastname }}
+            </div>
+        </div>
+        <div class="row" style="padding-top: 2px;padding-bottom: 3px">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.nickname.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.nickname }}
+            </div>
+        </div>
+        <div class="row" style="padding-top: 2px;padding-bottom: 3px">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-4">
+                <button type="submit" class="save btn btn-default">Save</button>
+            </div>
+        </div>
+    </form>
 
+</div>
 
-{% endblock %}
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#id_nickname').attr('data-parsley-required', 'true');
+        $('#id_firstname').attr('data-parsley-required', 'true');
+//        $('#id_lastname').attr('data-parsley-required', 'true');
+
+        $('#characterForm').parsley().on('field:validated', function () {
+            var ok = $('.parsley-error').length === 0;
+            $('.bs-callout-info').toggleClass('hidden', !ok);
+            $('.bs-callout-warning').toggleClass('hidden', ok);
+        }).on('form:submit', function () {
+            document.forms["characterForm"].submit();
+            //return false; // Don't submit form for this demo
+        });
+    });
+
+</script>

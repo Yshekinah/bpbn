@@ -3,19 +3,38 @@
 {% for article in news %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3>{{ article.caption }}</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{ article.caption }}</h3>
+                    <span class="glyphicon glyphicon-user"></span> {{ article.author }}
+                    <span class="glyphicon glyphicon-calendar"></span> {{ article.created }}
+                    <span class="glyphicon glyphicon-home"></span>
+                    {% for domain in article.domains.all %}{{ domain }}{% if not forloop.last %}, {% endif %}{% endfor %}
+
+
+                </div>
+                {% if article.thumb %}
+                    <div class="col-md-*" align="right" style="padding-right:10px">
+                        <img src="{{ article.thumb.url }}" alt="thumbnail" height="100px" width="auto"/>
+                    </div>
+                {% endif %}
+
+            </div>
+
         </div>
-        <div class="panel-body">
+        <div class="panel-body" {% if article.image %}style="background-image:url('{{ article.image.url }}');height:{{ article.image.height }}px"{% endif %}>
             <div class="row">
                 <div class="col-md-8">
-                    Überschrift:{{ article.caption }}<br/>
                     Text: {{ article.text }}<br/>
-                    Link: {{ article.link }}<br/>LALALA
+                    Link: {{ article.link }}<br/>
                 </div>
-                <div></div>{% if article.image %}<img src="{{ article.image.url  }}" width="600px">{% endif %}
             </div>
         </div>
-        <div class="panel-footer"></div>
+        <div class="panel-footer">
+            {% if article.attachment %}
+                <a href="{{ article.attachment.url }}"><span class="glyphicon glyphicon-file"></span> {{ article.attachment.name }}</a>
+            {% endif %}
+        </div>
     </div>
     <hr/>
 {% endfor %}
