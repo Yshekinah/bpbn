@@ -3,15 +3,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.db.models import Sum
+from django.forms.widgets import HiddenInput
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
 from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterProperty, CharacterShoppingForm
 from .logic import adminTools, characterTools
-from .models import Boon, Character, CharacterShopping, Clan, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
+from .models import Boon, Character, CharacterShopping, Clan, Domain, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
-
-# Create your views here.
 
 @login_required()
 def index(request):
@@ -20,13 +19,15 @@ def index(request):
 
 @login_required()
 def characters(request):
+    person = get_object_or_404(Person, pk=request.user.id)
+
     # Just get the main clans
     clans = Clan.objects.all().exclude(parent__isnull=False).order_by('name')
 
     # Just get the bloodlines
     bloodlines = Clan.objects.all().filter(parent__gte=1).order_by('name')
 
-    characters = Character.objects.all().order_by('clan')
+    characters = Character.objects.all().filter(domain=person.domain).order_by('clan')
 
     context = {'clans': clans, 'bloodlines': bloodlines, 'characters': characters,}
 
@@ -45,6 +46,11 @@ def players(request):
 
 @login_required()
 def charactersheet(request, character_id):
+
+    # You ar only allowed to see other charactersheets if you are a super user
+    if adminTools.userHasCharacter(request, character_id) == False and request.user.is_superuser == False:
+        return redirect('domainmanager:index')
+
     character = get_object_or_404(Character, pk=character_id)
 
     physical = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.physical)
@@ -62,8 +68,6 @@ def charactersheet(request, character_id):
     thaumaturgicpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.thaumaturgicpaths)
     necromanticpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.necromanticpaths)
     xpleft = characterTools.getXPforCharacter(character)
-
-    # getCharacterDisciplines(character)
 
     context = {'character': character, 'disciplines': disciplines, 'rituals': rituals,
                'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft,
@@ -89,13 +93,24 @@ def character_create(request):
             character.save()
 
             characterTools.createInitialProperties(character)
-            characterTools.createInitialDisciplines(character)
+            characterTools.giveInitialXP(character)
 
             return redirect('domainmanager:characters')
     else:
+
         form = CharacterFormCreate()
-        # No non-standard clans in character creation
-        form.fields['clan'].queryset = Clan.objects.exclude(standardclan__exact=Clan.STATUS.restricted)
+
+        # If user is admin give him special rights at character creation
+        if request.user.is_superuser:
+            print("Create character as super user")
+        # if user is only "player" restrict his rights
+        else:
+            # No non-standard clans in character creation
+            form.fields['player'].queryset = Person.objects.filter(pk=request.user.id)
+            person = get_object_or_404(Person, pk=request.user.id)
+            form.fields['domain'].queryset = Domain.objects.filter(pk=person.domain.id)
+            form.fields['clan'].queryset = Clan.objects.exclude(standardclan__exact=Clan.STATUS.restricted)
+            form.fields['secretclan'].widget = HiddenInput()
 
     return render(request, 'domainmanager/character_create.html', {'form': form})
 
@@ -119,34 +134,6 @@ def characterinformation_edit(request, character_id):
     context = {'form': form, 'character': character}
 
     return render(request, 'domainmanager/forms/characterinformation_edit.html', context)
-
-
-# @login_required()
-# def characterproperties_edit(request, character_id):
-#     character = get_object_or_404(Character, pk=character_id)
-#
-#     if request.method == "POST":
-#         propertiesForm = CharacterPropertyFormSet(request.POST, request.FILES, instance=character)
-#
-#         if propertiesForm.is_valid():
-#
-#             savedProperties = propertiesForm.save(commit=False)
-#
-#             lvlUpResult = characterTools.checkXP(character=character, characterProperties=savedProperties)
-#
-#             if lvlUpResult == True:
-#                 propertiesForm.save(commit=True)
-#
-#                 return redirect('domainmanager:charactersheet', character_id)
-#         else:
-#             for error in propertiesForm.errors:
-#                 print(error)
-#
-#     else:  # FUNKTIONIERT!
-#         propertiesForm = CharacterPropertyFormSet(instance=character)
-#
-#     context = {'character': character, 'propertiesForm': propertiesForm}
-#     return render(request, 'domainmanager/characterproperties_edit.html', context)
 
 
 @login_required()
@@ -288,17 +275,6 @@ def characterbasket(request, character_id):
 
     context = {'character': character, 'basket': basket}
     return render(request, 'domainmanager/characterbasket.html', context)
-
-
-@login_required()
-def playersummary(request, player_id):
-    player = get_object_or_404(Person, pk=player_id)
-
-    characters = Character.objects.all().filter(pk=player_id)
-
-    context = {'player': player, 'characters': characters}
-
-    return render(request, 'domainmanager/playersummary.html', context)
 
 
 @login_required()

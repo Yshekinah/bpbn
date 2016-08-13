@@ -4,7 +4,7 @@ import string
 from django.db import transaction
 from django.db.models import Sum
 
-from domainmanager.models import CharacterProperty, ClanProperty, Property, Xpearned, Xpspent
+from domainmanager.models import CharacterProperty, Property, PropertyType, Xpearned, Xpspent
 
 
 # Create initial character properties
@@ -13,19 +13,24 @@ from domainmanager.models import CharacterProperty, ClanProperty, Property, Xpea
 # 2 ... Attributes
 # 3 ... Backgrounds
 def createInitialProperties(character):
+    # initialze all initalizecharactercreation properties
     properties = Property.objects.filter(domain__exact=character.domain).filter(initalizeatcharactercreation__exact=Property.STATUS.yes)
 
-    # initialze all initalizecharactercreation properties with value = 1
     for property in properties:
-        cp = CharacterProperty(character=character, property=property, value=1)
+
+        value = 0
+
+        # set value = 1 when they are attributes, as all other properties have to be bought with XP
+        if property.type.stattype == str(PropertyType.STATUS.physical) or \
+                        property.type.stattype == str(PropertyType.STATUS.social) or \
+                        property.type.stattype == str(PropertyType.STATUS.mental):
+            value = 1
+
+        cp = CharacterProperty(character=character, property=property, value=value)
         cp.save()
 
-
-def createInitialDisciplines(character):
-    clanDisciplines = ClanProperty.objects.filter(clan__exact=character.clan)
-
-    for discipline in clanDisciplines:
-        cp = CharacterProperty(character=character, property=discipline.property, value=0)
+    for discipline in character.clan.disciplines.all():
+        cp = CharacterProperty(character=character, property=discipline, value=0)
         cp.save()
 
 
@@ -87,3 +92,9 @@ def getXPforCharacter(character):
 def random_string(length=20):
     pool = string.ascii_letters + string.digits
     return str(''.join(random.choice(pool) for i in range(length)))
+
+
+# give initial XP
+def giveInitialXP(character):
+    xpearned = Xpearned(character=character, value=character.age_category.startingxp, note=str(character.age_category.startingxp) + " given at character creation")
+    xpearned.save()

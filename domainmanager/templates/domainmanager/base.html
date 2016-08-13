@@ -33,8 +33,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
-
-    <!-- Calendar try -->
+    <!-- Calendar -->
     <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
 
     <script type="text/javascript" src="{% static 'js/underscore-min.js' %}"></script>
@@ -69,15 +68,20 @@
                     <ul class="nav navbar-nav">
 
                         <li role="presentation" class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                Admin Menu <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="http://127.0.0.1:8000/admin/">Django admin</a></li>
-                                <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
-                                <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
-                                <li><a href="{% url 'domainmanager:playersummary' request.user.id %}">Players</a></li>
-                                <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
-                            </ul>
+
+                            {% comment %}Oly show admin menu to admins {% endcomment %}
+                            {% if user.is_superuser %}
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Admin Menu <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://127.0.0.1:8000/admin/">Django admin</a></li>
+                                    <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
+                                    <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
+                                    <li><a href="{% url 'domainmanager:players' %}">Players</a></li>
+                                    <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
+                                </ul>
+                            {% endif %}
+
                         </li>
                         <li role="presentation" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

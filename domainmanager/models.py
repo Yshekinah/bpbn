@@ -33,6 +33,7 @@ class Gender(models.Model):
 
 class AgeCategory(models.Model):
     name = models.CharField(max_length=100)
+    startingxp = models.IntegerField(default=25)
 
     def __str__(self):
         return self.name
@@ -125,7 +126,7 @@ class Property(models.Model):
 
 
 class Clan(models.Model):
-    STATUS = Choices((1, 'standard', 'Standard clan'), (2, 'restricted', 'Standard clan'))
+    STATUS = Choices((1, 'standard', 'Standard clan'), (2, 'restricted', 'Restricted clan'))
     name = models.CharField(max_length=100)
     image = models.CharField(max_length=100, blank=True)
     parent = models.ForeignKey('Clan', related_name='parentclan', blank=True, null=True)
@@ -136,21 +137,19 @@ class Clan(models.Model):
         return self.name
 
 
-class ClanProperty(models.Model):
-    clan = models.ForeignKey(Clan)
-    property = models.ForeignKey(Property)
-
-    def __str__(self):
-        return self.clan.name + " " + self.property.name
-
-
 class Character(models.Model):
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
     nickname = models.CharField(max_length=200, blank=True)
-    firstname = models.CharField(max_length=200, blank=True, null=True)
+    firstname = models.CharField(max_length=200)
     lastname = models.CharField(max_length=200, blank=True, null=True)
-    generation = models.IntegerField(default=12)
+    generation = models.IntegerField(
+        default=12,
+        validators=[
+            MaxValueValidator(15),
+            MinValueValidator(4)
+        ]
+    )
     clan = models.ForeignKey(Clan)
     sect = models.ForeignKey(Sect, default=1)
     date_of_birth = models.DateField(default=date.today)
@@ -199,6 +198,14 @@ class PropertyType(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ClanProperty(models.Model):
+    clan = models.ForeignKey(Clan)
+    property = models.ForeignKey(Property, limit_choices_to={'type_id': PropertyType.STATUS.disciplines})
+
+    def __str__(self):
+        return self.clan.name + " " + self.property.name
 
 
 class CharacterProperty(models.Model):
@@ -283,6 +290,7 @@ class Xpearned(models.Model):
     event = models.ForeignKey(Event, related_name='event', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+    note = models.CharField(max_length=250, blank=True, null=True)
 
     def __str__(self):
         return self.character.firstname + " " + self.character.lastname + " earned " + str(

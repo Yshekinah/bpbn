@@ -2,40 +2,63 @@
 
 {% block title %}List of all Characters{% endblock %}
 
-{% block sidebar %}
-    {{ block.super }}
-    <li><a href="{% url 'domainmanager:character_create' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Create new character</a></li>
-{% endblock %}
-
 {% block content %}
+    <div class="container">
+        <div class="col-md-12">
 
-    {% for clan in clans %}
+            <div class="panel panel-default">
 
-        {{ clan.name }}<br/>
+                <div class="panel-heading">
+                    <h3>List of all Characters</h3>
+                </div>
+                <div class="panel-body">
+                    {% for clan in clans %}
 
-        {% for character in characters %}
+                        {{ clan.name }}<br/>
 
-            {% if character.clan.id == clan.id %}
-                    <a href="{% url 'domainmanager:charactersheet' character.id %}" style="padding-left:4em">{{ character.firstname }} {{ character.lastname }}<br/></a>
-            {% endif %}
+                        {% for character in characters %}
 
-        {% endfor %}
+                            {% if character.clan.id == clan.id %}
 
-        {% for blood in bloodlines %}
+                                {% if character.player.pk == request.user.pk %}
+                                    <a href="{% url 'domainmanager:charactersheet' character.id %}"
+                                       style="padding-left:4em">{{ character.firstname }} {{ character.lastname }}<br/></a>
+                                {% else %}
+                                    <span style="padding-left:4em"> {{ character.firstname }} {{ character.lastname }}</span><br/>
+                                {% endif %}
 
-            {% if clan.id == blood.parent.id %}
+                            {% endif %}
 
-                <p style="padding-left:4em;padding-top:5px;margin-bottom:0px">{{ blood.name }}</p>
-                {% for bcharacter in characters %}
-                    {% if bcharacter.clan.id == blood.id %}
-                        <a href="{% url 'domainmanager:charactersheet' bcharacter.id %}" style="padding-left:8em ">{{ bcharacter.firstname }} {{ bcharacter.lastname }} <br/></a>
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
+                        {% endfor %}
 
-        {% endfor %}
+                        {% for blood in bloodlines %}
+
+                            {% if clan.id == blood.parent.id %}
+
+                                <p style="padding-left:4em;padding-top:5px;margin-bottom:0px">{{ blood.name }}</p>
+                                {% for bcharacter in characters %}
+                                    {% if bcharacter.clan.id == blood.id %}
+
+                                        {% if bcharacter.player.pk == request.user.pk %}
+                                            <a href="{% url 'domainmanager:charactersheet' bcharacter.id %}"
+                                               style="padding-left:8em">{{ bcharacter.firstname }} {{ bcharacter.lastname }}<br/></a>
+                                        {% else %}
+                                            <span style="padding-left:8em"> {{ bcharacter.firstname }} {{ bcharacter.lastname }}</span><br/>
+                                        {% endif %}
+
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                        {% endfor %}
 
 
-    {% endfor %}
+                    {% endfor %}
+                </div>
 
+            </div>
+
+
+        </div>
+    </div>
 {% endblock %}

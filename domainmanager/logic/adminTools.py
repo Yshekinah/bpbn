@@ -8,7 +8,7 @@ def checkAdmin(request):
     if request.user.groups.exclude(name='Admin').exists():
         return render(request, 'domainmanager/index.html')
 
-
+# Is this a valid user vs character combination
 def userHasCharacter(request, character_id):
     characters = Character.objects.filter(player__pk=request.user.pk)
     found = False

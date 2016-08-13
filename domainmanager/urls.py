@@ -63,10 +63,6 @@ urlpatterns = [
     #  ex: /domainmanager/players
     url(r'^players$', views.players, name='players'),
 
-    # List all the characters
-    # ex: /domainmanager/playersummary/1
-    url(r'^playersummary/(?P<player_id>[0-9]+)$', views.playersummary, name='playersummary'),
-
     # LvlUp one CharacterProperty in charactersheet
     # ex: /domainmanager/playersummary/1
     url(r'^lvlup/(?P<characterproperty_id>[0-9]+)$', views.lvlup, name='lvlup'),

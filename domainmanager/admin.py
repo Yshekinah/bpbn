@@ -30,6 +30,7 @@ admin.site.register(Xpspent)
 admin.site.register(ClanProperty)
 admin.site.register(CharacterShopping)
 admin.site.register(News)
+admin.site.register(Sect)
 
 # Define an inline admin descriptor for Employee model
 # which acts a bit like a singleton
@@ -42,7 +43,6 @@ class PersonInline(admin.StackedInline):
 # Define a new User admin
 class UserAdmin(BaseUserAdmin):
     inlines = (PersonInline,)
-
 
 # Re-register UserAdmin
 admin.site.unregister(User)
