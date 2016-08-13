@@ -4,82 +4,86 @@
 
 {% block title %}All my bought stuff for: {{ character.firstname }} {{ character.lastname }} {% endblock %}
 
-{% block sidebar %}
-    {{ block.super }}
-{% endblock %}
-
 {% block content %}
-    {% block panel-nav %}
-        {{ block.super }}
-    {% endblock panel-nav %}
 
-    <button class="btn btn-default" style="margin-bottom: 20px" onclick="javascript:displayCreateShopping()"><span
-            class="glyphicon glyphicon-plus"></span> Buy
-    </button>
+    <div class="container">
+        <div class="col-md-12">
 
-    <!--<a class='ls-modal' href="http://127.0.0.1:8000/domainmanager/" title="View" data-target="#myModal" data-toggle="modal">View 72</a>-->
+            {% block panel-nav %}
+                {{ block.super }}
+            {% endblock panel-nav %}
 
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
+            <button class="btn btn-default" style="margin-bottom: 20px" onclick="javascript:displayCreateShopping()"><span
+                    class="glyphicon glyphicon-plus"></span> Buy
+            </button>
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Character shopping</h4>
+            <!--<a class='ls-modal' href="http://127.0.0.1:8000/domainmanager/" title="View" data-target="#myModal" data-toggle="modal">View 72</a>-->
+
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Character shopping</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Loading...</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <p>Loading...</p>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        {% if basket %}
+                            <div class="col-md-5">
+                                <h3>Shopping cart contains {{ basket|length }} items</h3>
+                            </div>
+                        {% else %}
+                            <div class="col-md-5">
+                                <h3>Shopping cart is empty</h3>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>New property</th>
+                        <th>New property type</th>
+                        <th>XP cost</th>
+                        <th>Approved by GM</th>
+                        <th>Cancel</th>
+                        <th>Timestamp</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in basket %}
+                        <tr>
+                            <td>{% if row.property %}{{ row.property }}{% else %}{{ row.newproperty }}{% endif %}</td>
+                            <td>{% if row.property %}{{ row.property.type.name }}{% else %}{{ row.newpropertytype }}{% endif %}</td>
+                            <td>{% if row.property %}{{ row.property.type.xpinitialprize }}{% else %}
+                                {{ row.newpropertytype.xpinitialprize }}{% endif %}</td>
+                            <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
+                            <td>
+                                {% if row.approvedbygm == row.STATUS.waiting|slugify %}
+                                    <a href="{% url 'domainmanager:charactershopping_cancel' character.pk row.pk %}">
+                                        {% renderButton 2 'Cancel' %}
+                                    </a>
+                                {% endif %}</td>
+                            <td>{{ row.timestamp }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                {% if basket %}
-                    <div class="col-md-5">
-                        <h3>Shopping cart contains {{ basket|length }} items</h3>
-                    </div>
-                {% else %}
-                    <div class="col-md-5">
-                        <h3>Shopping cart is empty</h3>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>New property</th>
-                <th>New property type</th>
-                <th>XP cost</th>
-                <th>Approved by GM</th>
-                <th>Cancel</th>
-                <th>Timestamp</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for row in basket %}
-                <tr>
-                    <td>{% if row.property %}{{ row.property }}{% else %}{{ row.newproperty }}{% endif %}</td>
-                    <td>{% if row.property %}{{ row.property.type.name }}{% else %}{{ row.newpropertytype }}{% endif %}</td>
-                    <td>{% if row.property %}{{ row.property.type.xpinitialprize }}{% else %}{{ row.newpropertytype.xpinitialprize }}{% endif %}</td>
-                    <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
-                    <td>
-                        {% if row.approvedbygm == row.STATUS.waiting|slugify %}
-                            <a href="{% url 'domainmanager:charactershopping_cancel' character.pk row.pk %}">
-                                {% renderButton 2 'Cancel' %}
-                            </a>
-                        {% endif %}</td>
-                    <td>{{ row.timestamp }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
-    <script>
+    <script type="text/javascript">
         {% autoescape off %}
 
             function displayCreateShopping() {

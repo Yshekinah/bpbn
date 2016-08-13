@@ -1,20 +1,24 @@
 {% load staticfiles %}
 {% load customTags %}
 
+<div class="container"></div>
+
 <div class="panel panel-default">
     <div class="panel-heading">
 
     </div>
     <div class="panel-body">
         <div class="row">
+            {% comment %}
             <div class="col-md-4">
                 Upcoming events:<br/>
                 <ul>{% for event in events %}
                     <li>{{ event.name }}</li>
                 {% endfor %}</ul>
             </div>
-            <div class="col-md-8">
-                <div id="calendar"></div>
+            {% endcomment %}
+            <div class="col-md-12">
+                <div id="calendar" class="cal-context" style="width: 100%"></div>
             </div>
         </div>
 
@@ -30,7 +34,7 @@
                 view: 'month',
                 weekbox: false,
                 first_day: 1,
-                width: '50%',
+                width: '100%',
                 format12: false,
                 events_source: function () {
                     return [{% for event in events %}

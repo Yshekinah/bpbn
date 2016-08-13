@@ -4,94 +4,96 @@
 {% block title %}XP overview: Spent & recieved XP for {{ character.firstname }}
     {{ character.lastname }} {% endblock %}
 
-{% block sidebar %}
-    {{ block.super }}
-{% endblock %}
-
 {% block content %}
-    {% block panel-nav %}
-        {{ block.super }}
-    {% endblock panel-nav %}
 
-    <div class="panel panel-default">
-        {% if xpSpent %}
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h3>Summary of spent XP: {{ valueXpSpent }}</h3>
-                    </div>
-                </div>
-            </div>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Spent on</th>
-                    <th>Old value</th>
-                    <th>New value</th>
-                    <th>XP cost</th>
-                    <th>Timestamp</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for row in xpSpent %}
-                    <tr>
-                        <td>{{ row.property.name }}</td>
-                        <td>{{ row.oldvalue }}</td>
-                        <td>{{ row.newvalue }}</td>
-                        <td>{{ row.xpcost }}</td>
-                        <td>{{ row.timestamp }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h3>No XP spent so far...</h3>
-                    </div>
-                </div>
-            </div>
-        {% endif %}
-    </div>
+    <div class="container">
+        <div class="col-md-12">
 
-    <div class="panel panel-default">
-        {% if xpEarned %}
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h3>Summary of recieved XP: {{ valueXpEarned }}</h3>
+            {% block panel-nav %}
+                {{ block.super }}
+            {% endblock panel-nav %}
+
+            <div class="panel panel-default">
+                {% if xpSpent %}
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h3>Summary of spent XP: {{ valueXpSpent }}</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Event</th>
-                    <th>Value</th>
-                    <th>Timestamp</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for row in xpEarned %}
-                    <tr>
-                        <td>{{ row.event.name }}</td>
-                        <td>{{ row.value }}</td>
-                        <td>{{ row.timetamp }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h3>No XP recieved so far...</h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Spent on</th>
+                            <th>Old value</th>
+                            <th>New value</th>
+                            <th>XP cost</th>
+                            <th>Timestamp</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in xpSpent %}
+                            <tr>
+                                <td>{{ row.property.name }}</td>
+                                <td>{{ row.oldvalue }}</td>
+                                <td>{{ row.newvalue }}</td>
+                                <td>{{ row.xpcost }}</td>
+                                <td>{{ row.timestamp }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h3>No XP spent so far...</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
-        {% endif %}
+
+            <div class="panel panel-default">
+                {% if xpEarned %}
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h3>Summary of recieved XP: {{ valueXpEarned }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Value</th>
+                            <th>Timestamp</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in xpEarned %}
+                            <tr>
+                                <td>{{ row.event.name }}</td>
+                                <td>{{ row.value }}</td>
+                                <td>{{ row.timetamp }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h3>No XP recieved so far...</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
     </div>
 
 {% endblock %}
-

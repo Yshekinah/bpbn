@@ -17,266 +17,271 @@
 {% endblock %}
 
 {% block content %}
-    {% block panel-nav %}
-        <div class="panel-heading">
-            <ul class="nav nav-tabs">
-                <li class="{% ancestor 'domainmanager:charactersheet' character.id %}"><a
-                        href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
-                <li class="{% ancestor 'domainmanager:characterxpsummary' character.id %}"><a
-                        href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a></li>
-                <li class="{% ancestor 'domainmanager:characterboonsummary' character.id %}"><a
-                        href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a></li>
-                <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
-                        href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
-            </ul>
-        </div>
-    {% endblock panel-nav %}
+    <div class="container">
+        <div class="col-md-12">
 
-    {% block characterheader %}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3>General Information <a href="{% url 'domainmanager:characterinformation_edit' character.id %}"
-                                                   class="top-menu"><span
-                                class="glyphicon glyphicon-pencil"></span></a></h3>
-                    </div>
+            {% block panel-nav %}
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="{% ancestor 'domainmanager:charactersheet' character.id %}"><a
+                                href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
+                        <li class="{% ancestor 'domainmanager:characterxpsummary' character.id %}"><a
+                                href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a></li>
+                        <li class="{% ancestor 'domainmanager:characterboonsummary' character.id %}"><a
+                                href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a></li>
+                        <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
+                                href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
+                    </ul>
                 </div>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="headerpanel">Name: {{ character.firstname }} {{ character.lastname }}</div>
-                        {% if character.nickname != None %}
-                            <div class="headerpanel">Nickname: {{ character.nickname }}</div>{% endif %}
-                        {% if character.clan != None %}
-                            <div class="headerpanel"> Clan: {{ character.clan.name }}</div>{% endif %}
-                        {% if character.generation != None %}
-                            <div class="headerpanel">{{ character.generation }}. Generation</div>{% endif %}
-                        {% if character.rank != None %}
-                            <div class="headerpanel">Rank: {{ character.rank }}</div>{% endif %}
-                        {% if character.sire != None %}
-                            <div class="headerpanel">
-                                Sire:
-                                <a href="{% url  'domainmanager:charactersheet' character.sire.id %}">{{ character.sire.firstname }} {{ character.sire.lastname }}</a>
-                            </div>{% endif %}
-                    </div>
-                    <div class="col-md-3">
-                        <div class="headerpanel">Willpower: {{ character.willpower }} </div>
-                        <div class="headerpanel">Frenzy points: {{ character.frenzy }}</div>
-                        <div class="headerpanel">Nickname: {{ character.nickname }}</div>
-                        <div class="headerpanel">Bloodpool: {{ character.bloodpool }}</div>
-                        <div class="headerpanel">Age category: {{ character.age_category }}</div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="headerpanel">XP left to spend: {{ xpleft }} </div>
-                    </div>
-                    {% block characterlogo %}
-                        <div class="col-md-*" align="right" style="padding-right:10px">
-                            <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo"
-                                 height="100px" width="auto"/>
+            {% endblock panel-nav %}
+
+            {% block characterheader %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>General Information <a href="{% url 'domainmanager:characterinformation_edit' character.id %}"
+                                                           class="top-menu"><span
+                                        class="glyphicon glyphicon-pencil"></span></a></h3>
+                            </div>
                         </div>
-                    {% endblock characterlogo %}
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="headerpanel">Name: {{ character.firstname }} {{ character.lastname }}</div>
+                                {% if character.nickname != None %}
+                                    <div class="headerpanel">Nickname: {{ character.nickname }}</div>{% endif %}
+                                {% if character.clan != None %}
+                                    <div class="headerpanel"> Clan: {{ character.clan.name }}</div>{% endif %}
+                                {% if character.generation != None %}
+                                    <div class="headerpanel">{{ character.generation }}. Generation</div>{% endif %}
+                                {% if character.rank != None %}
+                                    <div class="headerpanel">Rank: {{ character.rank }}</div>{% endif %}
+                                {% if character.sire != None %}
+                                    <div class="headerpanel">
+                                        Sire:
+                                        <a href="{% url  'domainmanager:charactersheet' character.sire.id %}">{{ character.sire.firstname }} {{ character.sire.lastname }}</a>
+                                    </div>{% endif %}
+                            </div>
+                            <div class="col-md-3">
+                                <div class="headerpanel">Willpower: {{ character.willpower }} </div>
+                                <div class="headerpanel">Frenzy points: {{ character.frenzy }}</div>
+                                <div class="headerpanel">Nickname: {{ character.nickname }}</div>
+                                <div class="headerpanel">Bloodpool: {{ character.bloodpool }}</div>
+                                <div class="headerpanel">Age category: {{ character.age_category }}</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="headerpanel">XP left to spend: {{ xpleft }} </div>
+                            </div>
+                            {% block characterlogo %}
+                                <div class="col-md-*" align="right" style="padding-right:10px">
+                                    <img src="{% static 'img/logos/' %}{{ character.clan.image }}" alt="Clan logo"
+                                         height="100px" width="auto"/>
+                                </div>
+                            {% endblock characterlogo %}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    {% endblock characterheader %}
+            {% endblock characterheader %}
 
-    {% block characterproperties %}
-        <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Properties{% comment %}<a href="{% url 'domainmanager:characterproperties_edit' character.id %}" class="top-menu"><span
+            {% block characterproperties %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3>Properties{% comment %}<a href="{% url 'domainmanager:characterproperties_edit' character.id %}" class="top-menu"><span
                             class="glyphicon glyphicon-pencil"></span></a>{% endcomment %}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3>Physical</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <h3>Mental</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Strength</div>
+                            <div class="col-md-1">{{ properties.Strength.value }}
+                                {% renderLvlUpButton properties.Strength.id properties.Strength.value properties.Strength.name %}
+                            </div>
+                            <div class="col-md-2">Charisma</div>
+                            <div class="col-md-1">{{ properties.Charisma.value }}
+                                {% renderLvlUpButton properties.Charisma.id properties.Charisma.value properties.Charisma.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Agility</div>
+                            <div class="col-md-1">{{ properties.Agility.value }}
+                                {% renderLvlUpButton properties.Agility.id properties.Agility.value properties.Agility.name %}</div>
+                            <div class="col-md-2">Intelligence</div>
+                            <div class="col-md-1">{{ properties.Intelligence.value }}
+                                {% renderLvlUpButton properties.Intelligence.id properties.Intelligence.value properties.Intelligence.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Stamina</div>
+                            <div class="col-md-1">{{ properties.Stamina.value }}
+                                {% renderLvlUpButton properties.Stamina.id properties.Stamina.value properties.Stamina.name %}</div>
+                            <div class="col-md-2">Perception</div>
+                            <div class="col-md-1">{{ properties.Perception.value }}
+                                {% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3>Talents</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <h3>Skills</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <h3>Knowledges</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Brawl</div>
+                            <div class="col-md-1">
+                                {{ properties.Brawl.value }}{% renderLvlUpButton properties.Brawl.id properties.Brawl.value properties.Brawl.name %}</div>
+                            <div class="col-md-2">Melee</div>
+                            <div class="col-md-1">
+                                {{ properties.Melee.value }}{% renderLvlUpButton properties.Melee.id properties.Melee.value properties.Melee.name %}</div>
+                            <div class="col-md-2">Occult</div>
+                            <div class="col-md-1">
+                                {{ properties.Occult.value }}{% renderLvlUpButton properties.Occult.id properties.Occult.value properties.Occult.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Dodge</div>
+                            <div class="col-md-1">
+                                {{ properties.Dodge.value }}{% renderLvlUpButton properties.Dodge.id properties.Dodge.value properties.Dodge.name %}</div>
+                            <div class="col-md-2">Firearms</div>
+                            <div class="col-md-1">
+                                {{ properties.Firearms.value }}{% renderLvlUpButton properties.Firearms.id properties.Firearms.value properties.Firearms.name %}</div>
+                            <div class="col-md-2">Cainite Lore</div>
+                            <div class="col-md-1">
+                                {{ properties.Cainite_Lore.value }}{% renderLvlUpButton properties.Cainite_Lore.id properties.Cainite_Lore.value properties.Cainite_Lore.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Manipulation</div>
+                            <div class="col-md-1">
+                                {{ properties.Manipulation.value }}{% renderLvlUpButton properties.Manipulation.id properties.Manipulation.value properties.Manipulation.name %}</div>
+                            <div class="col-md-2">Stealth</div>
+                            <div class="col-md-1">
+                                {{ properties.Stealth.value }}{% renderLvlUpButton properties.Stealth.id properties.Stealth.value properties.Stealth.name %}</div>
+                            <div class="col-md-2">Linguistics</div>
+                            <div class="col-md-1">
+                                {{ properties.Linguistics.value }}{% renderLvlUpButton properties.Linguistics.id properties.Linguistics.value properties.Linguistics.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Empathy</div>
+                            <div class="col-md-1">
+                                {{ properties.Empathy.value }}{% renderLvlUpButton properties.Empathy.id properties.Empathy.value properties.Empathy.name %}</div>
+                            <div class="col-md-2">Meditation</div>
+                            <div class="col-md-1">
+                                {{ properties.Meditation.value }}{% renderLvlUpButton properties.Meditation.id properties.Meditation.value properties.Meditation.name %}</div>
+                            <div class="col-md-2">Academics</div>
+                            <div class="col-md-1">
+                                {{ properties.Academics.value }}{% renderLvlUpButton properties.Academics.id properties.Academics.value properties.Academics.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Survival</div>
+                            <div class="col-md-1">
+                                {{ properties.Survival.value }}{% renderLvlUpButton properties.Survival.id properties.Survival.value properties.Survival.name %}</div>
+                            <div class="col-md-2">Electronics</div>
+                            <div class="col-md-1">
+                                {{ properties.Electronics.value }}{% renderLvlUpButton properties.Electronics.id properties.Electronics.value properties.Electronics.name %}</div>
+                            <div class="col-md-2">Science</div>
+                            <div class="col-md-1">
+                                {{ properties.Science.value }}{% renderLvlUpButton properties.Science.id properties.Science.value properties.Science.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Backgrounds</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Generation
+                            </div>
+                            <div class="col-md-1">
+                                {{ properties.Generation.value }}{% renderLvlUpButton properties.Generation.id properties.Generation.value properties.Generation.name %}</div>
+                            <div class="col-md-2">Mentor</div>
+                            <div class="col-md-1">
+                                {{ properties.Mentor.value }}{% renderLvlUpButton properties.Mentor.id properties.Mentor.value properties.Mentor.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Resources</div>
+                            <div class="col-md-1">
+                                {{ properties.Resources.value }}{% renderLvlUpButton properties.Resources.id properties.Resources.value properties.Resources.name %}</div>
+                            <div class="col-md-2">Library</div>
+                            <div class="col-md-1">
+                                {{ properties.Library.value }}{% renderLvlUpButton properties.Library.id properties.Library.value properties.Library.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Herd</div>
+                            <div class="col-md-1">
+                                {{ properties.Herd.value }}{% renderLvlUpButton properties.Herd.id properties.Herd.value properties.Herd.name %}</div>
+                            <div class="col-md-2">Haven</div>
+                            <div class="col-md-1">
+                                {{ properties.Haven.value }}{% renderLvlUpButton properties.Haven.id properties.Haven.value properties.Haven.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Retainers</div>
+                            <div class="col-md-1">
+                                {{ properties.Retainers.value }}{% renderLvlUpButton properties.Retainers.id properties.Retainers.value properties.Retainers.name %}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3>Disciplines</h3>
+                            </div>
+                        </div>
+                        {% for field in disciplines %}
+                            <div class="row">
+                                <div class="col-md-2">{{ field.property.name }}</div>
+                                <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
+                            </div>
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h3>Thaumaturgic paths</h3>
+                            </div>
+                        </div>
+                        {% for field in thaumaturgicpaths %}
+                            <div class="row">
+                                <div class="col-md-2">{{ field.property.name }}</div>
+                                <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
+                            </div>
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3>Rituals</h3>
+                            </div>
+                        </div>
+                        {% for field in rituals %}
+                            <div class="row">
+                                <div class="col-md-2">{{ field.property.name }}</div>
+                                <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
+                            </div>
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3>Necromantic paths</h3>
+                            </div>
+                        </div>
+                        {% for field in necromanticpaths %}
+                            <div class="row">
+                                <div class="col-md-2">{{ field.property.name }}</div>
+                                <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Physical</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Mental</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Strength</div>
-                <div class="col-md-1">{{ properties.Strength.value }}
-                    {% renderLvlUpButton properties.Strength.id properties.Strength.value properties.Strength.name %}
-                </div>
-                <div class="col-md-2">Charisma</div>
-                <div class="col-md-1">{{ properties.Charisma.value }}
-                    {% renderLvlUpButton properties.Charisma.id properties.Charisma.value properties.Charisma.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Agility</div>
-                <div class="col-md-1">{{ properties.Agility.value }}
-                    {% renderLvlUpButton properties.Agility.id properties.Agility.value properties.Agility.name %}</div>
-                <div class="col-md-2">Intelligence</div>
-                <div class="col-md-1">{{ properties.Intelligence.value }}
-                    {% renderLvlUpButton properties.Intelligence.id properties.Intelligence.value properties.Intelligence.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Stamina</div>
-                <div class="col-md-1">{{ properties.Stamina.value }}
-                    {% renderLvlUpButton properties.Stamina.id properties.Stamina.value properties.Stamina.name %}</div>
-                <div class="col-md-2">Perception</div>
-                <div class="col-md-1">{{ properties.Perception.value }}
-                    {% renderLvlUpButton properties.Perception.id properties.Perception.value properties.Perception.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Talents</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Skills</h3>
-                </div>
-                <div class="col-md-3">
-                    <h3>Knowledges</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Brawl</div>
-                <div class="col-md-1">
-                    {{ properties.Brawl.value }}{% renderLvlUpButton properties.Brawl.id properties.Brawl.value properties.Brawl.name %}</div>
-                <div class="col-md-2">Melee</div>
-                <div class="col-md-1">
-                    {{ properties.Melee.value }}{% renderLvlUpButton properties.Melee.id properties.Melee.value properties.Melee.name %}</div>
-                <div class="col-md-2">Occult</div>
-                <div class="col-md-1">
-                    {{ properties.Occult.value }}{% renderLvlUpButton properties.Occult.id properties.Occult.value properties.Occult.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Dodge</div>
-                <div class="col-md-1">
-                    {{ properties.Dodge.value }}{% renderLvlUpButton properties.Dodge.id properties.Dodge.value properties.Dodge.name %}</div>
-                <div class="col-md-2">Firearms</div>
-                <div class="col-md-1">
-                    {{ properties.Firearms.value }}{% renderLvlUpButton properties.Firearms.id properties.Firearms.value properties.Firearms.name %}</div>
-                <div class="col-md-2">Cainite Lore</div>
-                <div class="col-md-1">
-                    {{ properties.Cainite_Lore.value }}{% renderLvlUpButton properties.Cainite_Lore.id properties.Cainite_Lore.value properties.Cainite_Lore.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Manipulation</div>
-                <div class="col-md-1">
-                    {{ properties.Manipulation.value }}{% renderLvlUpButton properties.Manipulation.id properties.Manipulation.value properties.Manipulation.name %}</div>
-                <div class="col-md-2">Stealth</div>
-                <div class="col-md-1">
-                    {{ properties.Stealth.value }}{% renderLvlUpButton properties.Stealth.id properties.Stealth.value properties.Stealth.name %}</div>
-                <div class="col-md-2">Linguistics</div>
-                <div class="col-md-1">
-                    {{ properties.Linguistics.value }}{% renderLvlUpButton properties.Linguistics.id properties.Linguistics.value properties.Linguistics.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Empathy</div>
-                <div class="col-md-1">
-                    {{ properties.Empathy.value }}{% renderLvlUpButton properties.Empathy.id properties.Empathy.value properties.Empathy.name %}</div>
-                <div class="col-md-2">Meditation</div>
-                <div class="col-md-1">
-                    {{ properties.Meditation.value }}{% renderLvlUpButton properties.Meditation.id properties.Meditation.value properties.Meditation.name %}</div>
-                <div class="col-md-2">Academics</div>
-                <div class="col-md-1">
-                    {{ properties.Academics.value }}{% renderLvlUpButton properties.Academics.id properties.Academics.value properties.Academics.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Survival</div>
-                <div class="col-md-1">
-                    {{ properties.Survival.value }}{% renderLvlUpButton properties.Survival.id properties.Survival.value properties.Survival.name %}</div>
-                <div class="col-md-2">Electronics</div>
-                <div class="col-md-1">
-                    {{ properties.Electronics.value }}{% renderLvlUpButton properties.Electronics.id properties.Electronics.value properties.Electronics.name %}</div>
-                <div class="col-md-2">Science</div>
-                <div class="col-md-1">
-                    {{ properties.Science.value }}{% renderLvlUpButton properties.Science.id properties.Science.value properties.Science.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Backgrounds</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    Generation
-                </div>
-                <div class="col-md-1">
-                    {{ properties.Generation.value }}{% renderLvlUpButton properties.Generation.id properties.Generation.value properties.Generation.name %}</div>
-                <div class="col-md-2">Mentor</div>
-                <div class="col-md-1">
-                    {{ properties.Mentor.value }}{% renderLvlUpButton properties.Mentor.id properties.Mentor.value properties.Mentor.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Resources</div>
-                <div class="col-md-1">
-                    {{ properties.Resources.value }}{% renderLvlUpButton properties.Resources.id properties.Resources.value properties.Resources.name %}</div>
-                <div class="col-md-2">Library</div>
-                <div class="col-md-1">
-                    {{ properties.Library.value }}{% renderLvlUpButton properties.Library.id properties.Library.value properties.Library.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Herd</div>
-                <div class="col-md-1">
-                    {{ properties.Herd.value }}{% renderLvlUpButton properties.Herd.id properties.Herd.value properties.Herd.name %}</div>
-                <div class="col-md-2">Haven</div>
-                <div class="col-md-1">
-                    {{ properties.Haven.value }}{% renderLvlUpButton properties.Haven.id properties.Haven.value properties.Haven.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">Retainers</div>
-                <div class="col-md-1">
-                    {{ properties.Retainers.value }}{% renderLvlUpButton properties.Retainers.id properties.Retainers.value properties.Retainers.name %}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Disciplines</h3>
-                </div>
-            </div>
-            {% for field in disciplines %}
-                <div class="row">
-                    <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
-                </div>
-            {% endfor %}
-            <div class="row">
-                <div class="col-md-5">
-                    <h3>Thaumaturgic paths</h3>
-                </div>
-            </div>
-            {% for field in thaumaturgicpaths %}
-                <div class="row">
-                    <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
-                </div>
-            {% endfor %}
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Rituals</h3>
-                </div>
-            </div>
-            {% for field in rituals %}
-                <div class="row">
-                    <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
-                </div>
-            {% endfor %}
-            <div class="row">
-                <div class="col-md-3">
-                    <h3>Necromantic paths</h3>
-                </div>
-            </div>
-            {% for field in necromanticpaths %}
-                <div class="row">
-                    <div class="col-md-2">{{ field.property.name }}</div>
-                    <div class="col-md-1">{{ field.value }} {% renderLvlUpButton field.id field.value field.property.name %}</div>
-                </div>
-            {% endfor %}
-        </div>
+            {% endblock characterproperties %}
+            <div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>
 
-    {% endblock characterproperties %}
-    <div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>
-
+        </div>
+    </div>
 
     <script type="text/javascript">
         {% autoescape off %}
@@ -306,8 +311,6 @@
 
         {% endautoescape %}
     </script>
-
-
 
 {% endblock %}
 

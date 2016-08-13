@@ -302,6 +302,7 @@ class News(models.Model):
     validuntil = models.DateField(blank=True, null=True)
     limittoclan = models.ManyToManyField(Clan)
     domains = models.ManyToManyField(Domain)
+    author = models.ForeignKey(User)
     thumb = models.ImageField(upload_to="news/", blank=True, null=True)
     image = models.ImageField(upload_to="news/", blank=True, null=True)
     shreknetlevel = models.IntegerField(

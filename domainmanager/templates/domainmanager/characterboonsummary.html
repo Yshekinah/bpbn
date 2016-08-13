@@ -10,113 +10,119 @@
 {% endblock %}
 
 {% block content %}
-    {% block panel-nav %}
-        {{ block.super }}
-    {% endblock panel-nav %}
+    <div class="container">
+        <div class="col-md-12">
+            {% block panel-nav %}
+                {{ block.super }}
+            {% endblock panel-nav %}
 
-    <button class="btn btn-default" style="margin-bottom: 20px" onclick="javascript:displayCreateBoon()"><span
-            class="glyphicon glyphicon-plus"></span> Create a boon
-    </button>
+            <button class="btn btn-default" style="margin-bottom: 20px" onclick="javascript:displayCreateBoon()"><span
+                    class="glyphicon glyphicon-plus"></span> Create a boon
+            </button>
 
-    <!--<a class='ls-modal' href="http://127.0.0.1:8000/domainmanager/" title="View" data-target="#myModal" data-toggle="modal">View 72</a>-->
+            <!--<a class='ls-modal' href="http://127.0.0.1:8000/domainmanager/" title="View" data-target="#myModal" data-toggle="modal">View 72</a>-->
 
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Create a boon</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Loading...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-5">
-                    <h3>Master boons</h3>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Create a boon</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Loading...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Slave</th>
-                <th>Category</th>
-                <th>Note</th>
-                <th>Approved by GM</th>
-                <th>Approved by Slave</th>
-                <th>Approved by Master</th>
-                <th>Timestamp</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for row in masterBoons %}
-                <tr>
-                    <td>{{ row.slave.firstname }} {{ row.slave.lastname }}</td>
-                    <td>{{ row.category.name }}</td>
-                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
-                    <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
-                    <td>{{ row.STATUS|getValue:row.approvedbyslave }}</td>
-                    {% if row.approvedbymaster == row.STATUS.waiting|upper and row.approvedbyslave == row.STATUS.accepted|upper and row.approvedbygm == row.STATUS.accepted|upper %}
-                        <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">
-                            {% renderButton 3 %}
-                        </a></td>
-                    {% else %}
-                        <td>{{ row.STATUS|getValue:row.approvedbymaster }}</td>
-                    {% endif %}
-                    <td>{{ row.timestamp }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-5">
-                    <h3>Slave boons</h3>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h3>Master boons</h3>
+                        </div>
+                    </div>
                 </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Slave</th>
+                        <th>Category</th>
+                        <th>Note</th>
+                        <th>Approved by GM</th>
+                        <th>Approved by Slave</th>
+                        <th>Approved by Master</th>
+                        <th>Timestamp</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in masterBoons %}
+                        <tr>
+                            <td>{{ row.slave.firstname }} {{ row.slave.lastname }}</td>
+                            <td>{{ row.category.name }}</td>
+                            <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
+                            <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
+                            <td>{{ row.STATUS|getValue:row.approvedbyslave }}</td>
+                            {% if row.approvedbymaster == row.STATUS.waiting|upper and row.approvedbyslave == row.STATUS.accepted|upper and row.approvedbygm == row.STATUS.accepted|upper %}
+                                <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">
+                                    {% renderButton 3 %}
+                                </a></td>
+                            {% else %}
+                                <td>{{ row.STATUS|getValue:row.approvedbymaster }}</td>
+                            {% endif %}
+                            <td>{{ row.timestamp }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h3>Slave boons</h3>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Master</th>
+                        <th>Category</th>
+                        <th>Note</th>
+                        <th>Approved by GM</th>
+                        <th>Approved by Slave</th>
+                        <th>Timestamp</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in slaveBoons %}
+                        <tr>
+                            <td>{{ row.master.firstname }} {{ row.master.lastname }}</td>
+                            <td>{{ row.category.name }}</td>
+                            <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
+                            <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
+                            <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
+                            <td align="center">
+                                {% if row.approvedbyslave == row.STATUS.waiting|upper %}
+                                    <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.accepted %}">{% renderButton 1 %}</a>
+                                    <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.declined %}">{% renderButton 2 %}</a>
+                                {% else %}
+                                    {{ row.STATUS|getValue:row.approvedbyslave }}
+                                {% endif %}
+                            </td>
+                            <td>{{ row.timestamp }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Master</th>
-                <th>Category</th>
-                <th>Note</th>
-                <th>Approved by GM</th>
-                <th>Approved by Slave</th>
-                <th>Timestamp</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for row in slaveBoons %}
-                <tr>
-                    <td>{{ row.master.firstname }} {{ row.master.lastname }}</td>
-                    <td>{{ row.category.name }}</td>
-                    <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
-                    <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
-                    <!-- give row.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
-                    <td align="center">
-                        {% if row.approvedbyslave == row.STATUS.waiting|upper %}
-                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.accepted %}">{% renderButton 1 %}</a>
-                            <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.declined %}">{% renderButton 2 %}</a>
-                        {% else %}
-                            {{ row.STATUS|getValue:row.approvedbyslave }}
-                        {% endif %}
-                    </td>
-                    <td>{{ row.timestamp }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
     </div>
 
     <script>
