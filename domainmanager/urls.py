@@ -19,15 +19,15 @@ urlpatterns = [
     url(r'^charactersheet/(?P<character_id>[0-9]+)$', views.charactersheet, name='charactersheet'),
 
     # View xp for one character
-    #  ex: /domainmanager/characterxpsummary/1
-    url(r'^characterxpsummary/(?P<character_id>[0-9]+)$', views.characterxpsummary, name='characterxpsummary'),
+    #  ex: /domainmanager/characterxps/1
+    url(r'^characterxps/(?P<character_id>[0-9]+)$', views.characterxps, name='characterxps'),
 
     # View boons for one character
-    #  ex: /domainmanager/characterxpsummary/1
-    url(r'^characterboonsummary/(?P<character_id>[0-9]+)$', views.characterboonsummary, name='characterboonsummary'),
+    #  ex: /domainmanager/characterboons/1
+    url(r'^characterboons/(?P<character_id>[0-9]+)$', views.characterboons, name='characterboons'),
 
     # View boons for one character
-    #  ex: /domainmanager/characterxpsummary/1
+    #  ex: /domainmanager/characterboon_create/1
     url(r'^characterboon_create/(?P<character_id>[0-9]+)/create$', views.characterboon_create, name='characterboon_create'),
 
     # Validate boons for one character
@@ -42,10 +42,6 @@ urlpatterns = [
 
     #  ex: /domainmanager/characterinformation/1/edit
     url(r'^characterinformation/(?P<character_id>[0-9]+)/edit/', views.characterinformation_edit, name='characterinformation_edit'),
-
-    # Create / Edit one character's properties
-    #  ex: /domainmanager/characterproperties/1/edit
-    # url(r'^characterproperties/(?P<character_id>[0-9]+)/edit/', views.characterproperties_edit, name='characterproperties_edit'),
 
     # Buy new character stuff e.g. disciplines, rituals, etc...
     #  ex: /domainmanager/charactershopping/1/buy

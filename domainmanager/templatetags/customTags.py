@@ -21,7 +21,7 @@ DOMAIN_ZAGREB = 4
 # DOMAIN_GRAZ = 5
 # DOMAIN_VIENNA = 9
 
-# user in characterboonsummary.html to get the
+# user in characterboons.html to get the
 # triplets in STATUS array for the approvals
 @register.filter
 def getValue(array, key):

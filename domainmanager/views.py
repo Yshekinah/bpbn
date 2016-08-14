@@ -1,3 +1,4 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -19,15 +20,16 @@ def index(request):
 
 @login_required()
 def characters(request):
-    person = get_object_or_404(Person, pk=request.user.id)
-
     # Just get the main clans
     clans = Clan.objects.all().exclude(parent__isnull=False).order_by('name')
 
     # Just get the bloodlines
     bloodlines = Clan.objects.all().filter(parent__gte=1).order_by('name')
 
-    characters = Character.objects.all().filter(domain=person.domain).order_by('clan')
+    if request.user.is_staff:
+        characters = Character.objects.all().order_by('clan')
+    else:
+        characters = Character.objects.all().filter(domain=adminTools.getDomainFromPerson(request.user.id)).order_by('clan')
 
     context = {'clans': clans, 'bloodlines': bloodlines, 'characters': characters,}
 
@@ -36,9 +38,14 @@ def characters(request):
 
 @login_required()
 def players(request):
-    users = User.objects.all()
 
-    characters = Character.objects.all()
+    if request.user.is_staff:
+        users = User.objects.all()
+        characters = Character.objects.all().order_by('clan')
+    else:
+        users = User.objects.filter(domain=adminTools.getDomainFromPerson(request.user.id))
+        characters = Character.objects.all().filter(domain=adminTools.getDomainFromPerson(request.user.id)).order_by('clan')
+
     context = {'users': users, 'characters': characters,}
 
     return render(request, 'domainmanager/players.html', context)
@@ -46,7 +53,6 @@ def players(request):
 
 @login_required()
 def charactersheet(request, character_id):
-
     # You ar only allowed to see other charactersheets if you are a super user
     if adminTools.userHasCharacter(request, character_id) == False and request.user.is_superuser == False:
         return redirect('domainmanager:index')
@@ -75,7 +81,7 @@ def charactersheet(request, character_id):
                'social': social, 'mental': mental}
 
     request.session['active_character_id'] = character.pk
-    request.session['active_character_name'] = character.firstname + " " + character.firstname
+    request.session['active_character_name'] = character.firstname + " " + character.lastname
     request.session.modified = True
 
     return render(request, 'domainmanager/charactersheet.html', context)
@@ -137,7 +143,7 @@ def characterinformation_edit(request, character_id):
 
 
 @login_required()
-def characterxpsummary(request, character_id):
+def characterxps(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
     xpEarned = Xpearned.objects.filter(character=character).order_by('-timestamp')
@@ -147,18 +153,18 @@ def characterxpsummary(request, character_id):
     valueXpSpent = Xpspent.objects.filter(character=character).aggregate(Sum('xpcost'))['xpcost__sum']
 
     context = {'character': character, 'xpSpent': xpSpent, 'xpEarned': xpEarned, 'valueXpEarned': valueXpEarned, 'valueXpSpent': valueXpSpent}
-    return render(request, 'domainmanager/characterxpsummary.html', context)
+    return render(request, 'domainmanager/characterxps.html', context)
 
 
 @login_required()
-def characterboonsummary(request, character_id):
+def characterboons(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
     masterBoons = Boon.objects.filter(master=character).order_by('-timestamp')
     slaveBoons = Boon.objects.filter(slave=character).order_by('-timestamp')
 
     context = {'character': character, 'masterBoons': masterBoons, 'slaveBoons': slaveBoons}
-    return render(request, 'domainmanager/characterboonsummary.html', context)
+    return render(request, 'domainmanager/characterboons.html', context)
 
 
 @login_required()
@@ -176,7 +182,7 @@ def characterboon_create(request, character_id):
             boon.hash_master = characterTools.random_string(20)
             boon.save()
 
-            return redirect('domainmanager:characterboonsummary', character_id)
+            return redirect('domainmanager:characterboons', character_id)
 
     else:
         data = {'master': character}
@@ -202,7 +208,7 @@ def characterboon_validation(request, boon_id, hash, answer):
 
     boon.save()
 
-    return redirect('domainmanager:characterboonsummary', returnToPersonId)
+    return redirect('domainmanager:characterboons', returnToPersonId)
 
 
 @login_required()
@@ -304,34 +310,36 @@ def genealogy(request):
 #############################################################ADMINAREA#############################################################
 
 @login_required()
+@staff_member_required
 def adminboons(request):
-    adminTools.checkAdmin(request)
+    # get only GM-WAITING & SLAVE-ACCEPTED boons - those the GM has to validate within his own dommain
+    currentBoons = Boon.objects.filter(~Q(approvedbyslave__exact=Boon.STATUS.declined), Q(approvedbygm__exact=Boon.STATUS.waiting)) \
+        .filter(slave__domain=adminTools.getDomainFromPerson(request.user.id)) \
+        .order_by('-timestamp')
 
-    # get only GM-WAITING & SLAVE-ACCEPTED boons - those the GM has to validate
-    currentBoons = Boon.objects.filter(~Q(approvedbyslave__exact=Boon.STATUS.declined), Q(approvedbygm__exact=Boon.STATUS.waiting)).order_by(
-        '-timestamp')
     # get the already validated boons for a log view
     oldBoons = Boon.objects.filter(Q(approvedbygm__exact=Boon.STATUS.accepted) | Q(approvedbygm__exact=Boon.STATUS.declined) | Q(
-        approvedbyslave__exact=Boon.STATUS.declined)).order_by('-timestamp')
+        approvedbyslave__exact=Boon.STATUS.declined)).filter(slave__domain=adminTools.getDomainFromPerson(request.user.id)).order_by('-timestamp')
 
     context = {'currentBoons': currentBoons, 'oldBoons': oldBoons}
     return render(request, 'domainmanager/adminboons.html', context)
 
 
 @login_required()
+@staff_member_required
 def adminbasket(request):
-    adminTools.checkAdmin(request)
-
-    currentBasket = CharacterShopping.objects.filter(approvedbygm__exact=CharacterShopping.STATUS.waiting).order_by('-timestamp')
-    oldBasket = CharacterShopping.objects.exclude(approvedbygm__exact=CharacterShopping.STATUS.waiting).order_by('-timestamp')
+    currentBasket = CharacterShopping.objects.filter(approvedbygm__exact=CharacterShopping.STATUS.waiting).filter(
+        character__domain=adminTools.getDomainFromPerson(request.user.id)).order_by('-timestamp')
+    oldBasket = CharacterShopping.objects.exclude(approvedbygm__exact=CharacterShopping.STATUS.waiting).filter(
+        character__domain=adminTools.getDomainFromPerson(request.user.id)).order_by('-timestamp')
 
     context = {'currentBasket': currentBasket, 'oldBasket': oldBasket}
     return render(request, 'domainmanager/adminbasket.html', context)
 
 
 @login_required()
+@staff_member_required
 def adminshopping_validation(request, property_id, hash, answer):
-    adminTools.checkAdmin(request)
     property = get_object_or_404(CharacterShopping, pk=property_id)
 
     if property.hash_gm == hash:
@@ -350,8 +358,8 @@ def adminshopping_validation(request, property_id, hash, answer):
 
 
 @login_required()
+@staff_member_required
 def adminboon_validation(request, boon_id, hash, answer):
-    adminTools.checkAdmin(request)
     boon = get_object_or_404(Boon, pk=boon_id)
 
     if boon.hash_gm == hash:

@@ -1,12 +1,13 @@
 from django.shortcuts import render
-
-from domainmanager.models import Character, CharacterProperty, Domain, Property, Xpspent
+from django.shortcuts import get_object_or_404
+from domainmanager.models import Character, CharacterProperty, Domain, Property, Xpspent, Person
 
 
 # are you an admin?
 def checkAdmin(request):
     if request.user.groups.exclude(name='Admin').exists():
         return render(request, 'domainmanager/index.html')
+
 
 # Is this a valid user vs character combination
 def userHasCharacter(request, character_id):
@@ -28,6 +29,12 @@ def getDomainsFromUserId(user_id):
         list.append(domain.pk)
 
     return list
+
+
+# returns the domain the player (request.user.id) is bound to
+def getDomainFromPerson(user_id):
+    person = get_object_or_404(Person, pk=user_id)
+    return person.domain
 
 
 # character C bought property P.

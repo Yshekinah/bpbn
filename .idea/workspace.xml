@@ -2,22 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dffe59e0-7d3b-45dc-8ae6-6a1eda29f76b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/playersummary.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/admin.py" afterPath="$PROJECT_DIR$/domainmanager/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/forms.py" afterPath="$PROJECT_DIR$/domainmanager/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/logic/adminTools.py" afterPath="$PROJECT_DIR$/domainmanager/logic/adminTools.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/logic/characterTools.py" afterPath="$PROJECT_DIR$/domainmanager/logic/characterTools.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/models.py" afterPath="$PROJECT_DIR$/domainmanager/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/character_create.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/character_create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characters.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characters.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/players.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/players.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templatetags/customTags.py" afterPath="$PROJECT_DIR$/domainmanager/templatetags/customTags.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/urls.py" afterPath="$PROJECT_DIR$/domainmanager/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/views.py" afterPath="$PROJECT_DIR$/domainmanager/views.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboons.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterxpsummary.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterxps.html" />
     </list>
     <ignored path="bpbn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,21 +59,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="domainmanager_person" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="Django default" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="domainmanager_character" />
+        <option name="myItemId" value="domainmanager_charactershopping" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -95,30 +78,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="79" column="79" selection-start-line="79" selection-start-column="79" selection-end-line="79" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="charactersheet.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="31" />
-              <folding>
-                <element signature="n#block#2;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="characterboonsummary.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="663">
+              <caret line="96" column="175" selection-start-line="96" selection-start-column="146" selection-end-line="96" selection-end-column="175" />
               <folding />
             </state>
           </provider>
@@ -127,57 +88,17 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/domainmanager/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+            <state relative-caret-position="472">
+              <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
               <folding>
-                <element signature="e#0#53#0" expanded="true" />
-                <element signature="e#688#737#0" expanded="false" />
-                <element signature="e#5182#5717#0" expanded="false" />
-                <element signature="e#5789#6439#0" expanded="false" />
-                <element signature="e#6513#6900#0" expanded="false" />
-                <element signature="e#6974#7832#0" expanded="false" />
-                <element signature="e#7919#8307#0" expanded="false" />
-                <element signature="e#8378#10327#0" expanded="false" />
-                <element signature="e#10414#10785#0" expanded="false" />
-                <element signature="e#10854#11134#0" expanded="false" />
-                <element signature="e#11201#11735#0" expanded="false" />
-                <element signature="e#11784#11966#0" expanded="false" />
-                <element signature="e#12149#12821#0" expanded="false" />
-                <element signature="e#12872#13302#0" expanded="false" />
-                <element signature="e#13393#13973#0" expanded="false" />
-                <element signature="e#14056#14397#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminTools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/logic/adminTools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="characterTools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/logic/characterTools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="639">
-              <caret line="98" column="161" selection-start-line="98" selection-start-column="161" selection-end-line="98" selection-end-column="161" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#71#0" expanded="true" />
+                <element signature="e#760#809#0" expanded="false" />
+                <element signature="e#5615#6150#0" expanded="false" />
+                <element signature="e#8775#10724#0" expanded="false" />
+                <element signature="e#10811#11182#0" expanded="false" />
+                <element signature="e#11251#11531#0" expanded="false" />
+                <element signature="e#11598#12132#0" expanded="false" />
+                <element signature="e#12181#12363#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -186,8 +107,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="523">
+              <caret line="165" column="71" selection-start-line="165" selection-start-column="55" selection-end-line="165" selection-end-column="71" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -195,17 +116,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="characters.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characters.html">
+      <file leaf-file-name="adminTools.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/domainmanager/logic/adminTools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="578">
+              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
               <folding>
-                <element signature="e#806#830#0#HTML" expanded="true" />
-                <element signature="e#976#1000#0#HTML" expanded="true" />
-                <element signature="e#1813#1837#0#HTML" expanded="true" />
-                <element signature="e#2001#2025#0#HTML" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customTags.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/domainmanager/templatetags/customTags.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="103" column="22" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -213,9 +141,12 @@
       <file leaf-file-name="players.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/players.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="408">
+              <caret line="24" column="176" selection-start-line="24" selection-start-column="176" selection-end-line="24" selection-end-column="176" />
+              <folding>
+                <element signature="e#802#827#0#HTML" expanded="true" />
+                <element signature="e#1024#1049#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -269,24 +200,24 @@
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/adminboons.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/forms/characterboon_create.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/forms/charactershopping.html" />
-        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/forms/characterinformation_edit.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderNews.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCalendar.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/1938ce67-a06f-4b85-9178-55c775f6895f/console.sql" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCharacterSheetSection.html" />
-        <option value="$PROJECT_DIR$/domainmanager/templatetags/customTags.py" />
-        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html" />
         <option value="$PROJECT_DIR$/domainmanager/forms.py" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/character_create.html" />
-        <option value="$PROJECT_DIR$/domainmanager/logic/adminTools.py" />
         <option value="$PROJECT_DIR$/domainmanager/admin.py" />
         <option value="$PROJECT_DIR$/domainmanager/logic/characterTools.py" />
         <option value="$PROJECT_DIR$/domainmanager/models.py" />
-        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" />
-        <option value="$PROJECT_DIR$/domainmanager/urls.py" />
-        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/players.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/characters.html" />
+        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html" />
+        <option value="$PROJECT_DIR$/domainmanager/templatetags/customTags.py" />
+        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html" />
+        <option value="$PROJECT_DIR$/domainmanager/urls.py" />
+        <option value="$PROJECT_DIR$/domainmanager/logic/adminTools.py" />
+        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" />
+        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/players.html" />
         <option value="$PROJECT_DIR$/domainmanager/views.py" />
       </list>
     </option>
@@ -347,6 +278,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches">
+        <subPane />
+      </pane>
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Project Files">
@@ -401,9 +335,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="Scratches">
-        <subPane />
       </pane>
       <pane id="ProjectPane">
         <subPane>
@@ -474,58 +405,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="domainmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bpbn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bpbn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domainmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domainmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bpbn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bpbn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domainmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domainmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="customTags" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -912,16 +791,16 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18176973" sideWeight="0.5656697" order="0" side_tool="true" content_ui="combo" x="808" y="179" width="303" height="801" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18983701" sideWeight="0.5127932" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15458423" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18983701" sideWeight="0.48720682" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279003" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23202302" sideWeight="0.6695096" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18176973" sideWeight="0.43433028" order="2" side_tool="false" content_ui="tabs" x="364" y="317" width="303" height="801" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2396932" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18336888" sideWeight="0.569511" order="0" side_tool="true" content_ui="combo" x="808" y="179" width="303" height="801" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15458423" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.253116" sideWeight="0.48720682" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18336888" sideWeight="0.43048897" order="2" side_tool="false" content_ui="tabs" x="364" y="317" width="303" height="801" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.1945629" sideWeight="0.5033557" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26270375" sideWeight="0.8065032" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -965,7 +844,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="187" />
+      <option name="time" value="190" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -975,14 +854,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bpbn/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="142" column="26" selection-start-line="142" selection-start-column="26" selection-end-line="142" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1938ce67-a06f-4b85-9178-55c775f6895f/console_1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1005,26 +876,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characterxpsummary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characterbasket.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/adminbasket.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1097,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="388" column="13" selection-start-line="388" selection-start-column="13" selection-end-line="388" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1105,7 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="217" column="21" selection-start-line="217" selection-start-column="15" selection-end-line="217" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,17 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templatetags/customTags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="60" column="31" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#27#0" expanded="false" />
-            <element signature="e#832#968#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/8081445a/1938ce67-a06f-4b85-9178-55c775f6895f/domainmanager_propertytype">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1196,7 +1037,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,7 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1236,7 +1075,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1249,7 +1087,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1270,7 +1107,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1287,6 +1123,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/logic/characterTools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="98" column="161" selection-start-line="98" selection-start-column="161" selection-end-line="98" selection-end-column="161" />
+          <folding>
+            <element signature="e#0#13#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/playersummary.html" />
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characters.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characterxps.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="148" column="14" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="15" column="81" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/characterSelection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/adminbasket.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="165" column="71" selection-start-line="165" selection-start-column="55" selection-end-line="165" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templatetags/customTags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="103" column="22" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/logic/adminTools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../../Python34/Lib/site-packages/django/utils/autoreload.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -1295,118 +1226,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characterboonsummary.html">
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/players.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/logic/characterTools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="98" column="161" selection-start-line="98" selection-start-column="161" selection-end-line="98" selection-end-column="161" />
+        <state relative-caret-position="408">
+          <caret line="24" column="176" selection-start-line="24" selection-start-column="176" selection-end-line="24" selection-end-column="176" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#802#827#0#HTML" expanded="true" />
+            <element signature="e#1024#1049#0#HTML" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/charactersheet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="n#block#2;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/playersummary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="79" column="79" selection-start-line="79" selection-start-column="79" selection-end-line="79" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/players.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/characters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#806#830#0#HTML" expanded="true" />
-            <element signature="e#976#1000#0#HTML" expanded="true" />
-            <element signature="e#1813#1837#0#HTML" expanded="true" />
-            <element signature="e#2001#2025#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/logic/adminTools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        <state relative-caret-position="663">
+          <caret line="96" column="175" selection-start-line="96" selection-start-column="146" selection-end-line="96" selection-end-column="175" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/domainmanager/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        <state relative-caret-position="472">
+          <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
           <folding>
-            <element signature="e#0#53#0" expanded="true" />
-            <element signature="e#688#737#0" expanded="false" />
-            <element signature="e#5182#5717#0" expanded="false" />
-            <element signature="e#5789#6439#0" expanded="false" />
-            <element signature="e#6513#6900#0" expanded="false" />
-            <element signature="e#6974#7832#0" expanded="false" />
-            <element signature="e#7919#8307#0" expanded="false" />
-            <element signature="e#8378#10327#0" expanded="false" />
-            <element signature="e#10414#10785#0" expanded="false" />
-            <element signature="e#10854#11134#0" expanded="false" />
-            <element signature="e#11201#11735#0" expanded="false" />
-            <element signature="e#11784#11966#0" expanded="false" />
-            <element signature="e#12149#12821#0" expanded="false" />
-            <element signature="e#12872#13302#0" expanded="false" />
-            <element signature="e#13393#13973#0" expanded="false" />
-            <element signature="e#14056#14397#0" expanded="false" />
+            <element signature="e#0#71#0" expanded="true" />
+            <element signature="e#760#809#0" expanded="false" />
+            <element signature="e#5615#6150#0" expanded="false" />
+            <element signature="e#8775#10724#0" expanded="false" />
+            <element signature="e#10811#11182#0" expanded="false" />
+            <element signature="e#11251#11531#0" expanded="false" />
+            <element signature="e#11598#12132#0" expanded="false" />
+            <element signature="e#12181#12363#0" expanded="false" />
           </folding>
         </state>
       </provider>

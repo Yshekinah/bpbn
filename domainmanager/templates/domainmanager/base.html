@@ -70,7 +70,7 @@
                         <li role="presentation" class="dropdown">
 
                             {% comment %}Oly show admin menu to admins {% endcomment %}
-                            {% if user.is_superuser %}
+                            {% if user.is_staff %}
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     Admin Menu <span class="caret"></span></a>
                                 <ul class="dropdown-menu">

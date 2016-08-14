@@ -14,10 +14,10 @@
                     <ul class="nav nav-tabs">
                         <li class="{% ancestor 'domainmanager:charactersheet' character.id %}"><a
                                 href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
-                        <li class="{% ancestor 'domainmanager:characterxpsummary' character.id %}"><a
-                                href="{% url 'domainmanager:characterxpsummary' character.id %}">XP</a></li>
-                        <li class="{% ancestor 'domainmanager:characterboonsummary' character.id %}"><a
-                                href="{% url 'domainmanager:characterboonsummary' character.id %}">Boons</a></li>
+                        <li class="{% ancestor 'domainmanager:characterxps' character.id %}"><a
+                                href="{% url 'domainmanager:characterxps' character.id %}">XP</a></li>
+                        <li class="{% ancestor 'domainmanager:characterboons' character.id %}"><a
+                                href="{% url 'domainmanager:characterboons' character.id %}">Boons</a></li>
                         <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
                                 href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
                     </ul>

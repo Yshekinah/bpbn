@@ -18,8 +18,14 @@
 
                         {% for character in characters %}
                             {% if character.player.user.id == user.id %}
-                                <a href="{% url 'domainmanager:charactersheet' character.id %}"
-                                   style="padding-left:4em ">{{ character.firstname }} {{ character.lastname }}, {{ character.clan }} {{ character.age_category }}<br/></a>
+                                {% if request.user.id == user.id %}
+                                    <a href="{% url 'domainmanager:charactersheet' character.id %}"
+                                       style="padding-left:4em ">{{ character.firstname }} {{ character.lastname }}, {{ character.clan }} {{ character.age_category }}<br/></a>
+                                {% else %}
+                                    <span style="padding-left:4em ">{{ character.firstname }} {{ character.lastname }}, {{ character.clan }} {{ character.age_category }}</span>
+                                    <br/>
+                                {% endif %}
+
                             {% endif %}
 
                         {% endfor %}
