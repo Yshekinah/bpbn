@@ -73,7 +73,7 @@
                                     <a href="{% url 'domainmanager:charactershopping_cancel' character.pk row.pk %}">
                                         {% renderButton 2 'Cancel' %}
                                     </a>
-                                {% endif %}</td>
+                                {% else %}-{% endif %}</td>
                             <td>{{ row.timestamp }}</td>
                         </tr>
                     {% endfor %}

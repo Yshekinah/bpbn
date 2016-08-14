@@ -267,7 +267,7 @@ def charactershopping_cancel(request, character_id, item_id):
     if adminTools.userHasCharacter(request, character_id) == False:
         return render(request, 'domainmanager/index.html')
 
-    if item.approvedbygm == str(item.STATUS.waiting) and str(item.character.id) == character_id:
+    if item.approvedbygm == item.STATUS.waiting and item.character.id == character_id:
         item.delete()
 
     return redirect('domainmanager:characterbasket', character_id)
@@ -343,7 +343,7 @@ def adminshopping_validation(request, property_id, hash, answer):
     property = get_object_or_404(CharacterShopping, pk=property_id)
 
     if property.hash_gm == hash:
-        if answer == str(property.STATUS.accepted):
+        if answer == property.STATUS.accepted:
             property.approvedbygm = property.STATUS.accepted
             property.save()
 
@@ -363,7 +363,7 @@ def adminboon_validation(request, boon_id, hash, answer):
     boon = get_object_or_404(Boon, pk=boon_id)
 
     if boon.hash_gm == hash:
-        if answer == str(boon.STATUS.accepted):
+        if answer == boon.STATUS.accepted:
             boon.approvedbygm = boon.STATUS.accepted
         else:
             boon.approvedbygm = boon.STATUS.declined

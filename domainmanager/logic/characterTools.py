@@ -21,9 +21,9 @@ def createInitialProperties(character):
         value = 0
 
         # set value = 1 when they are attributes, as all other properties have to be bought with XP
-        if property.type.stattype == str(PropertyType.STATUS.physical) or \
-                        property.type.stattype == str(PropertyType.STATUS.social) or \
-                        property.type.stattype == str(PropertyType.STATUS.mental):
+        if property.type.stattype == PropertyType.STATUS.physical or \
+                        property.type.stattype == PropertyType.STATUS.social or \
+                        property.type.stattype == PropertyType.STATUS.mental:
             value = 1
 
         cp = CharacterProperty(character=character, property=property, value=value)
