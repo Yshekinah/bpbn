@@ -95,7 +95,14 @@ class Person(models.Model):
     nickname = models.CharField(blank=True, null=True, max_length=100)
 
     def __str__(self):
-        return self.user.first_name + " " + self.user.last_name + ", " + str(self.country)
+
+        if self.user.is_superuser:
+            return self.user.first_name + " " + self.user.last_name + " (SUPER), " + str(self.country)
+        else:
+            if self.user.is_staff:
+                return self.user.first_name + " " + self.user.last_name + " (STAFF), " + str(self.country)
+            else:
+                return self.user.first_name + " " + self.user.last_name + ", " + str(self.country)
 
 
 class Domain(models.Model):
@@ -166,6 +173,7 @@ class Clan(models.Model):
 
 
 class Character(models.Model):
+    STATUS = Choices((1, 'yes', 'Yes'), (2, 'no', 'No'), (3, 'active', 'Active'), (4, 'passive', 'Passive'))
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
     nickname = models.CharField(max_length=200, blank=True)
@@ -176,6 +184,13 @@ class Character(models.Model):
         validators=[
             MaxValueValidator(15),
             MinValueValidator(4)
+        ]
+    )
+    schrecknetlevel = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(20),
+            MinValueValidator(0)
         ]
     )
     clan = models.ForeignKey(Clan)
@@ -192,13 +207,14 @@ class Character(models.Model):
     frenzy = models.IntegerField(default=5)
     bloodpool = models.IntegerField(default=10)
     domain = models.ForeignKey('Domain', related_name='character_domain', default=1)
-    active = models.BooleanField(default=True)
+    active = models.IntegerField(choices=STATUS, default=STATUS.active)
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
-    created = models.DateTimeField(auto_now_add=True)
-    timestamp = models.DateTimeField(auto_now=True)
+    hasvisions = models.IntegerField(choices=STATUS, default=STATUS.no)
     properties = models.ManyToManyField(Property, through='CharacterProperty')
     secretclan = models.ForeignKey(Clan, related_name='secretclan', blank=True, null=True)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.salutation.name + " " + self.firstname + " " + self.lastname

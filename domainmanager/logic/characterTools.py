@@ -95,6 +95,6 @@ def random_string(length=20):
 
 
 # give initial XP
-def giveInitialXP(character):
+def createInitialXP(character):
     xpearned = Xpearned(character=character, value=character.age_category.startingxp, note=str(character.age_category.startingxp) + " given at character creation")
     xpearned.save()

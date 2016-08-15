@@ -67,7 +67,7 @@ class NewsAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('caption', 'preface', 'content', 'link', 'domains', 'validfrom', 'validuntil',)
+            'fields': ('caption', 'preface', 'content', 'link', 'author', 'domains', 'validfrom', 'validuntil',)
         }),
         ('Advanced options', {
             'classes': ('collapse',),
@@ -75,10 +75,24 @@ class NewsAdmin(admin.ModelAdmin):
         }),
     )
 
-    def save_model(self, request, obj, form, change):
-        obj.author = request.user.person
-        obj.save()
+    # Let staff persons only select authors from their own domain who are staff themselves
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(NewsAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function
+        # so it's safe to modify
+        # we modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            form.base_fields['author'].queryset = form.base_fields['author'].queryset.filter(domain=request.user.person.domain).filter(
+                user__is_staff=True)
+        return form
 
+    # def save_model(self, request, obj, form, change):
+    # obj.author = request.user.person
+    # obj.save()
+
+    # Show staff users only the news they are allowed to edit
     def get_queryset(self, request):
         qs = super(NewsAdmin, self).get_queryset(request)
         if request.user.is_superuser:

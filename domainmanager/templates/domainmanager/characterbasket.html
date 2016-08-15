@@ -69,7 +69,7 @@
                                 {{ row.newpropertytype.xpinitialprize }}{% endif %}</td>
                             <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                             <td>
-                                {% if row.approvedbygm == row.STATUS.waiting|slugify %}
+                                {% if row.approvedbygm == row.STATUS.waiting %}
                                     <a href="{% url 'domainmanager:charactershopping_cancel' character.pk row.pk %}">
                                         {% renderButton 2 'Cancel' %}
                                     </a>

@@ -22,9 +22,8 @@
             <td>{{ item.newproperty }}</td>
             <td>{% if item.property %}{{ item.property.type.name }}{% else %}{{ item.newpropertytype }}{% endif %}</td>
             <td>{% if item.property %}{{ item.property.type.xpinitialprize }}{% else %}{{ item.newpropertytype.xpinitialprize }}{% endif %}</td>
-            <!-- give item.approvedbygm value (which is an int) as a String (with use of slugify) to the custom filter getValue -->
             <td>
-                {% if item.approvedbygm == item.STATUS.waiting|slugify %}
+                {% if item.approvedbygm == item.STATUS.waiting %}
                     <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.accepted %}">{% renderButton 1 %}</a>
                     <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.declined %}">{% renderButton 2 %}</a>
                 {% else %}

@@ -13,6 +13,24 @@ from .logic import adminTools, characterTools
 from .models import Boon, Character, CharacterShopping, Clan, Domain, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
 
+def hasCharacter(func):
+    def func_wrapper(request, character_id):
+
+        characters = Character.objects.filter(player__pk=request.user.pk)
+        found = False
+
+        for character in characters:
+            if str(character.pk) == character_id:
+                found = True
+
+        if found:
+            return func(request, character_id)
+        else:
+            return render(request, 'domainmanager/base.html')
+
+    return func_wrapper
+
+
 @login_required()
 def index(request):
     return render(request, 'domainmanager/base.html')
@@ -38,7 +56,6 @@ def characters(request):
 
 @login_required()
 def players(request):
-
     if request.user.is_staff:
         users = User.objects.all()
         characters = Character.objects.all().order_by('clan')
@@ -52,6 +69,7 @@ def players(request):
 
 
 @login_required()
+@hasCharacter
 def charactersheet(request, character_id):
     # You ar only allowed to see other charactersheets if you are a super user
     if adminTools.userHasCharacter(request, character_id) == False and request.user.is_superuser == False:
@@ -99,7 +117,7 @@ def character_create(request):
             character.save()
 
             characterTools.createInitialProperties(character)
-            characterTools.giveInitialXP(character)
+            characterTools.createInitialXP(character)
 
             return redirect('domainmanager:characters')
     else:
@@ -123,6 +141,7 @@ def character_create(request):
 
 # Edit the character
 @login_required()
+@hasCharacter
 def characterinformation_edit(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
@@ -143,6 +162,7 @@ def characterinformation_edit(request, character_id):
 
 
 @login_required()
+@hasCharacter
 def characterxps(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
@@ -157,6 +177,7 @@ def characterxps(request, character_id):
 
 
 @login_required()
+@hasCharacter
 def characterboons(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
@@ -168,6 +189,7 @@ def characterboons(request, character_id):
 
 
 @login_required()
+@hasCharacter
 def characterboon_create(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
@@ -212,6 +234,7 @@ def characterboon_validation(request, boon_id, hash, answer):
 
 
 @login_required()
+@hasCharacter
 def charactershopping(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
@@ -261,11 +284,9 @@ def charactershopping(request, character_id):
 
 
 @login_required()
+@hasCharacter
 def charactershopping_cancel(request, character_id, item_id):
     item = get_object_or_404(CharacterShopping, pk=item_id)
-
-    if adminTools.userHasCharacter(request, character_id) == False:
-        return render(request, 'domainmanager/index.html')
 
     if item.approvedbygm == item.STATUS.waiting and item.character.id == character_id:
         item.delete()
@@ -274,6 +295,7 @@ def charactershopping_cancel(request, character_id, item_id):
 
 
 @login_required()
+@hasCharacter
 def characterbasket(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
