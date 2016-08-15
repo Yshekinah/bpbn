@@ -1,24 +1,13 @@
-from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from domainmanager.models import Character, CharacterProperty, Domain, Property, Xpspent, Person
+from django.shortcuts import render
+
+from domainmanager.models import CharacterProperty, Domain, Person, Property, Xpspent
 
 
 # are you an admin?
 def checkAdmin(request):
     if request.user.groups.exclude(name='Admin').exists():
         return render(request, 'domainmanager/index.html')
-
-
-# Is this a valid user vs character combination
-def userHasCharacter(request, character_id):
-    characters = Character.objects.filter(player__pk=request.user.pk)
-    found = False
-
-    for character in characters:
-        if str(character.pk) == character_id:
-            found = True
-
-    return found
 
 
 # return a list with ids of all the players domains where he has characters

@@ -13,6 +13,8 @@ from .logic import adminTools, characterTools
 from .models import Boon, Character, CharacterShopping, Clan, Domain, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
 
+# handy decorator so only superusers and users who own the correspondng character
+# are allowed to manipulate or view content regarding the character
 def hasCharacter(func):
     def func_wrapper(request, character_id):
 
@@ -23,7 +25,7 @@ def hasCharacter(func):
             if str(character.pk) == character_id:
                 found = True
 
-        if found:
+        if found or request.user.is_superuser:
             return func(request, character_id)
         else:
             return render(request, 'domainmanager/base.html')
@@ -71,10 +73,6 @@ def players(request):
 @login_required()
 @hasCharacter
 def charactersheet(request, character_id):
-    # You ar only allowed to see other charactersheets if you are a super user
-    if adminTools.userHasCharacter(request, character_id) == False and request.user.is_superuser == False:
-        return redirect('domainmanager:index')
-
     character = get_object_or_404(Character, pk=character_id)
 
     physical = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.physical)
