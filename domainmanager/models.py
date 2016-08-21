@@ -152,8 +152,10 @@ class Property(models.Model):
     STATUS = Choices((1, 'yes', 'Yes'), (2, 'no', 'No'))
     name = models.CharField(max_length=100)
     type = models.ForeignKey('PropertyType', related_name='type')
-    domain = models.ForeignKey('Domain', related_name='property_domain', default=1)
-    initalizeatcharactercreation = models.IntegerField(choices=STATUS, default=STATUS.no)
+    domain = models.ForeignKey(Domain, related_name='property_domain', default=1)
+    initalizeatcharactercreation = models.IntegerField(choices=STATUS, default=STATUS.no, verbose_name="Initialize at character creation")
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -240,6 +242,8 @@ class PropertyType(models.Model):
     xpmultiplier = models.IntegerField(default=1)
     xpinitialprize = models.IntegerField(default=5)
     stattype = models.IntegerField(choices=STATUS, default=STATUS.talents)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
