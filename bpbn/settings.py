@@ -138,8 +138,10 @@ STATICFILES_DIRS = [
     # '/var/www/static/',
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "domainmanager/upload")
+# MEDIA_URL = '/upload/'
+MEDIA_URL = '/upload/'
 
-MEDIA_URL = 'domainmanager/upload/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, "upload")
+MEDIA_ROOT = os.path.join(BASE_DIR, "static")
 
 LOGIN_URL = '/admin/login/'

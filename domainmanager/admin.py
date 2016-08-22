@@ -13,12 +13,12 @@ admin.site.register(Clan)
 # admin.site.register(Bloodline)
 admin.site.register(Person)
 admin.site.register(Domain)
-admin.site.register(Character)
+# admin.site.register(Character)
 admin.site.register(BoonCategory)
 admin.site.register(Boon)
 # admin.site.register(PropertyType)
 # admin.site.register(Property)
-admin.site.register(CharacterProperty)
+# admin.site.register(CharacterProperty)
 # admin.site.register(Discipline)
 # admin.site.register(CharacterDiscipline)
 admin.site.register(Event)
@@ -54,6 +54,97 @@ class VampireAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Vampire, VampireAdmin)
+
+
+class CharacterAdmin(admin.ModelAdmin):
+    search_fields = ('firstname', 'lastname')
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('firstname', 'lastname', 'get_clan', 'generation', 'get_player')
+    list_filter = ('clan', 'generation', 'function', 'humanity', 'hasvisions', 'schrecknetlevel')
+
+    # Show staff users only the properteis they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(CharacterAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(CharacterAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(id=request.user.person.domain.id)
+        return form
+
+    def get_player(self, obj):
+        return obj.player.user.first_name + " " + obj.player.user.last_name
+
+    get_player.short_description = 'Player'
+
+    # get_player.admin_order_field = 'player__name'
+
+    def get_clan(self, obj):
+        return obj.clan.name
+
+    get_clan.short_description = 'Clan'
+    get_clan.admin_order_field = 'clan__name'
+
+    def get_domain(self, obj):
+        return obj.domain.name
+
+    get_domain.short_description = 'Domain'
+    get_domain.admin_order_field = 'domain__name'
+
+
+admin.site.register(Character, CharacterAdmin)
+
+
+class CharacterPropertyAdmin(admin.ModelAdmin):
+    # search_fields = ('firstname', 'lastname')
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('get_property', 'value', 'get_character')
+    list_filter = ('property', 'value', 'character')
+
+    # Show staff users only the character properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(CharacterPropertyAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(character__domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(CharacterPropertyAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            pass
+            # get only the domain - the user is a member of
+            # form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(id=request.user.person.domain.id)
+        return form
+
+    def get_character(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_character.short_description = 'Character'
+
+    # get_player.admin_order_field = 'player__name'
+
+    def get_property(self, obj):
+        return obj.property.name
+
+    get_property.short_description = 'Property'
+    get_property.admin_order_field = 'property__name'
+
+
+admin.site.register(CharacterProperty, CharacterPropertyAdmin)
 
 
 class PropertyAdmin(admin.ModelAdmin):

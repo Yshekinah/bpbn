@@ -175,6 +175,9 @@ class Clan(models.Model):
 
 
 class Character(models.Model):
+    class Meta:
+        verbose_name_plural = 'Characters'
+
     STATUS = Choices((1, 'yes', 'Yes'), (2, 'no', 'No'), (3, 'active', 'Active'), (4, 'passive', 'Passive'))
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
