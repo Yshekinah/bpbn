@@ -1,4 +1,4 @@
-.idea/
+.idea/*
 accounts.xlsx
 compile.bat
 domainmanager/clean_genealogy.csv
