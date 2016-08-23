@@ -62,6 +62,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            #'/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/',
+            #'/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/forms/',
+            #'/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/customTags/'
             'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/',
             'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/forms/',
             'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/customTags/'

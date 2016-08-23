@@ -28,6 +28,8 @@ class Country(models.Model):
 
     name = models.CharField(max_length=200)
     code = models.CharField(max_length=3)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -35,6 +37,8 @@ class Country(models.Model):
 
 class Salutation(models.Model):
     name = models.CharField(max_length=100)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     STANDARD_SALUTATION = 1
 
@@ -44,6 +48,8 @@ class Salutation(models.Model):
 
 class Gender(models.Model):
     gender = models.CharField(max_length=1)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.gender
@@ -55,6 +61,8 @@ class AgeCategory(models.Model):
 
     name = models.CharField(max_length=100)
     startingxp = models.IntegerField(default=25)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -62,6 +70,8 @@ class AgeCategory(models.Model):
 
 class PoliticalFuntion(models.Model):
     name = models.CharField(max_length=100)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -93,6 +103,8 @@ class Person(models.Model):
     description = models.TextField(blank=True)
     active = models.BooleanField(default=True)
     nickname = models.CharField(blank=True, null=True, max_length=100)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
 
@@ -107,11 +119,13 @@ class Person(models.Model):
 
 class Domain(models.Model):
     name = models.CharField(max_length=200)
-    street = models.CharField(max_length=200)
-    postcode = models.CharField(max_length=10)
+    street = models.CharField(max_length=200, blank=True, null=True)
+    postcode = models.CharField(max_length=10, blank=True, null=True)
     country = models.ForeignKey(Country)
     gm = models.ForeignKey('Person', related_name='gm')
     substitute = models.ForeignKey('Person', related_name='substitute')
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -121,6 +135,8 @@ class Sect(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
     domain = models.ForeignKey(Domain, default=1)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -130,19 +146,24 @@ class Rank(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
     domain = models.ForeignKey(Domain, default=1)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
 
 
 class Event(models.Model):
-    name = models.TextField()
+    caption = models.CharField(max_length=100, default="Insert event title")
+    description = models.TextField()
     domain = models.ForeignKey(Domain)
     start_date = models.DateField()
     end_date = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.caption
 
 
 class Property(models.Model):
@@ -169,6 +190,8 @@ class Clan(models.Model):
     disciplines = models.ManyToManyField(Property, through='ClanProperty')
     standardclan = models.IntegerField(choices=STATUS, default=STATUS.standard)
     domain = models.ForeignKey(Domain, default=1)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -258,6 +281,8 @@ class ClanProperty(models.Model):
 
     clan = models.ForeignKey(Clan)
     property = models.ForeignKey(Property, limit_choices_to={'type_id': PropertyType.STATUS.disciplines})
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.clan.name + " " + self.property.name
@@ -351,14 +376,16 @@ class Xpearned(models.Model):
 
     character = models.ForeignKey(Character, blank=False, default=1)
     value = models.IntegerField(blank=False, null=False, default=1)
-    event = models.ForeignKey(Event, related_name='event', blank=True, null=True)
+    event = models.ForeignKey(Event, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
     note = models.CharField(max_length=250, blank=True, null=True)
 
     def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + " earned " + str(
-            self.value) + " at " + self.event.name
+        if self.event == None:
+            return self.character.firstname + " " + self.character.lastname + " earned " + str(self.value)
+        else:
+            return self.character.firstname + " " + self.character.lastname + " earned " + str(self.value) + " at " + self.event.caption
 
 
 class Xpspent(models.Model):
