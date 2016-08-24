@@ -3,35 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models import *
 
-# admin.site.register(Country)
-# admin.site.register(Salutation)
-# admin.site.register(Gender)
-# admin.site.register(AgeCategory)
-# admin.site.register(PoliticalFuntion)
-# admin.site.register(Rank)
-# admin.site.register(Clan)
-# admin.site.register(Bloodline)
-admin.site.register(Person)
-
-
-# admin.site.register(Domain)
-# admin.site.register(Character)
-# admin.site.register(BoonCategory)
-# admin.site.register(Boon)
-# admin.site.register(PropertyType)
-# admin.site.register(Property)
-# admin.site.register(CharacterProperty)
-# admin.site.register(Discipline)
-# admin.site.register(CharacterDiscipline)
-# admin.site.register(Event)
-# admin.site.register(Xpearned)
-# admin.site.register(Xpspent)
-# admin.site.register(ClanProperty)
-# admin.site.register(CharacterShopping)
-
-
-# admin.site.register(News)
-# admin.site.register(Sect)
+admin.site.register(Country)
 
 
 # Define an inline admin descriptor for Employee model
@@ -752,6 +724,54 @@ class CharacterShoppingAdmin(admin.ModelAdmin):
     get_newpropertytype.admin_order_field = 'newpropertytype__name'
 
 
+class PersonAdmin(admin.ModelAdmin):
+    search_fields = ('user__first_name', 'user__last_name')
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('nickname',)
+    list_filter = ('nickname',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(PersonAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(PersonAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            pass
+        # get only the domain - the user is a member of
+        form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        form.base_fields['user'].queryset = form.base_fields['user'].queryset.filter(person__domain=request.user.person.domain)
+        form.base_fields['salutation'].queryset = form.base_fields['salutation'].queryset.filter(
+            person__salutation__domain=request.user.person.domain)
+        return form
+
+    def get_master(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_master.short_description = 'Character'
+    get_master.admin_order_field = 'master__lastname'
+
+    def get_slave(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_slave.short_description = 'Character'
+    get_slave.admin_order_field = 'slave__lastname'
+
+    def get_category(self, obj):
+        return obj.category.name
+
+    get_category.short_description = 'Boon category'
+    get_category.admin_order_field = 'category__name'
+
+
 admin.site.register(AgeCategory, AgeCategoryAdmin)
 admin.site.register(Boon, BoonAdmin)
 admin.site.register(BoonCategory, BoonCategoryAdmin)
@@ -760,11 +780,11 @@ admin.site.register(CharacterProperty, CharacterPropertyAdmin)
 admin.site.register(CharacterShopping, CharacterShoppingAdmin)
 admin.site.register(Clan, ClanAdmin)
 admin.site.register(ClanProperty, ClanPropertyAdmin)
-admin.site.register(Country, CountryAdmin)
 admin.site.register(Domain, DomainAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Gender, GenderAdmin)
 admin.site.register(News, NewsAdmin)
+admin.site.register(Person, PersonAdmin)
 admin.site.register(PoliticalFuntion, PoliticalFuntionAdmin)
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(PropertyType, PropertyTypeAdmin)
