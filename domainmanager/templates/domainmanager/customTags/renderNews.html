@@ -4,25 +4,22 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <h3>{{ article.caption }}</h3>
                     <span class="glyphicon glyphicon-user"></span> {{ article.author }}
                     <span class="glyphicon glyphicon-calendar"></span> {{ article.created }}
-                    <span class="glyphicon glyphicon-home"></span>
-                    {% for domain in article.domains.all %}{{ domain }}{% if not forloop.last %}, {% endif %}{% endfor %}
-
-
+                    <span class="glyphicon glyphicon-home"></span> {% for domain in article.domains.all %}{{ domain }}{% if not forloop.last %},
+                {% endif %}{% endfor %}
                 </div>
                 {% if article.thumb %}
                     <div class="col-md-*" align="right" style="padding-right:10px">
                         <img src="{{ article.thumb.url }}" alt="thumbnail" height="100px" width="auto"/>
                     </div>
                 {% endif %}
-
             </div>
-
         </div>
-        <div class="panel-body" {% if article.image %}style="background-image:url('{{ article.image.url }}');height:{{ article.image.height }}px"{% endif %}>
+        <div class="panel-body"
+             {% if article.image %}style="background-image:url('{{ article.image.url }}');height:{{ article.image.height }}px"{% endif %}>
             <div class="row">
                 <div class="col-md-8">
                     Text: {{ article.text }}<br/>

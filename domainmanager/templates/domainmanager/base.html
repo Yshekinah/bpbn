@@ -74,7 +74,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     Admin Menu <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="http://127.0.0.1:8000/admin/">Django admin</a></li>
+                                    <li><a href="{% url 'admin:index' %}">Django admin</a></li>
                                     <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
                                     <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
                                     <li><a href="{% url 'domainmanager:players' %}">Players</a></li>
