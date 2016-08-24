@@ -30,6 +30,7 @@ class Country(models.Model):
     code = models.CharField(max_length=3)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+    domain = models.ForeignKey('Domain', related_name='country_domain', default=1)
 
     def __str__(self):
         return self.name
@@ -39,15 +40,15 @@ class Salutation(models.Model):
     name = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
-
-    STANDARD_SALUTATION = 1
+    domain = models.ForeignKey('Domain', default=1)
 
     def __str__(self):
         return self.name
 
 
 class Gender(models.Model):
-    gender = models.CharField(max_length=1)
+    name = models.CharField(max_length=25)
+    domain = models.ForeignKey('Domain', default=1)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -63,6 +64,8 @@ class AgeCategory(models.Model):
     startingxp = models.IntegerField(default=25)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+    domain = models.ForeignKey('Domain', default=1)
+    image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -72,6 +75,8 @@ class PoliticalFuntion(models.Model):
     name = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+    domain = models.ForeignKey('Domain', default=1)
+    image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -95,7 +100,7 @@ class PoliticalFuntion(models.Model):
 
 class Person(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    salutation = models.ForeignKey(Salutation, default=Salutation.STANDARD_SALUTATION)
+    salutation = models.ForeignKey(Salutation)
     domain = models.ForeignKey('Domain', related_name='person_domain', default=1)
     country = models.ForeignKey(Country)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
@@ -121,7 +126,7 @@ class Domain(models.Model):
     name = models.CharField(max_length=200)
     street = models.CharField(max_length=200, blank=True, null=True)
     postcode = models.CharField(max_length=10, blank=True, null=True)
-    country = models.ForeignKey(Country)
+    country = models.ForeignKey(Country, related_name='domain_country')
     gm = models.ForeignKey('Person', related_name='gm')
     substitute = models.ForeignKey('Person', related_name='substitute')
     created = models.DateTimeField(auto_now_add=True)
@@ -219,7 +224,9 @@ class Character(models.Model):
         validators=[
             MaxValueValidator(20),
             MinValueValidator(0)
-        ]
+        ],
+        help_text="What is the Schrecknet level of the character?",
+        verbose_name='Schrecknet level'
     )
     clan = models.ForeignKey(Clan)
     sect = models.ForeignKey(Sect, default=1)
@@ -237,7 +244,7 @@ class Character(models.Model):
     domain = models.ForeignKey('Domain', related_name='character_domain', default=1)
     active = models.IntegerField(choices=STATUS, default=STATUS.active)
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
-    hasvisions = models.IntegerField(choices=STATUS, default=STATUS.no)
+    hasvisions = models.IntegerField(choices=STATUS, default=STATUS.no, verbose_name="Visions", help_text="Has the character visions?")
     properties = models.ManyToManyField(Property, through='CharacterProperty')
     secretclan = models.ForeignKey(Clan, related_name='secretclan', blank=True, null=True)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
@@ -337,6 +344,9 @@ class BoonCategory(models.Model):
 
     name = models.CharField(max_length=200)
     weight = models.IntegerField(default=0)
+    domain = models.ForeignKey('Domain')
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name + " " + str(self.weight)

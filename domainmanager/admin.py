@@ -3,19 +3,21 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models import *
 
-admin.site.register(Country)
-admin.site.register(Salutation)
-admin.site.register(Gender)
-admin.site.register(AgeCategory)
-admin.site.register(PoliticalFuntion)
-admin.site.register(Rank)
+# admin.site.register(Country)
+# admin.site.register(Salutation)
+# admin.site.register(Gender)
+# admin.site.register(AgeCategory)
+# admin.site.register(PoliticalFuntion)
+# admin.site.register(Rank)
 # admin.site.register(Clan)
 # admin.site.register(Bloodline)
 admin.site.register(Person)
+
+
 # admin.site.register(Domain)
 # admin.site.register(Character)
-admin.site.register(BoonCategory)
-admin.site.register(Boon)
+# admin.site.register(BoonCategory)
+# admin.site.register(Boon)
 # admin.site.register(PropertyType)
 # admin.site.register(Property)
 # admin.site.register(CharacterProperty)
@@ -25,9 +27,11 @@ admin.site.register(Boon)
 # admin.site.register(Xpearned)
 # admin.site.register(Xpspent)
 # admin.site.register(ClanProperty)
-admin.site.register(CharacterShopping)
+# admin.site.register(CharacterShopping)
+
+
 # admin.site.register(News)
-admin.site.register(Sect)
+# admin.site.register(Sect)
 
 
 # Define an inline admin descriptor for Employee model
@@ -384,8 +388,10 @@ class DomainAdmin(admin.ModelAdmin):
             pass
         else:
             # get only the domain - the user is a member of
-            form.base_fields['gm'].queryset = form.base_fields['gm'].queryset.filter(user__is_staff=1).filter(user__person__domain=request.user.person.domain)
-            form.base_fields['substitute'].queryset = form.base_fields['substitute'].queryset.filter(user__is_staff=1).filter(user__person__domain=request.user.person.domain)
+            form.base_fields['gm'].queryset = form.base_fields['gm'].queryset.filter(user__is_staff=1).filter(
+                user__person__domain=request.user.person.domain)
+            form.base_fields['substitute'].queryset = form.base_fields['substitute'].queryset.filter(user__is_staff=1).filter(
+                user__person__domain=request.user.person.domain)
         return form
 
     def get_gm(self, obj):
@@ -397,6 +403,136 @@ class DomainAdmin(admin.ModelAdmin):
         return obj.substitute.user.first_name + " " + obj.substitute.user.last_name
 
     get_substitute.short_description = 'Substitute'
+
+
+class AgeCategoryAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name', 'startingxp')
+    list_filter = ('name', 'startingxp')
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(AgeCategoryAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(AgeCategoryAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
+
+
+class PoliticalFuntionAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name',)
+    list_filter = ('name',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(PoliticalFuntionAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(PoliticalFuntionAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
+
+
+class RankAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name',)
+    list_filter = ('name',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(RankAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(RankAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
+
+
+class SectAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name',)
+    list_filter = ('name',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(SectAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(SectAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
+
+
+class GenderAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name',)
+    list_filter = ('name',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(GenderAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(GenderAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
 
 
 class ClanPropertyAdmin(admin.ModelAdmin):
@@ -437,15 +573,204 @@ class ClanPropertyAdmin(admin.ModelAdmin):
     get_clan.admin_order_field = 'clan__name'
 
 
+class CountryAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name',)
+    list_filter = ('name',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(CountryAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(CountryAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
+
+
+class SalutationAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name',)
+    list_filter = ('name',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(SalutationAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(SalutationAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
+
+
+class BoonAdmin(admin.ModelAdmin):
+    search_fields = ('master', 'slave', 'category')
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('get_master', 'get_slave', 'get_category', 'note')
+    list_filter = ('master', 'slave', 'category', 'approvedbygm', 'approvedbyslave', 'approvedbymaster')
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(BoonAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(category__domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(BoonAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['master'].queryset = form.base_fields['master'].queryset.filter(domain=request.user.person.domain)
+            form.base_fields['category'].queryset = form.base_fields['category'].queryset.filter(domain=request.user.person.domain)
+            form.base_fields['slave'].queryset = form.base_fields['slave'].queryset.filter(domain=request.user.person.domain)
+        return form
+
+    def get_master(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_master.short_description = 'Character'
+    get_master.admin_order_field = 'master__lastname'
+
+    def get_slave(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_slave.short_description = 'Character'
+    get_slave.admin_order_field = 'slave__lastname'
+
+    def get_category(self, obj):
+        return obj.category.name
+
+    get_category.short_description = 'Boon category'
+    get_category.admin_order_field = 'category__name'
+
+
+class BoonCategoryAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name',)
+    list_filter = ('name',)
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(BoonCategoryAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(BoonCategoryAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+        return form
+
+
+class CharacterShoppingAdmin(admin.ModelAdmin):
+    search_fields = ('character', 'newproperty', 'newpropertytype', 'property')
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('get_character', 'get_property', 'get_newproperty', 'get_newpropertytype', 'approvedbygm')
+    list_filter = ('character', 'property', 'newproperty', 'newpropertytype', 'approvedbygm')
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(CharacterShoppingAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(character__domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(CharacterShoppingAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['character'].queryset = form.base_fields['character'].queryset.filter(domain=request.user.person.domain)
+            form.base_fields['property'].queryset = form.base_fields['property'].queryset.filter(domain=request.user.person.domain)
+            form.base_fields['newpropertytype'].queryset = form.base_fields['newpropertytype'].queryset.filter(domain=request.user.person.domain)
+        return form
+
+    def get_character(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_character.short_description = 'Character'
+    get_character.admin_order_field = 'character__lastname'
+
+    def get_property(self, obj):
+        if obj.property:
+            return obj.property.name
+
+    get_property.short_description = 'Property'
+    get_property.admin_order_field = 'property__name'
+
+    def get_newproperty(self, obj):
+        if obj.newproperty:
+            return obj.newproperty.name
+
+    get_newproperty.short_description = 'New property'
+    get_newproperty.admin_order_field = 'property__name'
+
+    def get_newpropertytype(self, obj):
+        if obj.newpropertytype:
+            return obj.newpropertytype.name
+
+    get_newpropertytype.short_description = 'Property type'
+    get_newpropertytype.admin_order_field = 'newpropertytype__name'
+
+
+admin.site.register(AgeCategory, AgeCategoryAdmin)
+admin.site.register(Boon, BoonAdmin)
+admin.site.register(BoonCategory, BoonCategoryAdmin)
 admin.site.register(Character, CharacterAdmin)
 admin.site.register(CharacterProperty, CharacterPropertyAdmin)
+admin.site.register(CharacterShopping, CharacterShoppingAdmin)
 admin.site.register(Clan, ClanAdmin)
 admin.site.register(ClanProperty, ClanPropertyAdmin)
+admin.site.register(Country, CountryAdmin)
 admin.site.register(Domain, DomainAdmin)
 admin.site.register(Event, EventAdmin)
+admin.site.register(Gender, GenderAdmin)
 admin.site.register(News, NewsAdmin)
+admin.site.register(PoliticalFuntion, PoliticalFuntionAdmin)
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(PropertyType, PropertyTypeAdmin)
+admin.site.register(Rank, RankAdmin)
+admin.site.register(Salutation, SalutationAdmin)
+admin.site.register(Sect, SectAdmin)
 admin.site.register(Xpearned, XpearnedAdmin)
 admin.site.register(Xpspent, XpspentAdmin)
 
