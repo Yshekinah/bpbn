@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dffe59e0-7d3b-45dc-8ae6-6a1eda29f76b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderNews.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderNews.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCalendar.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCalendar.html" />
     </list>
     <ignored path="bpbn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,6 +37,20 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="Django default" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="domainmanager_event" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" module-name="bpbn" is-module-sdk="true">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -51,11 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bpbn/settings.py">
+      <file leaf-file-name="renderCalendar.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCalendar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+            <state relative-caret-position="-84">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -103,7 +115,6 @@
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/forms/characterboon_create.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/forms/charactershopping.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/forms/characterinformation_edit.html" />
-        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCalendar.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCharacterSheetSection.html" />
         <option value="$PROJECT_DIR$/domainmanager/forms.py" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/character_create.html" />
@@ -129,6 +140,7 @@
         <option value="$PROJECT_DIR$/domainmanager/admin.py" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderNews.html" />
         <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" />
+        <option value="$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCalendar.html" />
       </list>
     </option>
   </component>
@@ -275,6 +287,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="domainmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bpbn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bpbn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domainmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domainmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bpbn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bpbn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domainmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domainmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customTags" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -708,28 +768,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/domainmanager/bpbn.uml">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DjangoModelDependency</ID>
-          <OriginalElement>#bpbn</OriginalElement>
-          <nodes>
-            <node x="2147.7643115942037" y="1778.0">domainmanager.models.Gender</node>
-            <node x="10.5" y="2140.0">domainmanager.models.News</node>
-            <node x="1491.7643115942037" y="1289.0">domainmanager.models.Sect</node>
-            <node x="1890.7643115942037" y="1767.0">domainmanager.models.AgeCategory</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0246655518394638" x="1471.0" y="2019.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/8081445a/1938ce67-a06f-4b85-9178-55c775f6895f/domainmanager_person">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1037,36 +1075,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domainmanager/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <element signature="e#688#2335#0" expanded="false" />
-            <element signature="e#2390#3896#0" expanded="false" />
-            <element signature="e#3942#5174#0" expanded="false" />
-            <element signature="e#5224#6537#0" expanded="false" />
-            <element signature="e#8402#9447#0" expanded="false" />
-            <element signature="e#9492#10532#0" expanded="false" />
-            <element signature="e#10575#11863#0" expanded="false" />
-            <element signature="e#11905#13047#0" expanded="false" />
-            <element signature="e#13091#14717#0" expanded="false" />
-            <element signature="e#14766#15791#0" expanded="false" />
-            <element signature="e#15845#16854#0" expanded="false" />
-            <element signature="e#16896#17881#0" expanded="false" />
-            <element signature="e#17923#18908#0" expanded="false" />
-            <element signature="e#18952#19941#0" expanded="false" />
-            <element signature="e#19991#21374#0" expanded="false" />
-            <element signature="e#21419#22410#0" expanded="false" />
-            <element signature="e#22458#23455#0" expanded="false" />
-            <element signature="e#23497#25471#0" expanded="false" />
-            <element signature="e#25521#26522#0" expanded="false" />
-            <element signature="e#26577#28961#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/8081445a/1938ce67-a06f-4b85-9178-55c775f6895f/auth_permission">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1230,6 +1238,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-533">
+          <caret line="223" column="74" selection-start-line="223" selection-start-column="69" selection-end-line="223" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#688#2335#0" expanded="false" />
+            <element signature="e#2390#3896#0" expanded="false" />
+            <element signature="e#3942#5174#0" expanded="false" />
+            <element signature="e#5224#6537#0" expanded="false" />
+            <element signature="e#9492#10532#0" expanded="false" />
+            <element signature="e#11905#13047#0" expanded="false" />
+            <element signature="e#13091#14717#0" expanded="false" />
+            <element signature="e#14766#15791#0" expanded="false" />
+            <element signature="e#15845#16854#0" expanded="false" />
+            <element signature="e#16896#17881#0" expanded="false" />
+            <element signature="e#17923#18908#0" expanded="false" />
+            <element signature="e#18952#19941#0" expanded="false" />
+            <element signature="e#19991#21374#0" expanded="false" />
+            <element signature="e#21419#22410#0" expanded="false" />
+            <element signature="e#22458#23455#0" expanded="false" />
+            <element signature="e#23497#25471#0" expanded="false" />
+            <element signature="e#25521#26522#0" expanded="false" />
+            <element signature="e#26577#28961#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/customTags/renderCalendar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="37" />
           <folding />
         </state>
       </provider>
