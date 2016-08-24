@@ -58,29 +58,59 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'bpbn.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            #'/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/',
-            #'/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/forms/',
-            #'/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/customTags/'
-            'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/',
-            'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/forms/',
-            'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/customTags/'
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',
+server = os.path.abspath("settings.py")
+
+print("Server: " + server)
+
+TEMPLATES = []
+
+if server.startswith("D:\\"):
+
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [
+                'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/',
+                'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/forms/',
+                'D:/Stuff/Django_projects/bpbn_github/bpbn/domainmanager/templates/domainmanager/customTags/'
             ],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                    'django.template.context_processors.media',
+                ],
+            },
         },
-    },
-]
+    ]
+
+else:
+
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [
+                '/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/',
+                '/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/forms/',
+                '/home/Maunzinator/bpbn/domainmanager/templates/domainmanager/customTags/'
+            ],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                    'django.template.context_processors.media',
+                ],
+            },
+        },
+    ]
+
+print(TEMPLATES)
 
 WSGI_APPLICATION = 'bpbn.wsgi.application'
 

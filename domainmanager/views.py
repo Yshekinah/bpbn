@@ -363,7 +363,7 @@ def adminshopping_validation(request, property_id, hash, answer):
     property = get_object_or_404(CharacterShopping, pk=property_id)
 
     if property.hash_gm == hash:
-        if answer == property.STATUS.accepted:
+        if int(answer) == property.STATUS.accepted:
             property.approvedbygm = property.STATUS.accepted
             property.save()
 
