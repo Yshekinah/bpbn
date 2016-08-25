@@ -384,18 +384,31 @@ class Xpearned(models.Model):
     class Meta:
         verbose_name_plural = 'XPs earned'
 
-    character = models.ForeignKey(Character, blank=False, default=1)
+    characters = models.ManyToManyField(Character, blank=False)
     value = models.IntegerField(blank=False, null=False, default=1)
     event = models.ForeignKey(Event, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
     note = models.CharField(max_length=250, blank=True, null=True)
 
+    def displayCharacters(self):
+        returnValue = ""
+        first = True
+        for character in self.characters.all():
+
+            if first:
+                returnValue += character.firstname + " " + character.lastname
+                first = False
+            else:
+                returnValue += ", " + character.firstname + " " + character.lastname
+
+        return returnValue
+
     def __str__(self):
         if self.event == None:
-            return self.character.firstname + " " + self.character.lastname + " earned " + str(self.value)
+            return self.displayCharacters() + " earned " + str(self.value)
         else:
-            return self.character.firstname + " " + self.character.lastname + " earned " + str(self.value) + " at " + self.event.caption
+            return self.displayCharacters() + " earned " + str(self.value) + " at " + self.event.caption
 
 
 class Xpspent(models.Model):

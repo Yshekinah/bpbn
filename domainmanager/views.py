@@ -164,10 +164,10 @@ def characterinformation_edit(request, character_id):
 def characterxps(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
-    xpEarned = Xpearned.objects.filter(character=character).order_by('-timestamp')
+    xpEarned = Xpearned.objects.filter(characters__in=[character]).order_by('-timestamp')
     xpSpent = Xpspent.objects.filter(character=character).order_by('-timestamp')
 
-    valueXpEarned = Xpearned.objects.filter(character=character).aggregate(Sum('value'))['value__sum']
+    valueXpEarned = Xpearned.objects.filter(characters__in=[character]).aggregate(Sum('value'))['value__sum']
     valueXpSpent = Xpspent.objects.filter(character=character).aggregate(Sum('xpcost'))['xpcost__sum']
 
     context = {'character': character, 'xpSpent': xpSpent, 'xpEarned': xpEarned, 'valueXpEarned': valueXpEarned, 'valueXpSpent': valueXpSpent}

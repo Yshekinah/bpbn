@@ -221,12 +221,12 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 class XpearnedAdmin(admin.ModelAdmin):
-    search_fields = ('character__firstname', 'character__lastname', 'event__caption', 'event__description', 'note',)
+    search_fields = ('event__caption', 'event__description', 'note',)
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('get_character', 'get_event', 'note', 'value', 'created')
-    list_filter = ('character', 'event', 'value')
+    list_display = ('get_event', 'displayCharacters', 'note', 'value', 'created')
+    list_filter = ('characters', 'event', 'value')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -235,11 +235,15 @@ class XpearnedAdmin(admin.ModelAdmin):
             return qs
         return qs.filter(character__domain=request.user.person.domain)
 
-    def get_character(self, obj):
-        return obj.character.firstname + obj.character.lastname
-
-    get_character.short_description = 'Character'
-    get_character.admin_order_field = 'character__lastname'
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(XpearnedAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['characters'].queryset = form.base_fields['characters'].queryset.filter(id=request.user.person.domain.id)
+        return form
 
     def get_event(self, obj):
         if obj.event != None:

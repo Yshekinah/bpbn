@@ -58,12 +58,11 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'bpbn.urls'
 
-server = os.path.abspath("settings.py")
-
-print("Server: " + server)
-
 TEMPLATES = []
 
+server = os.path.abspath("settings.py")
+
+# D:\\ indicates local development environment
 if server.startswith("D:\\"):
 
     TEMPLATES = [
@@ -109,8 +108,6 @@ else:
             },
         },
     ]
-
-print(TEMPLATES)
 
 WSGI_APPLICATION = 'bpbn.wsgi.application'
 

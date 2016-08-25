@@ -1,5 +1,7 @@
 {% extends 'charactersheet.html' %}
+{% load lineage %}
 {% load staticfiles %}
+{% load customTags %}
 
 {% block title %}XP overview: Spent & recieved XP for {{ character.firstname }}
     {{ character.lastname }} {% endblock %}
@@ -67,17 +69,19 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Event</th>
+                            <th>Event caption</th>
                             <th>Value</th>
+                            <th>Note</th>
                             <th>Timestamp</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for row in xpEarned %}
                             <tr>
-                                <td>{{ row.event.name }}</td>
+                                <td>{{ row.event.caption }}</td>
                                 <td>{{ row.value }}</td>
-                                <td>{{ row.timetamp }}</td>
+                                <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
+                                <td>{{ row.timestamp }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -95,5 +99,28 @@
 
         </div>
     </div>
+
+    <script>
+        {% autoescape off %}
+            function displayNote(text) {
+                BootstrapDialog.show({
+                    message: text,
+                    buttons: [{
+                        label: 'Ok',
+                        cssClass: 'btn-primary',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                        }
+                    }]
+                });
+            }
+
+
+            function displayCreateBoon() {
+                $('#myModal').modal('show').find('.modal-body').load('{% url 'domainmanager:characterboon_create' character.pk %} ');
+            }
+
+        {% endautoescape %}
+    </script>
 
 {% endblock %}

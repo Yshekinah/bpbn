@@ -75,7 +75,10 @@ def checkXP(character, characterProperties):
 
 # Returns the current spendable XP of a character
 def getXPforCharacter(character):
-    xpearned = Xpearned.objects.filter(character=character).aggregate(Sum('value'))['value__sum']
+
+    list =[character]
+
+    xpearned = Xpearned.objects.filter(characters__in=[character]).aggregate(Sum('value'))['value__sum']
     xpspent = Xpspent.objects.filter(character=character).aggregate(Sum('xpcost'))['xpcost__sum']
 
     if xpearned == None:
