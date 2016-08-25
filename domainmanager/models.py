@@ -53,7 +53,7 @@ class Gender(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.gender
+        return self.name
 
 
 class AgeCategory(models.Model):
@@ -206,7 +206,8 @@ class Character(models.Model):
     class Meta:
         verbose_name_plural = 'Characters'
 
-    STATUS = Choices((1, 'yes', 'Yes'), (2, 'no', 'No'), (3, 'active', 'Active'), (4, 'passive', 'Passive'))
+    STATUS_visions = Choices((1, 'yes', 'Yes'), (2, 'no', 'No'))
+    STATUS_active = Choices((1, 'active', 'Active'), (2, 'passive', 'Passive'))
     player = models.ForeignKey('Person', on_delete=models.CASCADE, default=1)
     salutation = models.ForeignKey(Salutation, default=1)
     nickname = models.CharField(max_length=200, blank=True)
@@ -242,9 +243,9 @@ class Character(models.Model):
     frenzy = models.IntegerField(default=5)
     bloodpool = models.IntegerField(default=10)
     domain = models.ForeignKey('Domain', related_name='character_domain', default=1)
-    active = models.IntegerField(choices=STATUS, default=STATUS.active)
+    active = models.IntegerField(choices=STATUS_active, default=STATUS_active.active)
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
-    hasvisions = models.IntegerField(choices=STATUS, default=STATUS.no, verbose_name="Visions", help_text="Has the character visions?")
+    hasvisions = models.IntegerField(choices=STATUS_visions, default=STATUS_visions.no, verbose_name="Visions", help_text="Has the character visions?")
     properties = models.ManyToManyField(Property, through='CharacterProperty')
     secretclan = models.ForeignKey(Clan, related_name='secretclan', blank=True, null=True)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)

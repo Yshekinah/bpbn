@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}List of all Players{% endblock %}
+{% block title %}Character creation{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -12,8 +12,6 @@
                 <div class="panel-body">
                     <form method="POST" class="post-form">
                         {% csrf_token %}
-                        {% comment %}                        {{ form.as_p }} {% endcomment %}
-
                         {% for field in form %}
                             {% if field.is_hidden != True %}
                                 <div class="row">

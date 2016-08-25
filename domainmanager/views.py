@@ -1,16 +1,18 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.db.models import Q
 from django.db.models import Sum
 from django.forms.widgets import HiddenInput
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
-from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterProperty, CharacterShoppingForm
+from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterShoppingForm
 from .logic import adminTools, characterTools
-from .models import Boon, Character, CharacterShopping, Clan, Domain, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
+from .models import *
+
+
+# , Boon, Character, CharacterShopping, Clan, Domain, Person, Property, PropertyType, Vampire, Xpearned, Xpspent
 
 
 # handy decorator so only superusers and users who own the correspondng character
@@ -130,8 +132,15 @@ def character_create(request):
             # No non-standard clans in character creation
             form.fields['player'].queryset = Person.objects.filter(pk=request.user.id)
             person = get_object_or_404(Person, pk=request.user.id)
+            form.fields['salutation'].queryset = Salutation.objects.filter(domain=person.domain)
+            form.fields['sect'].queryset = Sect.objects.filter(domain=person.domain)
+            form.fields['rank'].queryset = Rank.objects.filter(domain=person.domain)
+            form.fields['gender'].queryset = Gender.objects.filter(domain=person.domain)
+            form.fields['function'].queryset = PoliticalFuntion.objects.filter(domain=person.domain)
+            form.fields['clan'].queryset = Clan.objects.filter(domain=person.domain).exclude(standardclan__exact=Clan.STATUS.restricted)
+            form.fields['age_category'].queryset = AgeCategory.objects.filter(domain=person.domain)
             form.fields['domain'].queryset = Domain.objects.filter(pk=person.domain.id)
-            form.fields['clan'].queryset = Clan.objects.exclude(standardclan__exact=Clan.STATUS.restricted)
+            form.fields['sire'].queryset = Character.objects.filter(domain=person.domain)
             form.fields['secretclan'].widget = HiddenInput()
 
     return render(request, 'domainmanager/character_create.html', {'form': form})

@@ -16,12 +16,6 @@ class CharacterFormEdit(forms.ModelForm):
         fields = ['firstname', 'lastname', 'nickname']
 
 
-class CharacterPropertiesForm(ModelForm):
-    class Meta:
-        model = CharacterProperty
-        fields = ['property', 'value']
-
-
 class BoonForm(ModelForm):
     class Meta:
         model = Boon
