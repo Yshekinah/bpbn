@@ -3,7 +3,6 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models import Sum
-from django.forms.widgets import HiddenInput
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
@@ -105,6 +104,26 @@ def charactersheet(request, character_id):
     return render(request, 'domainmanager/charactersheet.html', context)
 
 
+@login_required()
+def siresearch(request):
+    context = {}
+
+    if request.method == 'POST':
+
+        searchparam = request.POST['search_text']
+        # Search for characters with searchterm inside firstname, lastname or nickname
+        # who are from the players domain
+        # limit the results to 5
+        characters = Character.objects.filter(
+            Q(firstname__contains=searchparam) | Q(lastname__contains=searchparam) | Q(nickname__contains=searchparam)).filter(
+            domain=adminTools.getDomainFromPerson(request.user.id))[:5]
+
+        # html = render_to_string('domainmanager/character_create.html', {'sires': characters})
+        # return HttpResponse(html)
+
+        return render(request, 'domainmanager/customTags/sireResults.html', {'sires': characters})
+
+
 # Create the character
 @login_required()
 def character_create(request):
@@ -127,9 +146,8 @@ def character_create(request):
         # If user is admin give him special rights at character creation
         if request.user.is_superuser:
             print("Create character as super user")
-        # if user is only "player" restrict his rights
+        # if user is only "staff or player" restrict his rights
         else:
-            # No non-standard clans in character creation
             form.fields['player'].queryset = Person.objects.filter(pk=request.user.id)
             person = get_object_or_404(Person, pk=request.user.id)
             form.fields['salutation'].queryset = Salutation.objects.filter(domain=person.domain)
@@ -141,7 +159,6 @@ def character_create(request):
             form.fields['age_category'].queryset = AgeCategory.objects.filter(domain=person.domain)
             form.fields['domain'].queryset = Domain.objects.filter(pk=person.domain.id)
             form.fields['sire'].queryset = Character.objects.filter(domain=person.domain)
-            form.fields['secretclan'].widget = HiddenInput()
 
     return render(request, 'domainmanager/character_create.html', {'form': form})
 

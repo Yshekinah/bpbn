@@ -31,7 +31,25 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="fieldWrapper">
+                                    <label>Sire selector:</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="sireSearch">
+                                <p class="help">If you did not find your characterter´s Sire in the select box you can search here.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-4">
+                                <ul id="sireResults">
+                                </ul>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-2">
 
@@ -41,8 +59,21 @@
                             </div>
                         </div>
                     </form>
+
+
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+
+        function selectSire(sireId) {
+            $('#id_sire').val(sireId);
+        }
+
+
+    </script>
+
+
 {% endblock %}

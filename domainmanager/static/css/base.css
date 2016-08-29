@@ -1,3 +1,7 @@
 .print-table{
     border-top: none; !important;
 }
+.help {
+    font-size: 11px;
+    color: #999;
+}

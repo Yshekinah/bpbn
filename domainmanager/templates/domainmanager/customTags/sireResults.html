@@ -1,0 +1,5 @@
+{% if sires %}
+    {% for sire in sires %}
+        <li><a href="#" onclick="javascript:selectSire({{ sire.pk }})">{{ sire.salutation }} {{ sire.firstname }} {{ sire.lastname }}</a></li>
+    {% endfor %}
+{% endif %}

@@ -75,8 +75,7 @@ def checkXP(character, characterProperties):
 
 # Returns the current spendable XP of a character
 def getXPforCharacter(character):
-
-    list =[character]
+    list = [character]
 
     xpearned = Xpearned.objects.filter(characters__in=[character]).aggregate(Sum('value'))['value__sum']
     xpspent = Xpspent.objects.filter(character=character).aggregate(Sum('xpcost'))['xpcost__sum']
@@ -99,5 +98,7 @@ def random_string(length=20):
 
 # give initial XP
 def createInitialXP(character):
-    xpearned = Xpearned(character=character, value=character.age_category.startingxp, note=str(character.age_category.startingxp) + " given at character creation")
+    xpearned = Xpearned(value=character.age_category.startingxp, note=str(character.age_category.startingxp) + " given at character creation")
+    xpearned.save()
+    xpearned.characters = [character]
     xpearned.save()

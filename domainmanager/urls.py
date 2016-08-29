@@ -18,6 +18,10 @@ urlpatterns = [
     #  ex: /domainmanager/charactersheet/1
     url(r'^charactersheet/(?P<character_id>[0-9]+)$', views.charactersheet, name='charactersheet'),
 
+    # Search for a Sire
+    #  ex: /domainmanager/charactersheet/siresearch
+    url(r'^charactersheet/siresearch/$', views.siresearch, name='siresearch'),
+
     # View xp for one character
     #  ex: /domainmanager/characterxps/1
     url(r'^characterxps/(?P<character_id>[0-9]+)$', views.characterxps, name='characterxps'),

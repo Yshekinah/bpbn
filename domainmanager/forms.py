@@ -7,7 +7,7 @@ from .models import Boon, Character, CharacterProperty, CharacterShopping
 class CharacterFormCreate(forms.ModelForm):
     class Meta:
         model = Character
-        exclude = ['clan_rank', 'humanity', 'frenzy', 'active', 'willpower', 'properties', 'bloodpool']
+        exclude = ['clan_rank', 'humanity', 'frenzy', 'active', 'willpower', 'properties', 'bloodpool', 'schrecknetlevel', 'hasvisions', 'secretclan']
 
 
 class CharacterFormEdit(forms.ModelForm):

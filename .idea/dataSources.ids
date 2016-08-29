@@ -657,11 +657,11 @@ model</columns>
       <column id="172" parent="15" name="image">
         <data-type>VARCHAR(100)(0,-1)|12</data-type>
       </column>
-      <column id="173" parent="15" name="hasvisions">
+      <column id="173" parent="15" name="schrecknetlevel">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="174" parent="15" name="schrecknetlevel">
+      <column id="174" parent="15" name="hasvisions">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
