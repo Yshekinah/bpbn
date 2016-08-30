@@ -111,5 +111,11 @@ def addPropertytoCharacter(property, character):
     characterProperty = CharacterProperty(character=character, property=property.property, value=1)
     characterProperty.save()
 
-    xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=property.property.type.xpinitialprize, property=property.property)
-    xpSpent.save()
+    if property.property.type.stattype == PropertyType.STATUS.flaws:
+        xpearned = Xpearned(value=property.property.type.xpinitialprize, note=str(property.property))
+        xpearned.save()
+        xpearned.characters.add(character)
+        xpearned.save()
+    else:
+        xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=property.property.type.xpinitialprize, property=property.property)
+        xpSpent.save()

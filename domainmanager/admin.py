@@ -35,7 +35,8 @@ class CharacterAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('firstname', 'lastname', 'get_clan', 'generation', 'get_player')
-    list_filter = ('clan', 'generation', 'function', 'humanity', 'hasvisions', 'schrecknetlevel')
+    list_filter = (('clan', admin.RelatedOnlyFieldListFilter), 'generation', ('function', admin.RelatedOnlyFieldListFilter), 'humanity', 'hasvisions',
+                   'schrecknetlevel')
 
     # Show staff users only the properteis they are allowed to edit
     def get_queryset(self, request):
@@ -80,7 +81,7 @@ class CharacterPropertyAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('get_property', 'value', 'get_character')
-    list_filter = ('property', 'value', 'character')
+    list_filter = (('property', admin.RelatedOnlyFieldListFilter), 'value', ('character', admin.RelatedOnlyFieldListFilter))
 
     # Show staff users only the character properties they are allowed to edit
     def get_queryset(self, request):
@@ -120,7 +121,7 @@ class PropertyAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('name', 'get_type', 'initalizeatcharactercreation')
-    list_filter = ('type', 'domain', 'initalizeatcharactercreation')
+    list_filter = (('type', admin.RelatedOnlyFieldListFilter), ('domain', admin.RelatedOnlyFieldListFilter), 'initalizeatcharactercreation')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -152,7 +153,7 @@ class PropertyTypeAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('name', 'stattype', 'get_domain', 'xpmultiplier', 'xpinitialprize')
-    list_filter = ('name', 'stattype', 'domain', 'xpmultiplier', 'xpinitialprize')
+    list_filter = ('stattype', ('domain', admin.RelatedOnlyFieldListFilter), 'xpmultiplier', 'xpinitialprize')
 
     # Show staff users only the property types they are allowed to edit
     def get_queryset(self, request):
@@ -174,8 +175,8 @@ class PropertyTypeAdmin(admin.ModelAdmin):
     def get_domain(self, obj):
         return obj.domain.name
 
-    get_domain.short_description = 'Property Type'
-    get_domain.admin_order_field = 'type__name'
+    get_domain.short_description = 'Domain'
+    get_domain.admin_order_field = 'domain__name'
 
 
 class NewsAdmin(admin.ModelAdmin):
@@ -184,7 +185,9 @@ class NewsAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('caption', 'content', 'displayDomains', 'validfrom', 'validuntil', 'isvision', 'schreknetlevel')
-    list_filter = ('isvision', 'schreknetlevel', 'domains', 'author', 'validfrom', 'validuntil')
+    list_filter = (
+        'isvision', 'schreknetlevel', ('domains', admin.RelatedOnlyFieldListFilter), ('author', admin.RelatedOnlyFieldListFilter), 'validfrom',
+        'validuntil')
 
     fieldsets = (
         (None, {
@@ -226,14 +229,14 @@ class XpearnedAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('get_event', 'displayCharacters', 'note', 'value', 'created')
-    list_filter = ('characters', 'event', 'value')
+    list_filter = (('characters', admin.RelatedOnlyFieldListFilter), ('event', admin.RelatedOnlyFieldListFilter), 'value')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
         qs = super(XpearnedAdmin, self).get_queryset(request)
         if request.user.is_superuser:
             return qs
-        return qs.filter(character__domain=request.user.person.domain)
+        return qs.filter(event__domain=request.user.person.domain)
 
     def get_form(self, request, obj=None, **kwargs):
         form = super(XpearnedAdmin, self).get_form(request, obj, **kwargs)
@@ -242,7 +245,7 @@ class XpearnedAdmin(admin.ModelAdmin):
             pass
         else:
             # get only the domain - the user is a member of
-            form.base_fields['characters'].queryset = form.base_fields['characters'].queryset.filter(id=request.user.person.domain.id)
+            form.base_fields['characters'].queryset = form.base_fields['characters'].queryset.filter(domain=request.user.person.domain)
         return form
 
     def get_event(self, obj):
@@ -259,7 +262,7 @@ class XpspentAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('get_character', 'get_property', 'oldvalue', 'newvalue', 'xpcost', 'created')
-    list_filter = ('character', 'property', 'xpcost')
+    list_filter = (('character', admin.RelatedOnlyFieldListFilter), ('property', admin.RelatedOnlyFieldListFilter), 'xpcost')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -287,9 +290,10 @@ class EventAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('caption', 'description', 'get_domain', 'start_date', 'end_date')
-    list_filter = ('caption', 'description', 'domain', 'start_date', 'end_date')
+    list_filter = (('domain', admin.RelatedOnlyFieldListFilter),)
 
     # Show staff users only the properties they are allowed to edit
+
     def get_queryset(self, request):
         qs = super(EventAdmin, self).get_queryset(request)
         if request.user.is_superuser:
@@ -318,8 +322,8 @@ class ClanAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'parent', 'standardclan')
-    list_filter = ('name', 'parent', 'standardclan')
+    list_display = ('name', 'standardclan')
+    list_filter = ('standardclan',)
 
     # Show staff users only the properties they are allowed to edit
 
@@ -342,12 +346,12 @@ class ClanAdmin(admin.ModelAdmin):
 
 
 class DomainAdmin(admin.ModelAdmin):
-    search_fields = ('name',)
+    search_fields = ('name', 'street', 'postcode')
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('name', 'get_gm', 'get_substitute', 'street', 'postcode')
-    list_filter = ('name', 'gm', 'substitute', 'street', 'postcode')
+    list_filter = (('gm', admin.RelatedOnlyFieldListFilter), ('substitute', admin.RelatedOnlyFieldListFilter))
 
     # Show staff users only the properties they are allowed to edit
 
@@ -387,7 +391,8 @@ class AgeCategoryAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('name', 'startingxp')
-    list_filter = ('name', 'startingxp')
+
+    # list_filter = ('name', 'startingxp')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -412,8 +417,7 @@ class PoliticalFuntionAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name',)
-    list_filter = ('name',)
+    list_display = ('name', 'image')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -438,8 +442,7 @@ class RankAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name',)
-    list_filter = ('name',)
+    list_display = ('name', 'image')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -464,8 +467,7 @@ class SectAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name',)
-    list_filter = ('name',)
+    list_display = ('name', 'image')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -491,7 +493,6 @@ class GenderAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('name',)
-    list_filter = ('name',)
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -517,7 +518,7 @@ class ClanPropertyAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('get_property', 'get_clan')
-    list_filter = ('property', 'clan')
+    list_filter = (('property', admin.RelatedOnlyFieldListFilter), ('clan', admin.RelatedOnlyFieldListFilter))
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -555,7 +556,7 @@ class CountryAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('name',)
-    list_filter = ('name',)
+    list_filter = (('name', admin.RelatedOnlyFieldListFilter),)
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -581,7 +582,6 @@ class SalutationAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('name',)
-    list_filter = ('name',)
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -607,7 +607,9 @@ class BoonAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('get_master', 'get_slave', 'get_category', 'note')
-    list_filter = ('master', 'slave', 'category', 'approvedbygm', 'approvedbyslave', 'approvedbymaster')
+    list_filter = (
+        ('master', admin.RelatedOnlyFieldListFilter), ('slave', admin.RelatedOnlyFieldListFilter), ('category', admin.RelatedOnlyFieldListFilter),
+        'approvedbygm', 'approvedbyslave', 'approvedbymaster')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -653,8 +655,9 @@ class BoonCategoryAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name',)
-    list_filter = ('name',)
+    list_display = ('name', 'weight')
+
+    # list_filter = ('name')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -675,12 +678,13 @@ class BoonCategoryAdmin(admin.ModelAdmin):
 
 
 class CharacterShoppingAdmin(admin.ModelAdmin):
-    search_fields = ('character', 'property')
+    # search_fields = ('character', 'property')
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('get_character', 'get_property', 'approvedbygm')
-    list_filter = ('character', 'property', 'approvedbygm')
+    list_filter = (('character', admin.RelatedOnlyFieldListFilter), ('property', admin.RelatedOnlyFieldListFilter),
+                   'approvedbygm')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -698,7 +702,6 @@ class CharacterShoppingAdmin(admin.ModelAdmin):
             # get only the domain - the user is a member of
             form.base_fields['character'].queryset = form.base_fields['character'].queryset.filter(domain=request.user.person.domain)
             form.base_fields['property'].queryset = form.base_fields['property'].queryset.filter(domain=request.user.person.domain)
-            form.base_fields['newpropertytype'].queryset = form.base_fields['newpropertytype'].queryset.filter(domain=request.user.person.domain)
         return form
 
     def get_character(self, obj):
@@ -723,12 +726,11 @@ class CharacterShoppingAdmin(admin.ModelAdmin):
 
 
 class PersonAdmin(admin.ModelAdmin):
-    search_fields = ('user__first_name', 'user__last_name')
+    search_fields = ('user__first_name', 'user__last_name', 'nickname')
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('nickname',)
-    list_filter = ('nickname',)
+    list_display = ('get_firstname', 'get_lastname', 'nickname',)
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -751,23 +753,17 @@ class PersonAdmin(admin.ModelAdmin):
             person__salutation__domain=request.user.person.domain)
         return form
 
-    def get_master(self, obj):
-        return obj.character.firstname + " " + obj.character.lastname
+    def get_firstname(self, obj):
+        return obj.user.first_name
 
-    get_master.short_description = 'Character'
-    get_master.admin_order_field = 'master__lastname'
+    get_firstname.short_description = 'Firstname'
+    get_firstname.admin_order_field = 'user__first_name'
 
-    def get_slave(self, obj):
-        return obj.character.firstname + " " + obj.character.lastname
+    def get_lastname(self, obj):
+        return obj.user.last_name
 
-    get_slave.short_description = 'Character'
-    get_slave.admin_order_field = 'slave__lastname'
-
-    def get_category(self, obj):
-        return obj.category.name
-
-    get_category.short_description = 'Boon category'
-    get_category.admin_order_field = 'category__name'
+    get_lastname.short_description = 'Lastname'
+    get_lastname.admin_order_field = 'user__last_name'
 
 
 admin.site.register(AgeCategory, AgeCategoryAdmin)

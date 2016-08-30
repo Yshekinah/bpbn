@@ -110,6 +110,15 @@
                         </div>
                     </div>
                     <div class="col-md-4">
+                        {% if character.sire != None %}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Sire:
+                                </div>
+                                <div class="col-md-6">
+                                    {{ character.sire.salutation }} {{ character.sire.firstname }} {{ character.sire.lastname }}
+                                </div>
+                            </div>{% endif %}
                         {% if character.clan != None %}
                             <div class="row">
                                 <div class="col-md-4">
@@ -133,15 +142,10 @@
                                 </div>
                                 <div class="col-md-6">{{ character.rank }}</div>
                             </div>{% endif %}
-                        {% if character.sire != None %}
-                            <div class="row">
-                                <div class="col-md-4">
-                                    Sire:
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="{% url  'domainmanager:charactersheet' character.sire.id %}">{{ character.sire.firstname }} {{ character.sire.lastname }}</a>
-                                </div>
-                            </div>{% endif %}
+                        <div class="row">
+                            <div class="col-md-4">Age category:</div>
+                            <div class="col-md-6">{{ character.age_category }}</div>
+                        </div>
 
                     </div>
                     <div class="col-md-4">
@@ -158,12 +162,12 @@
                             <div class="col-md-6">{{ character.bloodpool }}</div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">Age category:</div>
-                            <div class="col-md-6">{{ character.age_category }}</div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-4">XP left :</div>
                             <div class="col-md-6">{{ xpleft }} </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">XP earned :</div>
+                            <div class="col-md-6">{{ xpearned }} </div>
                         </div>
                     </div>
                 </div>
@@ -201,10 +205,10 @@
                         {% renderCharacterSheetSection 'Disciplines' disciplines %}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Merits' merits False %}
+                        {% renderCharacterSheetSection 'Merits' merits False%}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Flaws' flaws False %}
+                        {% renderCharacterSheetSection 'Flaws' flaws False%}
                     </div>
                 </div>
 

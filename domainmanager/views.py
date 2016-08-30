@@ -91,9 +91,13 @@ def charactersheet(request, character_id):
     thaumaturgicpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.thaumaturgicpaths)
     necromanticpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.necromanticpaths)
     xpleft = characterTools.getXPforCharacter(character)
+    xpearned = Xpearned.objects.filter(characters__in=[character]).aggregate(Sum('value'))['value__sum']
+
+    if xpearned == None:
+        xpearned = 0
 
     context = {'character': character, 'disciplines': disciplines, 'rituals': rituals,
-               'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft,
+               'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft, 'xpearned': xpearned,
                'skills': skills, 'talents': talents, 'knowledges': knowledges, 'merits': merits, 'flaws': flaws, 'physical': physical,
                'social': social, 'mental': mental}
 
@@ -117,9 +121,6 @@ def siresearch(request):
         characters = Character.objects.filter(
             Q(firstname__contains=searchparam) | Q(lastname__contains=searchparam) | Q(nickname__contains=searchparam)).filter(
             domain=adminTools.getDomainFromPerson(request.user.id))[:5]
-
-        # html = render_to_string('domainmanager/character_create.html', {'sires': characters})
-        # return HttpResponse(html)
 
         return render(request, 'domainmanager/customTags/sireResults.html', {'sires': characters})
 
@@ -160,7 +161,7 @@ def character_create(request):
             form.fields['domain'].queryset = Domain.objects.filter(pk=person.domain.id)
             form.fields['sire'].queryset = Character.objects.filter(domain=person.domain)
 
-    return render(request, 'domainmanager/character_create.html', {'form': form})
+    return render(request, 'domainmanager/forms/character_create.html', {'form': form})
 
 
 # Edit the character
@@ -294,9 +295,11 @@ def charactershopping(request, character_id):
         form.fields['property'].queryset = properties = Property.objects.exclude(id__in=list).filter(type__xpinitialprize__lte=xpLeft).order_by(
             'type')
 
+        propertytypes = PropertyType.objects.all()
+
         form.fields['character'] = character
 
-    context = {'character': character, 'form': form, 'properties': properties}  # , 'propertytypes': propertytypes}
+    context = {'character': character, 'form': form, 'properties': properties, 'propertytypes': propertytypes}
     return render(request, 'domainmanager/forms/charactershopping.html', context)
 
 
@@ -387,7 +390,7 @@ def adminshopping_validation(request, property_id, hash, answer):
             property.approvedbygm = property.STATUS.accepted
             property.save()
 
-            # handle property creation (if manually created) and XP payment
+            # create a characterproperty and XP payment
             characterTools.addPropertytoCharacter(property, property.character)
 
         else:
