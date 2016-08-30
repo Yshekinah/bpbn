@@ -102,3 +102,14 @@ def createInitialXP(character):
     xpearned.save()
     xpearned.characters = [character]
     xpearned.save()
+
+
+# character C bought property P.
+# It was approved by gm
+# now we have to add it to him
+def addPropertytoCharacter(property, character):
+    characterProperty = CharacterProperty(character=character, property=property.property, value=1)
+    characterProperty.save()
+
+    xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=property.property.type.xpinitialprize, property=property.property)
+    xpSpent.save()

@@ -64,7 +64,7 @@
                             <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
                             <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                             <td>{{ row.STATUS|getValue:row.approvedbyslave }}</td>
-                            {% if row.approvedbymaster == row.STATUS.waiting|upper and row.approvedbyslave == row.STATUS.accepted|upper and row.approvedbygm == row.STATUS.accepted|upper %}
+                            {% if row.approvedbymaster == row.STATUS.waiting and row.approvedbyslave == row.STATUS.accepted and row.approvedbygm == row.STATUS.accepted %}
                                 <td><a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_master row.STATUS.resolved %}">
                                     {% renderButton 3 %}
                                 </a></td>
@@ -105,7 +105,7 @@
                             <td><a href="#" onclick="javascript:displayNote('{{ row.note }}')">{% renderButton 5 %}</a></td>
                             <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                             <td>
-                                {% if row.approvedbyslave == row.STATUS.waiting|upper %}
+                                {% if row.approvedbyslave == row.STATUS.waiting %}
                                     <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.accepted %}">{% renderButton 1 %}</a>
                                     <a href="{% url 'domainmanager:characterboon_validation' row.id row.hash_slave row.STATUS.declined %}">{% renderButton 2 %}</a>
                                 {% else %}

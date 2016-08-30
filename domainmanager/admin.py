@@ -629,15 +629,16 @@ class BoonAdmin(admin.ModelAdmin):
         return form
 
     def get_master(self, obj):
-        return obj.character.firstname + " " + obj.character.lastname
+        if obj.master != None:
+            return obj.master.firstname + " " + obj.master.lastname
 
-    get_master.short_description = 'Character'
+    get_master.short_description = 'Master'
     get_master.admin_order_field = 'master__lastname'
 
     def get_slave(self, obj):
-        return obj.character.firstname + " " + obj.character.lastname
+        return obj.slave.firstname + " " + obj.slave.lastname
 
-    get_slave.short_description = 'Character'
+    get_slave.short_description = 'Slave'
     get_slave.admin_order_field = 'slave__lastname'
 
     def get_category(self, obj):
@@ -674,12 +675,12 @@ class BoonCategoryAdmin(admin.ModelAdmin):
 
 
 class CharacterShoppingAdmin(admin.ModelAdmin):
-    search_fields = ('character', 'newproperty', 'newpropertytype', 'property')
+    search_fields = ('character', 'property')
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('get_character', 'get_property', 'get_newproperty', 'get_newpropertytype', 'approvedbygm')
-    list_filter = ('character', 'property', 'newproperty', 'newpropertytype', 'approvedbygm')
+    list_display = ('get_character', 'get_property', 'approvedbygm')
+    list_filter = ('character', 'property', 'approvedbygm')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -712,13 +713,6 @@ class CharacterShoppingAdmin(admin.ModelAdmin):
 
     get_property.short_description = 'Property'
     get_property.admin_order_field = 'property__name'
-
-    def get_newproperty(self, obj):
-        if obj.newproperty:
-            return obj.newproperty.name
-
-    get_newproperty.short_description = 'New property'
-    get_newproperty.admin_order_field = 'property__name'
 
     def get_newpropertytype(self, obj):
         if obj.newpropertytype:

@@ -271,10 +271,6 @@ def charactershopping(request, character_id):
             purchasedProperty = CharacterShopping()
             if form.cleaned_data['property']:
                 purchasedProperty.property = form.cleaned_data['property']
-            if form.cleaned_data['newproperty']:
-                purchasedProperty.newproperty = form.cleaned_data['newproperty']
-            if form.cleaned_data['newpropertytype']:
-                purchasedProperty.newpropertytype = form.cleaned_data['newpropertytype']
 
             purchasedProperty.character = character
             purchasedProperty.hash_gm = characterTools.random_string(20)
@@ -294,25 +290,23 @@ def charactershopping(request, character_id):
         for characterProperty in characterProperties:
             list.append(characterProperty.property.pk)
 
-        # Remove all properties from the selectbox which
-        # the character already owns
+        # Remove all properties from the selectbox which the character already owns AND which are not too expsnsive to buy
+        form.fields['property'].queryset = properties = Property.objects.exclude(id__in=list).filter(type__xpinitialprize__lte=xpLeft).order_by(
+            'type')
 
-        # filter(type__xpinitialprize__lte=xpLeft).
-
-        form.fields['property'].queryset = Property.objects.exclude(id__in=list).filter(type__xpinitialprize__lte=xpLeft).order_by('type')
-        form.fields['newpropertytype'].queryset = PropertyType.objects.filter(xpinitialprize__lte=xpLeft).order_by('stattype')
         form.fields['character'] = character
 
-    context = {'character': character, 'form': form}
+    context = {'character': character, 'form': form, 'properties': properties}  # , 'propertytypes': propertytypes}
     return render(request, 'domainmanager/forms/charactershopping.html', context)
 
 
 @login_required()
-@hasCharacter
 def charactershopping_cancel(request, character_id, item_id):
+    adminTools.hasCharacter(request, character_id)
+
     item = get_object_or_404(CharacterShopping, pk=item_id)
 
-    if item.approvedbygm == item.STATUS.waiting and item.character.id == character_id:
+    if item.approvedbygm == item.STATUS.waiting and str(item.character.id) == character_id:
         item.delete()
 
     return redirect('domainmanager:characterbasket', character_id)
@@ -394,7 +388,7 @@ def adminshopping_validation(request, property_id, hash, answer):
             property.save()
 
             # handle property creation (if manually created) and XP payment
-            adminTools.addPropertytoCharacter(property, property.character)
+            characterTools.addPropertytoCharacter(property, property.character)
 
         else:
             property.approvedbygm = property.STATUS.declined
@@ -409,7 +403,7 @@ def adminboon_validation(request, boon_id, hash, answer):
     boon = get_object_or_404(Boon, pk=boon_id)
 
     if boon.hash_gm == hash:
-        if answer == boon.STATUS.accepted:
+        if answer == str(boon.STATUS.accepted):
             boon.approvedbygm = boon.STATUS.accepted
         else:
             boon.approvedbygm = boon.STATUS.declined

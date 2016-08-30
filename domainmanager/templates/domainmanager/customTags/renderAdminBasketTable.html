@@ -5,9 +5,8 @@
     <tr>
         <th>Player</th>
         <th>Character</th>
-        <th>Property (from db)</th>
-        <th>Property (manually created)</th>
-        <th>Type</th>
+        <th>Property</th>
+        <th>Property type</th>
         <th>Xp prize</th>
         <th>Approval / Decline by GM</th>
         <th>Timestamp</th>
@@ -19,8 +18,7 @@
             <td>{{ item.character.player }}</td>
             <td>{{ item.character.firstname }} {{ item.character.lastname }} </td>
             <td>{{ item.property }}</td>
-            <td>{{ item.newproperty }}</td>
-            <td>{% if item.property %}{{ item.property.type.name }}{% else %}{{ item.newpropertytype }}{% endif %}</td>
+            <td>{{ item.property.type.name }}</td>
             <td>{% if item.property %}{{ item.property.type.xpinitialprize }}{% else %}{{ item.newpropertytype.xpinitialprize }}{% endif %}</td>
             <td>
                 {% if item.approvedbygm == item.STATUS.waiting %}

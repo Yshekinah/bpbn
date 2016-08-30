@@ -25,7 +25,7 @@ class BoonForm(ModelForm):
 class CharacterShoppingForm(ModelForm):
     class Meta:
         model = CharacterShopping
-        fields = ['property', 'newproperty', 'newpropertytype']
+        fields = ['property']
         # character = forms.ModelChoiceField(label='Character', queryset=Character.objects.all(), required=False)
         # property = forms.ModelChoiceField(label='Property', queryset=Property.objects.all(), required=False)
         # newproperty = forms.CharField(label="Your new property", required=False)

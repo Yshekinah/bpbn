@@ -245,7 +245,8 @@ class Character(models.Model):
     domain = models.ForeignKey('Domain', related_name='character_domain', default=1)
     active = models.IntegerField(choices=STATUS_active, default=STATUS_active.active)
     sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
-    hasvisions = models.IntegerField(choices=STATUS_visions, default=STATUS_visions.no, verbose_name="Visions", help_text="Has the character visions?")
+    hasvisions = models.IntegerField(choices=STATUS_visions, default=STATUS_visions.no, verbose_name="Visions",
+                                     help_text="Has the character visions?")
     properties = models.ManyToManyField(Property, through='CharacterProperty')
     secretclan = models.ForeignKey(Clan, related_name='secretclan', blank=True, null=True)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
@@ -322,21 +323,12 @@ class CharacterShopping(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     property = models.ForeignKey(Property, on_delete=models.CASCADE, blank=True, null=True)
     approvedbygm = models.IntegerField(choices=STATUS, default=STATUS.waiting)
-    newproperty = models.CharField(max_length=50, blank=True, null=True)
-    newpropertytype = models.ForeignKey(PropertyType, blank=True, null=True)
     hash_gm = models.CharField(max_length=20, default="")
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        result = self.character.firstname + " " + self.character.lastname + " "
-        if self.property:
-            result += self.property.name + " "
-        if self.newproperty:
-            result += self.newproperty + " "
-        if self.newpropertytype:
-            result += self.newpropertytype.name
-        return result
+        return self.character.firstname + " " + self.character.lastname + " " + str(self.property)
 
 
 class BoonCategory(models.Model):
