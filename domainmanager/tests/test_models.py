@@ -1,14 +1,17 @@
 from django.test import TestCase
 
-from domainmanager.models import Domain
+from domainmanager.models import *
 
 
 # models test
-class Domain(TestCase):
-    def create_domain(self, name="Budapest"):
-        return Domain.objects.create(name="Budapest")
+class DomainTest(TestCase):
+    fixtures = ['dump.json']
 
-    def test_whatever_creation(self):
-        w = self.create_domain()
-        self.assertTrue(isinstance(w, Domain))
-        self.assertEqual(w.__unicode__(), w.name)
+    def setUp(self):
+        pass
+        # Test definitions as before call_setup_methods()
+
+    def test_domain(self):
+        # A test that uses the fixtures.
+        domain = Domain.objects.get(name="Budapest")
+        self.assertEqual(str(domain), 'Budapest')
