@@ -5,7 +5,7 @@
         <th>Master</th>
         <th>Slave</th>
         <th>Category</th>
-        <!--<th>Note</th>-->
+        <th>Note</th>
         <th>Status Slave</th>
         <th>Status Master</th>
         <th>Status GM</th>
@@ -18,6 +18,7 @@
             <td>{{ currentBoon.master.firstname }} {{ currentBoon.master.lastname }}</td>
             <td>{{ currentBoon.slave.firstname }} {{ currentBoon.slave.lastname }}</td>
             <td>{{ currentBoon.category.name }}</td>
+            <td><a href="#" onclick="javascript:displayNote('{{ currentBoon.note }}')">{% renderButton 5 %}</a></td>
             <td>{{ currentBoon.STATUS|getValue:currentBoon.approvedbyslave }}</td>
             <td>{{ currentBoon.STATUS|getValue:currentBoon.approvedbymaster }}</td>
 

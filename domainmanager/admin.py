@@ -120,7 +120,7 @@ class PropertyAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'get_type', 'initalizeatcharactercreation')
+    list_display = ('name', 'get_type', 'initalizeatcharactercreation', 'xpprize')
     list_filter = (('type', admin.RelatedOnlyFieldListFilter), ('domain', admin.RelatedOnlyFieldListFilter), 'initalizeatcharactercreation')
 
     # Show staff users only the properties they are allowed to edit

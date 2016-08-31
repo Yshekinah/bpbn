@@ -3,9 +3,19 @@
 
 <h3>{{ sectionName }}</h3>
 {% for field in querySet %}
+
+
+
     <div class="row">
-        <div class="col-md-6">{{ field.property.name }} {% if showXPCost %} {{ field.property.type.xpinitialprize }} XP{% endif %}</div>
-        <div class="col-md-4">{{ field.value }}
+        <div class="col-md-4">{{ field.property.name }}</div>
+        <div class="col-md-4">
+            {% if showValue %}{% for i in field.value|get_range %}<img width="12px" src="{% static 'img/blackdot.png' %}">{% endfor %}{% endif %}
+            {% with whitedots=5 %}
+                {% if showValue %}{% for i in whitedots|subtract:field.value|get_range %}<img width="10px" src="{% static 'img/whitedot.png' %}">
+                {% endfor %}{% endif %}
+            {% endwith %}
+        </div>
+        <div class="col-md-1">
             {% if renderButton %}
                 {% renderLvlUpButton field.id field.value field.property.name %}
             {% endif %}

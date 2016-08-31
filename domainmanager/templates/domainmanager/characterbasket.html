@@ -65,8 +65,14 @@
                         <tr>
                             <td>{% if row.property %}{{ row.property }}{% else %}{{ row.newproperty }}{% endif %}</td>
                             <td>{% if row.property %}{{ row.property.type.name }}{% else %}{{ row.newpropertytype }}{% endif %}</td>
-                            <td>{% if row.property %}{{ row.property.type.xpinitialprize }}{% else %}
-                                {{ row.newpropertytype.xpinitialprize }}{% endif %}</td>
+
+                            <td>
+                                {% if row.property.type.stattype == row.property.type.STATUS.merits or row.property.type.stattype == row.property.type.STATUS.flaws %}
+                                    {{ row.property.xpprize }}{% else %}{{ row.property.type.xpinitialprize }}{% endif %}</td>
+
+                            {% comment %}<td>{% if row.property %}{% else %}
+                                {{ row.newpropertytype.xpinitialprize }}{% endif %}</td>{% endcomment %}
+
                             <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                             <td>
                                 {% if row.approvedbygm == row.STATUS.waiting %}

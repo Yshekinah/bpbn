@@ -58,8 +58,8 @@ def renderLvlUpButton(characterproperty_id, oldValue, propName=None):
 
 # Render a section in the charactersheet: e.g. Skills, Physical or Disciplines
 @register.inclusion_tag('customTags/renderCharacterSheetSection.html')
-def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showXPCost=False):
-    return {'sectionName': sectionName, 'querySet': querySet, 'renderButton': renderButton, 'showXPCost': showXPCost}
+def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showValue=True):
+    return {'sectionName': sectionName, 'querySet': querySet, 'renderButton': renderButton, 'showValue': showValue}
 
 
 # Render the admin boons table: Current and already validated boons
@@ -130,3 +130,31 @@ def renderCalenderClassByDomain(domain_id):
 
     if domain_id == DOMAIN_ZAGREB:
         return "event-special"
+
+
+#Django has no built in subtraction method - which I needed for the charactersheet white dots
+@register.filter
+def subtract(value, arg):
+    return value - arg
+
+#Django has no built in range filter - which I needed for the character sheet black dots
+@register.filter
+def get_range(value):
+    """
+      Filter - returns a list containing range made from given value
+      Usage (in template):
+
+      <ul>{% for i in 3|get_range %}
+        <li>{{ i }}. Do something</li>
+      {% endfor %}</ul>
+
+      Results with the HTML:
+      <ul>
+        <li>0. Do something</li>
+        <li>1. Do something</li>
+        <li>2. Do something</li>
+      </ul>
+
+      Instead of 3 one may use the variable set in the views
+    """
+    return range(value)

@@ -180,6 +180,7 @@ class Property(models.Model):
     type = models.ForeignKey('PropertyType', related_name='type')
     domain = models.ForeignKey(Domain, related_name='property_domain', default=1)
     initalizeatcharactercreation = models.IntegerField(choices=STATUS, default=STATUS.no, verbose_name="Initialize at character creation")
+    xpprize = models.IntegerField(default=0, help_text='Only use XP costs here for merits and flaws! All other XP costs are set in property types')
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -270,7 +271,8 @@ class PropertyType(models.Model):
                      (10, 'flaws', 'Flaws'),
                      (11, 'rituals', 'Rituals'),
                      (12, 'thaumaturgicpaths', 'Thaumaturgic Paths'),
-                     (13, 'necromanticpaths', 'Necromantic Paths'))
+                     (13, 'necromanticpaths', 'Necromantic Paths'),
+                     (14, 'influences', 'Influences'))
 
     name = models.CharField(max_length=100)
     domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)

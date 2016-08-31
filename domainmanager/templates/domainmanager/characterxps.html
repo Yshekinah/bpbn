@@ -101,26 +101,11 @@
     </div>
 
     <script>
-        {% autoescape off %}
-            function displayNote(text) {
-                BootstrapDialog.show({
-                    message: text,
-                    buttons: [{
-                        label: 'Ok',
-                        cssClass: 'btn-primary',
-                        action: function (dialogItself) {
-                            dialogItself.close();
-                        }
-                    }]
-                });
-            }
 
+        function displayCreateBoon() {
+            $('#myModal').modal('show').find('.modal-body').load('{% url 'domainmanager:characterboon_create' character.pk %} ');
+        }
 
-            function displayCreateBoon() {
-                $('#myModal').modal('show').find('.modal-body').load('{% url 'domainmanager:characterboon_create' character.pk %} ');
-            }
-
-        {% endautoescape %}
     </script>
 
 {% endblock %}

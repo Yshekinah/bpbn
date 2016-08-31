@@ -19,7 +19,9 @@
             <td>{{ item.character.firstname }} {{ item.character.lastname }} </td>
             <td>{{ item.property }}</td>
             <td>{{ item.property.type.name }}</td>
-            <td>{% if item.property %}{{ item.property.type.xpinitialprize }}{% else %}{{ item.newpropertytype.xpinitialprize }}{% endif %}</td>
+            <td>
+                {% if item.property.type.stattype == item.property.type.STATUS.merits or item.property.type.stattype == item.property.type.STATUS.flaws %}
+                    {{ item.property.xpprize }}{% else %}{{ item.property.type.xpinitialprize }}{% endif %}</td>
             <td>
                 {% if item.approvedbygm == item.STATUS.waiting %}
                     <a href="{% url 'domainmanager:adminshopping_validation' item.id item.hash_gm item.STATUS.accepted %}">{% renderButton 1 %}</a>
