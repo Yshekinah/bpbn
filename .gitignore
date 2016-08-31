@@ -1,5 +1,9 @@
-.idea/
 accounts.xlsx
-compile.bat
 domainmanager/clean_genealogy.csv
 ~$accounts.xlsx
+bpbn/__pycache__/*
+domainmanager/__pycache__/*
+domainmanager/migrations/__pycache__/*
+*.pyc
+*.iml
+.idea/misc.xml
