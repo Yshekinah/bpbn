@@ -178,6 +178,7 @@ class Property(models.Model):
     STATUS = Choices((1, 'yes', 'Yes'), (2, 'no', 'No'))
     name = models.CharField(max_length=100)
     type = models.ForeignKey('PropertyType', related_name='type')
+    description = models.CharField(max_length=250, blank=True, null=True)
     domain = models.ForeignKey(Domain, related_name='property_domain', default=1)
     initalizeatcharactercreation = models.IntegerField(choices=STATUS, default=STATUS.no, verbose_name="Initialize at character creation")
     xpprize = models.IntegerField(default=0, help_text='Only use XP costs here for merits and flaws! All other XP costs are set in property types')
@@ -331,6 +332,35 @@ class CharacterShopping(models.Model):
 
     def __str__(self):
         return self.character.firstname + " " + self.character.lastname + " " + str(self.property)
+
+
+class Downtime(models.Model):
+    class Meta:
+        verbose_name_plural = "Downtimes"
+
+    name = models.CharField(max_length=200)
+    domain = models.ForeignKey('Domain', on_delete=models.CASCADE)
+    event = models.ForeignKey('Event', on_delete=models.CASCADE, null=True, blank=True)
+    characters = models.ManyToManyField('Character')
+    start = models.DateField(auto_now=True)
+    end = models.DateField(auto_now=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name + " " + str(self.start) + " - " + str(self.end)
+
+
+class Action(models.Model):
+    class Meta:
+        verbose_name_plural = 'Actions'
+
+    name = models.CharField(max_length=200)
+
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+
 
 
 class BoonCategory(models.Model):

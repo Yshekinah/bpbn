@@ -122,4 +122,13 @@
         </div>
     </div>
 
+    <script>
+
+        function displayCreateBoon() {
+            $('#myModal').modal('show').find('.modal-body').load('{% url 'domainmanager:characterboon_create' character.pk %} ');
+        }
+
+    </script>
+
+
 {% endblock %}

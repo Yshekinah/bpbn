@@ -4,6 +4,8 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import *
 
 admin.site.register(Country)
+admin.site.register(Downtime)
+admin.site.register(Action)
 
 
 # Define an inline admin descriptor for Employee model

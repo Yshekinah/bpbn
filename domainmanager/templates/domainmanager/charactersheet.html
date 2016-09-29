@@ -20,6 +20,8 @@
                                 href="{% url 'domainmanager:characterboons' character.id %}">Boons</a></li>
                         <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
                                 href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
+                        <li class="{% ancestor 'domainmanager:characteractions' character.id %}"><a
+                                href="{% url 'domainmanager:characteractions' character.id %}">Downtime</a></li>
                     </ul>
                 </div>
             {% endblock panel-nav %}

@@ -52,7 +52,7 @@ def characters(request):
     else:
         characters = Character.objects.all().filter(domain=adminTools.getDomainFromPerson(request.user.id)).order_by('clan')
 
-    context = {'clans': clans, 'bloodlines': bloodlines, 'characters': characters,}
+    context = {'clans': clans, 'bloodlines': bloodlines, 'characters': characters, }
 
     return render(request, 'domainmanager/characters.html', context)
 
@@ -66,7 +66,7 @@ def players(request):
         users = User.objects.filter(domain=adminTools.getDomainFromPerson(request.user.id))
         characters = Character.objects.all().filter(domain=adminTools.getDomainFromPerson(request.user.id)).order_by('clan')
 
-    context = {'users': users, 'characters': characters,}
+    context = {'users': users, 'characters': characters, }
 
     return render(request, 'domainmanager/players.html', context)
 
@@ -342,8 +342,17 @@ def lvlup(request, characterproperty_id):
 
 
 @login_required()
+@hasCharacter
+def characteractions(request, character_id):
+    downtimes = Downtime.objects.filter(character_id=character_id)
+
+    context = {'downtimes': downtimes}
+    return render(request, 'domainmanager/forms/characteractions.html', context)
+
+
+@login_required()
 def genealogy(request):
-    vampires = Vampire.objects.all().filter(generation__lte="3").order_by('pk')
+    vampires = Vampire.objects.all().filter(generation__lte="7").order_by('pk')
 
     context = {'vampires': vampires}
 

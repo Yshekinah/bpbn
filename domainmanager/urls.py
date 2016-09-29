@@ -59,6 +59,10 @@ urlpatterns = [
     #  ex: /domainmanager/characterbasket/1
     url(r'characterbasket/(?P<character_id>[0-9]+)', views.characterbasket, name='characterbasket'),
 
+    # View your character downtime actions
+    #  ex: /domainmanager/characteractions/1
+    url(r'characteractions/(?P<character_id>[0-9]+)', views.characteractions, name='characteractions'),
+
     # List of all players
     #  ex: /domainmanager/players
     url(r'^players$', views.players, name='players'),
