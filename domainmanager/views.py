@@ -353,9 +353,30 @@ def characteractions(request, character_id):
 @login_required()
 @hasCharacter
 def charactersecrets(request, character_id):
-    secrets = Secret.objects.all()
+    character = get_object_or_404(Character, pk=character_id)
 
-    context = {'secrets': secrets}
+    secrets = CharacterSecret.objects.filter(character=character).order_by('secret__rank')
+
+    container = {}
+
+    oldClan = ""
+
+    for secret in secrets:
+        clan = secret.secret.clan
+
+        container.setdefault(clan.name, [])
+        container[clan.name].append(secret.secret)
+
+        #if clan != oldClan:
+        #    container.pop(clan.name, {secret})
+
+        #if clan == oldClan:
+        #    tempcontainer = container.get(clan)
+        #    tempcontainer.pop(clan.name, {secret})
+
+        oldClan = clan
+
+    context = {'secrets': container}
 
     return render(request, 'domainmanager/charactersecrets.html', context)
 

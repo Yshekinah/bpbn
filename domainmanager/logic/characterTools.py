@@ -1,10 +1,7 @@
-import random
-import string
-
 from django.db import transaction
 from django.db.models import Sum
 
-from domainmanager.models import CharacterProperty, Property, PropertyType, Xpearned, Xpspent
+from domainmanager.models import *
 
 
 # Create initial character properties
@@ -13,7 +10,7 @@ from domainmanager.models import CharacterProperty, Property, PropertyType, Xpea
 # 2 ... Attributes
 # 3 ... Backgrounds
 def createInitialProperties(character):
-    # initialze all initalizecharactercreation properties
+    # initialze all initalizecharactercreation==True properties
     properties = Property.objects.filter(domain__exact=character.domain).filter(initalizeatcharactercreation__exact=Property.STATUS.yes)
 
     for property in properties:
@@ -34,6 +31,11 @@ def createInitialProperties(character):
         cp.save()
 
 
+def createInitialSecrets(character):
+    secrets = Secret.objects.filter(clan=character.clan).filter(rank__lte=character.age_category.startingsecrets)
+
+
+# Used in charactersheet.html to display the values for each property type
 def getCharacterProportiesOfType(character, type):
     return CharacterProperty.objects.filter(character=character).filter(
         property__type__stattype__exact=type).order_by('property__initalizeatcharactercreation')

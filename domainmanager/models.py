@@ -26,7 +26,6 @@ def set_upload_directory_path(instance, filename):
             ''.join(random.choice(pool) for i in range(length))) + "." + extension
 
 
-
 class Country(models.Model):
     class Meta:
         verbose_name_plural = 'Countries'
@@ -67,6 +66,7 @@ class AgeCategory(models.Model):
 
     name = models.CharField(max_length=100)
     startingxp = models.IntegerField(default=25)
+    startingsecrets = models.IntegerField(default=4)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
     domain = models.ForeignKey('Domain', default=1)
@@ -134,6 +134,9 @@ class Domain(models.Model):
     country = models.ForeignKey(Country, related_name='domain_country')
     gm = models.ForeignKey('Person', related_name='gm')
     substitute = models.ForeignKey('Person', related_name='substitute')
+    secrets = models.BooleanField(default=True)
+    influences = models.BooleanField(default=True)
+    downtimes = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -344,6 +347,7 @@ class Downtime(models.Model):
         verbose_name_plural = "Downtimes"
 
     name = models.CharField(max_length=200)
+    description = models.CharField(max_length=250, blank=True, null=True)
     domain = models.ForeignKey('Domain', on_delete=models.CASCADE, null=True, blank=True)
     event = models.ForeignKey('Event', on_delete=models.CASCADE, null=True, blank=True)
     start = models.DateField()
@@ -362,7 +366,8 @@ class Action(models.Model):
 
     name = models.CharField(max_length=200)
     character = models.ForeignKey('Character', on_delete=models.CASCADE)
-    attachment = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
+    action = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
+    result = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -386,6 +391,17 @@ class Secret(models.Model):
     def __str__(self):
         return self.description
 
+class CharacterSecret(models.Model):
+    class Meta:
+        verbose_name_plural = 'Character secrets'
+
+    character = models.ForeignKey('Character', on_delete=models.CASCADE)
+    secret = models.ForeignKey('Secret', on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.character.firstname + " " + self.character.lastname + ": " + self.secret.description
 
 class BoonCategory(models.Model):
     class Meta:

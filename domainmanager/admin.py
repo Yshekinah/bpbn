@@ -7,6 +7,7 @@ admin.site.register(Country)
 admin.site.register(Downtime)
 admin.site.register(Action)
 admin.site.register(Secret)
+admin.site.register(CharacterSecret)
 
 
 # Define an inline admin descriptor for Employee model
@@ -353,7 +354,7 @@ class DomainAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'get_gm', 'get_substitute', 'street', 'postcode')
+    list_display = ('name', 'get_gm', 'get_substitute', 'street', 'postcode', 'secrets', 'downtimes', 'influences')
     list_filter = (('gm', admin.RelatedOnlyFieldListFilter), ('substitute', admin.RelatedOnlyFieldListFilter))
 
     # Show staff users only the properties they are allowed to edit
@@ -393,7 +394,7 @@ class AgeCategoryAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'startingxp')
+    list_display = ('name', 'startingxp', 'startingsecrets')
 
     # list_filter = ('name', 'startingxp')
 
