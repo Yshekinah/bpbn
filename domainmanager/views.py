@@ -344,10 +344,20 @@ def lvlup(request, characterproperty_id):
 @login_required()
 @hasCharacter
 def characteractions(request, character_id):
-    downtimes = Downtime.objects.filter(character_id=character_id)
+    actions = Action.objects.all()
 
-    context = {'downtimes': downtimes}
-    return render(request, 'domainmanager/forms/characteractions.html', context)
+    context = {'actions': actions}
+    return render(request, 'domainmanager/characteractions.html', context)
+
+
+@login_required()
+@hasCharacter
+def charactersecrets(request, character_id):
+    secrets = Secret.objects.all()
+
+    context = {'secrets': secrets}
+
+    return render(request, 'domainmanager/charactersecrets.html', context)
 
 
 @login_required()

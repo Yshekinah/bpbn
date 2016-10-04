@@ -63,6 +63,10 @@ urlpatterns = [
     #  ex: /domainmanager/characteractions/1
     url(r'characteractions/(?P<character_id>[0-9]+)', views.characteractions, name='characteractions'),
 
+    # View the secrets your character knows about
+    #  ex: /domainmanager/charactersecrets/1
+    url(r'charactersecrets/(?P<character_id>[0-9]+)', views.charactersecrets, name='charactersecrets'),
+
     # List of all players
     #  ex: /domainmanager/players
     url(r'^players$', views.players, name='players'),

@@ -18,8 +18,13 @@ def set_upload_directory_path(instance, filename):
     extension = filename.split('.')[-1]
     name = filename.split('.')[0]
 
-    return 'domain_{0}/{1}/'.format(instance.domain.id, ctype.model) + strftime('/%Y/%m/%d') + "/" + name + "_" + str(
-        ''.join(random.choice(pool) for i in range(length))) + "." + extension
+    if ctype.model == 'action':
+        return 'domain_{0}/{1}/'.format(instance.character.domain.id, ctype.model) + strftime('/%Y/%m/%d') + "/" + name + "_" + str(
+            ''.join(random.choice(pool) for i in range(length))) + "." + extension
+    else:
+        return 'domain_{0}/{1}/'.format(instance.domain.id, ctype.model) + strftime('/%Y/%m/%d') + "/" + name + "_" + str(
+            ''.join(random.choice(pool) for i in range(length))) + "." + extension
+
 
 
 class Country(models.Model):
@@ -339,11 +344,10 @@ class Downtime(models.Model):
         verbose_name_plural = "Downtimes"
 
     name = models.CharField(max_length=200)
-    domain = models.ForeignKey('Domain', on_delete=models.CASCADE)
+    domain = models.ForeignKey('Domain', on_delete=models.CASCADE, null=True, blank=True)
     event = models.ForeignKey('Event', on_delete=models.CASCADE, null=True, blank=True)
-    characters = models.ManyToManyField('Character')
-    start = models.DateField(auto_now=True)
-    end = models.DateField(auto_now=True)
+    start = models.DateField()
+    end = models.DateField()
 
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
@@ -357,10 +361,30 @@ class Action(models.Model):
         verbose_name_plural = 'Actions'
 
     name = models.CharField(max_length=200)
-
+    character = models.ForeignKey('Character', on_delete=models.CASCADE)
+    attachment = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
+
+class Secret(models.Model):
+    class Meta:
+        verbose_name_plural = 'Secrets'
+
+    rank = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ]
+    )
+    clan = models.ForeignKey('Clan', on_delete=models.CASCADE)
+    description = models.CharField(max_length=250)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.description
 
 
 class BoonCategory(models.Model):

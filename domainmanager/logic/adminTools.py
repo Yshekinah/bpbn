@@ -3,13 +3,6 @@ from django.shortcuts import render
 
 from domainmanager.models import Character, CharacterProperty, Domain, Person, Xpspent
 
-
-# are you an admin?
-def checkAdmin(request):
-    if request.user.groups.exclude(name='Admin').exists():
-        return render(request, 'domainmanager/index.html')
-
-
 # return a list with ids of all the players domains where he has characters
 def getDomainsFromUserId(user_id):
     domains = Domain.objects.filter(character_domain__player=user_id)
