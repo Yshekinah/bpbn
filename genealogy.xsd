@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="vampire">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="firstname" type="xs:string"/>
+      <xs:element name="lastname" type="xs:string"/>
+      <xs:element name="clan" type="xs:positiveInteger"/>
+      <xs:element name="sire" type="xs:positiveInteger"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
+
+
+<?xml version="1.0"?>
+<!DOCTYPE note SYSTEM "http://www.w3schools.com/xml/note.dtd">
+<vampire>
+    <firstname>David</firstname>
+    <lastname>Hampel</lastname>
+    <clan>1</clan>
+    <sire>2</sire>
+</vampire>

@@ -344,9 +344,13 @@ def lvlup(request, characterproperty_id):
 @login_required()
 @hasCharacter
 def characteractions(request, character_id):
-    actions = Action.objects.all()
+    character = get_object_or_404(Character, pk=character_id)
 
-    context = {'actions': actions}
+    downtimes = Downtime.objects.all()
+
+    actions = Action.objects.filter(character=character)
+
+    context = {'downtimes': downtimes, 'actions': actions, 'character': character}
     return render(request, 'domainmanager/characteractions.html', context)
 
 
@@ -355,28 +359,17 @@ def characteractions(request, character_id):
 def charactersecrets(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
-    secrets = CharacterSecret.objects.filter(character=character).order_by('secret__rank')
+    characterSecrets = CharacterSecret.objects.filter(character=character).order_by('secret__rank')
 
     container = {}
 
-    oldClan = ""
-
-    for secret in secrets:
-        clan = secret.secret.clan
+    for characterSecret in characterSecrets:
+        clan = characterSecret.secret.clan
 
         container.setdefault(clan.name, [])
-        container[clan.name].append(secret.secret)
+        container[clan.name].append(characterSecret.secret)
 
-        #if clan != oldClan:
-        #    container.pop(clan.name, {secret})
-
-        #if clan == oldClan:
-        #    tempcontainer = container.get(clan)
-        #    tempcontainer.pop(clan.name, {secret})
-
-        oldClan = clan
-
-    context = {'secrets': container}
+    context = {'character': character, 'secrets': container}
 
     return render(request, 'domainmanager/charactersecrets.html', context)
 

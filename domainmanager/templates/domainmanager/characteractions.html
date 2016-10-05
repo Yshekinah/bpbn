@@ -1,6 +1,50 @@
-{% for action in actions %}
+{% extends 'charactersheet.html' %}
+{% load staticfiles %}
+{% load customTags %}
 
-    {{ action.description }} <br/>
-    {{ action.attachment.path }}
+{% block title %}Downtime actions for {{ character.firstname }} {{ character.lastname }} {% endblock %}
 
-{% endfor %}
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-12">
+
+            {% block panel-nav %}
+                {{ block.super }}
+            {% endblock panel-nav %}
+
+
+            {% for downtime in downtimes %}
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h3>{{ downtime.name }} from {{ downtime.start }} until {{ downtime.end }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Actions</th>
+                            <th>Results</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>{{ action.name }}</td>
+                                <td>{{ action.action }}</td>
+                                <td>{{ action.result }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -384,12 +384,14 @@ class Secret(models.Model):
         ]
     )
     clan = models.ForeignKey('Clan', on_delete=models.CASCADE)
-    description = models.CharField(max_length=250)
+    domain = models.ForeignKey('Domain', on_delete=models.CASCADE)
+    description = models.TextField(null=False, blank=False)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.description
+
 
 class CharacterSecret(models.Model):
     class Meta:
@@ -402,6 +404,7 @@ class CharacterSecret(models.Model):
 
     def __str__(self):
         return self.character.firstname + " " + self.character.lastname + ": " + self.secret.description
+
 
 class BoonCategory(models.Model):
     class Meta:

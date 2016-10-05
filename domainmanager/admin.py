@@ -6,8 +6,6 @@ from .models import *
 admin.site.register(Country)
 admin.site.register(Downtime)
 admin.site.register(Action)
-admin.site.register(Secret)
-admin.site.register(CharacterSecret)
 
 
 # Define an inline admin descriptor for Employee model
@@ -117,6 +115,75 @@ class CharacterPropertyAdmin(admin.ModelAdmin):
 
     get_property.short_description = 'Property'
     get_property.admin_order_field = 'property__name'
+
+
+class CharacterSecretAdmin(admin.ModelAdmin):
+    search_fields = ('description',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('get_character', 'get_secret')
+    list_filter = (('character', admin.RelatedOnlyFieldListFilter), ('secret', admin.RelatedOnlyFieldListFilter))
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(CharacterSecretAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(secret__domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(CharacterSecretAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(id=request.user.person.domain.id)
+        return form
+
+    def get_character(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_character.short_description = 'Character'
+    get_character.admin_order_field = 'character__lastname'
+
+    def get_secret(self, obj):
+        return obj.secret.description
+
+    get_secret.short_description = 'Secret'
+    get_secret.admin_order_field = 'secret__description'
+
+class SecretAdmin(admin.ModelAdmin):
+    search_fields = ('description',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('rank', 'get_clan', 'description')
+    list_filter = ('rank', ('clan', admin.RelatedOnlyFieldListFilter))
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(SecretAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(SecretAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(id=request.user.person.domain.id)
+        return form
+
+    def get_clan(self, obj):
+        return obj.clan.name
+
+    get_clan.short_description = 'Clan'
+    get_clan.admin_order_field = 'clan__name'
 
 
 class PropertyAdmin(admin.ModelAdmin):
@@ -276,7 +343,7 @@ class XpspentAdmin(admin.ModelAdmin):
         return qs.filter(character__domain=request.user.person.domain)
 
     def get_character(self, obj):
-        return obj.character.firstname + obj.character.lastname
+        return obj.character.firstname + " " + obj.character.lastname
 
     get_character.short_description = 'Character'
     get_character.admin_order_field = 'character__lastname'
@@ -775,6 +842,7 @@ admin.site.register(Boon, BoonAdmin)
 admin.site.register(BoonCategory, BoonCategoryAdmin)
 admin.site.register(Character, CharacterAdmin)
 admin.site.register(CharacterProperty, CharacterPropertyAdmin)
+admin.site.register(CharacterSecret, CharacterSecretAdmin)
 admin.site.register(CharacterShopping, CharacterShoppingAdmin)
 admin.site.register(Clan, ClanAdmin)
 admin.site.register(ClanProperty, ClanPropertyAdmin)
@@ -788,6 +856,7 @@ admin.site.register(Property, PropertyAdmin)
 admin.site.register(PropertyType, PropertyTypeAdmin)
 admin.site.register(Rank, RankAdmin)
 admin.site.register(Salutation, SalutationAdmin)
+admin.site.register(Secret, SecretAdmin)
 admin.site.register(Sect, SectAdmin)
 admin.site.register(Xpearned, XpearnedAdmin)
 admin.site.register(Xpspent, XpspentAdmin)
