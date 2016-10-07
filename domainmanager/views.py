@@ -405,6 +405,11 @@ def genealogy(request):
     return render(request, 'domainmanager/genealogy.html', context)
 
 
+@login_required()
+def genealogy2(request):
+    return render(request, 'domainmanager/genealogy2.html')
+
+
 #############################################################ADMINAREA#############################################################
 
 @login_required()

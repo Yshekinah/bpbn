@@ -1,5 +1,4 @@
 accounts.xlsx
-domainmanager/clean_genealogy.csv
 ~$accounts.xlsx
 bpbn/__pycache__/*
 domainmanager/__pycache__/*

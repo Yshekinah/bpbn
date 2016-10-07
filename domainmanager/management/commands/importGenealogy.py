@@ -47,38 +47,26 @@ class Command(BaseCommand):
                         else:
                             print("WRONG: " + row)
 
-
-
-
-
-                            # vName = re.sub('[!@#$]', '', column)
-                            # vName = (re.sub('[^áÁéÉíÍöÖóÓoOüÜúÚuU0-9a-zA-Z\(\) ]+', '', vName))
-
-
-
-
-
             elif command == self.COMMAND_CLEANUP:
-                vampire = Genealogy.objects.filter(generation__gte=2).order_by('-pk')
-                for child in vampires:
+                vampires = Genealogy.objects.all().order_by('pk')
 
-                    print("Found name: " + child.name)
-                    print("Found generation: " + str(child.generation))
-                    print("Found columnStart: " + str(child.columnStart))
-                    print("Found columnEnd: " + str(child.columnEnd))
+                filename = 'D:\\Stuff\\Django_projects\\bpbn_github\\bpbn\\genealogy_export.json'
 
-                    fathers = Genealogy.objects.all().filter(generation=child.generation - 1).filter(columnStart__lte=child.columnStart).filter(
-                        columnEnd__gte=child.columnEnd)
-                    # .order_by('-columnStart')
+                file = open(filename, 'w')
+                file.write('var arr=[')
 
-                    for father in fathers:
-                        print(">>>> Found Father: " + father.name)
-                        print(">>>> Found Father generation: " + str(father.generation))
-                        print(">>>> Found Father columnStart: " + str(father.columnStart))
-                        print(">>>> Found Father columnEnd: " + str(father.columnEnd))
-                        child.sire = father
-                        child.save()
-                        break
+                for vampire in vampires:
+
+                    file.write('\n{\n' + 'name:' + '\"' + vampire.name + '\"' + ',\n')
+                    file.write('id:' + '\"' + str(vampire.pk) + '\"')
+                    if vampire.sire:
+                        file.write(',\n' + 'sire:' + '\"' + str(vampire.sire.pk) + '\"' + '\n')
+                        file.write('},')
+                    else:
+                        file.write('\n' + '},')
+
+                file.write('];')
+                file.close()
 
             elif command == self.COMMAND_DELETE:
                 Genealogy.objects.all().delete()

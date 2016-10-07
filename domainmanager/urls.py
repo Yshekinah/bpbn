@@ -83,6 +83,11 @@ urlpatterns = [
     #  ex: /domainmanager/genealogy
     url(r'^genealogy$', views.genealogy, name='genealogy'),
 
+
+    # View of the genealogy2
+    #  ex: /domainmanager/genealogy
+    url(r'^genealogy2$', views.genealogy2, name='genealogy2'),
+
     #############################################################ADMINAREA#############################################################
 
     # Admin view for all boons
