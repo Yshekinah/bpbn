@@ -1,7 +1,13 @@
 from django import forms
 from django.forms import ModelForm, Textarea, inlineformset_factory
 
-from .models import Boon, Character, CharacterProperty, CharacterShopping
+from .models import *
+
+
+class ActionForm(forms.ModelForm):
+    class Meta:
+        model = Action
+        fields = ['action']
 
 
 class CharacterFormCreate(forms.ModelForm):
@@ -26,12 +32,6 @@ class CharacterShoppingForm(ModelForm):
     class Meta:
         model = CharacterShopping
         fields = ['property']
-        # character = forms.ModelChoiceField(label='Character', queryset=Character.objects.all(), required=False)
-        # property = forms.ModelChoiceField(label='Property', queryset=Property.objects.all(), required=False)
-        # newproperty = forms.CharField(label="Your new property", required=False)
-        # newpropertytype = forms.ModelChoiceField(label='Property type', queryset=PropertyType.objects.all(), required=False)
 
 
-CharacterPropertyFormSet = inlineformset_factory(Character, CharacterProperty, extra=0, can_delete=False,
-                                                 exclude=['property', 'timestamp'],
-                                                 widgets={'value': Textarea(attrs={'cols': 5, 'rows': 1})})
+#CharacterPropertyFormSet = inlineformset_factory(Character, CharacterProperty, extra=0, can_delete=False, exclude=['property', 'timestamp'], widgets={'value': Textarea(attrs={'cols': 5, 'rows': 1})})

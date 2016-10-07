@@ -93,9 +93,9 @@ def renderButton(command, caption=None):
         caption = ''
 
     if caption == None:
-        caption = 'PARAMATER caption is missing AND param is unknown'
+        caption = 'PARAMATER name is missing AND param is unknown'
 
-    return {'caption': caption, 'command': command}
+    return {'name': caption, 'command': command}
 
 
 # Render the News section

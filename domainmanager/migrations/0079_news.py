@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name='News',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('caption', models.CharField(max_length=250)),
+                ('name', models.CharField(max_length=250)),
                 ('preface', models.TextField(default='Add an introduction here')),
                 ('content', models.TextField(verbose_name='Add the main content here')),
                 ('link', models.CharField(max_length=250)),

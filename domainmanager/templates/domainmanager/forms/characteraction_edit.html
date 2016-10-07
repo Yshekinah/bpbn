@@ -1,0 +1,31 @@
+<div class="container">
+
+    <form method="post" enctype="multipart/form-data" action="{% url 'domainmanager:characteraction_edit' action.pk %}" id="actionForm" data-parsley-validate="">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="row">
+            <div class="col-md-2">
+                <div class="fieldWrapper">
+                    {{ form.action.label_tag }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ form.action }}
+            </div>
+            <div class="col-md-4">
+                {% if form.action.errors %}
+                    <div class="alert alert-warning">{{ form.action.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-4">
+                <button type="submit" class="save btn btn-default" value="validate">Upload</button>
+            </div>
+        </div>
+    </form>
+</div>

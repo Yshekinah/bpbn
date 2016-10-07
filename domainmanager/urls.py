@@ -63,6 +63,10 @@ urlpatterns = [
     #  ex: /domainmanager/characteractions/1
     url(r'characteractions/(?P<character_id>[0-9]+)', views.characteractions, name='characteractions'),
 
+    # Edit your character downtime actions
+    #  ex: /domainmanager/characteractions_edit/1
+    url(r'characteraction_edit/(?P<action_id>[0-9]+)', views.characteraction_edit, name='characteraction_edit'),
+
     # View the secrets your character knows about
     #  ex: /domainmanager/charactersecrets/1
     url(r'charactersecrets/(?P<character_id>[0-9]+)', views.charactersecrets, name='charactersecrets'),

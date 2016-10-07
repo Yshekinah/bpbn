@@ -1,0 +1,2312 @@
+1;Káin;0;
+2;Enoch, a Bölcs;Káin;
+3;Veddhartha;Enoch, a Bölcs;Ventrue
+4;Ur-i Arakur;Veddhartha;Ventrue
+5;Nefertum;Ur-i Arakur;Ventrue
+6;Egyiptomi Ventruek;Nefertum;Ventrue
+7;Ur-i Tiamat;Ur-i Arakur;Ventrue
+8;Gotsdam;Ur-i Tiamat;Ventrue
+9;Dylan;Gotsdam;Ventrue
+10;Severus;Ur-i Tiamat;Ventrue
+11;Lucinde;Severus;Ventrue
+12;Ishrafel;Ur-i Tiamat;Ventrue
+13;Malachi Faruq;Ishrafel;Ventrue
+14;Mustafa;Ishrafel;Ventrue
+15;Abdul Rahman;Mustafa;Ventrue
+16;Shayke Muhammad;Abdul Rahman;Ventrue
+17;Török Ventruek;Mustafa;Ventrue
+18;Amon Ho-tepe / Hoteph;Ishrafel;Ventrue
+19;Angol Ventruek;Amon Ho-tepe / Hoteph;Ventrue
+20;Summer Ventruek;Ur-i Tiamat;Ventrue
+21;Medon;Veddhartha;Ventrue
+22;Görög Ventruek;Medon;Ventrue
+23;Gaius Fabricius;Medon;Ventrue
+24;Francia Ventruek;Gaius Fabricius;Ventrue
+25;Bartholomeo;Gaius Fabricius;Ventrue
+26;Olasz Ventruek;Bartholomeo;Ventrue
+27;Gawain;Bartholomeo;Ventrue
+28;Kelta Ventruek;Gawain;Ventrue
+29;Michaela;Bartholomeo;Ventrue
+30;Tabitha Bauer;Michaela;Ventrue
+31;Nefer-meri-Isis;Veddhartha;Ventrue
+32;Elihu;Nefer-meri-Isis;Ventrue
+33;Rebekah;Elihu;Ventrue
+34;Kánaánita Ventruek;Rebekah;Ventrue
+35;Stalest Coursain;Elihu;Ventrue
+36;Guillame de Tulede;Stalest Coursain;Ventrue
+37;Catherine von Hawthorne;Stalest Coursain;Ventrue
+38;Német Ventruek;Catherine von Hawthorne;Ventrue
+39;Alexander Vargos;Nefer-meri-Isis;Ventrue
+40;Godefroy;Alexander Vargos;Ventrue
+41;Skandináv Ventruek;Godefroy;Ventrue
+42;Titus;Godefroy;Ventrue
+43;Dominique;Titus;Ventrue
+44;Spártai Artemisz;Veddhartha;Ventrue
+45;Lysander;Spártai Artemisz;Ventrue
+46;Evarchus;Lysander;Ventrue
+47;Gnaeus;Lysander;Ventrue
+48;Junius;Gnaeus;Ventrue
+49;Spanyol Ventruek;Junius;Ventrue
+50;Gaius Cassius;Lysander;Ventrue
+51;Lucius Trebius Rufus;Gaius Cassius;Ventrue
+52;Province-i Leucruy;Lucius Trebius Rufus;Ventrue
+53;Keresztes Ventruek;Province-i Leucruy;Ventrue
+54;Marseilles-i Vicelin;Lucius Trebius Rufus;Ventrue
+55;Római Ventruek;Gaius Cassius;Ventrue
+56;Z'avier S'ren;Lysander;Ventrue
+57;Michaellis;Spártai Artemisz;Ventrue
+58;Tinia;Veddhartha;Ventrue
+59;Collat;Tinia;Ventrue
+60;Camilla;Collat;Ventrue
+61;Lyle;Collat;Ventrue
+62;Amerikai Ventruek;Lyle;Ventrue
+63;Julia Antasia;Tinia;Ventrue
+64;Barbarossa;Julia Antasia;Ventrue
+65;Etrusz Ventruek;Tinia;Ventrue
+66;Aken Hoten;Veddhartha;Ventrue
+67;Athéni Helena;Aken Hoten;Ventrue
+68;Cyrene-i Sára;Athéni Helena;Ventrue
+69;Skóciai Anguselus;Cyrene-i Sára;Ventrue
+70;Skót Ventruek;Skóciai Anguselus;Ventrue
+71;Horatio Vallengard;Cyrene-i Sára;Ventrue
+72;Kyle Strathcona;Horatio Vallengard;Ventrue
+73;Kanadia Ventruek;Kyle Strathcona;Ventrue
+74;Philippe Sainte-Lauctrec;Kyle Strathcona;Ventrue
+75;Sabine Rothschilde;Cyrene-i Sára;Ventrue
+76;Deutsch Ábrahám;Sabine Rothschilde;Ventrue
+77;Deutsch-Hatvany Janka;Deutsch Ábrahám;Ventrue
+78;Deutsch Antónia;Deutsch-Hatvany Janka;Ventrue
+79;Hatvany Alexander;Deutsch Antónia;Ventrue
+80;Miguel de Aguerrila;Athéni Helena;Ventrue
+81;Sebastiao de Avis;Miguel de Aguerrila;Ventrue
+82;Portugál Ventruek;Sebastiao de Avis;Ventrue
+83;Arturo San Gerande;Miguel de Aguerrila;Ventrue
+84;Gyarmati Ventruek;Arturo San Gerande;Ventrue
+85;Nathaniel van Hooves;Athéni Helena;Ventrue
+86;Holland Ventruek;Nathaniel van Hooves;Ventrue
+87;Brazil Ventruek;Nathaniel van Hooves;Ventrue
+88;Johannes Castelein;Athéni Helena;Ventrue
+89;Arjan Voorhies;Johannes Castelein;Ventrue
+90;Marcus Antonius;Veddhartha;Ventrue
+91;Caius;Marcus Antonius;Ventrue
+92;Epirus;Caius;Ventrue
+93;Bizánci Ventruek;Epirus;Ventrue
+94;Marcus Vitel;Epirus;Ventrue
+95;Ashton;Epirus;Ventrue
+96;Democritus;Caius;Ventrue
+97;Belisarius;Marcus Antonius;Ventrue
+98;Tonuzoba (Tanis-Aba);Belisarius;Ventrue
+99;Árpádházi Zombor;Tonuzoba (Tanis-Aba);Ventrue
+100;Petronilla;Árpádházi Zombor;Ventrue
+101;Temesvári János;Petronilla;Ventrue
+102;Zlatan Pasi;Temesvári János;Ventrue
+103;dr. Berenkúti Sándor;Zlatan Pasi;Ventrue
+104;Szabina;Petronilla;Ventrue
+105;Siskovits András;Szabina;Ventrue
+106;Ciprián pap;Siskovits András;Ventrue
+107;Árpádházi IV. Kun László;Árpádházi Zombor;Ventrue
+108;Tomori Pál;Árpádházi IV. Kun László;Ventrue
+109;Nádasi Tersztyánszky Tivadar;Tomori Pál;Ventrue
+110;Hunyadi Karolin;Tomori Pál;Ventrue
+111;báró Aba Tamás;Árpádházi IV. Kun László;Ventrue
+112;gróf Zichy István;báró Aba Tamás;Ventrue
+113;Albrecht Tivadar;Árpádházi Zombor;Ventrue
+114;Szendi-Literáti Anna;Albrecht Tivadar;Ventrue
+115;Anton von Hohenzollern-Hechingen;Szendi-Literáti Anna;Ventrue
+116;Engelhard Alíz;Anton von Hohenzollern-Hechingen;Ventrue
+117;Bölcs Károly;Belisarius;Ventrue
+118;Skithos;Bölcs Károly;Ventrue
+119;Robert Kross;Bölcs Károly;Ventrue
+120;Juan-Miguel Ramirez;Robert Kross;Ventrue
+121;Örményországi Helena;Belisarius;Ventrue
+122;Örmény Ventruek;Örményországi Helena;Ventrue
+123;Septima Dominica;Marcus Antonius;Ventrue
+124;Nicepherus;Septima Dominica;Ventrue
+125;Theodora;Nicepherus;Ventrue
+126;Thesszaloniki Basil;Theodora;Ventrue
+127;Balkáni Ventruek;Thesszaloniki Basil;Ventrue
+128;Orosz Ventruek;Nicepherus;Ventrue
+129;Ducas;Septima Dominica;Ventrue
+130;Anna Comnena;Ducas;Ventrue
+131;Irene Stellas;Anna Comnena;Ventrue
+132;Damiano Alvizio;Irene Stellas;Ventrue
+133;Hardestadt az Öreg;Marcus Antonius;Ventrue
+134;Jürgen von Verden;Hardestadt az Öreg;Ventrue
+135;Heinz Eulau;Hardestadt az Öreg;Ventrue
+136;Frazier;Hardestadt az Öreg;Ventrue
+137;Wittmann Antall;Frazier;Ventrue
+138;Hardestadt az Ifjú;Hardestadt az Öreg;Ventrue
+139;Jan Pieterzoon;Hardestadt az Ifjú;Ventrue
+140;Alexander;Veddhartha;Ventrue
+141;Demetrius;Alexander;Ventrue
+142;Rhiothamus;Demetrius;Ventrue
+143;Charlemagne;Rhiothamus;Ventrue
+144;Benedict;Charlemagne;Ventrue
+145;Justania;Demetrius;Ventrue
+146;Gilbert d'Harfleur;Justania;Ventrue
+147;Anya Krylova;Justania;Ventrue
+148;Nikolai;Anya Krylova;Ventrue
+149;Piotr;Nikolai;Ventrue
+150;Lengyel Ventruek;Piotr;Ventrue
+151;Moszkvai Seinia;Piotr;Ventrue
+152;Balti Ventruek;Anya Krylova;Ventrue
+153;Victoria Sinclair;Justania;Ventrue
+154;Eleanor d'Harcour;Demetrius;Ventrue
+155;Norman Ventruek;Eleanor d'Harcour;Ventrue
+156;Gaius Marcellus;Alexander;Ventrue
+157;Doran;Gaius Marcellus;Ventrue
+158;Philippe de Margaux;Doran;Ventrue
+159;Enguerrand;Philippe de Margaux;Ventrue
+160;Ogier Fouinon;Philippe de Margaux;Ventrue
+161;Marcelle Danlen;Ogier Fouinon;Ventrue
+162;Yvonne;Marcelle Danlen;Ventrue
+163;Louis Fortier;Yvonne;Ventrue
+164;Miroslava Nikolajevna Silina;Louis Fortier;Ventrue
+165;Tiberius;Alexander;Ventrue
+166;Aquitániai Odo;Tiberius;Ventrue
+167;York-i Margit;Aquitániai Odo;Ventrue
+168;Saviarre grófn;Tiberius;Ventrue
+169;Geoffri du Temple;Alexander;Ventrue
+170;Bruce de Guy;Geoffri du Temple;Ventrue
+171;Kanadai Ventruek;Bruce de Guy;Ventrue
+172;Mithras;Veddhartha;Ventrue
+173;Indiai Ventruek;Mithras;Ventrue
+174;Perzsa Ventruek;Mithras;Ventrue
+175;Del'Roh;Mithras;Ventrue
+176;Mezopotámiai Ventruek;Del'Roh;Ventrue
+177;Bindusara;Del'Roh;Ventrue
+178;Charanna;Bindusara;Ventrue
+179;Narhari Virusha;Charanna;Ventrue
+180;Caius Marius;Bindusara;Ventrue
+181;Hrothulf;Caius Marius;Ventrue
+182;Chiclena;Hrothulf;Ventrue
+183;Gracis Nostinus;Caius Marius;Ventrue
+184;Valerius;Bindusara;Ventrue
+185;Anne Bowsley;Valerius;Ventrue
+186;Cyril Masters;Valerius;Ventrue
+187;Marcellus Cicero;Bindusara;Ventrue
+188;Qadi Vardek;Del'Roh;Ventrue
+189;Levantei Ventruek;Qadi Vardek;Ventrue
+190;Marcus;Del'Roh;Ventrue
+191;Stephen von Dorn;Marcus;Ventrue
+192;Joseph Bar;Marcus;Ventrue
+193;Arthur Logan;Marcus;Ventrue
+194;Lord Kelvin;Marcus;Ventrue
+195;Victor James Rotschield;Lord Kelvin;Ventrue
+196;Robert Pedder;Marcus;Ventrue
+197;Yong-Sung Chang;Robert Pedder;Ventrue
+198;Hong Kong-i Ventruek;Yong-Sung Chang;Ventrue
+199;Sennicherib;Mithras;Ventrue
+200;Tiglah-Adad;Sennicherib;Ventrue
+201;Asszír Ventruek;Tiglah-Adad;Ventrue
+202;Cyras Artraxis;Sennicherib;Ventrue
+203;Nicephrous Baalikratonis;Cyras Artraxis;Ventrue
+204;Celdric;Mithras;Ventrue
+205;Owain ap Ieuan;Celdric;Ventrue
+206;Lucian Stewart;Celdric;Ventrue
+207;Hosszúfogú Sven;Mithras;Ventrue
+208;Gustav Mallenhous;Hosszúfogú Sven;Ventrue
+209;Gomerland;Veddhartha;Ventrue
+210;Volstag-i Heinrich;Gomerland;Ventrue
+211;Marcus Atilius Regulus;Volstag-i Heinrich;Ventrue
+212;Siegfried;Marcus Atilius Regulus;Ventrue
+213;Árpádházi Bulcsú;Volstag-i Heinrich;Ventrue
+214;Árpádházi Géza;Árpádházi Bulcsú;Ventrue
+215;Orseolo Levente;Árpádházi Géza;Ventrue
+216;Szilágyi Mihály;Orseolo Levente;Ventrue
+217;báró Pálffy Balázs;Szilágyi Mihály;Ventrue
+218;gróf Pálffy Aurél Zoltán;Orseolo Levente;Ventrue
+219;Sebessy Katalin;gróf Pálffy Aurél Zoltán;Ventrue
+220;Dr. Robert Kenton;gróf Pálffy Aurél Zoltán;Ventrue
+221;Áprádházi Gizella;Árpádházi Bulcsú;Ventrue
+222;Váry Eld (Gustavus);Áprádházi Gizella;Ventrue
+223;Váry Alexander;Váry Eld (Gustavus);Ventrue
+224;gróf Batthyány Ilona;Váry Eld (Gustavus);Ventrue
+225;báró Erddy János;gróf Batthyány Ilona;Ventrue
+226;Vencel Rikard;Árpádházi Bulcsú;Ventrue
+227;Bohémiai Jadviga Almanov;Volstag-i Heinrich;Ventrue
+228;báró Jan Hredel;Bohémiai Jadviga Almanov;Ventrue
+229;gróf Rudolf Brandl;báró Jan Hredel;Ventrue
+230;Cseh Ventruek;gróf Rudolf Brandl;Ventrue
+231;Ladek Visnitz;Bohémiai Jadviga Almanov;Ventrue
+232;Alexandr Sreik;Ladek Visnitz;Ventrue
+233;Késmárky Zsófia;Alexandr Sreik;Ventrue
+234;Hanna Marek;Alexandr Sreik;Ventrue
+235;Lukas Ziman;Alexandr Sreik;Ventrue
+236;Emilia Clark;Alexandr Sreik;Ventrue
+237;Árpádházi II. András;Volstag-i Heinrich;Ventrue
+238;gróf Mailáth Erzsébet;Árpádházi II. András;Ventrue
+239;gróf Mailáth Gergely;gróf Mailáth Erzsébet;Ventrue
+240;gróf Pallavichini Endre;gróf Mailáth Gergely;Ventrue
+241;gróf Pallavichini Péter Ödön;gróf Pallavichini Endre;Ventrue
+242;gróf Eszterházy Polyxéna;gróf Mailáth Gergely;Ventrue
+243;gróf Teleki Alíz;gróf Mailáth Gergely;Ventrue
+244;gróf Mailáth Erzsébet Anna;gróf Mailáth Erzsébet;Ventrue
+245;báró Jaksich Gábor;gróf Mailáth Erzsébet Anna;Ventrue
+246;gróf Perényi János;báró Jaksich Gábor;Ventrue
+247;Péterffy Viktor;báró Jaksich Gábor;Ventrue
+248;Zalay Mihály;Árpádházi II. András;Ventrue
+249;gróf Grecsey Jen;Zalay Mihály;Ventrue
+250;Szebeni Miklós;Árpádházi II. András;Ventrue
+251;Istvánffy Márton;Szebeni Miklós;Ventrue
+252;gróf Nádasdy László;Szebeni Miklós;Ventrue
+253;Izabella;gróf Nádasdy László;Ventrue
+254;Klauzál Gábor;gróf Nádasdy László;Ventrue
+255;vitéz Csabay Károly;Klauzál Gábor;Ventrue
+256;Solymossy Eliza;gróf Nádasdy László;Ventrue
+257;Spanyol és Latin-Amerika-i Ventruek;Gomerland;Ventrue
+258;Erik Eigermann;Veddhartha;Ventrue
+259;Fabrizio Ulfia;Erik Eigermann;Ventrue
+260;Szentszéki Ventruek;Fabrizio Ulfia;Ventrue
+261;Baylor;Fabrizio Ulfia;Ventrue
+262;Eleanor Hodge;Baylor;Ventrue
+263;Benjamin;Eleanor Hodge;Ventrue
+264;dr. Joshua McCallister;Baylor;Ventrue
+265;Ilse Reinegger;Erik Eigermann;Ventrue
+266;Gustav Bredenstein;Ilse Reinegger;Ventrue
+267;Wilhelm Waldburg;Gustav Bredenstein;Ventrue
+268;Henriette;Wilhelm Waldburg;Ventrue
+269;Katarina Kornfeld;Gustav Bredenstein;Ventrue
+270;Köln-i Frigyes;Gustav Bredenstein;Ventrue
+271;Peter Kleist;Gustav Bredenstein;Ventrue
+272;Maltheas;Veddhartha;Ventrue
+273;Balthazar;Maltheas;Ventrue
+274;Ea Adapa;Balthazar;Ventrue
+275;Anushin-Rawan;Balthazar;Ventrue
+276;Gregoria Rowlands;Balthazar;Ventrue
+277;Upton Rowlands;Gregoria Rowlands;Ventrue
+278;Rashur;Maltheas;Ventrue
+279;Nicholas;Rashur;Ventrue
+280;Abram;Nicholas;Ventrue
+281;Tennant Usher;Abram;Ventrue
+282;Ausztráliai Ventruek;Tennant Usher;Ventrue
+283;Datura;Rashur;Ventrue
+284;Mexikói Ventruek;Datura;Ventrue
+285;Mahmúd;Datura;Ventrue
+286;El-Nisri;Mahmúd;Ventrue
+287;Mohammad Hossein Mirza;El-Nisri;Ventrue
+288;Lodin;Datura;Ventrue
+289;Sir Walter Nash;Lodin;Ventrue
+290;Horatio Ballard;Lodin;Ventrue
+291;Alan Sovereign;Horatio Ballard;Ventrue
+292;Saulot / Zao-lat;Enoch, a Bölcs;Salubri
+293;Rayzeel;Saulot / Zao-lat;Salubri
+294;Myrael;Rayzeel;Salubri
+295;Genevieve;Myrael;Salubri
+296;Wenceslaus;Genevieve;Salubri
+297;Pazia;Wenceslaus;Salubri
+298;Bizánci Salubrik;Pazia;Salubri
+299;Nabur-Het;Myrael;Salubri
+300;Kydos;Nabur-Het;Salubri
+301;Neberoth;Kydos;Salubri
+302;Adonai;Neberoth;Salubri
+303;"""Énekes"" vérvonal / Sabbatista Salubrik";Adonai;Salubri
+304;Samiel;Saulot / Zao-lat;Salubri
+305;Ithuriel;Samiel;Salubri
+306;Hilel;Ithuriel;Salubri
+307;Gabriel;Hilel;Salubri
+308;Philipus-i Althea;Gabriel;Salubri
+309;Yael;Philipus-i Althea;Salubri
+310;Thomas;Yael;Salubri
+311;Kervos;Thomas;Salubri
+312;Silas;Gabriel;Salubri
+313;Levantei Salubrik;Silas;Salubri
+314;Aariel;Samiel;Salubri
+315;Dokiel;Aariel;Salubri
+316;Kadiel;Dokiel;Salubri
+317;Esharel;Kadiel;Salubri
+318;Bahjat;Esharel;Salubri
+319;Indiai Salubrik;Bahjat;Salubri
+320;Uriel;Samiel;Salubri
+321;Azrael;Uriel;Salubri
+322;Római Salubrik;Azrael;Salubri
+323;Spanyol Salubrik;Azrael;Salubri
+324;Francia Salubrik;Azrael;Salubri
+325;Ezrael;Samiel;Salubri
+326;Baradiel;Ezrael;Salubri
+327;Scatha;Baradiel;Salubri
+328;Keresztes Salubrik;Scatha;Salubri
+329;Za'aphiel;Samiel;Salubri
+330;Karthágói Salubrik;Za'aphiel;Salubri
+331;Egyiptomi Salubrik;Za'aphiel;Salubri
+332;"Afrikai Salubrik
+(Nkolo Zao)";Za'aphiel;Salubri
+333;Yakov;Saulot / Zao-lat;Salubri
+334;Karesh;Yakov;Salubri
+335;Javaniel;Yakov;Salubri
+336;Orpheus;Javaniel;Salubri
+337;Achmet, az Álmodó;Orpheus;Salubri
+338;Aisha bint Wahiba;Achmet, az Álmodó;Salubri
+339;Arab Salubrik;Aisha bint Wahiba;Salubri
+340;"Török Salubrik (""Látnok"" vérvonal)";Achmet, az Álmodó;Salubri
+341;Hrorsh;Saulot / Zao-lat;Salubri
+342;Vekis;Hrorsh;Salubri
+343;Ahab, az Áruló;Vekis;Salubri
+344;Simeon;Hrorsh;Salubri
+345;Generys;Simeon;Salubri
+346;Hershel;Generys;Salubri
+347;Német Salubrik;Hershel;Salubri
+348;Matthias;Generys;Salubri
+349;Marius;Matthias;Salubri
+350;Angol Salubrik;Marius;Salubri
+351;Nergal / Shaitan / Adriel / Huitzilopochtli;Saulot / Zao-lat;Salubri
+352;Cybele;Nergal / Shaitan / Adriel / Huitzilopochtli;Salubri
+353;Mytale / Petaniqua;Cybele;Salubri
+354;Yeremiah;Nergal / Shaitan / Adriel / Huitzilopochtli;Salubri
+355;Nidon, a Vak;Yeremiah;Salubri
+356;Azanael;Nidon, a Vak;Salubri
+357;Al-Harim;Azanael;Salubri
+358;Ansen;Al-Harim;Salubri
+359;Camazotz / Nezahualcoyotl;Nergal / Shaitan / Adriel / Huitzilopochtli;Salubri
+360;Hortator / Tlazolteotl;Camazotz / Nezahualcoyotl;Salubri
+361;Delfoso;Hortator / Tlazolteotl;Salubri
+362;Don Benedict;Delfoso;Salubri
+363;Domingo;Delfoso;Salubri
+364;Azték Baalik;Hortator / Tlazolteotl;Salubri
+365;Moloch;Saulot / Zao-lat;Salubri
+366;Annazir;Moloch;Salubri
+367;Anaduk;Annazir;Salubri
+368;Ma-Ri-Ah / Fekete Mária;Anaduk;Salubri
+369;K'thstl;Anaduk;Salubri
+370;Sargon;K'thstl;Salubri
+371;Darak;Anaduk;Salubri
+372;Antonio de Figo;Annazir;Salubri
+373;Giotto Verducci;Antonio de Figo;Salubri
+374;Seker, a Vörös Halál;Saulot / Zao-lat;Salubri
+375;A Rettent Éj Els Gyermeke;Seker, a Vörös Halál;Salubri
+376;A Rettent Éj Második Gyermeke;Seker, a Vörös Halál;Salubri
+377;A Rettent Éj Harmadik Gyermeke;Seker, a Vörös Halál;Salubri
+378;Zao-zei;Saulot / Zao-lat;Salubri
+379;Az Árva Tolvajok;Zao-zei;Salubri
+380;Zao-xue;Saulot / Zao-lat;Salubri
+381;Az Árva Tudósok;Zao-xue;Salubri
+382;Akhraziel;Saulot / Zao-lat;Salubri
+383;Madiel;Akhraziel;Salubri
+384;Nuriel;Akhraziel;Salubri
+385;Oreniel al-Noor;Nuriel;Salubri
+386;Amphiloctes;Oreniel al-Noor;Salubri
+387;Görög Salubrik;Amphiloctes;Salubri
+388;Gennadios;Oreniel al-Noor;Salubri
+389;Perzsa Salubrik;Gennadios;Salubri
+390;Nahum ben Enosh;Saulot / Zao-lat;Salubri
+391;Israel;Nahum ben Enosh;Salubri
+392;Nathaniel;Israel;Salubri
+393;Kánaánita Salubrik;Nathaniel;Salubri
+394;Ashur, a Kappadókiai;Enoch, a Bölcs;Cappadocian
+395;Caias;Ashur, a Kappadókiai;Cappadocian
+396;Egyiptomi Kappadókok;Caias;Cappadocian
+397;Japeth / A Kapucínus;Ashur, a Kappadókiai;Cappadocian
+398;Constancia / Unre;Japeth / A Kapucínus;Cappadocian
+399;Mekharel;Constancia / Unre;Cappadocian
+400;Egothia;Mekharel;Cappadocian
+401;Agaitas;Egothia;Cappadocian
+402;Kis-Ázsiai Kappadókok;Agaitas;Cappadocian
+403;Római Kappadókok;Agaitas;Cappadocian
+404;Anisa Marianna Lopez;Egothia;Cappadocian
+405;Spanyol Kappadókok;Anisa Marianna Lopez;Cappadocian
+406;Német Kappadókok;Anisa Marianna Lopez;Cappadocian
+407;Ambrogio Giovanni;Constancia / Unre;Cappadocian
+408;Gillespi Giovanni;Ambrogio Giovanni;Cappadocian
+409;Abraham;Japeth / A Kapucínus;Cappadocian
+410;Theophilis;Abraham;Cappadocian
+411;Görög Kappadókok;Theophilis;Cappadocian
+412;Adam;Abraham;Cappadocian
+413;Levantei Kappadókok;Adam;Cappadocian
+414;"Afrikai Kappadókok
+(Mla Watu)";Adam;Cappadocian
+415;Malakiah;Adam;Cappadocian
+416;Jervais testvér;Malakiah;Cappadocian
+417;Garinol;Jervais testvér;Cappadocian
+418;Serena;Garinol;Cappadocian
+419;Cseh Kappadókok;Serena;Cappadocian
+420; Mercurio;Garinol;Cappadocian
+421;Lord Camden;Japeth / A Kapucínus;Cappadocian
+422;Maria Asuncion;Lord Camden;Cappadocian
+423;Francia Kappadókok;Maria Asuncion;Cappadocian
+424;Angol Kappadókok;Maria Asuncion;Cappadocian
+425;Karl Gregorj Pranek / Orpheus;Maria Asuncion;Cappadocian
+426;Lazarus;Ashur, a Kappadókiai;Cappadocian
+427;Lahmia;Lazarus;Cappadocian
+428;Lahmiák;Lahmia;Cappadocian
+429;Troglodytia;Lazarus;Cappadocian
+430;Samedi Báró;Lazarus;Cappadocian
+431;Morlock;Samedi Báró;Cappadocian
+432;Baroque;Morlock;Cappadocian
+433;Karibi Samedik;Baroque;Cappadocian
+434;Genina;Samedi Báró;Cappadocian
+435;Jorge de la Muerte;Samedi Báró;Cappadocian
+436;Macoute;Jorge de la Muerte;Cappadocian
+437;Brigitte;Macoute;Cappadocian
+438;Mexikói Samedik;Brigitte;Cappadocian
+439;Reg Driscoll;Samedi Báró;Cappadocian
+440;Amerikai Samedik;Reg Driscoll;Cappadocian
+441;Jack Dawson;Samedi Báró;Cappadocian
+442;Vanda le Claire;Jack Dawson;Cappadocian
+443;George Frederick;Vanda le Claire;Cappadocian
+444;Lithrac;George Frederick;Cappadocian
+445;Lameth, a Sötét Megváltó;Ashur, a Kappadókiai;Cappadocian
+446;Byzar / Mahatma;Ashur, a Kappadókiai;Cappadocian
+447;Alexia Theusa;Byzar / Mahatma;Cappadocian
+448;Bizánci Kappadókok;Alexia Theusa;Cappadocian
+449;Antiokhiai Kürosz;Byzar / Mahatma;Cappadocian
+450;Nabateus Aretas;Antiokhiai Kürosz;Cappadocian
+451;Gelias;Nabateus Aretas;Cappadocian
+452;Khayrat;Gelias;Cappadocian
+453;Ishaq;Khayrat;Cappadocian
+454;Arab Kappadókok;Ishaq;Cappadocian
+455;Török Kappadókok;Antiokhiai Kürosz;Cappadocian
+456;Thrákiai Amália;Antiokhiai Kürosz;Cappadocian
+457;Burgundiai Boderick;Thrákiai Amália;Cappadocian
+458;Keresztes Kappadókok;Burgundiai Boderick;Cappadocian
+459;Ungol;Byzar / Mahatma;Cappadocian
+460;Orosz Kappadókok;Ungol;Cappadocian
+461;Kazimirez, a Néma;Ungol;Cappadocian
+462;Lengyel Kappadókok;Kazimirez, a Néma;Cappadocian
+463;Augusto Giovanni;Ashur, a Kappadókiai;Cappadocian
+464;Claudius Giovanni;Augusto Giovanni;Cappadocian
+465;Ignazo Giovanni;Claudius Giovanni;Cappadocian
+466;Lucretia Giovanni;Ignazo Giovanni;Cappadocian
+467;Giorgio Giovanni;Lucretia Giovanni;Cappadocian
+468;Carmina Giovanni;Giorgio Giovanni;Cappadocian
+469;Rosario Giovanni;Carmina Giovanni;Cappadocian
+470;Salvatore Giovanni;Rosario Giovanni;Cappadocian
+471;Német Königek;Carmina Giovanni;Cappadocian
+472;Genevra Giovanni;Giorgio Giovanni;Cappadocian
+473;Jason Milliner;Genevra Giovanni;Cappadocian
+474;Francis Milliner;Jason Milliner;Cappadocian
+475;Amerikai Millinerek;Francis Milliner;Cappadocian
+476;Baldesar Rossellini;Ignazo Giovanni;Cappadocian
+477;Vance Rosellini;Baldesar Rossellini;Cappadocian
+478;Olasz Rosellinik;Vance Rosellini;Cappadocian
+479;Rosaura Rosellini;Baldesar Rossellini;Cappadocian
+480;Matteo Rosellini;Rosaura Rosellini;Cappadocian
+481;Patricia Rosellini;Matteo Rosellini;Cappadocian
+482;Giacomo Rosellini;Patricia Rosellini;Cappadocian
+483;Riana Rosellini;Giacomo Rosellini;Cappadocian
+484;Alberto Rosellini;Riana Rosellini;Cappadocian
+485;Andreas Giovanni;Claudius Giovanni;Cappadocian
+486;Mario Giovanni;Andreas Giovanni;Cappadocian
+487;Luisa Calabria;Mario Giovanni;Cappadocian
+488;Olasz Giovannik;Luisa Calabria;Cappadocian
+489;Latin-Amerikai Hidalgok;Luisa Calabria;Cappadocian
+490;Afrikai Ghibertik;Mario Giovanni;Cappadocian
+491;Lisandro Giovanni;Andreas Giovanni;Cappadocian
+492;Isabel Giovanni;Lisandro Giovanni;Cappadocian
+493;Giancarlo Giovanni;Lisandro Giovanni;Cappadocian
+494;Enzo Giovanni;Giancarlo Giovanni;Cappadocian
+495;Valentino Eusebio Giovanni;Enzo Giovanni;Cappadocian
+496;Pietro Giovanni;Claudius Giovanni;Cappadocian
+497;Madeleine Giovanni;Pietro Giovanni;Cappadocian
+498;Rafael Giovanni;Madeleine Giovanni;Cappadocian
+499;Francia Giovannik;Rafael Giovanni;Cappadocian
+500;Vincenzo Giovanni;Pietro Giovanni;Cappadocian
+501;Francesco Giovanni;Vincenzo Giovanni;Cappadocian
+502;Julietta Putanesca;Francesco Giovanni;Cappadocian
+503;Shlomo Rothstein;Julietta Putanesca;Cappadocian
+504;Amerikai Rothsteinek;Shlomo Rothstein;Cappadocian
+505;Olasz Putanescák;Julietta Putanesca;Cappadocian
+506;Lupo Giovanni;Francesco Giovanni;Cappadocian
+507;"Távol-Keleti
+Li Wengek";Lupo Giovanni;Cappadocian
+508;Andreas Niccolo Giovanni;Lupo Giovanni;Cappadocian
+509;Giuseppe Giovanni;Claudius Giovanni;Cappadocian
+510;Markus Musa Giovanni;Giuseppe Giovanni;Cappadocian
+511;Török Giovannik;Markus Musa Giovanni;Cappadocian
+512;Marianna Giovanni;Claudius Giovanni;Cappadocian
+513;Lorenzo Giovanni;Marianna Giovanni;Cappadocian
+514;Michael Antonio Giovanni;Andreas Giovanni;Cappadocian
+515;Amerikai Giovannik;Michael Antonio Giovanni;Cappadocian
+516;Angol St. Johnok;Andreas Giovanni;Cappadocian
+517;Kenneth Stahl;Marianna Giovanni;Cappadocian
+518;John Dunsirn;Kenneth Stahl;Cappadocian
+519;Skót Dunshirnok;John Dunsirn;Cappadocian
+520;Alaistair Dunsirn;John Dunsirn;Cappadocian
+521;Malcomn Dunsirn;Alaistair Dunsirn;Cappadocian
+522;Pochtli;Claudius Giovanni;Cappadocian
+523;Pisanob Hecstapolapiquatl;Pochtli;Cappadocian
+524;Közép-Amerikai Pisanobok;Pisanob Hecstapolapiquatl;Cappadocian
+525;Malkav;Enoch, a Bölcs;Malkavian
+526;Lamdiel;Malkav;Malkavian
+527;Addemar;Lamdiel;Malkavian
+528;Trimeggian;Addemar;Malkavian
+529;Lutz von Hohenzollern;Trimeggian;Malkavian
+530;Maris Streck;Lutz von Hohenzollern;Malkavian
+531;Dr. Douglas Netchurch;Trimeggian;Malkavian
+532;Dr. Nancy Reage;Dr. Douglas Netchurch;Malkavian
+533;Angol Malkaviták;Dr. Douglas Netchurch;Malkavian
+534;Madame La Veel;Dr. Douglas Netchurch;Malkavian
+535;Tobin van Tuys;Dr. Douglas Netchurch;Malkavian
+536;Jason Priestly;Tobin van Tuys;Malkavian
+537;Holland Malkaviták;Dr. Douglas Netchurch;Malkavian
+538;Amerikai Malkaviták;Dr. Douglas Netchurch;Malkavian
+539;Daguienne;Addemar;Malkavian
+540;Francia Malkaviták;Daguienne;Malkavian
+541;Navarrai Malkaviták;Daguienne;Malkavian
+542;Pelinka;Daguienne;Malkavian
+543;Genevieve de Limoge;Addemar;Malkavian
+544;Lucia d'Avilla;Genevieve de Limoge;Malkavian
+545;Spanyol Malkaviták;Lucia d'Avilla;Malkavian
+546;Rufino Olevarez;Lucia d'Avilla;Malkavian
+547;Emmanuel Moncrief;Rufino Olevarez;Malkavian
+548;Faye Sharpless;Emmanuel Moncrief;Malkavian
+549;Mexikói Malkaviták;Rufino Olevarez;Malkavian
+550;Ringall;Genevieve de Limoge;Malkavian
+551;Konrad;Ringall;Malkavian
+552;Mellandis;Lamdiel;Malkavian
+553;Rosenkrantz;Mellandis;Malkavian
+554;Német Malkaviták;Rosenkrantz;Malkavian
+555;Henrik von Strauss;Rosenkrantz;Malkavian
+556;Istvánffy Júlia;Henrik von Strauss;Malkavian
+557;Szapáry Simon;Istvánffy Júlia;Malkavian
+558;Skandináv Malkaviták;Rosenkrantz;Malkavian
+559;Camilla Banes;Mellandis;Malkavian
+560;Albert;Camilla Banes;Malkavian
+561;Alabaster;Lamdiel;Malkavian
+562;Carolina Bedelia;Alabaster;Malkavian
+563;Johann Weltmann;Carolina Bedelia;Malkavian
+564;J. Benison Hodge;Carolina Bedelia;Malkavian
+565;Roger Greene;J. Benison Hodge;Malkavian
+566;Nathan Skarvan;J. Benison Hodge;Malkavian
+567;Quentin King III;Nathan Skarvan;Malkavian
+568;A Fert-Ara;Malkav;Malkavian
+569;Az Ankou;A Fert-Ara;Malkavian
+570;A Fekete Banya;A Fert-Ara;Malkavian
+571;Brovina;A Fekete Banya;Malkavian
+572;Marge Kahn;Brovina;Malkavian
+573;Elisa Wayuu;Brovina;Malkavian
+574;Restewin;Brovina;Malkavian
+575;Uriah Travers;Restewin;Malkavian
+576;Lord Theron;A Fekete Banya;Malkavian
+577;Antoine le Fanu;A Fert-Ara;Malkavian
+578;Damon;Antoine le Fanu;Malkavian
+579;Aristotle de Laurent;Damon;Malkavian
+580;Jago atya / Lazarus;Antoine le Fanu;Malkavian
+581;Olasz Malkaviták;Jago atya / Lazarus;Malkavian
+582;Lucia Martelli;Jago atya / Lazarus;Malkavian
+583;Lyra;Jago atya / Lazarus;Malkavian
+584;Alessio Rinaldi;Lyra;Malkavian
+585;William Biltmore;Antoine le Fanu;Malkavian
+586;Alex Silverson;William Biltmore;Malkavian
+587;Charity Caize;Alex Silverson;Malkavian
+588;Amerikai  Malkaviták;William Biltmore;Malkavian
+589;Nissiku, a Ravasz Herceg;Malkav;Malkavian
+590;Abd-Ar-Rahman;Nissiku, a Ravasz Herceg;Malkavian
+591;Jákob-Ézsau;Abd-Ar-Rahman;Malkavian
+592;Jason;Jákob-Ézsau;Malkavian
+593;Yislei;Jákob-Ézsau;Malkavian
+594;Adorjai;Yislei;Malkavian
+595;Jeannette d'Avignon;Adorjai;Malkavian
+596;Pierre l'Imbecile;Adorjai;Malkavian
+597;Anatole, a Szent;Pierre l'Imbecile;Malkavian
+598;Hannibal;Jákob-Ézsau;Malkavian
+599;Pun Malkaviták;Hannibal;Malkavian
+600;Kánaánita Malkaviták;Jákob-Ézsau;Malkavian
+601;Al Ussa;Abd-Ar-Rahman;Malkavian
+602;Mahfuz;Al Ussa;Malkavian
+603;Alam;Mahfuz;Malkavian
+604;Hassan;Al Ussa;Malkavian
+605;Hassan abu Khalid;Hassan;Malkavian
+606;Al-Hakim;Hassan abu Khalid;Malkavian
+607;Arab Malkaviták;Al Ussa;Malkavian
+608;Levantei Malkaviták;Abd-Ar-Rahman;Malkavian
+609;Tryphosa;Nissiku, a Ravasz Herceg;Malkavian
+610;Hyperion;Tryphosa;Malkavian
+611;Nikozia-i Klarissza;Hyperion;Malkavian
+612;Csöpörke Máté;Nikozia-i Klarissza;Malkavian
+613;Bizánci Malkaviták;Nikozia-i Klarissza;Malkavian
+614;Görög Malkaviták;Tryphosa;Malkavian
+615;Necross;Nissiku, a Ravasz Herceg;Malkavian
+616;Egyiptomi Malkaviták;Necross;Malkavian
+617;A Faló;Malkav;Malkavian
+618;Brude;A Faló;Malkavian
+619;Lasker;Brude;Malkavian
+620;Bryan;Lasker;Malkavian
+621;Bronwyn;Bryan;Malkavian
+622;Corbin;Bronwyn;Malkavian
+623;Jeremy Johnes;Bronwyn;Malkavian
+624;Ráday Letícia;Jeremy Johnes;Malkavian
+625;Skót Malkaviták;Bryan;Malkavian
+626;Maureen O'Leary;Lasker;Malkavian
+627;Jason Newberry;Maureen O'Leary;Malkavian
+628;Evan Klein;Jason Newberry;Malkavian
+629;Lateland;Jason Newberry;Malkavian
+630;Paula Smith;Maureen O'Leary;Malkavian
+631;Ben Smith;Maureen O'Leary;Malkavian
+632;A Dionüszoszi;A Faló;Malkavian
+633;Achadramenos;A Dionüszoszi;Malkavian
+634;Aleister Crowley;Achadramenos;Malkavian
+635;Henry Jeckyll / Edward Hyde;Aleister Crowley;Malkavian
+636;Herman Göring;Henry Jeckyll / Edward Hyde;Malkavian
+637;Oswald White;Henry Jeckyll / Edward Hyde;Malkavian
+638;Szfinx;A Faló;Malkavian
+639;Núbiai Malkaviták;Szfinx;Malkavian
+640;Afrikai Malkaviták;Szfinx;Malkavian
+641;Elimenech, a Kétszer Átkozott;Malkav;Malkavian
+642;Nero;Elimenech, a Kétszer Átkozott;Malkavian
+643;Római Malkaviták;Nero;Malkavian
+644;Fehér Liliom;Nero;Malkavian
+645;Octavio;Marcus;Malkavian
+646;Magyar Malkaviták;Octavio;Malkavian
+647;Wittenbergi Péter;Octavio;Malkavian
+648;Arnold;Wittenbergi Péter;Malkavian
+649;Karáth Regina;Arnold;Malkavian
+650;Ladányi Patrik;Arnold;Malkavian
+651;Cseh Malkaviták;Octavio;Malkavian
+652;Alchius;Elimenech, a Kétszer Átkozott;Malkavian
+653;Hadrianus;Alchius;Malkavian
+654;Demianus, az Ördögfi;Hadrianus;Malkavian
+655;Zakariás;Demianus, az Ördögfi;Malkavian
+656;Kossich Gergely;Zakariás;Malkavian
+657;Dr. Aaron Kleswitz;Hadrianus;Malkavian
+658;Demtius;Elimenech, a Kétszer Átkozott;Malkavian
+659;Theophana;Demtius;Malkavian
+660;Eriantha;Theophana;Malkavian
+661;Dusan;Theophana;Malkavian
+662;Dimitri;Dusan;Malkavian
+663;Killikillarven;Dimitri;Malkavian
+664;Orosz Malkaviták;Theophana;Malkavian
+665;Gregorius Dimites;Demtius;Malkavian
+666;Catherine;Gregorius Dimites;Malkavian
+667;Jharkav;Gregorius Dimites;Malkavian
+668;Balkáni Malkaviták;Gregorius Dimites;Malkavian
+669;Lerterimas;Malkav;Malkavian
+670;Louhi;Lerterimas;Malkavian
+671;Finn Malkaviták;Louhi;Malkavian
+672;Balti Malkaviták;Louhi;Malkavian
+673;Odr, a Költ;Louhi;Malkavian
+674;Freia;Odr, a Költ;Malkavian
+675;Olaf Petersen;Freia;Malkavian
+676;Frigga;Odr, a Költ;Malkavian
+677;Christian, a Vándor;Frigga;Malkavian
+678;Anja Hávarsdottir;Christian, a Vándor;Malkavian
+679;Morgana;Louhi;Malkavian
+680;Kelta Malkaviták;Morgana;Malkavian
+681;Andre Milano;Lerterimas;Malkavian
+682;Alicia Barrows;Andre Milano;Malkavian
+683;Wilhelm Meyer;Alicia Barrows;Malkavian
+684;Theresa Schlaud;Wilhelm Meyer;Malkavian
+685;Heinrich Gotthard von Treitschke;Theresa Schlaud;Malkavian
+686;Alexander Rosenbaum;Heinrich Gotthard von Treitschke;Malkavian
+687;Fitzgerald;Alicia Barrows;Malkavian
+688;Agaricus;Fitzgerald;Malkavian
+689;Ausztrál Malkaviták;Agaricus;Malkavian
+690;Harold Zettler;Lerterimas;Malkavian
+691;Lengyel Malkaviták;Harold Zettler;Malkavian
+692;Brahina;Malkav;Malkavian
+693;Indiai Malkaviták;Brahina;Malkavian
+694;Unmada;Brahina;Malkavian
+695;Vasantasena;Unmada;Malkavian
+696;Trójai Ilyah;Enoch, a Bölcs;Brujah
+697;Anis, az Éjszaka Királynje;Trójai Ilyah;Brujah
+698;Troile;Trójai Ilyah;Brujah
+699;Meneleus / Menele;Troile;Brujah
+700;Critias;Meneleus / Menele;Brujah
+701;Görög Brujahk;Critias;Brujah
+702;Procet;Critias;Brujah
+703;Spanyol Brujahk;Procet;Brujah
+704;Amerikai Brujahk;Procet;Brujah
+705;Germaine gróf;Critias;Brujah
+706;Német Brujahk;Germaine gróf;Brujah
+707;Juan Berger;Critias;Brujah
+708;Jaroslav Pascek;Juan Berger;Brujah
+709;Lengyel Brujahk;Jaroslav Pascek;Brujah
+710;Stanisaw Wokulski ;Jaroslav Pascek;Brujah
+711;Sara Danecka;Stanisaw Wokulski ;Brujah
+712;Damien;Critias;Brujah
+713;Lladislas;Damien;Brujah
+714;Magyar Brujahk;Lladislas;Brujah
+715;Bölyke;Lladislas;Brujah
+716;Goran Milojevic;Bölyke;Brujah
+717;Gaál Mátyás;Lladislas;Brujah
+718;Helner György;Gaál Mátyás;Brujah
+719;Demeter István;Helner György;Brujah
+720;Ian Corso;Damien;Brujah
+721;Friedrich Kraus;Damien;Brujah
+722;Lorence;Critias;Brujah
+723;Edward, a Fekete Herceg;Lorence;Brujah
+724;Skót Brujahk;Edward, a Fekete Herceg;Brujah
+725;Akawa;Edward, a Fekete Herceg;Brujah
+726;Mama Lion;Akawa;Brujah
+727;Vigyorgó Jack;Mama Lion;Brujah
+728;Karibi Brujahk;Mama Lion;Brujah
+729;Wrecker;Akawa;Brujah
+730;Samal;Meneleus / Menele;Brujah
+731;Etheria;Samal;Brujah
+732;Boniface;Etheria;Brujah
+733;Francia Brujahk;Boniface;Brujah
+734;Véronique d'Orléans;Etheria;Brujah
+735;Macau-i Brujahk;Véronique d'Orléans;Brujah
+736;Alexis Blanc;Etheria;Brujah
+737;Holland Brujahk;Alexis Blanc;Brujah
+738;Thomas Ewell;Alexis Blanc;Brujah
+739;Marc Levesque;Thomas Ewell;Brujah
+740;Jimmy Holcomb-Neon;Thomas Ewell;Brujah
+741;Meridie de Chancie;Samal;Brujah
+742;Corrie Tinbergen;Meridie de Chancie;Brujah
+743;Luxemburgi Brujahk;Corrie Tinbergen;Brujah
+744;Marcel de Breau;Meridie de Chancie;Brujah
+745;Kanadai Brujahk;Marcel de Breau;Brujah
+746;Jeremy Skelton;Marcel de Breau;Brujah
+747;Marchettus, a Bátor;Samal;Brujah
+748;Olasz Brujahk;Marchettus, a Bátor;Brujah
+749;Vörös Meg;Samal;Brujah
+750;Leslie Taylor;Vörös Meg;Brujah
+751;Ausztrál Brujahk;Leslie Taylor;Brujah
+752;Dominic;Samal;Brujah
+753;Angol Brujahk;Dominic;Brujah
+754;Elekes;Dominic;Brujah
+755;Botond;Dominic;Brujah
+756;Thúry György;Botond;Brujah
+757;gróf Petrczy István;Thúry György;Brujah
+758;gróf Zichy János Imre;gróf Petrczy István;Brujah
+759;báró Almássy Béla;Thúry György;Brujah
+760;báró Almássy Tivadar;báró Almássy Béla;Brujah
+761;Eugen von Hötzendorf;báró Almássy Tivadar;Brujah
+762;Fodor Mária;báró Almássy Tivadar;Brujah
+763;Müller Eik;báró Almássy Tivadar;Brujah
+764;Bajnok András;báró Almássy Tivadar;Brujah
+765;Fazakas Tibor;báró Almássy Tivadar;Brujah
+766;Jámbor Ádám;Fazakas Tibor;Brujah
+767;Szepesi Dániel;Fazakas Tibor;Brujah
+768;Havasi Zsolt;Botond;Brujah
+769;Markovits Amália;Havasi Zsolt;Brujah
+770;Robin Leeland;Dominic;Brujah
+771;Tyler, a Lázadó;Robin Leeland;Brujah
+772;"Joshua Tarnopolski ""Blackjack""";Tyler, a Lázadó;Brujah
+773;Neil Graham-Karl;"Joshua Tarnopolski ""Blackjack""";Brujah
+774;Big John;"Joshua Tarnopolski ""Blackjack""";Brujah
+775;Borovszky Eduárd;Big John;Brujah
+776;Louise;Tyler, a Lázadó;Brujah
+777;Dezi;Louise;Brujah
+778;Geist;Robin Leeland;Brujah
+779;Marguerite Foccart;Geist;Brujah
+780;Crispus Attucks;Marguerite Foccart;Brujah
+781;Steve Booth;Marguerite Foccart;Brujah
+782;General;Robin Leeland;Brujah
+783;James, a Vörös;Dominic;Brujah
+784;Jeremy MacNeil;James, a Vörös;Brujah
+785;Dutch;Jeremy MacNeil;Brujah
+786;Verias;Dominic;Brujah
+787;Lady Karin;Verias;Brujah
+788;Lord Alfred;Lady Karin;Brujah
+789;Galtre grófja;Lord Alfred;Brujah
+790;Lord Randall;Verias;Brujah
+791;Sir Ralph Hamilton;Lord Randall;Brujah
+792;Gregory Habersohn;Sir Ralph Hamilton;Brujah
+793;George Robinson;Dominic;Brujah
+794;Hong Kong-i Brujahk;George Robinson;Brujah
+795;Tiszta Csermely;Meneleus / Menele;Brujah
+796;Ragyogó z / Yarian;Tiszta Csermely;Brujah
+797;Irokéz Brujahk;Ragyogó z / Yarian;Brujah
+798;Losario;Troile;Brujah
+799;Altamira;Losario;Brujah
+800;Isabella Corelli;Altamira;Brujah
+801;Simon de Cosa;Isabella Corelli;Brujah
+802;Don Cerro;Simon de Cosa;Brujah
+803;Theo Bell;Don Cerro;Brujah
+804;Antonio Vardenas;Simon de Cosa;Brujah
+805;Latin-Amerikai Brujahk;Antonio Vardenas;Brujah
+806;Mexikói Brujahk;Simon de Cosa;Brujah
+807;Kubai Brujahk;Simon de Cosa;Brujah
+808;Domingo Menes;Simon de Cosa;Brujah
+809;Santiago de Soto;Isabella Corelli;Brujah
+810;Dieter Kotlar;Isabella Corelli;Brujah
+811;Erika Geiger;Dieter Kotlar;Brujah
+812;Wilbur Reihen;Erika Geiger;Brujah
+813;Isabelle Potelle;Wilbur Reihen;Brujah
+814;Otto von Werthaan;Isabelle Potelle;Brujah
+815;Patay Sebestyén;Otto von Werthaan;Brujah
+816;Maxwell;Altamira;Brujah
+817;"Afrikai Brujahk
+(Osebo)";Losario;Brujah
+818;Fekete Holló;Losario;Brujah
+819;Bjorn Garrison;Fekete Holló;Brujah
+820;Skandináv Brujahk;Bjorn Garrison;Brujah
+821;Andrei;Siegfried;Brujah
+822;Orosz Brujahk;Andrei;Brujah
+823;Ilse Bänsh;Fekete Holló;Brujah
+824;Villásszakállú Halfdan;Ilse Bänsh;Brujah
+825;Stefan Rutigar;Ilse Bänsh;Brujah
+826;Balti Brujahk;Stefan Rutigar;Brujah
+827;Adana de Sforza;Losario;Brujah
+828;Savoya-i Guido;Adana de Sforza;Brujah
+829;Thomas Tallner;Savoya-i Guido;Brujah
+830;Bruno Greshwit;Savoya-i Guido;Brujah
+831;Cseh Brujahk;Bruno Greshwit;Brujah
+832;Augsburg-i Kondrád;Adana de Sforza;Brujah
+833;Constancia Vinti;Adana de Sforza;Brujah
+834;Andrea Fiorentina;Constancia Vinti;Brujah
+835;Eleanor de Valois;Adana de Sforza;Brujah
+836;Montfrey de Lyonnesse;Eleanor de Valois;Brujah
+837;Jean-Pierre Baptiste;Montfrey de Lyonnesse;Brujah
+838;Gavriel de Bougniac;Eleanor de Valois;Brujah
+839;Keresztes Brujahk;Eleanor de Valois;Brujah
+840;Milkarnamash;Hannibal;Brujah
+841;Karthágói Brujahk;Milkarnamash;Brujah
+842;Afrikai Brujahk;Milkarnamash;Brujah
+843;Mezekht;Milkarnamash;Brujah
+844;Khentik-Khert;Mezekht;Brujah
+845;Kathágói Brujahk;Khentik-Khert;Brujah
+846;Selina;Milkarnamash;Brujah
+847;Roman Pendragon;Selina;Brujah
+848;Isaac;Roman Pendragon;Brujah
+849;Thelonious;Isaac;Brujah
+850;Jacques Sirque;Roman Pendragon;Brujah
+851;Antonius Caracus;Hannibal;Brujah
+852;Római Brujahk;Antonius Caracus;Brujah
+853;Tribonius;Antonius Caracus;Brujah
+854;Theophilus;Tribonius;Brujah
+855;Bizánci Brujahk;Theophilus;Brujah
+856;Dorotheus;Tribonius;Brujah
+857;Marhel;Tribonius;Brujah
+858;Katherina, a Bölcs;Marhel;Brujah
+859;Cosmas;Katherina, a Bölcs;Brujah
+860;Christof Romuald;Katherina, a Bölcs;Brujah
+861;Matek Kloshwit;Katherina, a Bölcs;Brujah
+862;Dmitra Fjedorovna Iljanova;Tribonius;Brujah
+863;Dimitrij Mikhailovics Piszarev;Dmitra Fjedorovna Iljanova;Brujah
+864;Oleg Ivanovics Paskir;Dimitrij Mikhailovics Piszarev;Brujah
+865;Nadja Ivanovna Kantemir;Oleg Ivanovics Paskir;Brujah
+866;Carlak;Dmitra Fjedorovna Iljanova;Brujah
+867;Natalja Dimitrovna Szvjatoszlava;Tribonius;Brujah
+868;Nikolaj Alkszendrovics Dobroljubov;Natalja Dimitrovna Szvjatoszlava;Brujah
+869;Katerina Alekszandrovna Daman;Natalja Dimitrovna Szvjatoszlava;Brujah
+870;Igor Grabowsky;Natalja Dimitrovna Szvjatoszlava;Brujah
+871;Maximarius;Antonius Caracus;Brujah
+872;Lilika Kairos;Maximarius;Brujah
+873;Balkáni Brujahk;Lilika Kairos;Brujah
+874;Marcos;Antonius Caracus;Brujah
+875;Caravelli;Antonius Caracus;Brujah
+876;Antonio Barbaretti;Caravelli;Brujah
+877;Luigi Visconti;Antonio Barbaretti;Brujah
+878;Andrea Visconti;Luigi Visconti;Brujah
+879;Ibn Alomar;Hannibal;Brujah
+880;Yoav;Ibn Alomar;Brujah
+881;Gerushah;Yoav;Brujah
+882;Kánaánita Brujahk;Gerushah;Brujah
+883;Azif;Ibn Alomar;Brujah
+884;Yusuf;Azif;Brujah
+885;Arab Brujahk;Yusuf;Brujah
+886;Jared;Azif;Brujah
+887;Jabar;Ibn Alomar;Brujah
+888;Usama;Jabar;Brujah
+889;Fahd vezír;Usama;Brujah
+890;Perzsa Brujahk;Fahd vezír;Brujah
+891;Shayke Khaled;Usama;Brujah
+892;Török Brujahk;Jabar;Brujah
+893;Guilamme;Hannibal;Brujah
+894;Belit-Sheri;Trójai Ilyah;Brujah
+895;Shalmath;Belit-Sheri;Brujah
+896;Rathmonicus;Shalmath;Brujah
+897;Antonia Veradas;Rathmonicus;Brujah
+898;Synesios;Shalmath;Brujah
+899;Krassimir;Synesios;Brujah
+900;Tomas Dursan;Krassimir;Brujah
+901;Irad, az Ers;Káin;
+902;Haquim;Irad, az Ers;Assamite
+903;An-Enlilda;Haquim;Assamite
+904;Fariq;Azif;Assamite
+905;Tegyrius;An-Enlilda;Assamite
+906;Ismail;Tegyrius;Assamite
+907;Abin bin Haji;Ismail;Assamite
+908;Mustapha abd-Fiil;Abin bin Haji;Assamite
+909;Abu Fatim Kateb;Mustapha abd-Fiil;Assamite
+910;Karim;Ismail;Assamite
+911;Sukainah;Karim;Assamite
+912;Mehtar;Sukainah;Assamite
+913;Ayub;Mehtar;Assamite
+914;Enam al-Dimshaq;Ayub;Assamite
+915;David Wendt;Ismail;Assamite
+916;Dimitri Borodin;David Wendt;Assamite
+917;Kasparas Sikhorsky;David Wendt;Assamite
+918;Khaldun;An-Enlilda;Assamite
+919;Bajazet al-Nasir;Khaldun;Assamite
+920;Tamarind;Bajazet al-Nasir;Assamite
+921;Fikriyya al-Jurr;Tamarind;Assamite
+922;Mohninda Vajpayee Cheram;Karim;Assamite
+923;Shabah;Rebekah;Assamite
+924;Arishima Hisato;Shabah;Assamite
+925;Azita Hisami;Shabah;Assamite
+926;Margaretha Geertruida Zelle;Shabah;Assamite
+927;ur-Shulgi;Haquim;Assamite
+928;Al-Ashrad;ur-Shulgi;Assamite
+929;Amaravati;Al-Ashrad;Assamite
+930;Quadir ul-Ghani;Amaravati;Assamite
+931;Hazrad Aqim Alaq;Quadir ul-Ghani;Assamite
+932;Sharbel;Hazrad Aqim Alaq;Assamite
+933;Myrsus;Sharbel;Assamite
+934;Kurush Ishraqi;Quadir ul-Ghani;Assamite
+935;Lydia Dorn;Kurush Ishraqi;Assamite
+936;Lydia Lezczenska;Lydia Dorn;Assamite
+937;Kazimiera Zuyus;Lydia Lezczenska;Assamite
+938;Gerhardt von Eich;Lydia Dorn;Assamite
+939;Sarah Schneier;Amaravati;Assamite
+940;Talaq;Al-Ashrad;Assamite
+941;Badr Alkhaiwani;Talaq;Assamite
+942;Jayakar Dristi Boparai;Badr Alkhaiwani;Assamite
+943;Hedeyat al-Sair;Talaq;Assamite
+944;Parmenides;Hedeyat al-Sair;Assamite
+945;Nar-Sheptha, az rz;ur-Shulgi;Assamite
+946;"Afrikai Asszamiták
+(Shango)";ur-Shulgi;Assamite
+947;Mancheaka;Haquim;Assamite
+948;Sha'hiri;Haquim;Assamite
+949;Thetmes;Sha'hiri;Assamite
+950;Elijah Ahmed;Thetmes;Assamite
+951;Anju;Elijah Ahmed;Assamite
+952;Hafsa;Anju;Assamite
+953;Thucimia;Elijah Ahmed;Assamite
+954;Aurora White;Thucimia;Assamite
+955;Evan Rogers;Aurora White;Assamite
+956;Jessica Tate-Duncan;Evan Rogers;Assamite
+957;Khaled Johnson;Aurora White;Assamite
+958;Fatima al-Faqadi;Thetmes;Assamite
+959;Izhim ur-Baal / Izhim abd'Azrael;Sha'hiri;Assamite
+960;Veradis;Izhim ur-Baal / Izhim abd'Azrael;Assamite
+961;Kashan;Veradis;Assamite
+962;Michael diCarlo;Kashan;Assamite
+963;Djuhah;Kashan;Assamite
+964;Reza Fatir;Djuhah;Assamite
+965;Mohara;Sha'hiri;Assamite
+966;Qusay ibn Namdar;Mohara;Assamite
+967;Habiba al-Sikkeen;Qusay ibn Namdar;Assamite
+968;Anastasius, a Fejsze;Habiba al-Sikkeen;Assamite
+969;Janni;Anastasius, a Fejsze;Assamite
+970;Amaris bat Ariela;Anastasius, a Fejsze;Assamite
+971;Zen Benzion;Anastasius, a Fejsze;Assamite
+972;Enrique Salazar;Habiba al-Sikkeen;Assamite
+973;Rashid ibn Musafir;Habiba al-Sikkeen;Assamite
+974;Afari Pahlavi;Rashid ibn Musafir;Assamite
+975;Kasim Bayar;Rashid ibn Musafir;Assamite
+976;Jamal;Haquim;Assamite
+977;Wasim;Jamal;Assamite
+978;Karif al-Numair;Wasim;Assamite
+979;Wilhelm d'Aver;Karif al-Numair;Assamite
+980;Ma'aruf;Wilhelm d'Aver;Assamite
+981;Badr-al-Budur;Ma'aruf;Assamite
+982;Bakr;Jamal;Assamite
+983;Tariq, a Néma;Bakr;Assamite
+984;Gabriel Chavez;Tariq, a Néma;Assamite
+985;Pelagon;Jamal;Assamite
+986;Hilel al-Masaari;Pelagon;Assamite
+987;Ahmal;Hilel al-Masaari;Assamite
+988;Husayn al Fatin;Ahmal;Assamite
+989;Lucian / Typhon / Lambech;Irad, az Ers;Lasombra
+990;Osiris;Lucian / Typhon / Lambech;Lasombra
+991;Khetamon;Osiris;Lasombra
+992;Egyiptomi Lasombrák;Khetamon;Lasombra
+993;Ontai / Montano;Lucian / Typhon / Lambech;Lasombra
+994;Núbiai Lasombrák;Ontai / Montano;Lasombra
+995;"Afrikai Lasombrák
+(Xi Dundu)";Ontai / Montano;Lasombra
+996;Nahir;Ontai / Montano;Lasombra
+997;Kánaánita Lasombrák;Nahir;Lasombra
+998;Levantei Lasombrák;Nahir;Lasombra
+999;Awsam;Ontai / Montano;Lasombra
+1000;Berber Lasombrák;Awsam;Lasombra
+1001;Omar;Awsam;Lasombra
+1002;Arab Lasombrák;Omar;Lasombra
+1003;Abdullah;Awsam;Lasombra
+1004;Zuhayr;Marcos;Lasombra
+1005;Kateb al-Massi;Zuhayr;Lasombra
+1006;Bard;Marcos;Lasombra
+1007;Szulejmán;Abdullah;Lasombra
+1008;Török Lasombrák;Szulejmán;Lasombra
+1009;Silvester de Ruiz;Ontai / Montano;Lasombra
+1010;Pablo y Concerella;Silvester de Ruiz;Lasombra
+1011;Spanyol Lasombrák;Pablo y Concerella;Lasombra
+1012;Julia;Pablo y Concerella;Lasombra
+1013;Francisco Domingo de Polonia;Pablo y Concerella;Lasombra
+1014;Mexikói Lasombrák;Francisco Domingo de Polonia;Lasombra
+1015;Laitn-Amerikai Lasombrák;Francisco Domingo de Polonia;Lasombra
+1016;Amerikai Lasombrák;Francisco Domingo de Polonia;Lasombra
+1017;Portugál Lasombrák;Silvester de Ruiz;Lasombra
+1018;Ambrosio Luis Monçada / Frederico de Salamanca;Silvester de Ruiz;Lasombra
+1019;Juan Antonio Ramirez y Alvarez de Santiago;Ambrosio Luis Monçada / Frederico de Salamanca;Lasombra
+1020;Listeta Iluminada;Juan Antonio Ramirez y Alvarez de Santiago;Lasombra
+1021;Mathilde Miller;Juan Antonio Ramirez y Alvarez de Santiago;Lasombra
+1022;Armando Mendes;Juan Antonio Ramirez y Alvarez de Santiago;Lasombra
+1023;Carolina Valez;Juan Antonio Ramirez y Alvarez de Santiago;Lasombra
+1024;Aragóniai Lucita;Ambrosio Luis Monçada / Frederico de Salamanca;Lasombra
+1025;Ibrahim;Ambrosio Luis Monçada / Frederico de Salamanca;Lasombra
+1026;Tarantine;Ibrahim;Lasombra
+1027;Mohammed al-Muthlim;Tarantine;Lasombra
+1028;Henry Taylor;Mohammed al-Muthlim;Lasombra
+1029;Francesca;Mohammed al-Muthlim;Lasombra
+1030;Antonio Vallejo;Ambrosio Luis Monçada / Frederico de Salamanca;Lasombra
+1031;Hendrick Van Dyck;Antonio Vallejo;Lasombra
+1032;Holland Lasombrák;Hendrick Van Dyck;Lasombra
+1033;Keresztes Lasombrák;Ambrosio Luis Monçada / Frederico de Salamanca;Lasombra
+1034;Boukephos / Francisco Diego del Belmonte;Lucian / Typhon / Lambech;Lasombra
+1035;Görög Lasombrák;Boukephos / Francisco Diego del Belmonte;Lasombra
+1036;Perzsa Lasombrák;Boukephos / Francisco Diego del Belmonte;Lasombra
+1037;Cynna;Boukephos / Francisco Diego del Belmonte;Lasombra
+1038;Ormisdas;Cynna;Lasombra
+1039;Pharnabazus;Ormisdas;Lasombra
+1040;Mania;Pharnabazus;Lasombra
+1041;Indiai Lasombrák;Boukephos / Francisco Diego del Belmonte;Lasombra
+1042;Goeffrey;Boukephos / Francisco Diego del Belmonte;Lasombra
+1043;Normann Lasombrák;Goeffrey;Lasombra
+1044;Leopold Valdemar;Goeffrey;Lasombra
+1045;Angol Lasombrák;Leopold Valdemar;Lasombra
+1046;Olier Young;Goeffrey;Lasombra
+1047;Francia Lasombrák;Goeffrey;Lasombra
+1048;Basilio;Boukephos / Francisco Diego del Belmonte;Lasombra
+1049;Bizánci Lasombrák;Basilio;Lasombra
+1050;Balkáni Lasombrák;Basilio;Lasombra
+1051;Elieser de Polanco;Basilio;Lasombra
+1052;Massimiliano Alonzo Lopa de Reyes;Elieser de Polanco;Lasombra
+1053;Latin-Amerikai Lasombrák;Massimiliano Alonzo Lopa de Reyes;Lasombra
+1054;Reginaldo de Lizárraga;Massimiliano Alonzo Lopa de Reyes;Lasombra
+1055;Orosz László SI;Reginaldo de Lizárraga;Lasombra
+1056;Közép-Amerikai Lasombrák;Massimiliano Alonzo Lopa de Reyes;Lasombra
+1057;Erasmo Casimiro Alonso de Cursio;Basilio;Lasombra
+1058;Isabelle;Erasmo Casimiro Alonso de Cursio;Lasombra
+1059;Genovai Gabrielle;Isabelle;Lasombra
+1060;Berengári Felice;Isabelle;Lasombra
+1061;Desiree Traville;Isabelle;Lasombra
+1062;Karibi Lasombrák;Desiree Traville;Lasombra
+1063;Basilio, az Öreg;Erasmo Casimiro Alonso de Cursio;Lasombra
+1064;Olasz Lasombrák;Erasmo Casimiro Alonso de Cursio;Lasombra
+1065;Marconius;Boukephos / Francisco Diego del Belmonte;Lasombra
+1066;Bartholomew;Marconius;Lasombra
+1067;Kiasydok;Bartholomew;Lasombra
+1068;Thomas von Hossen;Boukephos / Francisco Diego del Belmonte;Lasombra
+1069;Köln-i Anselm;Thomas von Hossen;Lasombra
+1070;Barbelo;Köln-i Anselm;Lasombra
+1071;Német Lasombrák;Barbelo;Lasombra
+1072;Talley;Köln-i Anselm;Lasombra
+1073;Nenna Palowitz;Köln-i Anselm;Lasombra
+1074;Cseh Lasombrák;Nenna Palowitz;Lasombra
+1075;Thomas Smith;Köln-i Anselm;Lasombra
+1076;Tercio Bravo;Boukephos / Francisco Diego del Belmonte;Lasombra
+1077;Donna Beatrice;Tercio Bravo;Lasombra
+1078;Medina Sidonia;Donna Beatrice;Lasombra
+1079;Xarca;Lucian / Typhon / Lambech;Lasombra
+1080;Sybil;Xarca;Lasombra
+1081;Lucius Aelius Sejanus;Sybil;Lasombra
+1082;Lucius;Lucius Aelius Sejanus;Lasombra
+1083;Római Lasombrák;Lucius;Lasombra
+1084;Enrico;Lucius Aelius Sejanus;Lasombra
+1085;Paliuro Rustucci;Enrico;Lasombra
+1086;Pacifico Grillati;Paliuro Rustucci;Lasombra
+1087;Masera;Pacifico Grillati;Lasombra
+1088;Brenda, a Holló / Ashirra;Masera;Lasombra
+1089;Lucca-i Benito;Lucius Aelius Sejanus;Lasombra
+1090;Anicius;Lucca-i Benito;Lasombra
+1091;Angelica;Lucca-i Benito;Lasombra
+1092;Panfilo, a Kegyetlen;Lucca-i Benito;Lasombra
+1093;Giangaleazzo;Lucca-i Benito;Lasombra
+1094;Claudius Eugenio;Lucius Aelius Sejanus;Lasombra
+1095;Montrovant;Claudius Eugenio;Lasombra
+1096;De Luc;Montrovant;Lasombra
+1097;Agnes;Montrovant;Lasombra
+1098;Monica Black;Lucius Aelius Sejanus;Lasombra
+1099;Cythia Black;Monica Black;Lasombra
+1100;Constantinus;Sybil;Lasombra
+1101;Narses;Constantinus;Lasombra
+1102;Ectoris;Narses;Lasombra
+1103;Magnus;Ectoris;Lasombra
+1104;Sarah, a Tiszta;Magnus;Lasombra
+1105;Peter, a Szerény;Magnus;Lasombra
+1106;Parrichus;Narses;Lasombra
+1107;Velencei Alfonzo;Narses;Lasombra
+1108;Magdalena Castellucci Borcellino;Narses;Lasombra
+1109;Catherine Esposito;Magdalena Castellucci Borcellino;Lasombra
+1110;Julius Sutphen;Catherine Esposito;Lasombra
+1111;Gratiano;Lucian / Typhon / Lambech;Lasombra
+1112;Ennoia / Daenna;Irad, az Ers;Gangrel
+1113;Uruk-i Urlon;Ennoia / Daenna;Gangrel
+1114;Al-Gamiz;Uruk-i Urlon;Gangrel
+1115;Hidalgo;Al-Gamiz;Gangrel
+1116;Murcia;Hidalgo;Gangrel
+1117;Ahrimánok;Murcia;Gangrel
+1118;Karen Anotos;Murcia;Gangrel
+1119;Nettie Halle;Karen Anotos;Gangrel
+1120;Vörös Macska;Karen Anotos;Gangrel
+1121;Juanita Santiago;Vörös Macska;Gangrel
+1122;Spanyol Gangrelek;Hidalgo;Gangrel
+1123;Odoin;Hidalgo;Gangrel
+1124;Al-Wali;Odoin;Gangrel
+1125;Arab Gangrelek;Al-Wali;Gangrel
+1126;Wah'Sheen;Odoin;Gangrel
+1127;Marpessa;Wah'Sheen;Gangrel
+1128;Kossos;Marpessa;Gangrel
+1129;Keresztes Gangrelek;Odoin;Gangrel
+1130;Fabio os'Vermelho;Hidalgo;Gangrel
+1131;Portugál Gangrelek;Hidalgo;Gangrel
+1132;Latin-Amerikai Gangrelek;Hidalgo;Gangrel
+1133;Barber Gangrelek;Al-Gamiz;Gangrel
+1134;Randall;Uruk-i Urlon;Gangrel
+1135;Christopher;Randall;Gangrel
+1136;Francia Gangrelek;Christopher;Gangrel
+1137;Chauson;Christopher;Gangrel
+1138;Marc testvér;Chauson;Gangrel
+1139;Burgundi Agatha;Chauson;Gangrel
+1140;Kataryzna;Burgundi Agatha;Gangrel
+1141;Mieszko Wisniewski;Kataryzna;Gangrel
+1142;Csontos Árpád;Mieszko Wisniewski;Gangrel
+1143;Herve;Christopher;Gangrel
+1144;Amerikai Gangrelek;Christopher;Gangrel
+1145;Fenton;Randall;Gangrel
+1146;Orlando Preston;Fenton;Gangrel
+1147;Trevor Rogers;Orlando Preston;Gangrel
+1148;Peter Bowen-Deakin;Trevor Rogers;Gangrel
+1149;Ausztrál Gangrelek;Fenton;Gangrel
+1150;Hassan al-Samhir / Karsh;Uruk-i Urlon;Gangrel
+1151;Zayyat / Abu Shammal;Hassan al-Samhir / Karsh;Gangrel
+1152;Perzsa Gangrelek;Zayyat / Abu Shammal;Gangrel
+1153;Sayat-Davit;Zayyat / Abu Shammal;Gangrel
+1154;Soghomon;Sayat-Davit;Gangrel
+1155;Baghtasar;Soghomon;Gangrel
+1156;Arin Sahak-Ealasaid;Baghtasar;Gangrel
+1157;Török Gangrelek;Zayyat / Abu Shammal;Gangrel
+1158;Jalan-Alav;Uruk-i Urlon;Gangrel
+1159;Matashuntha, a Tigris;Ennoia / Daenna;Gangrel
+1160;Pard, a Sivatagi Oroszlán;Matashuntha, a Tigris;Gangrel
+1161;Arnulf, a Bestia;Pard, a Sivatagi Oroszlán;Gangrel
+1162;Nieplomice-i Jolán;Arnulf, a Bestia;Gangrel
+1163;Lengyel Gangrelek;Nieplomice-i Jolán;Gangrel
+1164;Cseh Gangrelek;Nieplomice-i Jolán;Gangrel
+1165;Wyecheslav Gerdal;Arnulf, a Bestia;Gangrel
+1166;Szörtsey Aurél;Wyecheslav Gerdal;Gangrel
+1167;Karner Miklós;Szörtsey Aurél;Gangrel
+1168;Thomas Müller;Wyecheslav Gerdal;Gangrel
+1169;Balkáni Gangrelek;Arnulf, a Bestia;Gangrel
+1170;Mitru, a Vadász;Arnulf, a Bestia;Gangrel
+1171;Wulfar;Mitru, a Vadász;Gangrel
+1172;Erdélyi Gangrelek;Mitru, a Vadász;Gangrel
+1173;Attila, a Hun;Matashuntha, a Tigris;Gangrel
+1174;Hun Gangrelek;Attila, a Hun;Gangrel
+1175;Csaba, a Táltos;Attila, a Hun;Gangrel
+1176;Magyar Gangrelek;Csaba, a Táltos;Gangrel
+1177;Bese, a Kánya;Csaba, a Táltos;Gangrel
+1178;Kürthy István;Bese, a Kánya;Gangrel
+1179;Kürthy Ottó;Kürthy István;Gangrel
+1180;Halassy László;Kürthy Ottó;Gangrel
+1181;Zárvadvölgyi Flóra;Kürthy István;Gangrel
+1182;Lúdvérc;Csaba, a Táltos;Gangrel
+1183;Márffy Lajos;Lúdvérc;Gangrel
+1184;Lareth;Matashuntha, a Tigris;Gangrel
+1185;Zamhir;Lareth;Gangrel
+1186;Talos;Zamhir;Gangrel
+1187;Harry Reese;Talos;Gangrel
+1188;Cigány Gangrelek;Lareth;Gangrel
+1189;Indiai Gangrelek;Matashuntha, a Tigris;Gangrel
+1190;Khmer Gangrelek;Matashuntha, a Tigris;Gangrel
+1191;Odin, a Mindenható;Ennoia / Daenna;Gangrel
+1192;Ulfsdottir;Odin, a Mindenható;Gangrel
+1193;Brunhilde / Brynhild;Ulfsdottir;Gangrel
+1194;Skandináv Gangrelek;Brunhilde / Brynhild;Gangrel
+1195;Valkrök;Brunhilde / Brynhild;Gangrel
+1196;Sigurd;Brunhilde / Brynhild;Gangrel
+1197;Dóttir;Brunhilde / Brynhild;Gangrel
+1198;Vellamo;Brunhilde / Brynhild;Gangrel
+1199;Untar;Vellamo;Gangrel
+1200;Varis Sielu;Untar;Gangrel
+1201;Balti Gangrelek;Brunhilde / Brynhild;Gangrel
+1202;Thorhalla;Ulfsdottir;Gangrel
+1203;Hakkon;Thorhalla;Gangrel
+1204;Fenrir;Hakkon;Gangrel
+1205;Kostebra;Fenrir;Gangrel
+1206;Hosszúfogú Eirik;Kostebra;Gangrel
+1207;Lars Thorwald;Fenrir;Gangrel
+1208;Ma'ia;Lars Thorwald;Gangrel
+1209;Harnuth;Fenrir;Gangrel
+1210;Tiberiu;Harnuth;Gangrel
+1211;Blaidd;Ulfsdottir;Gangrel
+1212;Huroff;Blaidd;Gangrel
+1213;Ragnar Nordstorm;Blaidd;Gangrel
+1214;Pierre Beauvais;Ragnar Nordstorm;Gangrel
+1215;Jebediah Roney;Pierre Beauvais;Gangrel
+1216;Harbard;Ulfsdottir;Gangrel
+1217;Német Gangrelek;Harbard;Gangrel
+1218;Warfan, az Öreg Király;Harbard;Gangrel
+1219;Heina, a Banya;Warfan, az Öreg Király;Gangrel
+1220;Gerhard Grimm;Heina, a Banya;Gangrel
+1221;Csontváry Ern;Gerhard Grimm;Gangrel
+1222;Ralf Keller;Harbard;Gangrel
+1223;Daryl Lutz;Ralf Keller;Gangrel
+1224;Erik;Harbard;Gangrel
+1225;Eckhart, az szinte;Erik;Gangrel
+1226;Jeszenszky Mánuel;Eckhart, az szinte;Gangrel
+1227;Brenda;Jeszenszky Mánuel;Gangrel
+1228;Soldat;Harbard;Gangrel
+1229;Henri;Soldat;Gangrel
+1230;Philippe Rigaud;Henri;Gangrel
+1231;Scendrak;Odin, a Mindenható;Gangrel
+1232;Milov Petrenkov;Scendrak;Gangrel
+1233;Dimitra;Scendrak;Gangrel
+1234;Illyana;Piotr;Gangrel
+1235;Simon Lollen;Illyana;Gangrel
+1236;Tenyana, az Árny;Piotr;Gangrel
+1237;Agyar;Tenyana, az Árny;Gangrel
+1238;Szonja;Agyar;Gangrel
+1239;Tatiana;Piotr;Gangrel
+1240;Ivana, a Fehér;Dimitra;Gangrel
+1241;Orosz Gangrelek;Dimitra;Gangrel
+1242;Viktor;Scendrak;Gangrel
+1243;Gwyedd;Odin, a Mindenható;Gangrel
+1244;Tintagel-i Rhun;Gwyedd;Gangrel
+1245;Art Morgan;Tintagel-i Rhun;Gangrel
+1246;Angol Gangrelek;Art Morgan;Gangrel
+1247;Alicia McGreb;Art Morgan;Gangrel
+1248;Janey Pickman;Art Morgan;Gangrel
+1249;Xavier de Calais;Tintagel-i Rhun;Gangrel
+1250;Normann Gangrelek;Xavier de Calais;Gangrel
+1251;Adam Valledon;Xavier de Calais;Gangrel
+1252;Tholdalagi György;Adam Valledon;Gangrel
+1253;Kelta Gangrelek;Tintagel-i Rhun;Gangrel
+1254;Cúchulainn ;Gwyedd;Gangrel
+1255;Ronan, a Vörös;Cúchulainn ;Gangrel
+1256;Séamus Ó Muirí;Ronan, a Vörös;Gangrel
+1257;Douglas O'Sheen;Séamus Ó Muirí;Gangrel
+1258;Miranda Reilly;Douglas O'Sheen;Gangrel
+1259;Ír Gangrelek;Cúchulainn ;Gangrel
+1260;Gareth;Gwyedd;Gangrel
+1261;Tyrus;Gareth;Gangrel
+1262;Ramrod / Randy Zelley;Tyrus;Gangrel
+1263;Jackie Goodman;Ramrod / Randy Zelley;Gangrel
+1264;Geoffrey Leigh;Gwyedd;Gangrel
+1265;Beckett;Geoffrey Leigh;Gangrel
+1266;Angus;Gwyedd;Gangrel
+1267;Skót Gangrelek;Angus;Gangrel
+1268;Enkidu;Ennoia / Daenna;Gangrel
+1269;Gilgamesh;Enkidu;Gangrel
+1270;Sumer Gangrelek;Gilgamesh;Gangrel
+1271;Asszír Gangrelek;Gilgamesh;Gangrel
+1272;Elijah;Enkidu;Gangrel
+1273;Kánaánita Gangrelek;Elijah;Gangrel
+1274;Marie Feroux;Elijah;Gangrel
+1275;Hectorous;Marie Feroux;Gangrel
+1276;Verpus;Hectorous;Gangrel
+1277;Thomas Feroux;Marie Feroux;Gangrel
+1278;Sebastian Goulet;Thomas Feroux;Gangrel
+1279;Alex Camille;Sebastian Goulet;Gangrel
+1280;Spider;Sebastian Goulet;Gangrel
+1281;Rachel;Thomas Feroux;Gangrel
+1282;Bizánci Gangrelek;Thomas Feroux;Gangrel
+1283;Nostoket;Enkidu;Gangrel
+1284;Ariadne;Nostoket;Gangrel
+1285;Görög Gangrelek;Ariadne;Gangrel
+1286;Calidanos;Ariadne;Gangrel
+1287;Constantin Seferis;Calidanos;Gangrel
+1288;Maria Stone;Constantin Seferis;Gangrel
+1289;Heinrich Morgenstern;Maria Stone;Gangrel
+1290;Levantei Gangrelek;Nostoket;Gangrel
+1291;Mielikki;Ennoia / Daenna;Gangrel
+1292;Noiádok;Mielikki;Gangrel
+1293;Kurunta, a Vad;Ennoia / Daenna;Gangrel
+1294;Mictlantecuhtli;Kurunta, a Vad;Gangrel
+1295;Azték Gangrelek;Mictlantecuhtli;Gangrel
+1296;Xotli, a Varangy;Mictlantecuhtli;Gangrel
+1297;Mexikói Gangrelek;Mictlantecuhtli;Gangrel
+1298;Windam;Kurunta, a Vad;Gangrel
+1299;Feketetoll;Windam;Gangrel
+1300;Kesely;Feketetoll;Gangrel
+1301;Joaquim;Kesely;Gangrel
+1302;Cseroki Gangrelek;Feketetoll;Gangrel
+1303;Vágtázó;Kurunta, a Vad;Gangrel
+1304;Sziú Gangrelek;Vágtázó;Gangrel
+1305;Kanadai Gangrelek;Kurunta, a Vad;Gangrel
+1306;Warihu, a Hold;Ennoia / Daenna;Gangrel
+1307;Tisquantum;Warihu, a Hold;Gangrel
+1308;Irokéz Gangrelek;Tisquantum;Gangrel
+1309;Battista Decamerone;Tisquantum;Gangrel
+1310;Keegan;Battista Decamerone;Gangrel
+1311;Anthius;Keegan;Gangrel
+1312;Natalie;Anthius;Gangrel
+1313;Horrock;Anthius;Gangrel
+1314;Tanner;Horrock;Gangrel
+1315;Ramona;Tanner;Gangrel
+1316;Lauren Duncan;Keegan;Gangrel
+1317;Karibi Gangrelek;Battista Decamerone;Gangrel
+1318;Mauchaug;Warihu, a Hold;Gangrel
+1319;Beszédes Víz;Mauchaug;Gangrel
+1320;Hukros;Ennoia / Daenna;Gangrel
+1321;Karthágói Gangrelek;Hukros;Gangrel
+1322;Marcus Sextus / Esemkofu;Hukros;Gangrel
+1323;Egyiptomi Gangrelek;Marcus Sextus / Esemkofu;Gangrel
+1324;Attius Sabinus;Marcus Sextus / Esemkofu;Gangrel
+1325;Rufus;Attius Sabinus;Gangrel
+1326;Lucian;Rufus;Gangrel
+1327;Római Gangrelek;Lucian;Gangrel
+1328;Mark Decker;Lucian;Gangrel
+1329;Derek Hillen;Mark Decker;Gangrel
+1330;Ktome;Marcus Sextus / Esemkofu;Gangrel
+1331;Mo Naguib;Ktome;Gangrel
+1332;Robert Preston;Mo Naguib;Gangrel
+1333;Tóth Judit;Robert Preston;Gangrel
+1334;Inyanga;Marcus Sextus / Esemkofu;Gangrel
+1335;Zulu Gangrelek;Inyanga;Gangrel
+1336;Doyle Fincher;Inyanga;Gangrel
+1337;Rosa Hernandez;Doyle Fincher;Gangrel
+1338;Mbogo Biashara;Marcus Sextus / Esemkofu;Gangrel
+1339;Antithera;Hukros;Gangrel
+1340;Zahil;Antithera;Gangrel
+1341;Eleanor d'Moren;Zahil;Gangrel
+1342;Kristana;Eleanor d'Moren;Gangrel
+1343;Vrana;Kristana;Gangrel
+1344;René Lierre;Vrana;Gangrel
+1345;Etióp Gangrelek;Hukros;Gangrel
+1346;"Afrikai Gangrelek
+(Akunanse)";Hukros;Gangrel
+1347;Dobrul, a Bátor;Ennoia / Daenna;Gangrel
+1348;Chinkhai, a Merész;Dobrul, a Bátor;Gangrel
+1349;Jelme, az Átkozott;Chinkhai, a Merész;Gangrel
+1350;Andák;Jelme, az Átkozott;Gangrel
+1351;Yesira, az Anya;Dobrul, a Bátor;Gangrel
+1352;Oderic;Yesira, az Anya;Gangrel
+1353;Aajav, az Ifjú Farkas;Oderic;Gangrel
+1354;Qarakh;Aajav, az Ifjú Farkas;Gangrel
+1355;Zapathasura / Dracian / Churka;Irad, az Ers;Ravnos
+1356;Marizhavashti Kali, a Fekete Anya;Zapathasura / Dracian / Churka;Ravnos
+1357;Phaedyme;Marizhavashti Kali, a Fekete Anya;Ravnos
+1358;Marcia Felicia Licina;Phaedyme;Ravnos
+1359;Hector;Marcia Felicia Licina;Ravnos
+1360;Titus Scribonius;Hector;Ravnos
+1361;Callridus;Titus Scribonius;Ravnos
+1362;"Brahmin Jati
+(Pap-varázsló vérvonal)";Marizhavashti Kali, a Fekete Anya;Ravnos
+1363;Raj;Marizhavashti Kali, a Fekete Anya;Ravnos
+1364;Vidyacharan;Raj;Ravnos
+1365;Suryani;Vidyacharan;Ravnos
+1366;Jayakumar;Suryani;Ravnos
+1367;Dr. Lawrence Mayhew;Jayakumar;Ravnos
+1368;Johann Matheson;Dr. Lawrence Mayhew;Ravnos
+1369;Marion French;Johann Matheson;Ravnos
+1370;Gwendolyn Brand;Johann Matheson;Ravnos
+1371;Angelica Underwood;Jayakumar;Ravnos
+1372;"Phuri Dae
+(Nyugati cigány vérvonal)";Marizhavashti Kali, a Fekete Anya;Ravnos
+1373;Aemilius Lusius Clemens;Marizhavashti Kali, a Fekete Anya;Ravnos
+1374;Karmenita Yoyari;Aemilius Lusius Clemens;Ravnos
+1375;Yoyari Jati;Karmenita Yoyari;Ravnos
+1376;Kasztilia-i Jágó;Karmenita Yoyari;Ravnos
+1377;Szübariták;Aemilius Lusius Clemens;Ravnos
+1378;Rakshasa;Zapathasura / Dracian / Churka;Ravnos
+1379;Kinyonyi;Rakshasa;Ravnos
+1380;Asuke, a Lándzsa;Rakshasa;Ravnos
+1381;Zarvani;Asuke, a Lándzsa;Ravnos
+1382;Fehér Oroszlán;Zarvani;Ravnos
+1383;Ngore;Fehér Oroszlán;Ravnos
+1384;Thakkur;Ngore;Ravnos
+1385;Harvinder al-Chambay;Thakkur;Ravnos
+1386;Margali, a Vándor;Rakshasa;Ravnos
+1387;Chandraputo;Zapathasura / Dracian / Churka;Ravnos
+1388;"Kshatriyas Jati
+(Harcos vérvonal)";Chandraputo;Ravnos
+1389;Irendo Torentu;Dimitri;Ravnos
+1390;Izydor Torentu;Irendo Torentu;Ravnos
+1391;Delizbieta, a Sötét Szem;Izydor Torentu;Ravnos
+1392;Ghivan Dalaal;Delizbieta, a Sötét Szem;Ravnos
+1393;Sennuwy;Ghivan Dalaal;Ravnos
+1394;Jose Sadillo;Ghivan Dalaal;Ravnos
+1395;Alexis;Dimitri;Ravnos
+1396;Ravana;Zapathasura / Dracian / Churka;Ravnos
+1397;Bashir;Ravana;Ravnos
+1398;Varshik;Bashir;Ravnos
+1399;Herbert von Schalen;Varshik;Ravnos
+1400;Etiene de Fauberge;Varshik;Ravnos
+1401;Lucien;Etiene de Fauberge;Ravnos
+1402;Jacopo;Lucien;Ravnos
+1403;Irena;Jacopo;Ravnos
+1404;Yasmina;Varshik;Ravnos
+1405;Sallam;Bashir;Ravnos
+1406;Es'Kut, a Csendes;Sallam;Ravnos
+1407;Zander;Bashir;Ravnos
+1408;Senser;Zander;Ravnos
+1409;Vassily;Senser;Ravnos
+1410;Vladislav;Vassily;Ravnos
+1411;Shejana;Vladislav;Ravnos
+1412;Natalia;Senser;Ravnos
+1413;Ghose;Natalia;Ravnos
+1414;Sasha;Ghose;Ravnos
+1415;Devyn;Sasha;Ravnos
+1416;Amril Donescu;Bashir;Ravnos
+1417;Bozzi;Bashir;Ravnos
+1418;Jamal al-Sahir;Bozzi;Ravnos
+1419;Mahir bint Kemal;Jamal al-Sahir;Ravnos
+1420;Davat Okyar;Mahir bint Kemal;Ravnos
+1421;Selin Mardin;Davat Okyar;Ravnos
+1422;Aleksandr;Bashir;Ravnos
+1423;Gabril;Bashir;Ravnos
+1424;Smenkhara;Zapathasura / Dracian / Churka;Ravnos
+1425;Ankla Hotep;Smenkhara;Ravnos
+1426;Ramessu;Zapathasura / Dracian / Churka;Ravnos
+1427;"Vaisyas Jati
+(Bölcs vérvonal)";Ramessu;Ravnos
+1428;Harkhebi;Ramessu;Ravnos
+1429;"Alexandriai Jati
+Egyiptomi Ravnosok";Harkhebi;Ravnos
+1430;Theliodosz;Harkhebi;Ravnos
+1431;Dreiniké;Theliodosz;Ravnos
+1432;Ikarosz, a Bolond;Dreiniké;Ravnos
+1433;Gregory;Ikarosz, a Bolond;Ravnos
+1434;Veistgeir;Ramessu;Ravnos
+1435;Khalen;Veistgeir;Ravnos
+1436;Duran Mash;Khalen;Ravnos
+1437;Julia Zabrov;Duran Mash;Ravnos
+1438;Lilianne;Julia Zabrov;Ravnos
+1439;Anka;Lilianne;Ravnos
+1440;Gharston Roland;Lilianne;Ravnos
+1441;Esmeralda;Ramessu;Ravnos
+1442;Elena;Esmeralda;Ravnos
+1443;Carlos;Esmeralda;Ravnos
+1444;Hazimel;Zapathasura / Dracian / Churka;Ravnos
+1445;Bhargavi;Hazimel;Ravnos
+1446;Kaushalya;Bhargavi;Ravnos
+1447;Kalias Mohan Chandra;Kaushalya;Ravnos
+1448;Khali Ravana;Kalias Mohan Chandra;Ravnos
+1449;Mary Tinker;Kalias Mohan Chandra;Ravnos
+1450;Rodina;Zapathasura / Dracian / Churka;Ravnos
+1451;Vladovos;Rodina;Ravnos
+1452;Durga Syn;Vladovos;Ravnos
+1453;Zlatos;Durga Syn;Ravnos
+1454;Zlato;Zlatos;Ravnos
+1455;Mekhet;Irad, az Ers;Tzimisce
+1456;Kartarirya;Mekhet;Tzimisce
+1457;Ratti-Ben, a Vér Nvére;Kartarirya;Tzimisce
+1458;Gallod;Mekhet;Tzimisce
+1459;Andeleon;Mekhet;Tzimisce
+1460;Tabak;Mekhet;Tzimisce
+1461;Lambach Ruthven;Tabak;Tzimisce
+1462;Vlad Tepes;Lambach Ruthven;Tzimisce
+1463;Lucy Westenra;Vlad Tepes;Tzimisce
+1464;Gorchist;Tabak;Tzimisce
+1465;Caldwell;Lucy Westenra;Tzimisce
+1466;Laanto Dormotij;Tabak;Tzimisce
+1467;Valenko Dmiritav;Laanto Dormotij;Tzimisce
+1468;Agatha of Maidstone;Laanto Dormotij;Tzimisce
+1469;Stéphanie L'Heureux;Agatha of Maidstone;Tzimisce
+1470;Stephen Bateson;Stéphanie L'Heureux;Tzimisce
+1471;Jacob;Agatha of Maidstone;Tzimisce
+1472;Gregario;Jacob;Tzimisce
+1473;Byelobog;Mekhet;Tzimisce
+1474;Hedeon Yaroslavich;Byelobog;Tzimisce
+1475;Elica;Hedeon Yaroslavich;Tzimisce
+1476;Jedrik;Byelobog;Tzimisce
+1477;Razkoljna;Jedrik;Tzimisce
+1478;Gerlo;Razkoljna;Tzimisce
+1479;Mircea Dzardescu;Gerlo;Tzimisce
+1480;Kaspar Drevonits;Mircea Dzardescu;Tzimisce
+1481;Vadislava;Jedrik;Tzimisce
+1482;Vikto Danislav;Vadislava;Tzimisce
+1483;Steven Hargett;Vikto Danislav;Tzimisce
+1484;Florescu;Vadislava;Tzimisce
+1485;Danislav ghoulcsalád;Florescu;Tzimisce
+1486;Mieczyslav;Jedrik;Tzimisce
+1487;Dimitrii;Mieczyslav;Tzimisce
+1488;Perun;Byelobog;Tzimisce
+1489;Micah Hossa;Dimitrii;Tzimisce
+1490;A Rózsa;Micah Hossa;Tzimisce
+1491;Khavi ghoulcsalád;Byelobog;Tzimisce
+1492;Yorak;Mekhet;Tzimisce
+1493;Velya, a Nyúzó;Yorak;Tzimisce
+1494;Vysia;Velya, a Nyúzó;Tzimisce
+1495;Radu Bistri;Vysia;Tzimisce
+1496;Marelle, a Farkasok Szobrásza;Radu Bistri;Tzimisce
+1497;Noriz;Yorak;Tzimisce
+1498;Lugoj;Noriz;Tzimisce
+1499;Dracon;Mekhet;Tzimisce
+1500;Gesu;Dracon;Tzimisce
+1501;Symeon;Gesu;Tzimisce
+1502;Myca / Sascha Vykos;Symeon;Tzimisce
+1503;Paleologos János;Gesu;Tzimisce
+1504;Malachius;Paleologos János;Tzimisce
+1505;Ezra Howland;Malachius;Tzimisce
+1506;Beatrice;Paleologos János;Tzimisce
+1507;Bolon;Beatrice;Tzimisce
+1508;Lars Seengard, a Kráken;Gesu;Tzimisce
+1509;Stanislas;Lars Seengard, a Kráken;Tzimisce
+1510;Vintila;Lars Seengard, a Kráken;Tzimisce
+1511;Dragomir Basarab;Vintila;Tzimisce
+1512;A Hit rzje;Dracon;Tzimisce
+1513;Alexus Simocatta;A Hit rzje;Tzimisce
+1514;Violet Tremain;Alexus Simocatta;Tzimisce
+1515;Az rzk;A Hit rzje;Tzimisce
+1516;Demdemeh;Mekhet;Tzimisce
+1517;Sycorax;Demdemeh;Tzimisce
+1518;Mandalay;Demdemeh;Tzimisce
+1519;Vidor;Mandalay;Tzimisce
+1520;Darvag Grozny;Vidor;Tzimisce
+1521;Piotr Krezhinsky;Darvag Grozny;Tzimisce
+1522;"Afrikai Tzimiscek
+(Nagloper)";Demdemeh;Tzimisce
+1523;Triglav a Háromfej;Mekhet;Tzimisce
+1524;Kosczecsyku;Triglav a Háromfej;Tzimisce
+1525;Vladimir Rustovitch;Kosczecsyku;Tzimisce
+1526;Vukodlak;Triglav a Háromfej;Tzimisce
+1527;Izara;Vukodlak;Tzimisce
+1528;Ahzra;Izara;Tzimisce
+1529;Shaagra;Triglav a Háromfej;Tzimisce
+1530;Zmej;Shaagra;Tzimisce
+1531;Xipe Totec;Zmej;Tzimisce
+1532;Sylvana;Shaagra;Tzimisce
+1533;Maciej Zarnovich;Sylvana;Tzimisce
+1534;Zillah, a Gyönyör;Káin;
+1535;Absimilard;Zillah, a Gyönyör;Nosferatu
+1536;Yima;Absimilard;Nosferatu
+1537;Vasilisa;Absimilard;Nosferatu
+1538;Abraxes;Absimilard;Nosferatu
+1539;Nuckalavee;Absimilard;Nosferatu
+1540;Gorgo;Absimilard;Nosferatu
+1541;Echidna;Absimilard;Nosferatu
+1542;Azazel;Absimilard;Nosferatu
+1543;Melachoate;Absimilard;Nosferatu
+1544;Görög Nosferatuk;Melachoate;Nosferatu
+1545;Cristo;Melachoate;Nosferatu
+1546;Gerard testvér;Cristo;Nosferatu
+1547;Raymond testvér;Gerard testvér;Nosferatu
+1548;Német Nosferatuk;Raymond testvér;Nosferatu
+1549;Otto testvér;Raymond testvér;Nosferatu
+1550;Anselm testvér;Otto testvér;Nosferatu
+1551;Francia Nosferatuk;Raymond testvér;Nosferatu
+1552;Marienna;Cristo;Nosferatu
+1553;Virginia;Marienna;Nosferatu
+1554;Nathaniel Bordruff;Virginia;Nosferatu
+1555;Elucid;Nathaniel Bordruff;Nosferatu
+1556;Guy Buchain;Marienna;Nosferatu
+1557;Anna Magdalena;Marienna;Nosferatu
+1558;Gustaphe Brunnelle;Anna Magdalena;Nosferatu
+1559;Indigo;Gustaphe Brunnelle;Nosferatu
+1560;Frank Litzpar;Indigo;Nosferatu
+1561;Federico diPadua;Marienna;Nosferatu
+1562;Olasz Nosferatuk;Federico diPadua;Nosferatu
+1563;Norah;Federico diPadua;Nosferatu
+1564;Dalmáciai Zvar;Norah;Nosferatu
+1565;Balkáni Nosferatuk;Dalmáciai Zvar;Nosferatu
+1566;Lyon-i Jean;Dalmáciai Zvar;Nosferatu
+1567;Keresztes Nosferatuk;Lyon-i Jean;Nosferatu
+1568;Rannulf;Lyon-i Jean;Nosferatu
+1569;Amerikai Nosferatuk;Federico diPadua;Nosferatu
+1570;Alonso Cristo Petrodon de Seville;Cristo;Nosferatu
+1571;Spanyol Nosferatuk;Alonso Cristo Petrodon de Seville;Nosferatu
+1572;Castillo;Alonso Cristo Petrodon de Seville;Nosferatu
+1573;Madridi Armando;Castillo;Nosferatu
+1574;Alonzo Guillen;Madridi Armando;Nosferatu
+1575;Eduardo Santos Tavares Melo Silva;Madridi Armando;Nosferatu
+1576;Portugál Nosferatuk;Eduardo Santos Tavares Melo Silva;Nosferatu
+1577;Julio Martinez;Alonso Cristo Petrodon de Seville;Nosferatu
+1578;Mexikói Nosferatuk;Julio Martinez;Nosferatu
+1579;Jose Maria Furio;Julio Martinez;Nosferatu
+1580;Lopez;Jose Maria Furio;Nosferatu
+1581;Cicatriz;Lopez;Nosferatu
+1582;Quetzal;Lopez;Nosferatu
+1583;Tock;Quetzal;Nosferatu
+1584;Dél-Amerikai Nosferatuk;Julio Martinez;Nosferatu
+1585;Cock Robin;Alonso Cristo Petrodon de Seville;Nosferatu
+1586;Hauzal;Melachoate;Nosferatu
+1587;Josef von Bauern;Hauzal;Nosferatu
+1588;Trulnz-i Miléna;Josef von Bauern;Nosferatu
+1589;Cseh Nosferatuk;Trulnz-i Miléna;Nosferatu
+1590;Vaclav Petalengro;Trulnz-i Miléna;Nosferatu
+1591;Elmer Polansky;Josef von Bauern;Nosferatu
+1592;Lengyel Nosferatuk;Elmer Polansky;Nosferatu
+1593;Horace Slater;Josef von Bauern;Nosferatu
+1594;Philistine;Horace Slater;Nosferatu
+1595;Herman;Philistine;Nosferatu
+1596;Tomlynn Sinclair;Horace Slater;Nosferatu
+1597;Gerard Rafin;Tomlynn Sinclair;Nosferatu
+1598;Clive Cooper;Horace Slater;Nosferatu
+1599;Francis Broderick;Josef von Bauern;Nosferatu
+1600;Cranston;Francis Broderick;Nosferatu
+1601;Kanadai Nosferatuk;Cranston;Nosferatu
+1602;Nathan-Arlen;Francis Broderick;Nosferatu
+1603;Holland Nosferatuk;Nathan-Arlen;Nosferatu
+1604;Amos;Nathan-Arlen;Nosferatu
+1605;George Lawrence;Amos;Nosferatu
+1606;Gleen Courier;George Lawrence;Nosferatu
+1607;Karl Rottenbau;Gleen Courier;Nosferatu
+1608;Hermész;Karl Rottenbau;Nosferatu
+1609;Mateusy Gryzbowsky;Hauzal;Nosferatu
+1610;Boronisk;Hauzal;Nosferatu
+1611;Orosz Nosferatuk;Boronisk;Nosferatu
+1612;Petra;Boronisk;Nosferatu
+1613;Jara Drory;Petra;Nosferatu
+1614;Parovich;Boronisk;Nosferatu
+1615;Dondinni;Hauzal;Nosferatu
+1616;Velencei Alberto;Dondinni;Nosferatu
+1617;Gaius Orsini;Velencei Alberto;Nosferatu
+1618;Christianus Lionel;Dondinni;Nosferatu
+1619;Matza'an;Hauzal;Nosferatu
+1620;Supay;Matza'an;Nosferatu
+1621;Perui Nosferatuk;Supay;Nosferatu
+1622;Chilei Nosferatuk;Supay;Nosferatu
+1623;Manuela Mariposa;Supay;Nosferatu
+1624;Androvikus;Melachoate;Nosferatu
+1625;Kothar;Androvikus;Nosferatu
+1626;Ephraim;Kothar;Nosferatu
+1627;Kánaánita Nosferatuk;Ephraim;Nosferatu
+1628;Hannah;Ephraim;Nosferatu
+1629;Kánanáita Nosferatuk;Hannah;Nosferatu
+1630;Okulos;Kothar;Nosferatu
+1631;Ghanat;Kothar;Nosferatu
+1632;Echo;Ghanat;Nosferatu
+1633;Hut;Echo;Nosferatu
+1634;Thackery;Echo;Nosferatu
+1635;Sabal-Halen;Thackery;Nosferatu
+1636;Asbeoth;Sabal-Halen;Nosferatu
+1637;Dr. Jozef Brazel;Asbeoth;Nosferatu
+1638;Rike Schmutz;Dr. Jozef Brazel;Nosferatu
+1639;Rasalon;Androvikus;Nosferatu
+1640;Levantei Nosferatuk;Rasalon;Nosferatu
+1641;Perzsa Nosferatuk;Rasalon;Nosferatu
+1642;Sradish;Rasalon;Nosferatu
+1643;Xerxes;Sradish;Nosferatu
+1644;A Matriarcha;Absimilard;Nosferatu
+1645;Urghalt;A Matriarcha;Nosferatu
+1646;Varros Dominus;Urghalt;Nosferatu
+1647;Blake;Urghalt;Nosferatu
+1648;Hugh de Ewloen;Blake;Nosferatu
+1649;Oliver, a Fekete;Hugh de Ewloen;Nosferatu
+1650;Geoffrey Alan Montrose;Oliver, a Fekete;Nosferatu
+1651;Terry Mullingham;Blake;Nosferatu
+1652;Colchester;Terry Mullingham;Nosferatu
+1653;Schreck;Terry Mullingham;Nosferatu
+1654;Torzpofa;Schreck;Nosferatu
+1655;Angol Nosferatuk;Blake;Nosferatu
+1656;Hel;Urghalt;Nosferatu
+1657;Vika;Hel;Nosferatu
+1658;Skandináv Nosferatuk;Vika;Nosferatu
+1659;Osric;Vika;Nosferatu
+1660;Prudence Stone;Osric;Nosferatu
+1661;Bhallaire;Urghalt;Nosferatu
+1662;Aine;Bhallaire;Nosferatu
+1663;Kelta Nosferatuk;Aine;Nosferatu
+1664;Skót Nosferatuk;Aine;Nosferatu
+1665;Wid;Aine;Nosferatu
+1666;Ausztrál Nosferatuk;Wid;Nosferatu
+1667;Tarique al-Hajji;A Matriarcha;Nosferatu
+1668;Mazen;Tarique al-Hajji;Nosferatu
+1669;Arab Nosferatuk;Mazen;Nosferatu
+1670;Yacoub;Mazen;Nosferatu
+1671;Moussa;Yacoub;Nosferatu
+1672;Raid;Moussa;Nosferatu
+1673;Nahd;Raid;Nosferatu
+1674;Remete;Moussa;Nosferatu
+1675;Corvin;Remete;Nosferatu
+1676;Török Nosferatuk;Mazen;Nosferatu
+1677;Nirari;Tarique al-Hajji;Nosferatu
+1678;Shutatarra;Nirari;Nosferatu
+1679;Asszír Nosferatuk;Shutatarra;Nosferatu
+1680;Samsi;Shutatarra;Nosferatu
+1681;Alexius;A Matriarcha;Nosferatu
+1682;Khalid al-Rashid;Alexius;Nosferatu
+1683;Vasili, a Bnbánó;Alexius;Nosferatu
+1684;Bizánci Nosferatuk;Vasili, a Bnbánó;Nosferatu
+1685;Malachite/Malaki;Vasili, a Bnbánó;Nosferatu
+1686;A Hármak;Malachite/Malaki;Nosferatu
+1687;Thaddeus;Alexius;Nosferatu
+1688;Argus Theophilides;Thaddeus;Nosferatu
+1689;Thelonius;Argus Theophilides;Nosferatu
+1690;Melmoth;Thelonius;Nosferatu
+1691;Alexander Danov;Thaddeus;Nosferatu
+1692;Darvlanov;Alexander Danov;Nosferatu
+1693;Raszputyin;Darvlanov;Nosferatu
+1694;Amelia;Raszputyin;Nosferatu
+1695;Wolfgang;Amelia;Nosferatu
+1696;Szergej;Alexander Danov;Nosferatu
+1697;Yehuda;Alexius;Nosferatu
+1698;Josef Zvi;Yehuda;Nosferatu
+1699;Tigranosz / Mester;Alexius;Nosferatu
+1700;Indiai Nosferatuk;Tigranosz / Mester;Nosferatu
+1701;Örmény Nosferatuk;Tigranosz / Mester;Nosferatu
+1702;Agátha;Tigranosz / Mester;Nosferatu
+1703;Jacob Durgal;Tigranosz / Mester;Nosferatu
+1704;Albreich;Jacob Durgal;Nosferatu
+1705;Rabbi;Tigranosz / Mester;Nosferatu
+1706;Janus Pannonius;Rabbi;Nosferatu
+1707;Terestyén;Janus Pannonius;Nosferatu
+1708;Felix Schneider;Terestyén;Nosferatu
+1709;Magyar Nosferatuk;Janus Pannonius;Nosferatu
+1710;Marusca;Rabbi;Nosferatu
+1711;Erdélyi Nosferatuk;Marusca;Nosferatu
+1712;Ruxandra;Marusca;Nosferatu
+1713;Annabel;Rabbi;Nosferatu
+1714;Botond, az rült;Annabel;Nosferatu
+1715;dr. Hamvasi Leó;Botond, az rült;Nosferatu
+1716;Kli Kodesh;Absimilard;Nosferatu
+1717;Cassius;Kli Kodesh;Nosferatu
+1718;Római Nosferatuk;Cassius;Nosferatu
+1719;Zacchaeus;Cassius;Nosferatu
+1720;Sínai Mihail;Zacchaeus;Nosferatu
+1721;Kartágói Nosferatuk;Hannibal;Nosferatu
+1722;Aurelius;Hannibal;Nosferatu
+1723;Augustin;Aurelius;Nosferatu
+1724;Constantine;Augustin;Nosferatu
+1725;Emmet;Augustin;Nosferatu
+1726;Calebros;Augustin;Nosferatu
+1727;Zelios;Hannibal;Nosferatu
+1728;Földmélyi Herceg;Zelios;Nosferatu
+1729;Donatello;Zelios;Nosferatu
+1730;Trajanus;Kli Kodesh;Nosferatu
+1731;Cloalca úrn;Tribonius;Nosferatu
+1732;Othelius;Trajanus;Nosferatu
+1733;Violetta úrn;Trajanus;Nosferatu
+1734;Mnemach úrn;Violetta úrn;Nosferatu
+1735;Powell;Trajanus;Nosferatu
+1736;Warwick;Powell;Nosferatu
+1737;Lawrence Meeks;Warwick;Nosferatu
+1738;Avery;Lawrence Meeks;Nosferatu
+1739;Roger;Lawrence Meeks;Nosferatu
+1740;Hont Emese;Lawrence Meeks;Nosferatu
+1741;Martin;Lawrence Meeks;Nosferatu
+1742;Dowager;Warwick;Nosferatu
+1743;Joseph Cambridge;Dowager;Nosferatu
+1744;Jeremy Wix;Joseph Cambridge;Nosferatu
+1745;Kurt Densch;Warwick;Nosferatu
+1746;"Afrikai Nosferatuk
+(Guruhi)";Kli Kodesh;Nosferatu
+1747;Baba Yaga;Absimilard;Nosferatu
+1748;Gutka, a Sókirályn;Baba Yaga;Nosferatu
+1749;Sabanu;Gutka, a Sókirályn;Nosferatu
+1750;Rabbat;Sabanu;Nosferatu
+1751;Subotai kán;Baba Yaga;Nosferatu
+1752;Sztyeppei Nosferatuk;Subotai kán;Nosferatu
+1753;Melitta Wallenberg;Baba Yaga;Nosferatu
+1754;Ellison Humbolt;Melitta Wallenberg;Nosferatu
+1755;Szergei Voshkov;Baba Yaga;Nosferatu
+1756;Arikel / Isthar / Astarte / Inanna;Zillah, a Gyönyör;Toreador
+1757;Amarantha;Arikel / Isthar / Astarte / Inanna;Toreador
+1758;Mi-Ka-Il / Besther / Michael;Arikel / Isthar / Astarte / Inanna;Toreador
+1759;Perzsa Toreadorok;Mi-Ka-Il / Besther / Michael;Toreador
+1760;Caius Petronius;Mi-Ka-Il / Besther / Michael;Toreador
+1761;Római Toreadorok;Caius Petronius;Toreador
+1762;Pascoe;Caius Petronius;Toreador
+1763;Olasz Toreadorok;Pascoe;Toreador
+1764;Lianna;Pascoe;Toreador
+1765;Alyana;Lianna;Toreador
+1766;Empedocles;Alyana;Toreador
+1767;Enimachia;Mi-Ka-Il / Besther / Michael;Toreador
+1768;Darshuf;Enimachia;Toreador
+1769;Mannal;Darshuf;Toreador
+1770;Levantei Toreadorok;Darshuf;Toreador
+1771;Wenceslas;Enimachia;Toreador
+1772;Lengyel Toreadorok;Wenceslas;Toreador
+1773;Mariwa;Wenceslas;Toreador
+1774;Karol Wyel;Mariwa;Toreador
+1775;Tamoszius Kuszleika;Karol Wyel;Toreador
+1776;Kathy Glens;Tamoszius Kuszleika;Toreador
+1777;Konstantyna Czartoryska;Tamoszius Kuszleika;Toreador
+1778;Barbara Godlewska;Konstantyna Czartoryska;Toreador
+1779;Ewa;Karol Wyel;Toreador
+1780;Andrzej Dunajski;Ewa;Toreador
+1781;Balti Toreadorok;Wenceslas;Toreador
+1782;Mikhail Lermontov;Wenceslas;Toreador
+1783;Szergej Jeszenyin;Wenceslas;Toreador
+1784;Vaszilij Petrovics Dragan;Szergej Jeszenyin;Toreador
+1785;Janka Djaglieva;Vaszilij Petrovics Dragan;Toreador
+1786;Alexander Baslacsev;Vaszilij Petrovics Dragan;Toreador
+1787;Orosz Toreadorok;Wenceslas;Toreador
+1788;Iulus Rufus Naso;Mi-Ka-Il / Besther / Michael;Toreador
+1789;Elonzo;Iulus Rufus Naso;Toreador
+1790;Timón mester;Elonzo;Toreador
+1791;Magyar Toreadorok;Timón mester;Toreador
+1792;Árvai Eszter;Timón mester;Toreador
+1793;Székely Kristóf;Árvai Eszter;Toreador
+1794;Széphalmi András;Timón mester;Toreador
+1795;Bánrévy Ferenc;Széphalmi András;Toreador
+1796;Temesváry Júlia;Timón mester;Toreador
+1797;Koroknay Anna;Temesváry Júlia;Toreador
+1798;Versanica;Elonzo;Toreador
+1799;Sevacora;Versanica;Toreador
+1800;Noël d'Artois;Sevacora;Toreador
+1801;Antonio Vincenzo Gabretti;Versanica;Toreador
+1802;Audric St. Thierry;Versanica;Toreador
+1803;L'Epuisette;Audric St. Thierry;Toreador
+1804;Masdela;Elonzo;Toreador
+1805;Ambrose Bierce;Masdela;Toreador
+1806;Virgil;Ambrose Bierce;Toreador
+1807;Corinda;Virgil;Toreador
+1808;Maria da Vilardino;Ambrose Bierce;Toreador
+1809;Masser;Mi-Ka-Il / Besther / Michael;Toreador
+1810;Barquat;Masser;Toreador
+1811;Tralles-i Anthemios;Mi-Ka-Il / Besther / Michael;Toreador
+1812;Bizánci Toreadorok;Tralles-i Anthemios;Toreador
+1813;Darian;Tralles-i Anthemios;Toreador
+1814;Enasius;Darian;Toreador
+1815;Gallasyn;Enasius;Toreador
+1816;Suzanne Kadim;Enasius;Toreador
+1817;Pakourianis, a Galamb;Mi-Ka-Il / Besther / Michael;Toreador
+1818;Theophano;Pakourianis, a Galamb;Toreador
+1819;Montpellier Katalin;Theophano;Toreador
+1820;Francia Toreadorok;Montpellier Katalin;Toreador
+1821;Paul Bathalos;Mi-Ka-Il / Besther / Michael;Toreador
+1822;Balkáni Toreadorok;Paul Bathalos;Toreador
+1823;Justinius;Paul Bathalos;Toreador
+1824;Belgrádi Marcos;Justinius;Toreador
+1825;Latin-Amerikai Toreadorok;Belgrádi Marcos;Toreador
+1826;Minos;Arikel / Isthar / Astarte / Inanna;Toreador
+1827;Krétai Toreadorok;Minos;Toreador
+1828;Helena;Minos;Toreador
+1829;Eletria;Helena;Toreador
+1830;Görög Toreadorok;Eletria;Toreador
+1831;Simon;Eletria;Toreador
+1832;Melinda Galbraith;Helena;Toreador
+1833;Mexikói Toreadorok;Melinda Galbraith;Toreador
+1834;Donatien;Melinda Galbraith;Toreador
+1835;Lady Melisandre;Melinda Galbraith;Toreador
+1836;Rosa Martinez;Melinda Galbraith;Toreador
+1837;Maria;Helena;Toreador
+1838;Bernard;Maria;Toreador
+1839;d'Eglantine lovag;Bernard;Toreador
+1840;Jean Florent;Bernard;Toreador
+1841;Genevive Orseau;Jean Florent;Toreador
+1842;Maxime;Genevive Orseau;Toreador
+1843;Trevor;Genevive Orseau;Toreador
+1844;Desiré Nadar;Jean Florent;Toreador
+1845;Julia Villard;Desiré Nadar;Toreador
+1846;Leopold;Jean Florent;Toreador
+1847;Isabella;Maria;Toreador
+1848;Jacques d'Chivaries;Isabella;Toreador
+1849;Annabelle Delacroix;Jacques d'Chivaries;Toreador
+1850;Eszékhy Ben;Annabelle Delacroix;Toreador
+1851;Zichy Ödöm;Annabelle Delacroix;Toreador
+1852;Zárvadvölgyi Sándor;Annabelle Delacroix;Toreador
+1853;Cipolla;Jacques d'Chivaries;Toreador
+1854;Oliver;Maria;Toreador
+1855;Jacques;Oliver;Toreador
+1856;Morgaine;Jacques;Toreador
+1857;Hortense Holden;Morgaine;Toreador
+1858;Anntoinette Larusche;Jacques;Toreador
+1859;Német Toreadorok;Anntoinette Larusche;Toreador
+1860;Johann Orheim;Anntoinette Larusche;Toreador
+1861;Thomas de Lutrius;Johann Orheim;Toreador
+1862;Hans Vroenik;Anntoinette Larusche;Toreador
+1863;Lorena;Oliver;Toreador
+1864;Carson Longbaugh;Lorena;Toreador
+1865;Alice Babylon;Carson Longbaugh;Toreador
+1866;Arianne;Oliver;Toreador
+1867;Yithzak;Arianne;Toreador
+1868;Sabrina;Yithzak;Toreador
+1869;Annabelle Triabelle;Maria;Toreador
+1870;Accou;Annabelle Triabelle;Toreador
+1871;Marguerite Defallier;Accou;Toreador
+1872;Pablo;Marguerite Defallier;Toreador
+1873;Scheherezade;Pablo;Toreador
+1874;Abraham Garcia;Marguerite Defallier;Toreador
+1875;Tristan;Accou;Toreador
+1876;Katherine;Tristan;Toreador
+1877;Elsa Linden;Annabelle Triabelle;Toreador
+1878;Lónyai Psyché;Elsa Linden;Toreador
+1879;Modius;Annabelle Triabelle;Toreador
+1880;Ferdinand Joseph von Anbeller;Modius;Toreador
+1881;Festetics Attila;Ferdinand Joseph von Anbeller;Toreador
+1882;Rédey Aurél;Ferdinand Joseph von Anbeller;Toreador
+1883;Maximilian Amadeus Gallowgrass;Rédey Aurél;Toreador
+1884;Allicia;Modius;Toreador
+1885;Marie;Allicia;Toreador
+1886;Tarmonay;Annabelle Triabelle;Toreador
+1887;Yven MacPhee;Tarmonay;Toreador
+1888;Edward Blout;Yven MacPhee;Toreador
+1889;Edith Blout;Edward Blout;Toreador
+1890;Enid Blouth;Edward Blout;Toreador
+1891;Sharon Payne;Annabelle Triabelle;Toreador
+1892;Michael Payne;Sharon Payne;Toreador
+1893;Sophia Ayes;Annabelle Triabelle;Toreador
+1894;Teri;Sophia Ayes;Toreador
+1895;Bret Stryker;Annabelle Triabelle;Toreador
+1896;Montague Lytton;Bret Stryker;Toreador
+1897;Miranda;Montague Lytton;Toreador
+1898;Ausztrál Toreadorok;Montague Lytton;Toreador
+1899;Deacon;Annabelle Triabelle;Toreador
+1900;Fracois Villon;Helena;Toreador
+1901;Violetta;Fracois Villon;Toreador
+1902;Montacalme;Violetta;Toreador
+1903;Juliette Dulai;Violetta;Toreador
+1904;Ransam;Juliette Dulai;Toreador
+1905;Lin Jun;Ransam;Toreador
+1906;Jáde;Lin Jun;Toreador
+1907;Hong Kong-i Toreadorok;Lin Jun;Toreador
+1908;Calabris;Fracois Villon;Toreador
+1909;Rati;Calabris;Toreador
+1910;Frederic Bazzile;Rati;Toreador
+1911;Arthur Saint-Léon;Frederic Bazzile;Toreador
+1912;Giuseppina Bozzacchi;Frederic Bazzile;Toreador
+1913;Renata di Medici;Fracois Villon;Toreador
+1914;Andrea Foscari;Renata di Medici;Toreador
+1915;Paolo Mascotti;Andrea Foscari;Toreador
+1916;Marija;Paolo Mascotti;Toreador
+1917;Festetics Natasa;Marija;Toreador
+1918;Iontius / Derrick Zeel;Arikel / Isthar / Astarte / Inanna;Toreador
+1919;Karthágói Toreadorok;Iontius / Derrick Zeel;Toreador
+1920;Berber Toreadorok;Ishaq;Toreador
+1921;Ghazlani;Ishaq;Toreador
+1922;Abd al-Haqq;Ghazlani;Toreador
+1923;Shamit ibn Yasi;Abd al-Haqq;Toreador
+1924;Cantara;Shamit ibn Yasi;Toreador
+1925;Aighar akhu Quzman;Cantara;Toreador
+1926;Sakan;Abd al-Haqq;Toreador
+1927;Bagoly;Sakan;Toreador
+1928;Enver Frasheri;Bagoly;Toreador
+1929;Arab Toreadorok;Ghazlani;Toreador
+1930;Spanyol Toreadorok;Ishaq;Toreador
+1931;Redondo de Vasquez;Ishaq;Toreador
+1932;Normandiai András;Iontius / Derrick Zeel;Toreador
+1933;Normann Toreadorok;Normandiai András;Toreador
+1934;Alain de Laigle;Normandiai András;Toreador
+1935;Talios;Alain de Laigle;Toreador
+1936;Natasha;Talios;Toreador
+1937;Loius Detonas;Natasha;Toreador
+1938;Ranulph;Alain de Laigle;Toreador
+1939;Angol Toreadorok;Ranulph;Toreador
+1940;William Grey;Ranulph;Toreador
+1941;Gwendolyn Fleming;William Grey;Toreador
+1942;Vitoria Ash;Ranulph;Toreador
+1943;Keresztes Toreadorok;Normandiai András;Toreador
+1944;Kilian;Normandiai András;Toreador
+1945;Skót Toreadorok;Kilian;Toreador
+1946;Babiloni Theresa;Arikel / Isthar / Astarte / Inanna;Toreador
+1947;Babiloni Toreadorok;Babiloni Theresa;Toreador
+1948;Asszír Toreadorok;Babiloni Theresa;Toreador
+1949;Vasthai;Babiloni Theresa;Toreador
+1950;Elsh / Zaaru-Heyan;Vasthai;Toreador
+1951;Kánaánita  Toreadorok;Elsh / Zaaru-Heyan;Toreador
+1952;Zénobia;Vasthai;Toreador
+1953;Szíriai Toreadorok;Zénobia;Toreador
+1954;Sophoniba;Vasthai;Toreador
+1955;Levantei  Toreadorok;Sophoniba;Toreador
+1956;Nakshidil;Vasthai;Toreador
+1957;Török Toreadorok;Nakshidil;Toreador
+1958;Marikasha;Arikel / Isthar / Astarte / Inanna;Toreador
+1959;Endymion;Marikasha;Toreador
+1960;Robert Gainesmill;Endymion;Toreador
+1961;Edward Williams;Robert Gainesmill;Toreador
+1962;Leslie Boothe;Edward Williams;Toreador
+1963;Leslie Wilkes;Leslie Boothe;Toreador
+1964;Karen Nauve;Edward Williams;Toreador
+1965;Guggenheim;Karen Nauve;Toreador
+1966;Marlene;Edward Williams;Toreador
+1967;Anne Hyatt;Marlene;Toreador
+1968;Chas Voyager;Anne Hyatt;Toreador
+1969;Rachel Evans;Chas Voyager;Toreador
+1970;Timothy Sizemore;Marlene;Toreador
+1971;Bánky Ármin;Timothy Sizemore;Toreador
+1972;Marie Richauld;Marlene;Toreador
+1973;Amerikai Toreadorok;Marlene;Toreador
+1974;Lyndsay Anwer;Edward Williams;Toreador
+1975;Samuel Travis;Edward Williams;Toreador
+1976;Thomas Essex;Endymion;Toreador
+1977;Sawika Kitsuwon;Thomas Essex;Toreador
+1978;Thai Toreadorok;Sawika Kitsuwon;Toreador
+1979;Oscar Wilde;Endymion;Toreador
+1980;Roger Pathon;Oscar Wilde;Toreador
+1981;Bethany;Roger Pathon;Toreador
+1982;"Afrikai Toreadorok
+(Istharri)";Marikasha;Toreador
+1983;Mariella;Marikasha;Toreador
+1984;Marcellus;Mariella;Toreador
+1985;Ionna;Marcellus;Toreador
+1986;Egyiptomi Toreadorok;Marcellus;Toreador
+1987;Alexandria / Vörös Ludwig;Arikel / Isthar / Astarte / Inanna;Toreador
+1988;Argentín Toreadorok;Alexandria / Vörös Ludwig;Toreador
+1989;Rafael de Corazon;Alexandria / Vörös Ludwig;Toreador
+1990;Herodian;Rafael de Corazon;Toreador
+1991;Samuel atya;Herodian;Toreador
+1992;Dominic Atter;Herodian;Toreador
+1993;Dravik gróf;Rafael de Corazon;Toreador
+1994;Jean-Marc d'Harfleur;Dravik gróf;Toreador
+1995;Lyon-i Fülöp;Jean-Marc d'Harfleur;Toreador
+1996;Vivienne d'Alembert;Lyon-i Fülöp;Toreador
+1997;Alessandro Aiello;Vivienne d'Alembert;Toreador
+1998;Silvana Gardini;Alessandro Aiello;Toreador
+1999;Guss McCray;Lyon-i Fülöp;Toreador
+2000;Enrico Arvador;Dravik gróf;Toreador
+2001;Portugál Toreadorok;Dravik gróf;Toreador
+2002;Montecalme;Rafael de Corazon;Toreador
+2003;Dona Lupa Manrique;Montecalme;Toreador
+2004;Silvia Zaver;Dona Lupa Manrique;Toreador
+2005;Dominique Santo Paolo;Silvia Zaver;Toreador
+2006;Mercy;Dominique Santo Paolo;Toreador
+2007;Holland Toreadorok;Rafael de Corazon;Toreador
+2008;Allanyan Serata;Alexandria / Vörös Ludwig;Toreador
+2009;Philippe Volgirre;Alexandria / Vörös Ludwig;Toreador
+2010;Adelard;Philippe Volgirre;Toreador
+2011;Bázeli Günther;Adelard;Toreador
+2012;Alexy Sándor;Bázeli Günther;Toreador
+2013;Jäger;Bázeli Günther;Toreador
+2014;Asvald, az Ács;Philippe Volgirre;Toreador
+2015;Skandináv Toreadorok;Asvald, az Ács;Toreador
+2016;Carel van der Driessche;Philippe Volgirre;Toreador
+2017;Hausen;Carel van der Driessche;Toreador
+2018;Lucina;Hausen;Toreador
+2019;Belga Toreadorok;Carel van der Driessche;Toreador
+2020;Audrie Guil;Philippe Volgirre;Toreador
+2021;d'Adhemar grófn;Audrie Guil;Toreador
+2022;Margaret d'Hautmont;Audrie Guil;Toreador
+2023;Sebastian Sands;Margaret d'Hautmont;Toreador
+2024;Aurélien de Montfort;Sebastian Sands;Toreador
+2025;Zoran Casimir Markovic;Aurélien de Montfort;Toreador
+2026;Vidal Jarbeaux;Margaret d'Hautmont;Toreador
+2027;Christianne Foy;Vidal Jarbeaux;Toreador
+2028;Shlomo Baruch;Christianne Foy;Toreador
+2029;Paul Levesque;Shlomo Baruch;Toreador
+2030;Jacques Gauthier;Paul Levesque;Toreador
+2031;Michael Unther;Audrie Guil;Toreador
+2032;Kanadai Toreadorok;Michael Unther;Toreador
+2033;Sir Matthew Lubbock;Arikel / Isthar / Astarte / Inanna;Toreador
+2034;Christopher Houghton;Sir Matthew Lubbock;Toreador
+2035;Don Sebastian;Christopher Houghton;Toreador
+2036;Victor Girard;Don Sebastian;Toreador
+2037;Joaquin Murietta;Christopher Houghton;Toreador
+2038;Sutekh / Set;Zillah, a Gyönyör;Setite
+2039;Nakhthorheb ;Sutekh / Set;Setite
+2040;Nehsi;Nakhthorheb ;Setite
+2041;Kay'tall;Nehsi;Setite
+2042;Bizánci Szettiták;Kay'tall;Setite
+2043;Sarrastine;Kay'tall;Setite
+2044;Jacques Talbot;Sarrastine;Setite
+2045;Francia Szettiták;Jacques Talbot;Setite
+2046;Spanyol Szettiták;Sarrastine;Setite
+2047;Louis-Julien Belgrade;Sarrastine;Setite
+2048;Jocalo;Nehsi;Setite
+2049;Glycon;Jocalo;Setite
+2050;Olasz Szettiták;Glycon;Setite
+2051;Meryt-Amen;Nehsi;Setite
+2052;Egyiptomi Szettiták;Meryt-Amen;Setite
+2053;Seterpenre ;Sutekh / Set;Setite
+2054;Legba;Seterpenre ;Setite
+2055;Ollam-Onga;Legba;Setite
+2056;Afrikai Szettiták;Ollam-Onga;Setite
+2057;Ogwon;Ollam-Onga;Setite
+2058;Intisar;Legba;Setite
+2059;Lucretia;Intisar;Setite
+2060;Danny Larkshill;Lucretia;Setite
+2061;Mark Sandhurst;Lucretia;Setite
+2062;Dawn Cavanaugh;Lucretia;Setite
+2063;Amerikai Szettiták;Lucretia;Setite
+2064;Tlilpopnqui;Seterpenre ;Setite
+2065;Tlacique;Tlilpopnqui;Setite
+2066;Maatkare ;Sutekh / Set;Setite
+2067;Neferu;Maatkare ;Setite
+2068;Sobek;Neferu;Setite
+2069;Fény Kígyói;Legba;Setite
+2070;Sangris;Legba;Setite
+2071;Ezekiel;Sangris;Setite
+2072;Amissa;Neferu;Setite
+2073;Shalim Al-Mewha;Amissa;Setite
+2074;Hesha Ruhadze;Shalim Al-Mewha;Setite
+2075;Vegel;Hesha Ruhadze;Setite
+2076;Elizabeth Dimitros;Hesha Ruhadze;Setite
+2077;Verdigis;Amissa;Setite
+2078;Augusta Halford;Verdigis;Setite
+2079;Hugo Ormond;Augusta Halford;Setite
+2080;Angol Szettiták;Augusta Halford;Setite
+2081;Arnulf Jormungandrsson;Amissa;Setite
+2082;Skandináv Szettiták;Arnulf Jormungandrsson;Setite
+2083;Darinisha;Maatkare ;Setite
+2084;Daitya;Darinisha;Setite
+2085;Ta-urt;Sutekh / Set;Setite
+2086;Ororiouth ;Ta-urt;Setite
+2087;Nebseni;Ororiouth ;Setite
+2088;Nagat;Nebseni;Setite
+2089;Abdullah Al-Sathaja;Nagat;Setite
+2090;Ayyub Al-Bahili;Nagat;Setite
+2091;Jezebel;Ayyub Al-Bahili;Setite
+2092;Shahara al-Rashwa;Jezebel;Setite
+2093;Bilaal;Ayyub Al-Bahili;Setite
+2094;Arab Szettiták;Ayyub Al-Bahili;Setite
+2095;Samat Ramal-Ra;Nagat;Setite
+2096;Teweret;Nagat;Setite
+2097;Bek;Teweret;Setite
+2098;Berber Szettiták;Teweret;Setite
+2099;Núbiai Szettiták;Nebseni;Setite
+2100;Szudáni Szettiták;Nebseni;Setite
+2101;Farouk;Nebseni;Setite
+2102;Ghede;Ororiouth ;Setite
+2103;Ezuli;Ghede;Setite
+2104;Manon;Ezuli;Setite
+2105;Etióp Szettiták;Ezuli;Setite
+2106;Haiti Szettiták;Ghede;Setite
+2107;Kemintiri ;Sutekh / Set;Setite
+2108;Nefertiti ;Sutekh / Set;Setite
+2109;Aabt kígyók;Nefertiti ;Setite
+2110;Nephthys ;Sutekh / Set;Setite
+2111;Qufur Am-Heru;Sutekh / Set;Setite
+2112;Tremere;;Tremere
+2113;Etrius;;Tremere
+2114;Mendacamina, a Vasszz;Etrius;Tremere
+2115;Mirablis;Mendacamina, a Vasszz;Tremere
+2116;Donal;Mirablis;Tremere
+2117;Pieter Blum;Donal;Tremere
+2118;Bourdona;Mendacamina, a Vasszz;Tremere
+2119;Randeux;Bourdona;Tremere
+2120;Mara;Randeux;Tremere
+2121;Waclaw;Mara;Tremere
+2122;Mircea;Randeux;Tremere
+2123;Denelem;Mircea;Tremere
+2124;Carna;Bourdona;Tremere
+2125;Arthur Black;Carna;Tremere
+2126;Grigor Wallach;Arthur Black;Tremere
+2127;Ernst Ferdinand von Herberstein;Mendacamina, a Vasszz;Tremere
+2128;Alexander Kremer;Ernst Ferdinand von Herberstein;Tremere
+2129;Andrássy Katinka;Alexander Kremer;Tremere
+2130;Elise von Savoyen;Ernst Ferdinand von Herberstein;Tremere
+2131;Celestyn;Etrius;Tremere
+2132;Ardan Lane;Celestyn;Tremere
+2133;Claas Drescher;Ardan Lane;Tremere
+2134;Anastaz di Zagreb;Claas Drescher;Tremere
+2135;Kerjén Pelbárt;Ardan Lane;Tremere
+2136;Globitz Arnold;Kerjén Pelbárt;Tremere
+2137;Gabrielle di Righetti;Celestyn;Tremere
+2138;Jacques le Quarte;Gabrielle di Righetti;Tremere
+2139;Augustine d'Erlette;Celestyn;Tremere
+2140;Alix de Chantraine;Augustine d'Erlette;Tremere
+2141;Roger Greythwaite;Alix de Chantraine;Tremere
+2142;Jean-Michael du Pont-Ville;Roger Greythwaite;Tremere
+2143;Anastasia;Etrius;Tremere
+2144;Friderich von Mannstein;Orpheus;Tremere
+2145;Baradlay Gábor;Friderich von Mannstein;Tremere
+2146;Steinmauer Lajos;Baradlay Gábor;Tremere
+2147;Abigail;Anastasia;Tremere
+2148;Filaereus;Etrius;Tremere
+2149;Ala;Filaereus;Tremere
+2150;Mishka;Ala;Tremere
+2151;Annabelle;Mishka;Tremere
+2152;Valois Sang;Annabelle;Tremere
+2153;Peter Schloss;Filaereus;Tremere
+2154;Peter Spizzo;Etrius;Tremere
+2155;Maria Haige;Peter Spizzo;Tremere
+2156;Zachariah Slane;Maria Haige;Tremere
+2157;Constantin Addams;Zachariah Slane;Tremere
+2158;Astio Giavetti;Peter Spizzo;Tremere
+2159;Antonio Calbullarshi;Astio Giavetti;Tremere
+2160;Nigel Porter;Antonio Calbullarshi;Tremere
+2161;Sebastian Walcott;Nigel Porter;Tremere
+2162;Marie d'Richet;Antonio Calbullarshi;Tremere
+2163;Goratrix;;Tremere
+2164;Epistatia, a Bitorlók Vadásza;Goratrix;Tremere
+2165;Paul Cordwood, a Kém;Epistatia, a Bitorlók Vadásza;Tremere
+2166;Hargau;Paul Cordwood, a Kém;Tremere
+2167;Brunavog;Epistatia, a Bitorlók Vadásza;Tremere
+2168;Vristania, az Anya;Brunavog;Tremere
+2169;Valerius Maior;Epistatia, a Bitorlók Vadásza;Tremere
+2170;Malgorzata;Goratrix;Tremere
+2171;Jervais;Malgorzata;Tremere
+2172;Baladin;Jervais;Tremere
+2173;Hannigan;Baladin;Tremere
+2174;Fekete Jázmin;Malgorzata;Tremere
+2175;Saiz;Fekete Jázmin;Tremere
+2176;Selena;Saiz;Tremere
+2177;Alejandro Aguirre;Selena;Tremere
+2178;Nicholai;Fekete Jázmin;Tremere
+2179;Ayelea;Malgorzata;Tremere
+2180;Itera;Malgorzata;Tremere
+2181;Mario Reymundo Vasquez;Goratrix;Tremere
+2182;Therimna, a Hóhér;Mario Reymundo Vasquez;Tremere
+2183;Locus;Therimna, a Hóhér;Tremere
+2184;Nicolai;Locus;Tremere
+2185;Harold Jagen;Therimna, a Hóhér;Tremere
+2186;Joseph Fitzwalter;Harold Jagen;Tremere
+2187;Bessenczy-Thewrewk Aurél;Joseph Fitzwalter;Tremere
+2188;Roman;Therimna, a Hóhér;Tremere
+2189;Maurcroix;Roman;Tremere
+2190;Mariane Dupuis;Maurcroix;Tremere
+2191;Orlando Oriundus;Goratrix;Tremere
+2192;Johann Kaspar;Orlando Oriundus;Tremere
+2193;John Reiss;Johann Kaspar;Tremere
+2194;Simon Augustyn;Orlando Oriundus;Tremere
+2195;Peter Dorfman;Simon Augustyn;Tremere
+2196;Meerlinda;;Tremere
+2197;Abetorius;Meerlinda;Tremere
+2198;Kathleen;Abetorius;Tremere
+2199;Aspheron;Kathleen;Tremere
+2200;Theresa Kymena;Aspheron;Tremere
+2201;Johann Klöpfer;Abetorius;Tremere
+2202;Geraint de Montfort;Meerlinda;Tremere
+2203;Jean Baptiste Morin;Geraint de Montfort;Tremere
+2204;Mahalia Romano;Jean Baptiste Morin;Tremere
+2205;Montelaine;Mahalia Romano;Tremere
+2206;John Dee;Meerlinda;Tremere
+2207;John Diamond;Meerlinda;Tremere
+2208;Abraham Powell;John Diamond;Tremere
+2209;Timothy McKeith;Abraham Powell;Tremere
+2210;Maggie Allaway;Timothy McKeith;Tremere
+2211;Jane White;Maggie Allaway;Tremere
+2212;Dulcis;Meerlinda;Tremere
+2213;Mendel;Dulcis;Tremere
+2214;Cornelius;Meerlinda;Tremere
+2215;Ignatus;Cornelius;Tremere
+2216;Andre Mallotte;Ignatus;Tremere
+2217;Morens;Andre Mallotte;Tremere
+2218;Toledói Cecília;Ignatus;Tremere
+2219;Alberto Beyanez;Toledói Cecília;Tremere
+2220;Brentán Károly;Alberto Beyanez;Tremere
+2221;Mesita;Cornelius;Tremere
+2222;Dr. Mortius;Mesita;Tremere
+2223;Calderon;;Tremere
+2224;Shravael;Calderon;Tremere
+2225;Fanchon d'Aquitane;Shravael;Tremere
+2226;Marius Drake;Fanchon d'Aquitane;Tremere
+2227;Julie Foster;Marius Drake;Tremere
+2228;Elaine de Calinot;Calderon;Tremere
+2229;Arnod;Elaine de Calinot;Tremere
+2230;Johanna von Neumann;Arnod;Tremere
+2231;Vojta Arminov;Johanna von Neumann;Tremere
+2232;David Barkley;Vojta Arminov;Tremere
+2233;Meredith Clark;David Barkley;Tremere
+2234;Jekatyerina Alekszandrovna Scerbackaja;Meredith Clark;Tremere
+2235;Adam Lumley;Johanna von Neumann;Tremere
+2236;Stromburg;Calderon;Tremere
+2237;Nicolai Antonescu;Stromburg;Tremere
+2238;Tracy Graves;Nicolai Antonescu;Tremere
+2239;Jakob Böhme;Nicolai Antonescu;Tremere
+2240;Eszterházy Pál;Jakob Böhme;Tremere
+2241;Brennberg Rudolf;Eszterházy Pál;Tremere
+2242;Abraham DuSable;Nicolai Antonescu;Tremere
+2243;Garwood Marshall;Abraham DuSable;Tremere
+2244;Elliot;Abraham DuSable;Tremere
+2245;Maldavis;Abraham DuSable;Tremere
+2246;Uriah;Maldavis;Tremere
+2247;William Thorbecke;Calderon;Tremere
+2248;Lille Haake;William Thorbecke;Tremere
+2249;Aidan Lyle;Lille Haake;Tremere
+2250;Gregory Roiters;Aidan Lyle;Tremere
+2251;Otto Müller;Gregory Roiters;Tremere
+2252;Kondoros Elek;Otto Müller;Tremere
+2253;Ephraim Wainwright;Aidan Lyle;Tremere
+2254;Kevin Grumman;Ephraim Wainwright;Tremere
+2255;Aisling Sturbridge;Kevin Grumman;Tremere
+2256;Thomas Wycham;Calderon;Tremere
+2257;Oliver Thrace;Thomas Wycham;Tremere
+2258;Wan Hzu;Oliver Thrace;Tremere
+2259;Tak Pao;Wan Hzu;Tremere
+2260;Aleksandra;Tak Pao;Tremere
+2261;Franklin Reece;Aleksandra;Tremere
+2262;Beatrix Bijou;Aleksandra;Tremere
+2263;Arundinis;;Tremere
+2264;Grimgroth;Arundinis;Tremere
+2265;Ulugh bég;Grimgroth;Tremere
+2266;Victorio Feroza;Ulugh bég;Tremere
+2267;Wilhelm von Stammler;Victorio Feroza;Tremere
+2268;Mehmed;Wilhelm von Stammler;Tremere
+2269;Lord Casmir;Grimgroth;Tremere
+2270;Terrell Harding;Lord Casmir;Tremere
+2271;Sean Reynolds;Terrell Harding;Tremere
+2272;O'Meara;Sean Reynolds;Tremere
+2273;Frank Weisshandel;O'Meara;Tremere
+2274;Madelaine Coventry;Terrell Harding;Tremere
+2275;Jack Weston;Terrell Harding;Tremere
+2276;Helena Taylor;Jack Weston;Tremere
+2277;Cohn Rose;Helena Taylor;Tremere
+2278;Pieter van Dorn;Helena Taylor;Tremere
+2279;Xavier de Cincao;Arundinis;Tremere
+2280;Khamir al Andalus;Xavier de Cincao;Tremere
+2281;Athosides;Khamir al Andalus;Tremere
+2282;Zaragoza-i János;Athosides;Tremere
+2283;Spiridonas;Xavier de Cincao;Tremere
+2284;Tomas Marcello;Xavier de Cincao;Tremere
+2285;Edward Sinclair;Tomas Marcello;Tremere
+2286;Cyrano;Edward Sinclair;Tremere
+2287;Honerius;Cyrano;Tremere
+2288;Geoffrey deLuc;;Tremere
+2289;Anguisa;;Tremere
+2290;Lotharius;Anguisa;Tremere
+2291;Karl Schrekt;Lotharius;Tremere
+2292;Gerhard Kapen;Karl Schrekt;Tremere
+2293;Ian Carfax;Gerhard Kapen;Tremere
+2294;Deák Violetta;Ian Carfax;Tremere
+2295;Maxwell Ldescu;Karl Schrekt;Tremere
+2296;Julia Sanderson;Maxwell Ldescu;Tremere
+2297;Heinrich Himmler;Maxwell Ldescu;Tremere

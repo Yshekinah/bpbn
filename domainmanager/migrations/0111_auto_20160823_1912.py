@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='event',
-            name='caption',
+            name='name',
             field=models.CharField(default='Insert event title', max_length=100),
         ),
         migrations.AlterField(

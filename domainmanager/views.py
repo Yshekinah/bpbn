@@ -6,7 +6,7 @@ from django.db.models import Sum
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 
-from .forms import BoonForm, CharacterFormCreate, CharacterFormEdit, CharacterShoppingForm
+from .forms import *
 from .logic import adminTools, characterTools
 from .models import *
 
@@ -171,7 +171,7 @@ def characterinformation_edit(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
     if request.method == "POST":
-        form = CharacterFormEdit(request.POST, instance=character)
+        form = CharacterFormEdit(request.POST)
 
         if form.is_valid():
             character = form.save()
@@ -355,6 +355,28 @@ def characteractions(request, character_id):
 
 
 @login_required()
+def characteraction_edit(request, action_id):
+    actionObject = get_object_or_404(Action, pk=action_id)
+
+    if request.method == "POST":
+        form = ActionForm(request.POST, request.FILES, instance=actionObject)
+
+        if form.is_valid():
+            action = form.save(commit=False)
+            action.character = actionObject.character
+            action.downtime = actionObject.downtime
+            action.save()
+            return redirect('domainmanager:characteractions', request.session['active_character_id'])
+
+    else:
+        form = ActionForm(instance=actionObject)
+
+    context = {'form': form, 'action': actionObject}
+
+    return render(request, 'domainmanager/forms/characteraction_edit.html', context)
+
+
+@login_required()
 @hasCharacter
 def charactersecrets(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
@@ -376,7 +398,7 @@ def charactersecrets(request, character_id):
 
 @login_required()
 def genealogy(request):
-    vampires = Vampire.objects.all().filter(generation__lte="7").order_by('pk')
+    vampires = Genealogy.objects.all().filter(generation__lte="7").order_by('pk')
 
     context = {'vampires': vampires}
 

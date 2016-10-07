@@ -5,7 +5,6 @@ from .models import *
 
 admin.site.register(Country)
 admin.site.register(Downtime)
-admin.site.register(Action)
 
 
 # Define an inline admin descriptor for Employee model
@@ -26,9 +25,50 @@ admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
 
-class VampireAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+class ActionAdmin(admin.ModelAdmin):
     search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('get_character', 'get_downtime', 'action', 'result')
+    list_filter = (('downtime', admin.RelatedOnlyFieldListFilter), ('character', admin.RelatedOnlyFieldListFilter))
+
+    def get_character(self, obj):
+        if obj.character:
+            return obj.character.firstname + " " + obj.character.lastname
+
+    get_character.short_description = 'Character'
+    get_character.admin_order_field = 'character__lastname'
+
+    def get_downtime(self, obj):
+        if obj.downtime:
+            return obj.downtime.name
+
+    get_downtime.short_description = 'Downtime'
+    get_downtime.admin_order_field = 'downtime__name'
+
+
+class GenealogyAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name', 'generation', 'get_sire', 'get_clan')
+    list_filter = (('clan', admin.RelatedOnlyFieldListFilter), 'generation')
+
+    def get_clan(self, obj):
+        if obj.clan:
+            return obj.clan.name
+
+    get_clan.short_description = 'Clan'
+    get_clan.admin_order_field = 'clan__name'
+
+    def get_sire(self, obj):
+        if obj.sire:
+            return obj.sire.name
+
+    get_sire.short_description = 'Sire'
+    get_sire.admin_order_field = 'sire__name'
 
 
 class CharacterAdmin(admin.ModelAdmin):
@@ -40,7 +80,7 @@ class CharacterAdmin(admin.ModelAdmin):
     list_filter = (('clan', admin.RelatedOnlyFieldListFilter), 'generation', ('function', admin.RelatedOnlyFieldListFilter), 'humanity', 'hasvisions',
                    'schrecknetlevel')
 
-    # Show staff users only the properteis they are allowed to edit
+    # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
         qs = super(CharacterAdmin, self).get_queryset(request)
         if request.user.is_superuser:
@@ -153,6 +193,7 @@ class CharacterSecretAdmin(admin.ModelAdmin):
 
     get_secret.short_description = 'Secret'
     get_secret.admin_order_field = 'secret__description'
+
 
 class SecretAdmin(admin.ModelAdmin):
     search_fields = ('description',)
@@ -295,7 +336,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 class XpearnedAdmin(admin.ModelAdmin):
-    search_fields = ('event__caption', 'event__description', 'note',)
+    search_fields = ('event__name', 'event__description', 'note',)
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
@@ -321,10 +362,10 @@ class XpearnedAdmin(admin.ModelAdmin):
 
     def get_event(self, obj):
         if obj.event != None:
-            return obj.event.caption
+            return obj.event.name
 
     get_event.short_description = 'Event'
-    get_event.admin_order_field = 'event__caption'
+    get_event.admin_order_field = 'event__name'
 
 
 class XpspentAdmin(admin.ModelAdmin):
@@ -356,11 +397,11 @@ class XpspentAdmin(admin.ModelAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-    search_fields = ('caption', 'description', 'domain__name')
+    search_fields = ('name', 'description', 'domain__name')
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('caption', 'description', 'get_domain', 'start_date', 'end_date')
+    list_display = ('name', 'description', 'get_domain', 'start_date', 'end_date')
     list_filter = (('domain', admin.RelatedOnlyFieldListFilter),)
 
     # Show staff users only the properties they are allowed to edit
@@ -837,6 +878,7 @@ class PersonAdmin(admin.ModelAdmin):
     get_lastname.admin_order_field = 'user__last_name'
 
 
+admin.site.register(Action,ActionAdmin)
 admin.site.register(AgeCategory, AgeCategoryAdmin)
 admin.site.register(Boon, BoonAdmin)
 admin.site.register(BoonCategory, BoonCategoryAdmin)
@@ -849,6 +891,7 @@ admin.site.register(ClanProperty, ClanPropertyAdmin)
 admin.site.register(Domain, DomainAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Gender, GenderAdmin)
+admin.site.register(Genealogy, GenealogyAdmin)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(PoliticalFuntion, PoliticalFuntionAdmin)
@@ -861,4 +904,4 @@ admin.site.register(Sect, SectAdmin)
 admin.site.register(Xpearned, XpearnedAdmin)
 admin.site.register(Xpspent, XpspentAdmin)
 
-admin.site.register(Vampire, VampireAdmin)
+

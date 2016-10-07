@@ -13,38 +13,80 @@
                 {{ block.super }}
             {% endblock panel-nav %}
 
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
 
-            {% for downtime in downtimes %}
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h3>{{ downtime.name }} from {{ downtime.start }} until {{ downtime.end }}</h3>
-                            </div>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Edit downtime actions</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Loading...</p>
                         </div>
                     </div>
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Actions</th>
-                            <th>Results</th>
-                        </tr>
-                        </thead>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3>Downtime actions for {{ character.firstname }} {{ character.lastname }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Event</th>
+                        <th>Actions</th>
+                        <th>Results</th>
+                        <th>Deadline</th>
+                    </tr>
+                    </thead>
+
+                    {% for action in actions %}
 
                         <tbody>
-                            <tr>
-                                <td>{{ action.name }}</td>
-                                <td>{{ action.action }}</td>
-                                <td>{{ action.result }}</td>
-                            </tr>
+                        <tr>
+                            <td>
+                                {% if action.is_past_due %}
+                                    {{ action.downtime.name }}
+                                {% else %}
+                                    <a href="#" onclick="javascript:displayEditAction({{ action.pk }})">{{ action.downtime.name }}</a>
+                                {% endif %}
+                            </td>
+                            <td>{{ action.downtime.event }}</td>
+                            <td>{% if action.action %}
+                                <a href="{{ action.action.url }}">{% renderButton 5 %}</a></td>
+                            {% else %}-{% endif %}
+                            <td>{% if action.result %}
+                                <a href="{{ action.result.url }}">{% renderButton 5 %}</a></td>
+                            {% else %}-{% endif %}
+                            <td>{{ action.downtime.end }}</td>
+                        </tr>
                         </tbody>
-                    </table>
-                </div>
 
-            {% endfor %}
+                    {% endfor %}
+
+                </table>
+            </div>
+
+
         </div>
     </div>
+
+
+    <script>
+
+        function displayEditAction(action_id) {
+            $('#myModal').modal('show').find('.modal-body').load('http://{{ request.get_host }}/domainmanager/characteraction_edit/' + action_id);
+        }
+
+    </script>
 
 {% endblock %}

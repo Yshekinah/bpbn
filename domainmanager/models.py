@@ -167,7 +167,7 @@ class Rank(models.Model):
 
 
 class Event(models.Model):
-    caption = models.CharField(max_length=100, default="Insert event title")
+    name = models.CharField(max_length=100, default="Insert event title")
     description = models.TextField()
     domain = models.ForeignKey(Domain)
     start_date = models.DateField()
@@ -176,7 +176,7 @@ class Event(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.caption
+        return self.name
 
 
 class Property(models.Model):
@@ -356,6 +356,19 @@ class Downtime(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
+    # https://docs.djangoproject.com/en/1.10/topics/db/models/#overriding-predefined-model-methods
+    # Done: Having overwriten the  save method, ao all Action objects are created when the downtime is created
+
+    def save(self, *args, **kwargs):
+
+        if self.pk is None:
+            super(Downtime, self).save(*args, **kwargs)
+            characters = Character.objects.filter(domain=self.domain)
+            for character in characters:
+                Action(character=character, downtime=self).save()
+        else:
+            super(Downtime, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name + " " + str(self.start) + " - " + str(self.end)
 
@@ -364,12 +377,21 @@ class Action(models.Model):
     class Meta:
         verbose_name_plural = 'Actions'
 
-    name = models.CharField(max_length=200)
     character = models.ForeignKey('Character', on_delete=models.CASCADE)
+    downtime = models.ForeignKey('Downtime', on_delete=models.CASCADE)
     action = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
     result = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.character.firstname + " " + self.character.lastname + ": " + self.downtime.name
+
+    @property
+    def is_past_due(self):
+        if date.today() > self.downtime.end:
+            return True
+        return False
 
 
 class Secret(models.Model):
@@ -476,7 +498,7 @@ class Xpearned(models.Model):
         if self.event == None:
             return self.displayCharacters() + " earned " + str(self.value)
         else:
-            return self.displayCharacters() + " earned " + str(self.value) + " at " + self.event.caption
+            return self.displayCharacters() + " earned " + str(self.value) + " at " + self.event.name
 
 
 class Xpspent(models.Model):
@@ -543,13 +565,13 @@ class News(models.Model):
 ################################ GENEALOGY ################################
 
 
-class Vampire(models.Model):
+class Genealogy(models.Model):
     name = models.CharField(max_length=100)
-    sire = models.ForeignKey('Vampire', related_name='master', blank=True, null=True)
+    sire = models.ForeignKey('Genealogy', blank=True, null=True)
     generation = models.IntegerField(default=10, blank=True)
-    columnStart = models.IntegerField(default=0, blank=True)
-    columnEnd = models.IntegerField(default=0, blank=True)
-    clan = models.ForeignKey('Clan', related_name='homeclan', blank=True, null=True)
+    clan = models.ForeignKey('Clan', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
