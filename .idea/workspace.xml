@@ -1,96 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dffe59e0-7d3b-45dc-8ae6-6a1eda29f76b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/AreaChart/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/AreaChart/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/BarChart/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/BarChart/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/BarChart/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/BarChart/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/ForceDirected/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/ForceDirected/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/ForceDirected/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/ForceDirected/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Hypertree/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Hypertree/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Hypertree/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Hypertree/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Hypertree/example3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Hypertree/example3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Icicle/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Icicle/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Icicle/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Icicle/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Other/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Other/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Other/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Other/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Other/example3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Other/example3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/PieChart/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/PieChart/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example4.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/RGraph/example4.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example1 - Kopie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example4.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example4.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example5.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Spacetree/example5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Sunburst/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Sunburst/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Sunburst/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Sunburst/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Treemap/example1.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Treemap/example1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Treemap/example2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Treemap/example2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Treemap/example3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/Treemap/example3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/AreaChart.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/BarChart.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/ForceDirected.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/ForceDirected3D.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/HeatMap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/Hypertree.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/Icicle.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/Other.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/PieChart.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/RGraph.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/Spacetree.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/Sunburst.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/TimeGraph.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/Treemap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/col1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/col2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Examples/css/gradient.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/Extras/excanvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/jit-yc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/domainmanager/static/js/Jit/jit.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/1938ce67-a06f-4b85-9178-55c775f6895f.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/1938ce67-a06f-4b85-9178-55c775f6895f.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/admin.py" afterPath="$PROJECT_DIR$/domainmanager/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/management/commands/importGenealogy.py" afterPath="$PROJECT_DIR$/domainmanager/management/commands/importGenealogy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/models.py" afterPath="$PROJECT_DIR$/domainmanager/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/static/css/jit/base.css" afterPath="$PROJECT_DIR$/domainmanager/static/css/jit/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/static/js/genealogy_json.js" afterPath="$PROJECT_DIR$/domainmanager/static/js/genealogy_json.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domainmanager/templates/domainmanager/genealogy.html" afterPath="$PROJECT_DIR$/domainmanager/templates/domainmanager/genealogy.html" />
-    </list>
+    <list default="true" id="dffe59e0-7d3b-45dc-8ae6-6a1eda29f76b" name="Default" comment="" />
     <ignored path="bpbn.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -152,11 +63,11 @@
     <favorites_list name="bpbn" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
+            <state relative-caret-position="1649">
               <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -168,7 +79,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domainmanager/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
+            <state relative-caret-position="9537">
               <caret line="570" column="40" selection-start-line="570" selection-start-column="40" selection-end-line="570" selection-end-column="40" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -180,11 +91,9 @@
       <file leaf-file-name="genealogy.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/genealogy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-              <folding>
-                <element signature="e#1025#3258#0#HTML" expanded="false" />
-              </folding>
+            <state relative-caret-position="415">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -385,9 +294,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches">
-        <subPane />
-      </pane>
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Project Files">
@@ -442,6 +348,9 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -963,28 +872,28 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2569511" sideWeight="0.4936034" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17004265" sideWeight="0.65806454" order="2" side_tool="true" content_ui="combo" x="808" y="179" width="303" height="801" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1716418" sideWeight="0.66059446" order="2" side_tool="true" content_ui="combo" x="808" y="179" width="303" height="801" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27133268" sideWeight="0.3763326" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15938166" sideWeight="0.49473685" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279003" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2674976" sideWeight="0.62366736" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17004265" sideWeight="0.3419355" order="0" side_tool="false" content_ui="tabs" x="364" y="317" width="303" height="801" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1716418" sideWeight="0.33940557" order="0" side_tool="false" content_ui="tabs" x="364" y="317" width="303" height="801" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31831256" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.1945629" sideWeight="0.5033557" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22722915" sideWeight="0.6002132" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" x="93" y="100" width="774" height="967" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2674976" sideWeight="0.62366736" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13326226" sideWeight="0.50526315" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2569511" sideWeight="0.4936034" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="manage.py@bpbn" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.253116" sideWeight="0.47441363" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22722915" sideWeight="0.6002132" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1269,7 +1178,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,7 +1185,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="671" column="32" selection-start-line="671" selection-start-column="32" selection-end-line="671" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,7 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1199,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
           <caret line="14039" column="51" selection-start-line="14039" selection-start-column="51" selection-end-line="14039" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,7 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,13 +1213,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="3212" column="8" selection-start-line="3212" selection-start-column="8" selection-end-line="3212" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/domainmanager/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
+        <state relative-caret-position="1649">
           <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -1325,7 +1228,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/domainmanager/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
+        <state relative-caret-position="9537">
           <caret line="570" column="40" selection-start-line="570" selection-start-column="40" selection-end-line="570" selection-end-column="40" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -1337,7 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,7 +1247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,9 +1254,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
           <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1363,7 +1261,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1379,19 +1276,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="534">
           <caret line="160" column="7" selection-start-line="160" selection-start-column="7" selection-end-line="160" selection-end-column="7" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/domainmanager/templates/domainmanager/genealogy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-          <folding>
-            <element signature="e#1025#3258#0#HTML" expanded="false" />
-          </folding>
+        <state relative-caret-position="415">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
