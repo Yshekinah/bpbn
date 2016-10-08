@@ -34,6 +34,8 @@ class Command(BaseCommand):
 
                             clan = Clan.objects.filter(name=row[3], domain_id=1)
 
+                            domain = Domain.objects.filter(pk=1)
+
                             vampire = Genealogy(name=row[1])
 
                             if clan.exists():
@@ -41,6 +43,9 @@ class Command(BaseCommand):
 
                             if sire.exists():
                                 vampire.sire = sire[0]
+
+                            if (domain.exists()):
+                                vampire.domain = domain[0]
 
                             vampire.save()
 

@@ -566,10 +566,15 @@ class News(models.Model):
 
 
 class Genealogy(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Genealogy'
+
     name = models.CharField(max_length=100)
     sire = models.ForeignKey('Genealogy', blank=True, null=True)
     generation = models.IntegerField(default=10, blank=True)
     clan = models.ForeignKey('Clan', blank=True, null=True)
+    domain = models.ForeignKey('Domain', default=1)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 

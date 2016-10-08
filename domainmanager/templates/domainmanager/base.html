@@ -49,6 +49,10 @@
     <!-- self written little lib for creating dialogs -->
     <script type="text/javascript" src="{% static 'js/renderDialog.js' %}"></script>
 
+    {% block additionalscripts %}
+
+    {% endblock %}
+
     <title>{% block title %}My amazing site{% endblock %}</title>
 </head>
 

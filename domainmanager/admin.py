@@ -4,7 +4,6 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import *
 
 admin.site.register(Country)
-admin.site.register(Downtime)
 
 
 # Define an inline admin descriptor for Employee model
@@ -25,6 +24,39 @@ admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
 
+class DowntimeAdmin(admin.ModelAdmin):
+    search_fields = ('name',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('name', 'get_event', 'start', 'end')
+    list_filter = (('event', admin.RelatedOnlyFieldListFilter), 'start', 'end')
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(DowntimeAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(DowntimeAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(id=request.user.person.domain.id)
+        return form
+
+    def get_event(self, obj):
+        if obj.event:
+            return obj.event.name
+
+    get_event.short_description = 'Event'
+    get_event.admin_order_field = 'event__name'
+
+
 class ActionAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     actions_selection_counter = True
@@ -32,6 +64,24 @@ class ActionAdmin(admin.ModelAdmin):
     empty_value_display = '-empty-'
     list_display = ('get_character', 'get_downtime', 'action', 'result')
     list_filter = (('downtime', admin.RelatedOnlyFieldListFilter), ('character', admin.RelatedOnlyFieldListFilter))
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(ActionAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(character__domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(ActionAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the domain - the user is a member of
+            form.base_fields['character'].queryset = form.base_fields['character'].queryset.filter(domain=request.user.person.domain)
+            form.base_fields['downtime'].queryset = form.base_fields['downtime'].queryset.filter(domain=request.user.person.domain)
+        return form
 
     def get_character(self, obj):
         if obj.character:
@@ -179,7 +229,10 @@ class CharacterSecretAdmin(admin.ModelAdmin):
             pass
         else:
             # get only the domain - the user is a member of
-            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(id=request.user.person.domain.id)
+            # form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(id=request.user.person.domain.id)
+            form.base_fields['character'].queryset = form.base_fields['character'].queryset.filter(domain=request.user.person.domain)
+            form.base_fields['secret'].queryset = form.base_fields['secret'].queryset.filter(domain=request.user.person.domain)
+            pass
         return form
 
     def get_character(self, obj):
@@ -878,7 +931,7 @@ class PersonAdmin(admin.ModelAdmin):
     get_lastname.admin_order_field = 'user__last_name'
 
 
-admin.site.register(Action,ActionAdmin)
+admin.site.register(Action, ActionAdmin)
 admin.site.register(AgeCategory, AgeCategoryAdmin)
 admin.site.register(Boon, BoonAdmin)
 admin.site.register(BoonCategory, BoonCategoryAdmin)
@@ -889,6 +942,7 @@ admin.site.register(CharacterShopping, CharacterShoppingAdmin)
 admin.site.register(Clan, ClanAdmin)
 admin.site.register(ClanProperty, ClanPropertyAdmin)
 admin.site.register(Domain, DomainAdmin)
+admin.site.register(Downtime, DowntimeAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Gender, GenderAdmin)
 admin.site.register(Genealogy, GenealogyAdmin)
@@ -903,5 +957,3 @@ admin.site.register(Secret, SecretAdmin)
 admin.site.register(Sect, SectAdmin)
 admin.site.register(Xpearned, XpearnedAdmin)
 admin.site.register(Xpspent, XpspentAdmin)
-
-

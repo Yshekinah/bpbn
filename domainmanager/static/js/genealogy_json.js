@@ -3208,6 +3208,10 @@ function init(){
     var st = new $jit.ST({
         //id of viz container element
         injectInto: 'infovis',
+
+        //SET THE TREE TO VERTICAL
+        orientation:"top",
+
         //set duration for the animation
         duration: 800,
         //set animation transition type
@@ -3223,7 +3227,7 @@ function init(){
         //set overridable=true for styling individual
         //nodes or edges
         Node: {
-            height: 20,
+            height: 30,
             width: 60,
             type: 'rectangle',
             color: '#aaa',
