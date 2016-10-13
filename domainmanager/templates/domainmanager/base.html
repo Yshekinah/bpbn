@@ -59,7 +59,7 @@
 
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" id="top_menu" style="margin-bottom: 15px">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -72,29 +72,32 @@
             </button>
         </div>
         <div class="row">
-            <div class="col-md-2">
-                <a class="navbar-brand" href="{% url 'domainmanager:index' %}">Domainmanager</a>
-            </div>
-            <div class="col-md-10">
+            <div class="col-md-*">
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-
-                        <li role="presentation" class="dropdown">
-
-                            {% comment %}Oly show admin menu to admins {% endcomment %}
-                            {% if user.is_staff %}
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Admin Menu <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url 'admin:index' %}">Django admin</a></li>
-                                    <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
-                                    <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
-                                    <li><a href="{% url 'domainmanager:players' %}">Players</a></li>
-                                    <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
-                                    <li><a href="{% url 'domainmanager:genealogy' %}">Genealogy</a></li>
-                                </ul>
+                        <li>
+                            {% if request.user.person.domain.image %}
+                                <a class="navbar-brand" href="{% url 'domainmanager:index' %}"><img src="{{ request.user.person.domain.image.url }}"
+                                                                                                    width="50px" style="margin-top: -10px;"
+                                                                                                    alt="Domainmanager"></a>
+                            {% else %}
+                                <a class="navbar-brand" href="{% url 'domainmanager:index' %}">Domainmanager</a></li>-->
                             {% endif %}
+                        </li>
+                        {% comment %}Only show admin menu to admins {% endcomment %}
+                        {% if user.is_staff %}
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Admin Menu <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'admin:index' %}">Django admin</a></li>
+                                <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
+                                <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
+                                <li><a href="{% url 'domainmanager:players' %}">Players</a></li>
+                                <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
+                                <li><a href="{% url 'domainmanager:genealogy' %}">Genealogy</a></li>
+                            </ul>
+                        {% endif %}
 
                         </li>
                         <li role="presentation" class="dropdown">
@@ -137,7 +140,7 @@
 {% endblock %}
 
 {% block social %}
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" id="footer_menu">
         <div class="container">
             <ul class="nav navbar-nav">
                 <li><a href="mailto:conclave@budapestbynight.live">Write us an Mail</a></li>

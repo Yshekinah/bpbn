@@ -103,8 +103,8 @@ class GenealogyAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'generation', 'get_sire', 'get_clan')
-    list_filter = (('clan', admin.RelatedOnlyFieldListFilter), 'generation')
+    list_display = ('name', 'current_generation', 'initial_generation', 'get_sire', 'get_clan')
+    list_filter = (('clan', admin.RelatedOnlyFieldListFilter), 'current_generation', 'initial_generation')
 
     def get_clan(self, obj):
         if obj.clan:
@@ -168,7 +168,7 @@ class CharacterAdmin(admin.ModelAdmin):
 
 
 class CharacterPropertyAdmin(admin.ModelAdmin):
-    # search_fields = ('firstname', 'lastname')
+    search_fields = ('property__name',)
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
@@ -515,7 +515,7 @@ class DomainAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'get_gm', 'get_substitute', 'street', 'postcode', 'secrets', 'downtimes', 'influences')
+    list_display = ('name', 'get_gm', 'get_substitute', 'street', 'postcode', 'boons','secrets', 'downtimes', 'influences')
     list_filter = (('gm', admin.RelatedOnlyFieldListFilter), ('substitute', admin.RelatedOnlyFieldListFilter))
 
     # Show staff users only the properties they are allowed to edit

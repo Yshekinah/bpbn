@@ -10,7 +10,7 @@
         <div class="col-md-4">{{ field.property.name }}</div>
         <div class="col-md-4">
             {% if showValue %}{% for i in field.value|get_range %}<img width="12px" src="{% static 'img/blackdot.png' %}">{% endfor %}{% endif %}
-            {% with whitedots=5 %}
+            {% with whitedots=maxValue %}
                 {% if showValue %}{% for i in whitedots|subtract:field.value|get_range %}<img width="10px" src="{% static 'img/whitedot.png' %}">
                 {% endfor %}{% endif %}
             {% endwith %}

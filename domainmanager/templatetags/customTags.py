@@ -58,8 +58,8 @@ def renderLvlUpButton(characterproperty_id, oldValue, propName=None):
 
 # Render a section in the charactersheet: e.g. Skills, Physical or Disciplines
 @register.inclusion_tag('customTags/renderCharacterSheetSection.html')
-def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showValue=True):
-    return {'sectionName': sectionName, 'querySet': querySet, 'renderButton': renderButton, 'showValue': showValue}
+def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showValue=True, maxValue=5):
+    return {'sectionName': sectionName, 'querySet': querySet, 'renderButton': renderButton, 'showValue': showValue, 'maxValue':maxValue}
 
 
 # Render the admin boons table: Current and already validated boons

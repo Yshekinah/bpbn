@@ -16,14 +16,20 @@
                                 href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
                         <li class="{% ancestor 'domainmanager:characterxps' character.id %}"><a
                                 href="{% url 'domainmanager:characterxps' character.id %}">XP</a></li>
-                        <li class="{% ancestor 'domainmanager:characterboons' character.id %}"><a
-                                href="{% url 'domainmanager:characterboons' character.id %}">Boons</a></li>
                         <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
                                 href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
-                        <li class="{% ancestor 'domainmanager:characteractions' character.id %}"><a
-                                href="{% url 'domainmanager:characteractions' character.id %}">Downtimes</a></li>
-                        <li class="{% ancestor 'domainmanager:charactersecrets' character.id %}"><a
-                                href="{% url 'domainmanager:charactersecrets' character.id %}">Secrets</a></li>
+                        {% if character.domain.boons == True %}
+                            <li class="{% ancestor 'domainmanager:characterboons' character.id %}"><a
+                                    href="{% url 'domainmanager:characterboons' character.id %}">Boons</a></li>
+                        {% endif %}
+                        {% if character.domain.downtimes == True %}
+                            <li class="{% ancestor 'domainmanager:characteractions' character.id %}"><a
+                                    href="{% url 'domainmanager:characteractions' character.id %}">Downtimes</a></li>
+                        {% endif %}
+                        {% if character.domain.secrets == True %}
+                            <li class="{% ancestor 'domainmanager:charactersecrets' character.id %}"><a
+                                    href="{% url 'domainmanager:charactersecrets' character.id %}">Secrets</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             {% endblock panel-nav %}
@@ -50,10 +56,12 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Charactersheet: {{ character.firstname }} {{ character.lastname }}<a href="#"
-                                                                                                     onclick="javascript:changeHeaderInformation()"
-                                                                                                     class="top-menu">
-                                <span class="glyphicon glyphicon-pencil"></span></a></h3>
+                            <h3>Charactersheet: {{ character.firstname }} {{ character.lastname }} <a href="#"
+                                                                                                      onclick="javascript:changeHeaderInformation()"
+                                                                                                      class="top-menu"><span
+                                    class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="#" onclick="javascript:window.print()" class="top-menu"><span class="glyphicon glyphicon-print"></span></a>
+                            </h3>
                         </div>
                         <div class="col-md-*" align="right" style="padding-right:10px">
                             {% if character.clan.image %}
@@ -169,9 +177,13 @@
                             <div class="col-md-4">XP left :</div>
                             <div class="col-md-6">{{ xpleft }} </div>
                         </div>
-                        <div class="row">
+                        <!--<div class="row">
                             <div class="col-md-4">XP earned :</div>
                             <div class="col-md-6">{{ xpearned }} </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="col-md-4">Quick edit:</div>
+                            <div class="col-md-6"><input type="checkbox" id="quick-edit" onchange="setQuickEdit()"/></div>
                         </div>
                     </div>
                 </div>
@@ -218,21 +230,33 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Thaumaturgic paths' thaumaturgicpaths %}
+                        {% if thaumaturgicpaths %}
+                            {% renderCharacterSheetSection 'Thaumaturgic paths' thaumaturgicpaths %}
+                        {% endif %}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Rituals' rituals %}
+                        {% if rituals %}
+                            {% renderCharacterSheetSection 'Rituals' rituals %}
+                        {% endif %}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Necromantic paths' necromanticpaths %}
+                        {% if necromanticpaths %}
+                            {% renderCharacterSheetSection 'Necromantic paths' necromanticpaths %}
+                        {% endif %}
                     </div>
                 </div>
 
-
+                <div class="row">
+                    <div class="col-md-4">
+                        {% if influences %}
+                            {% renderCharacterSheetSection 'Influences' influences renderButton=True maxValue=3 %}
+                        {% endif %}
+                    </div>
+                </div>
 
                 </div>
             {% endblock characterproperties %}
-            <div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>
+            <!--<div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>-->
             </div>
         </div>
     </div>
@@ -246,28 +270,51 @@
 
 
             function showLvlDialog(propId, propValue, propName, xpCost) {
-                BootstrapDialog.show({
-                    message: 'Do you really want to raise ' + propName + " to " + (propValue + 1) + "?\n" + 'This will cost ' + xpCost + ' XP',
-                    buttons: [{
-                        label: 'Ok',
-                        cssClass: 'btn-primary',
-                        action: function () {
-                            window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
-                        }
-                    }, {
-                        icon: 'glyphicon glyphicon-ban-circle',
-                        label: 'Cancel',
-                        cssClass: 'btn-warning',
-                        action: function (dialogItself) {
-                            dialogItself.close();
-                        }
-                    }]
-                });
+
+                if ($('#quick-edit').is(':checked')) {
+                    window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
+                } else {
+
+                    BootstrapDialog.show({
+                        message: 'Do you really want to raise ' + propName + " to " + (propValue + 1) + "?\n" + 'This will cost ' + xpCost + ' XP',
+                        buttons: [{
+                            label: 'Ok',
+                            cssClass: 'btn-primary',
+                            action: function () {
+                                window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
+                            }
+                        }, {
+                            icon: 'glyphicon glyphicon-ban-circle',
+                            label: 'Cancel',
+                            cssClass: 'btn-warning',
+                            action: function (dialogItself) {
+                                dialogItself.close();
+                            }
+                        }]
+                    });
+                }
             }
 
             $(document).ready(function () {
-                console.log("JQuery is loaded");
+
+                value = Cookies.get('quick-edit');
+
+                if (value == 'yes') {
+                    $('#quick-edit').prop('checked', true);
+                } else {
+                    $('#quick-edit').prop('checked', false);
+                }
             });
+
+            function setQuickEdit() {
+
+                value = $('#quick-edit').is(':checked');
+                if (value == true) {
+                    Cookies.set('quick-edit', 'yes', {expires: 7});
+                } else {
+                    Cookies.set('quick-edit', 'no', {expires: 7});
+                }
+            }
 
         {% endautoescape %}
     </script>

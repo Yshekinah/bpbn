@@ -1,0 +1,39 @@
+{
+  "name": "list-to-tree",
+  "version": "0.0.6",
+  "homepage": "https://github.com/DenQ/list-to-tree",
+  "authors": [
+    "DenQ <denquick@gmail.com>"
+  ],
+  "keywords": [
+    "list",
+    "tree",
+    "convert",
+    "list",
+    "to",
+    "tree"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.10.1"
+  },
+  "description": "Convertor collection(list) to tree a structure",
+  "main": "dist/list-to-tree.js",
+  "_release": "0.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.6",
+    "commit": "0121a106da2cee73d37572eb84b58d03c4e65c75"
+  },
+  "_source": "https://github.com/DenQ/list-to-tree.git",
+  "_target": "^0.0.6",
+  "_originalSource": "list-to-tree",
+  "_direct": true
+}

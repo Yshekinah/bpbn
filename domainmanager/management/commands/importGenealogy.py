@@ -22,6 +22,9 @@ class Command(BaseCommand):
             if command == self.COMMAND_IMPORT:
 
                 filename = 'D:\\Stuff\\Django_projects\\bpbn_github\\bpbn\\genealogy.csv'
+                # structure
+                # 0 ID; 1 NAME; 2 Sire; 3 Generation at embrace; 4 Current Generation; 5 Clan
+
                 vampires = []
                 lineNumber = 0
 
@@ -30,13 +33,17 @@ class Command(BaseCommand):
                     for row in reader:
 
                         if len(row):
+                            vampire = Genealogy(name=row[1])
+
                             sire = Genealogy.objects.filter(name=row[2])
 
-                            clan = Clan.objects.filter(name=row[3], domain_id=1)
+                            initial_generation = row[3]
+
+                            current_generation = row[4]
+
+                            clan = Clan.objects.filter(name=row[5], domain_id=1)
 
                             domain = Domain.objects.filter(pk=1)
-
-                            vampire = Genealogy(name=row[1])
 
                             if clan.exists():
                                 vampire.clan = clan[0]
@@ -44,10 +51,22 @@ class Command(BaseCommand):
                             if sire.exists():
                                 vampire.sire = sire[0]
 
-                            if (domain.exists()):
+                            if domain.exists():
                                 vampire.domain = domain[0]
 
+                            if 'bloodline' not in initial_generation:
+                                vampire.initial_generation = initial_generation
+                            else:
+                                vampire.initial_generation = sire[0].initial_generation
+
+                            if 'bloodline' not in current_generation:
+                                vampire.current_generation = current_generation
+                            else:
+                                vampire.current_generation = sire[0].current_generation
+
                             vampire.save()
+
+                            # print(vampire)
 
                         else:
                             print("WRONG: " + row)
@@ -58,17 +77,29 @@ class Command(BaseCommand):
                 filename = 'D:\\Stuff\\Django_projects\\bpbn_github\\bpbn\\genealogy_export.json'
 
                 file = open(filename, 'w')
-                file.write('var arr=[')
+                file.write('var data=[')
 
                 for vampire in vampires:
 
-                    file.write('\n{\n' + 'name:' + '\"' + vampire.name + '\"' + ',\n')
+                    file.write('\n{\n')
+
+                    file.write('name:' + '\"' + vampire.name.replace('\n', ' ').replace('\"','\'') + '\"' + ',\n')
+
                     file.write('id:' + '\"' + str(vampire.pk) + '\"')
+
                     if vampire.sire:
-                        file.write(',\n' + 'sire:' + '\"' + str(vampire.sire.pk) + '\"' + '\n')
-                        file.write('},')
-                    else:
-                        file.write('\n' + '},')
+                        file.write(',\n' + 'sire:' + '\"' + str(vampire.sire.pk) + '\"')
+
+                    if vampire.initial_generation:
+                        file.write(',\n' + 'initial_generation:' + '\"' + str(vampire.initial_generation) + '\"')
+
+                    if vampire.current_generation:
+                        file.write(',\n' + 'current_generation:' + '\"' + str(vampire.current_generation) + '\"')
+
+                    if vampire.clan:
+                        file.write(',\n' + 'clan:' + '\"' + str(vampire.clan.name) + '\"')
+
+                    file.write('\n' + '},')
 
                 file.write('];')
                 file.close()

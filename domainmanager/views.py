@@ -90,6 +90,7 @@ def charactersheet(request, character_id):
     rituals = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.rituals)
     thaumaturgicpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.thaumaturgicpaths)
     necromanticpaths = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.necromanticpaths)
+    influences = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.influences)
     xpleft = characterTools.getXPforCharacter(character)
     xpearned = Xpearned.objects.filter(characters__in=[character]).aggregate(Sum('value'))['value__sum']
 
@@ -99,7 +100,7 @@ def charactersheet(request, character_id):
     context = {'character': character, 'disciplines': disciplines, 'rituals': rituals,
                'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft, 'xpearned': xpearned,
                'skills': skills, 'talents': talents, 'knowledges': knowledges, 'merits': merits, 'flaws': flaws, 'physical': physical,
-               'social': social, 'mental': mental}
+               'social': social, 'mental': mental, 'influences': influences}
 
     request.session['active_character_id'] = character.pk
     request.session['active_character_name'] = character.firstname + " " + character.lastname
@@ -398,11 +399,7 @@ def charactersecrets(request, character_id):
 
 @login_required()
 def genealogy(request):
-    vampires = Genealogy.objects.all().filter(generation__lte="7").order_by('pk')
-
-    context = {'vampires': vampires}
-
-    return render(request, 'domainmanager/genealogy.html', context)
+    return render(request, 'domainmanager/genealogy.html')
 
 
 @login_required()

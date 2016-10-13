@@ -21,6 +21,9 @@ def set_upload_directory_path(instance, filename):
     if ctype.model == 'action':
         return 'domain_{0}/{1}/'.format(instance.character.domain.id, ctype.model) + strftime('/%Y/%m/%d') + "/" + name + "_" + str(
             ''.join(random.choice(pool) for i in range(length))) + "." + extension
+    elif ctype.model == 'domain':
+        return 'domain_{0}/{1}/'.format(instance.pk, ctype.model) + strftime('/%Y/%m/%d') + "/" + name + "_" + str(
+            ''.join(random.choice(pool) for i in range(length))) + "." + extension
     else:
         return 'domain_{0}/{1}/'.format(instance.domain.id, ctype.model) + strftime('/%Y/%m/%d') + "/" + name + "_" + str(
             ''.join(random.choice(pool) for i in range(length))) + "." + extension
@@ -135,8 +138,10 @@ class Domain(models.Model):
     gm = models.ForeignKey('Person', related_name='gm')
     substitute = models.ForeignKey('Person', related_name='substitute')
     secrets = models.BooleanField(default=True)
+    boons = models.BooleanField(default=True)
     influences = models.BooleanField(default=True)
     downtimes = models.BooleanField(default=True)
+    image = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -566,17 +571,19 @@ class News(models.Model):
 
 
 class Genealogy(models.Model):
-
     class Meta:
         verbose_name_plural = 'Genealogy'
 
     name = models.CharField(max_length=100)
     sire = models.ForeignKey('Genealogy', blank=True, null=True)
-    generation = models.IntegerField(default=10, blank=True)
+    initial_generation = models.IntegerField(default=10, blank=True)
+    current_generation = models.IntegerField(default=10, blank=True)
     clan = models.ForeignKey('Clan', blank=True, null=True)
     domain = models.ForeignKey('Domain', default=1)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return "Name: " + self.name + ", Clan: " + str(
+            self.clan) + ", initial generation: " + str(self.initial_generation) + ", current generation: " + str(
+            self.current_generation) + ", Domain: " + str(self.domain)
