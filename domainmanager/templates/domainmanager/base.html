@@ -79,25 +79,25 @@
                         <li>
                             {% if request.user.person.domain.image %}
                                 <a class="navbar-brand" href="{% url 'domainmanager:index' %}"><img src="{{ request.user.person.domain.image.url }}"
-                                                                                                    width="50px" style="margin-top: -10px;"
-                                                                                                    alt="Domainmanager"></a>
+                                                                                                    width="50px" style="margin-top: -10px;"></a>
                             {% else %}
-                                <a class="navbar-brand" href="{% url 'domainmanager:index' %}">Domainmanager</a></li>-->
+                                <a class="navbar-brand" href="{% url 'domainmanager:index' %}">Domainmanager</a></li>
                             {% endif %}
                         </li>
-                        {% comment %}Only show admin menu to admins {% endcomment %}
-                        {% if user.is_staff %}
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                Admin Menu <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'admin:index' %}">Django admin</a></li>
-                                <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
-                                <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
-                                <li><a href="{% url 'domainmanager:players' %}">Players</a></li>
-                                <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
-                                <li><a href="{% url 'domainmanager:genealogy' %}">Genealogy</a></li>
-                            </ul>
-                        {% endif %}
+                        <li role="presentation" class="dropdown">
+                            {% comment %}Only show admin menu to admins {% endcomment %}
+                            {% if user.is_staff %}
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin
+                                    Menu<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'admin:index' %}">Django admin</a></li>
+                                    <li><a href="{% url 'domainmanager:adminboons' %}">Boons</a></li>
+                                    <li><a href="{% url 'domainmanager:adminbasket' %}">Basket</a></li>
+                                    <li><a href="{% url 'domainmanager:players' %}">Players</a></li>
+                                    <li><a href="{% url 'domainmanager:characters' %}">Characters</a></li>
+                                    <li><a href="{% url 'domainmanager:genealogy' %}">Genealogy</a></li>
+                                </ul>
+                            {% endif %}
 
                         </li>
                         <li role="presentation" class="dropdown">
