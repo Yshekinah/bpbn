@@ -106,9 +106,8 @@ def createInitialXP(character):
     xpearned.save()
 
 
-# character C bought property P.
-# It was approved by gm
-# now we have to add it to him
+# A character bought a property:
+# It was already approved by the gm and now it has to be added to charactersheet and spend his XP
 def addPropertytoCharacter(property, character):
     characterProperty = CharacterProperty(character=character, property=property.property, value=1)
     characterProperty.save()
@@ -122,5 +121,10 @@ def addPropertytoCharacter(property, character):
         xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=property.property.xpprize, property=property.property)
         xpSpent.save()
     else:
-        xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=property.property.type.xpinitialprize, property=property.property)
+        if property.mentor == True:
+            xpcost = property.property.type.xpinitialprize - property.property.domain.mentorbonus
+        else:
+            xpcost = property.property.type.xpinitialprize
+
+        xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=xpcost, property=property.property)
         xpSpent.save()

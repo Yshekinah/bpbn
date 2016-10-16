@@ -55,6 +55,7 @@
                         <th>New property</th>
                         <th>New property type</th>
                         <th>XP cost</th>
+                        <th>Mentor</th>
                         <th>Approved by GM</th>
                         <th>Cancel</th>
                         <th>Timestamp</th>
@@ -69,10 +70,11 @@
                             <td>
                                 {% if row.property.type.stattype == row.property.type.STATUS.merits or row.property.type.stattype == row.property.type.STATUS.flaws %}
                                     {{ row.property.xpprize }}{% else %}{{ row.property.type.xpinitialprize }}{% endif %}</td>
-
-                            {% comment %}<td>{% if row.property %}{% else %}
-                                {{ row.newpropertytype.xpinitialprize }}{% endif %}</td>{% endcomment %}
-
+                            <td>{% if row.mentor %}
+                                <span class="glyphicon glyphicon-ok"></span>
+                            {% else %}
+                                <span class="glyphicon glyphicon-remove"></span>
+                            {% endif %}</td>
                             <td>{{ row.STATUS|getValue:row.approvedbygm }}</td>
                             <td>
                                 {% if row.approvedbygm == row.STATUS.waiting %}

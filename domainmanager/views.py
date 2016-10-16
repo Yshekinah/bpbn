@@ -83,7 +83,7 @@ def charactersheet(request, character_id):
     talents = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.talents)
     skills = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.skills)
     knowledges = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.knowledges)
-
+    backgrounds = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.backgrounds)
     merits = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.merits)
     flaws = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.flaws)
     disciplines = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.disciplines)
@@ -100,7 +100,7 @@ def charactersheet(request, character_id):
     context = {'character': character, 'disciplines': disciplines, 'rituals': rituals,
                'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft, 'xpearned': xpearned,
                'skills': skills, 'talents': talents, 'knowledges': knowledges, 'merits': merits, 'flaws': flaws, 'physical': physical,
-               'social': social, 'mental': mental, 'influences': influences}
+               'social': social, 'mental': mental, 'influences': influences, 'backgrounds': backgrounds}
 
     request.session['active_character_id'] = character.pk
     request.session['active_character_name'] = character.firstname + " " + character.lastname
@@ -273,6 +273,7 @@ def charactershopping(request, character_id):
             purchasedProperty = CharacterShopping()
             if form.cleaned_data['property']:
                 purchasedProperty.property = form.cleaned_data['property']
+                purchasedProperty.mentor = form.cleaned_data['mentor']
 
             purchasedProperty.character = character
             purchasedProperty.hash_gm = characterTools.random_string(20)
@@ -321,7 +322,7 @@ def charactershopping_cancel(request, character_id, item_id):
 def characterbasket(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
-    basket = CharacterShopping.objects.filter(character=character).order_by('-timestamp')
+    basket = CharacterShopping.objects.filter(character=character).filter(approvedbygm=CharacterShopping.STATUS.waiting).order_by('-timestamp')
 
     context = {'character': character, 'basket': basket}
     return render(request, 'domainmanager/characterbasket.html', context)

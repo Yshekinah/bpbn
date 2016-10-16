@@ -139,6 +139,14 @@ class Domain(models.Model):
     substitute = models.ForeignKey('Person', related_name='substitute')
     secrets = models.BooleanField(default=True)
     boons = models.BooleanField(default=True)
+    mentor = models.BooleanField(default=True)
+    mentorbonus = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0)
+        ]
+    )
     influences = models.BooleanField(default=True)
     downtimes = models.BooleanField(default=True)
     image = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
@@ -191,7 +199,7 @@ class Property(models.Model):
     STATUS = Choices((1, 'yes', 'Yes'), (2, 'no', 'No'))
     name = models.CharField(max_length=100)
     type = models.ForeignKey('PropertyType', related_name='type')
-    description = models.CharField(max_length=250, blank=True, null=True)
+    description = models.TextField(default='please insert a useful manual text', blank=True, null=True)
     domain = models.ForeignKey(Domain, related_name='property_domain', default=1)
     initalizeatcharactercreation = models.IntegerField(choices=STATUS, default=STATUS.no, verbose_name="Initialize at character creation")
     xpprize = models.IntegerField(default=0, help_text='Only use XP costs here for merits and flaws! All other XP costs are set in property types')
@@ -338,6 +346,7 @@ class CharacterShopping(models.Model):
                      (5, 'canceled', 'Canceled'))
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     property = models.ForeignKey(Property, on_delete=models.CASCADE, blank=True, null=True)
+    mentor = models.BooleanField(default=False, help_text='Do you have access to a mentor?')
     approvedbygm = models.IntegerField(choices=STATUS, default=STATUS.waiting)
     hash_gm = models.CharField(max_length=20, default="")
     created = models.DateTimeField(auto_now_add=True)

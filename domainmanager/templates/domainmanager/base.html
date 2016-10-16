@@ -28,8 +28,6 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
 
-    <!-- Load custom templates and filters -->
-    {% load customTags %}
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
@@ -48,6 +46,15 @@
 
     <!-- self written little lib for creating dialogs -->
     <script type="text/javascript" src="{% static 'js/renderDialog.js' %}"></script>
+
+    <!-- Checkbox bootstrap style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <script src="{% static 'js/bootstrap-checkbox.min.js' %}" defer></script>
+
+    <!-- Load custom templates and filters -->
+    {% load customTags %}
 
     {% block additionalscripts %}
 
@@ -143,6 +150,8 @@
     <nav class="navbar navbar-default" id="footer_menu">
         <div class="container">
             <ul class="nav navbar-nav">
+                {% block additional_social %}
+                {% endblock %}
                 <li><a href="mailto:conclave@budapestbynight.live">Write us an Mail</a></li>
                 <li><a href="https://www.facebook.com/bpbynight/">Visit us on Facebook</a></li>
                 <li>

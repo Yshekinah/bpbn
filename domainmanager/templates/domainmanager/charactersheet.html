@@ -56,13 +56,29 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Charactersheet: {{ character.firstname }} {{ character.lastname }} <a href="#"
-                                                                                                      onclick="javascript:changeHeaderInformation()"
-                                                                                                      class="top-menu"><span
+                            <h3>{{ character.salutation }} {{ character.firstname }} {{ character.lastname }} <a href="#"
+                                                                                                                 onclick="javascript:changeHeaderInformation()"
+                                                                                                                 class="top-menu"><span
                                     class="glyphicon glyphicon-pencil"></span></a>
-                                <a href="#" onclick="javascript:window.print()" class="top-menu"><span class="glyphicon glyphicon-print"></span></a>
+                                <a href="#" onclick="javascript:window.print()" class="top-menu"><span
+                                        class="glyphicon glyphicon-print"></span></a>
                             </h3>
+                            <div class="row">
+                                <div class="col-md-3">Level up <span class="glyphicon glyphicon-info-sign"
+                                                                     onclick="javascript:showInfoDialog('Level up','When checked you can level up your character')"></span>
+                                </div>
+                                <div class="col-md-3"><input type="checkbox" id="level-up" onchange="setLevelUp()" data-reverse></div>
+                            </div>
+                            <div id="div-quick-edit" class="row" style="padding-top: 4px">
+                                <div class="col-md-3">Quick edit <span class="glyphicon glyphicon-info-sign"
+                                                                       onclick="javascript:showInfoDialog('Quick edit','When checked the character editor will not ask for confirmation to level up.')"></span>
+                                </div>
+                                <div class="col-md-3"><input type="checkbox" id="quick-edit" onchange="setQuickEdit()" data-reverse></div>
+
+                            </div>
                         </div>
+
+
                         <div class="col-md-*" align="right" style="padding-right:10px">
                             {% if character.clan.image %}
                                 <img src="{{ character.clan.image.url }}" alt="Clan logo" height="100px" width="auto"/>
@@ -81,17 +97,15 @@
                     </div>
                 </div>
 
-
-
                 <div class="panel-body">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-4">
-                                Name:
+                                Domain:
                             </div>
                             <div class="col-md-6">
-                                {{ character.firstname }} {{ character.lastname }}
+                                {{ character.domain }}
                             </div>
                         </div>
                         {% if character.nickname != None %}
@@ -104,14 +118,7 @@
                                 </div>
                             </div>
                         {% endif %}
-                        <div class="row">
-                            <div class="col-md-4">
-                                Domain:
-                            </div>
-                            <div class="col-md-6">
-                                {{ character.domain }}
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-md-4">
                                 Player:
@@ -154,10 +161,6 @@
                                 </div>
                                 <div class="col-md-6">{{ character.rank }}</div>
                             </div>{% endif %}
-                        <div class="row">
-                            <div class="col-md-4">Age category:</div>
-                            <div class="col-md-6">{{ character.age_category }}</div>
-                        </div>
 
                     </div>
                     <div class="col-md-4">
@@ -176,14 +179,6 @@
                         <div class="row">
                             <div class="col-md-4">XP left :</div>
                             <div class="col-md-6">{{ xpleft }} </div>
-                        </div>
-                        <!--<div class="row">
-                            <div class="col-md-4">XP earned :</div>
-                            <div class="col-md-6">{{ xpearned }} </div>
-                        </div>-->
-                        <div class="row">
-                            <div class="col-md-4">Quick edit:</div>
-                            <div class="col-md-6"><input type="checkbox" id="quick-edit" onchange="setQuickEdit()"/></div>
                         </div>
                     </div>
                 </div>
@@ -220,43 +215,55 @@
                     <div class="col-md-4">
                         {% renderCharacterSheetSection 'Disciplines' disciplines %}
                     </div>
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Merits' merits showValue=False %}
-                    </div>
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Flaws' flaws showValue=False %}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        {% if thaumaturgicpaths %}
-                            {% renderCharacterSheetSection 'Thaumaturgic paths' thaumaturgicpaths %}
-                        {% endif %}
-                    </div>
-                    <div class="col-md-4">
-                        {% if rituals %}
-                            {% renderCharacterSheetSection 'Rituals' rituals %}
-                        {% endif %}
-                    </div>
-                    <div class="col-md-4">
-                        {% if necromanticpaths %}
-                            {% renderCharacterSheetSection 'Necromantic paths' necromanticpaths %}
-                        {% endif %}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        {% if influences %}
+                    {% if influences %}
+                        <div class="col-md-4">
                             {% renderCharacterSheetSection 'Influences' influences renderButton=True maxValue=3 %}
+                        </div>
+                    {% endif %}
+                    <div class="col-md-4">
+                        {% if backgrounds %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% renderCharacterSheetSection 'Backgrounds' backgrounds showValue=True %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if merits %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% renderCharacterSheetSection 'Merits' merits showValue=False %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if flaws %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% renderCharacterSheetSection 'Flaws' flaws showValue=False %}
+                                </div>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
-
+                <div class="row">
+                    {% if thaumaturgicpaths %}
+                        <div class="col-md-4">
+                            {% renderCharacterSheetSection 'Thaumaturgic paths' thaumaturgicpaths %}
+                        </div>
+                    {% endif %}
+                    {% if rituals %}
+                        <div class="col-md-4">
+                            {% renderCharacterSheetSection 'Rituals' rituals %}
+                        </div>
+                    {% endif %}
+                    {% if necromanticpaths %}
+                        <div class="col-md-4">
+                            {% renderCharacterSheetSection 'Necromantic paths' necromanticpaths %}
+                        </div>
+                    {% endif %}
                 </div>
+
             {% endblock characterproperties %}
-            <!--<div class="panel-footer print-table"><a href="javascript:window.print()">Print charactersheet</a></div>-->
+            </div>
             </div>
         </div>
     </div>
@@ -268,6 +275,12 @@
                 $('#myModal').modal('show').find('.modal-body').load('{% url 'domainmanager:characterinformation_edit' character.pk %} ');
             }
 
+            function showInfoDialog(title, text) {
+                BootstrapDialog.show({
+                    title: title,
+                    message: text
+                });
+            }
 
             function showLvlDialog(propId, propValue, propName, xpCost) {
 
@@ -297,14 +310,20 @@
 
             $(document).ready(function () {
 
-                value = Cookies.get('quick-edit');
-
-                if (value == 'yes') {
-                    $('#quick-edit').prop('checked', true);
-                } else {
-                    $('#quick-edit').prop('checked', false);
-                }
+                $(':checkbox').checkboxpicker();
+                updateVisibility();
             });
+
+            function setLevelUp() {
+
+                value = $('#level-up').is(':checked');
+                if (value == true) {
+                    Cookies.set('level-up', 'yes', {expires: 7});
+                } else {
+                    Cookies.set('level-up', 'no', {expires: 7});
+                }
+                updateVisibility();
+            }
 
             function setQuickEdit() {
 
@@ -313,6 +332,29 @@
                     Cookies.set('quick-edit', 'yes', {expires: 7});
                 } else {
                     Cookies.set('quick-edit', 'no', {expires: 7});
+                }
+                updateVisibility();
+            }
+
+            function updateVisibility() {
+                value = Cookies.get('level-up');
+                if (value == 'yes') {
+                    $('#level-up').prop('checked', true);
+                    $('#div-quick-edit').show();
+                    $('.btn-level-up').show();
+                    $('.col-level-up').show();
+                } else {
+                    $('#level-up').prop('checked', false);
+                    $('#div-quick-edit').hide();
+                    $('.btn-level-up').hide();
+                    $('.col-level-up').hide();
+                }
+
+                value = Cookies.get('quick-edit');
+                if (value == 'yes') {
+                    $('#quick-edit').prop('checked', true);
+                } else {
+                    $('#quick-edit').prop('checked', false);
                 }
             }
 

@@ -5,17 +5,18 @@
 {% for field in querySet %}
 
 
-
     <div class="row">
-        <div class="col-md-4">{{ field.property.name }}</div>
+        <div class="col-md-5">
+            {{ field.property.name }}{% if field.property.description %} <span class="glyphicon glyphicon-info-sign" onclick="javascript:showInfoDialog('{{ field.property.name }}','{{ field.property.description }}')"></span>{% endif %}
+        </div>
         <div class="col-md-4">
-            {% if showValue %}{% for i in field.value|get_range %}<img width="12px" src="{% static 'img/blackdot.png' %}">{% endfor %}{% endif %}
+            {% if showValue %}{% for i in field.value|get_range %}<img width="13px" src="{% static 'img/blackdot.png' %}">{% endfor %}{% endif %}
             {% with whitedots=maxValue %}
                 {% if showValue %}{% for i in whitedots|subtract:field.value|get_range %}<img width="10px" src="{% static 'img/whitedot.png' %}">
                 {% endfor %}{% endif %}
             {% endwith %}
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 col-level-up">
             {% if renderButton %}
                 {% renderLvlUpButton field.id field.value field.property.name %}
             {% endif %}

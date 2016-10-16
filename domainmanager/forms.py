@@ -31,7 +31,7 @@ class BoonForm(ModelForm):
 class CharacterShoppingForm(ModelForm):
     class Meta:
         model = CharacterShopping
-        fields = ['property']
+        fields = ['property', 'mentor']
 
 
 #CharacterPropertyFormSet = inlineformset_factory(Character, CharacterProperty, extra=0, can_delete=False, exclude=['property', 'timestamp'], widgets={'value': Textarea(attrs={'cols': 5, 'rows': 1})})
