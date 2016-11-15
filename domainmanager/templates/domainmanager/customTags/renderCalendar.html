@@ -40,7 +40,7 @@
                     return [{% for event in events %}
                         {
                             "id": {{ event.pk }},
-                            "title": "{{ event.caption }}",
+                            "title": "{{ event.name }}",
                             "url": "http://www.orf.at",
                             "class": "{{ event.domain.pk|renderCalenderClassByDomain }}",
                             "start": {{ event.start_date|date:"U" }}000, // Milliseconds

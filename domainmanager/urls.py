@@ -76,8 +76,16 @@ urlpatterns = [
     url(r'^players$', views.players, name='players'),
 
     # LvlUp one CharacterProperty in charactersheet
-    # ex: /domainmanager/playersummary/1
+    # ex: /domainmanager/lvlup/1
     url(r'^lvlup/(?P<characterproperty_id>[0-9]+)$', views.lvlup, name='lvlup'),
+
+    # Raise or lower one unfinished CharacterProperty in charactersheet
+    # ex: /domainmanager/playersummary/1
+    url(r'^advancedlvlup/(?P<characterproperty_id>[0-9]+)/(?P<action>[A-Za-z]+)$', views.advancedlvlup, name='advancedlvlup'),
+
+    # Set the charcter to finish
+    # ex: /domainmanager/setfinish/55
+    url(r'^setfinish/(?P<character_id>[0-9]+)$', views.setfinish, name='setfinish'),
 
     # View of the genealogy
     #  ex: /domainmanager/genealogy

@@ -14,21 +14,25 @@
                     <ul class="nav nav-tabs">
                         <li class="{% ancestor 'domainmanager:charactersheet' character.id %}"><a
                                 href="{% url 'domainmanager:charactersheet' character.id %}">Charactersheet</a></li>
-                        <li class="{% ancestor 'domainmanager:characterxps' character.id %}"><a
-                                href="{% url 'domainmanager:characterxps' character.id %}">XP</a></li>
-                        <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
-                                href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
-                        {% if character.domain.boons == True %}
-                            <li class="{% ancestor 'domainmanager:characterboons' character.id %}"><a
-                                    href="{% url 'domainmanager:characterboons' character.id %}">Boons</a></li>
-                        {% endif %}
-                        {% if character.domain.downtimes == True %}
-                            <li class="{% ancestor 'domainmanager:characteractions' character.id %}"><a
-                                    href="{% url 'domainmanager:characteractions' character.id %}">Downtimes</a></li>
-                        {% endif %}
-                        {% if character.domain.secrets == True %}
-                            <li class="{% ancestor 'domainmanager:charactersecrets' character.id %}"><a
-                                    href="{% url 'domainmanager:charactersecrets' character.id %}">Secrets</a></li>
+                        <!-- Only show additional links if the character creation process is finished -->
+                        {% if character.finished %}
+                            <li class="{% ancestor 'domainmanager:characterxps' character.id %}"><a
+                                    href="{% url 'domainmanager:characterxps' character.id %}">XP</a></li>
+                            <li class="{% ancestor 'domainmanager:characterbasket' character.id %}"><a
+                                    href="{% url 'domainmanager:characterbasket' character.id %}">Basket</a></li>
+
+                            {% if character.domain.boons == True %}
+                                <li class="{% ancestor 'domainmanager:characterboons' character.id %}"><a
+                                        href="{% url 'domainmanager:characterboons' character.id %}">Boons</a></li>
+                            {% endif %}
+                            {% if character.domain.downtimes == True %}
+                                <li class="{% ancestor 'domainmanager:characteractions' character.id %}"><a
+                                        href="{% url 'domainmanager:characteractions' character.id %}">Downtimes</a></li>
+                            {% endif %}
+                            {% if character.domain.secrets == True %}
+                                <li class="{% ancestor 'domainmanager:charactersecrets' character.id %}"><a
+                                        href="{% url 'domainmanager:charactersecrets' character.id %}">Secrets</a></li>
+                            {% endif %}
                         {% endif %}
                     </ul>
                 </div>
@@ -56,26 +60,44 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>{{ character.salutation }} {{ character.firstname }} {{ character.lastname }} <a href="#"
-                                                                                                                 onclick="javascript:changeHeaderInformation()"
-                                                                                                                 class="top-menu"><span
-                                    class="glyphicon glyphicon-pencil"></span></a>
-                                <a href="#" onclick="javascript:window.print()" class="top-menu"><span
-                                        class="glyphicon glyphicon-print"></span></a>
+                            <h3>{{ character.salutation }} {{ character.firstname }} {{ character.lastname }}
+                                <a href="#" onclick="javascript:changeHeaderInformation()" class="top-menu"><span
+                                        class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="#" onclick="javascript:window.print()" class="top-menu"><span class="glyphicon glyphicon-print"></span></a>
                             </h3>
-                            <div class="row">
-                                <div class="col-md-3">Level up <span class="glyphicon glyphicon-info-sign"
-                                                                     onclick="javascript:showInfoDialog('Level up','When checked you can level up your character')"></span>
-                                </div>
-                                <div class="col-md-3"><input type="checkbox" id="level-up" onchange="setLevelUp()" data-reverse></div>
-                            </div>
-                            <div id="div-quick-edit" class="row" style="padding-top: 4px">
-                                <div class="col-md-3">Quick edit <span class="glyphicon glyphicon-info-sign"
-                                                                       onclick="javascript:showInfoDialog('Quick edit','When checked the character editor will not ask for confirmation to level up.')"></span>
-                                </div>
-                                <div class="col-md-3"><input type="checkbox" id="quick-edit" onchange="setQuickEdit()" data-reverse></div>
+                            {% if character.finished %}
+                                <!-- If character is finisehd show the level up buttons -->
+                                {% if xpleft > 0 %}
+                                    <div class="row">
+                                        <div class="col-md-3">Level up <span class="glyphicon glyphicon-info-sign"
+                                                                             onclick="javascript:showInfoDialog('Level up','When checked you can level up your character')"></span>
+                                        </div>
+                                        <div class="col-md-3"><input type="checkbox" id="level-up" onchange="setLevelUp()" data-reverse></div>
+                                    </div>
+                                    <div id="div-quick-edit" class="row" style="padding-top: 4px">
+                                        <div class="col-md-3">Quick edit <span class="glyphicon glyphicon-info-sign"
+                                                                               onclick="javascript:showInfoDialog('Quick edit','When checked the character editor will not ask for confirmation to level up.')"></span>
+                                        </div>
+                                        <div class="col-md-3"><input type="checkbox" id="quick-edit" onchange="setQuickEdit()" data-reverse></div>
 
-                            </div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <!-- If character is NOT finisehd show the finish button -->
+                                <div class="row">
+                                    <div class="col-md-3">Finish character creation <span class="glyphicon glyphicon-info-sign"
+                                                                                          onclick="javascript:showInfoDialog('Finish Character','WARNING - when checked the character is finished and can only be altered with XP')"></span>
+                                    </div>
+                                    <div class="col-md-3"><input type="checkbox" id="finish" onchange="setFinished()" data-reverse></div>
+                                    <div class="col-md-4">
+                                        Abilities: {{ character.age_category.startingabilities }} / {{ characterCreation.abilities }}<br/>
+                                        Skills: {{ character.age_category.startingskills }} / {{ characterCreation.skills}}<br/>
+                                        Disciplines {{ character.age_category.startingdisciplines }} / {{ characterCreation.disciplines}}<br/>
+                                        Backgrounds {{ character.age_category.startingbackgrounds }} / {{ characterCreation.backgrounds }}<br/>
+                                        Influences {{ character.age_category.startinginfluences }} / {{ characterCreation.influences }}<br/>
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
 
 
@@ -135,7 +157,7 @@
                                     Sire:
                                 </div>
                                 <div class="col-md-6">
-                                    {{ character.sire.salutation }} {{ character.sire.firstname }} {{ character.sire.lastname }}
+                                    {{ character.sire }}
                                 </div>
                             </div>{% endif %}
                         {% if character.clan != None %}
@@ -189,35 +211,35 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Physical' physical %}
+                        {% renderCharacterSheetSection sectionName='Physical' querySet=physical finished=character.finished %}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Social' social %}
+                        {% renderCharacterSheetSection sectionName='Social' querySet=social finished=character.finished %}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Mental' mental %}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Talents' talents %}
-                    </div>
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Skills' skills %}
-                    </div>
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Knowledges' knowledges %}
+                        {% renderCharacterSheetSection sectionName='Mental' querySet=mental finished=character.finished %}
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection 'Disciplines' disciplines %}
+                        {% renderCharacterSheetSection sectionName='Talents' querySet=talents finished=character.finished %}
+                    </div>
+                    <div class="col-md-4">
+                        {% renderCharacterSheetSection sectionName='Skills' querySet=skills finished=character.finished %}
+                    </div>
+                    <div class="col-md-4">
+                        {% renderCharacterSheetSection sectionName='Knowledges' querySet=knowledges finished=character.finished %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        {% renderCharacterSheetSection sectionName='Disciplines' querySet=disciplines finished=character.finished %}
                     </div>
                     {% if influences %}
                         <div class="col-md-4">
-                            {% renderCharacterSheetSection 'Influences' influences renderButton=True maxValue=3 %}
+                            {% renderCharacterSheetSection sectionName='Influences' querySet=influences renderButton=True maxValue=3 finished=character.finished %}
                         </div>
                     {% endif %}
                     <div class="col-md-4">
@@ -314,6 +336,38 @@
                 updateVisibility();
             });
 
+            function setFinished() {
+
+                cFinish = $('#finish').is(':checked');
+                if (cFinish == true) {
+                    Cookies.set('finish', 'yes', {expires: 7});
+
+                    BootstrapDialog.show({
+                        message: 'Do you really want to finish the character generation? This step is final.',
+                        buttons: [{
+                            label: 'Ok',
+                            cssClass: 'btn-primary',
+                            action: function () {
+                                window.location.href = "http://{{ request.get_host }}/domainmanager/setfinish/" + "{{ character.pk }}";
+                            }
+                        }, {
+                            icon: 'glyphicon glyphicon-ban-circle',
+                            label: 'Cancel',
+                            cssClass: 'btn-warning',
+                            action: function (dialogItself) {
+                                $('#finish').prop('checked', false);
+                                Cookies.set('finish', 'no', {expires: 7});
+                                dialogItself.close();
+                            }
+                        }]
+                    });
+                } else {
+                    Cookies.set('finish', 'no', {expires: 7});
+                }
+                updateVisibility();
+            }
+
+
             function setLevelUp() {
 
                 value = $('#level-up').is(':checked');
@@ -337,21 +391,39 @@
             }
 
             function updateVisibility() {
-                value = Cookies.get('level-up');
-                if (value == 'yes') {
-                    $('#level-up').prop('checked', true);
+
+                /**
+                 * Are we still in character creation mode?
+                 * Hier muß ich darauf achten, dass das finished Attribut ja nur durch Python gesetzt werden kann - weil DB
+                 */
+                cFinish = Cookies.get('finish');
+                if (cFinish == 'yes') {
+                    $('#finish').prop('checked', true);
                     $('#div-quick-edit').show();
                     $('.btn-level-up').show();
                     $('.col-level-up').show();
                 } else {
+                    $('#finish').prop('checked', false);
+                    $('.btn-level-up').show();
+                    $('.col-level-up').show();
+                }
+
+                cLevel = Cookies.get('level-up');
+                if (cLevel == 'yes' && cFinish == 'yes') {
+                    $('#level-up').prop('checked', true);
+                    $('#div-quick-edit').show();
+                    $('.btn-level-up').show();
+                    $('.col-level-up').show();
+                }
+                if (cLevel == 'no' && cFinish == 'yes') {
                     $('#level-up').prop('checked', false);
                     $('#div-quick-edit').hide();
                     $('.btn-level-up').hide();
                     $('.col-level-up').hide();
                 }
 
-                value = Cookies.get('quick-edit');
-                if (value == 'yes') {
+                cQuick = Cookies.get('quick-edit');
+                if (cLevel == 'yes' && cQuick == 'yes') {
                     $('#quick-edit').prop('checked', true);
                 } else {
                     $('#quick-edit').prop('checked', false);

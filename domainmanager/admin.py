@@ -167,6 +167,37 @@ class CharacterAdmin(admin.ModelAdmin):
     get_domain.admin_order_field = 'domain__name'
 
 
+class CharacterCreationAdmin(admin.ModelAdmin):
+    search_fields = ('character__firstname', 'character__lastname')
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('get_character', 'abilities', 'skills', 'disciplines', 'backgrounds', 'influences', 'secrets')
+    list_filter = (('character', admin.RelatedOnlyFieldListFilter), 'abilities', 'skills', 'disciplines', 'backgrounds', 'influences', 'secrets')
+
+    # Show staff users only the properties they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(CharacterCreationAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(character__domain=request.user.person.domain)
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(CharacterCreationAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # get only the character - the character is a member of said domain
+            form.base_fields['character'].queryset = form.base_fields['character'].queryset.filter(domain=request.user.person.domain)
+        return form
+
+    def get_character(self, obj):
+        return obj.character.firstname + " " + obj.character.lastname
+
+    get_character.short_description = 'Character'
+
+
 class CharacterPropertyAdmin(admin.ModelAdmin):
     search_fields = ('property__name',)
     actions_selection_counter = True
@@ -515,7 +546,8 @@ class DomainAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'get_gm', 'get_substitute', 'street', 'postcode', 'boons','secrets', 'downtimes', 'influences')
+    list_display = (
+    'name', 'get_gm', 'get_substitute', 'street', 'postcode', 'boons', 'secrets', 'downtimes', 'influences', 'advancedcharactercreation')
     list_filter = (('gm', admin.RelatedOnlyFieldListFilter), ('substitute', admin.RelatedOnlyFieldListFilter))
 
     # Show staff users only the properties they are allowed to edit
@@ -555,7 +587,8 @@ class AgeCategoryAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('name', 'startingxp', 'startingsecrets')
+    list_display = ('name', 'startingxp', 'startingabilities', 'startingskills', 'startingdisciplines', 'startinginfluences', 'startingbackgrounds',
+                    'startingsecrets')
 
     # list_filter = ('name', 'startingxp')
 
@@ -936,6 +969,7 @@ admin.site.register(AgeCategory, AgeCategoryAdmin)
 admin.site.register(Boon, BoonAdmin)
 admin.site.register(BoonCategory, BoonCategoryAdmin)
 admin.site.register(Character, CharacterAdmin)
+admin.site.register(CharacterCreation, CharacterCreationAdmin)
 admin.site.register(CharacterProperty, CharacterPropertyAdmin)
 admin.site.register(CharacterSecret, CharacterSecretAdmin)
 admin.site.register(CharacterShopping, CharacterShoppingAdmin)

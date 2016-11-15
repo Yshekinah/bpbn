@@ -13,7 +13,7 @@ class ActionForm(forms.ModelForm):
 class CharacterFormCreate(forms.ModelForm):
     class Meta:
         model = Character
-        exclude = ['clan_rank', 'humanity', 'frenzy', 'active', 'willpower', 'properties', 'bloodpool', 'schrecknetlevel', 'hasvisions', 'secretclan']
+        exclude = ['clan_rank', 'humanity', 'frenzy', 'active', 'willpower', 'properties', 'bloodpool', 'schrecknetlevel', 'hasvisions', 'secretclan', 'finished']
 
 
 class CharacterFormEdit(forms.ModelForm):

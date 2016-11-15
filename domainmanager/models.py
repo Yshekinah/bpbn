@@ -68,6 +68,11 @@ class AgeCategory(models.Model):
         verbose_name_plural = 'Age categories'
 
     name = models.CharField(max_length=100)
+    startingabilities = models.IntegerField(default=10)
+    startingskills = models.IntegerField(default=20)
+    startingdisciplines = models.IntegerField(default=4)
+    startingbackgrounds = models.IntegerField(default=5)
+    startinginfluences = models.IntegerField(default=4)
     startingxp = models.IntegerField(default=25)
     startingsecrets = models.IntegerField(default=4)
     created = models.DateTimeField(auto_now_add=True)
@@ -139,6 +144,7 @@ class Domain(models.Model):
     substitute = models.ForeignKey('Person', related_name='substitute')
     secrets = models.BooleanField(default=True)
     boons = models.BooleanField(default=True)
+    advancedcharactercreation = models.BooleanField(default=True)
     mentor = models.BooleanField(default=True)
     mentorbonus = models.IntegerField(
         default=0,
@@ -225,6 +231,24 @@ class Clan(models.Model):
         return self.name
 
 
+class CharacterCreation(models.Model):
+    class Meta:
+        verbose_name_plural = 'Character creation entries'
+
+    character = models.OneToOneField('Character', on_delete=models.CASCADE,)
+    abilities = models.IntegerField(default=0)
+    skills = models.IntegerField(default=0)
+    disciplines = models.IntegerField(default=0)
+    backgrounds = models.IntegerField(default=0)
+    influences = models.IntegerField(default=0)
+    secrets = models.IntegerField(default=0)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.character.firstname + " " + self.character.lastname + ", abilites: " + str(self.abilities) + ", skills: " + str(self.skills) + ", disc. " + str(self.disciplines)
+
+
 class Character(models.Model):
     class Meta:
         verbose_name_plural = 'Characters'
@@ -267,12 +291,14 @@ class Character(models.Model):
     bloodpool = models.IntegerField(default=10)
     domain = models.ForeignKey('Domain', related_name='character_domain', default=1)
     active = models.IntegerField(choices=STATUS_active, default=STATUS_active.active)
-    sire = models.ForeignKey('Character', related_name='character_sire', blank=True, null=True)
+    sire = models.CharField(max_length=250, blank=True, null=True)
+    finished = models.BooleanField(default=False)
     hasvisions = models.IntegerField(choices=STATUS_visions, default=STATUS_visions.no, verbose_name="Visions",
                                      help_text="Has the character visions?")
     properties = models.ManyToManyField(Property, through='CharacterProperty')
     secretclan = models.ForeignKey(Clan, related_name='secretclan', blank=True, null=True)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
+
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -587,6 +613,7 @@ class Genealogy(models.Model):
     sire = models.ForeignKey('Genealogy', blank=True, null=True)
     initial_generation = models.IntegerField(default=10, blank=True)
     current_generation = models.IntegerField(default=10, blank=True)
+    character = models.ForeignKey('Character', blank=True, null=True)
     clan = models.ForeignKey('Clan', blank=True, null=True)
     domain = models.ForeignKey('Domain', default=1)
     created = models.DateTimeField(auto_now_add=True)

@@ -2,7 +2,7 @@ from django import template
 from django.shortcuts import get_object_or_404
 
 from domainmanager.logic import adminTools, characterTools
-from domainmanager.models import Character, CharacterProperty, Event, News, Person
+from domainmanager.models import Character, CharacterProperty, Event, News, Person, PropertyType
 
 register = template.Library()
 
@@ -46,9 +46,7 @@ def renderLvlUpButton(characterproperty_id, oldValue, propName=None):
     characterXP = characterTools.getXPforCharacter(characterProperty.character)
 
     newValue = int(oldValue) + 1
-    xPCost = 0
-
-    xPCost = xPCost + (newValue * characterProperty.property.type.xpmultiplier)
+    xPCost = newValue * characterProperty.property.type.xpmultiplier
 
     if characterXP > xPCost:
         return {'characterproperty': characterProperty, 'xpCost': xPCost}
@@ -56,10 +54,63 @@ def renderLvlUpButton(characterproperty_id, oldValue, propName=None):
         pass
 
 
+# Render the lvlUp Buttons while in character creation mode
+@register.inclusion_tag('customTags/renderCharacterCreationButton.html')
+def renderCharacterCreationButton(characterproperty_id):
+    characterProperty = CharacterProperty.objects.get(pk=characterproperty_id)
+    character = characterProperty.character
+
+    raiseButton = False
+    lowerButton = True
+    border = 0
+    treshold = 0
+    initialProperties = 0
+    characterAttributes = None
+
+    if characterProperty.property.type.stattype in (PropertyType.STATUS.physical, PropertyType.STATUS.social, PropertyType.STATUS.mental):
+
+        border = character.age_category.startingabilities
+        if character.charactercreation.abilities < border:
+            raiseButton = True
+
+        if characterProperty.value == 1:
+            lowerButton = False
+
+    elif characterProperty.property.type.stattype in (PropertyType.STATUS.talents, PropertyType.STATUS.skills, PropertyType.STATUS.knowledges):
+        border = character.age_category.startingskills
+        if character.charactercreation.skills < border:
+            raiseButton = True
+
+        if characterProperty.value == 0:
+            lowerButton = False
+
+    elif characterProperty.property.type.stattype == PropertyType.STATUS.disciplines:
+        border = character.age_category.startingdisciplines
+        if character.charactercreation.disciplines < border:
+            raiseButton = True
+
+        if characterProperty.value == 0:
+            lowerButton = False
+    elif characterProperty.property.type.stattype == PropertyType.STATUS.influences:
+
+        border = character.age_category.startinginfluences
+        if character.charactercreation.influences < border:
+            raiseButton = True
+
+        if characterProperty.value == 0:
+            lowerButton = False
+
+    else:
+        print("ERROR: Character creation exception - wanted to change: " + str(characterProperty) + " with freebies")
+
+    return {'characterproperty': characterProperty, 'raiseButton': raiseButton, 'lowerButton': lowerButton}
+
+
 # Render a section in the charactersheet: e.g. Skills, Physical or Disciplines
 @register.inclusion_tag('customTags/renderCharacterSheetSection.html')
-def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showValue=True, maxValue=5):
-    return {'sectionName': sectionName, 'querySet': querySet, 'renderButton': renderButton, 'showValue': showValue, 'maxValue':maxValue}
+def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showValue=True, maxValue=5, finished=True):
+    return {'sectionName': sectionName, 'querySet': querySet, 'renderButton': renderButton, 'showValue': showValue, 'maxValue': maxValue,
+            'finished': finished}
 
 
 # Render the admin boons table: Current and already validated boons
@@ -132,12 +183,13 @@ def renderCalenderClassByDomain(domain_id):
         return "event-special"
 
 
-#Django has no built in subtraction method - which I needed for the charactersheet white dots
+# Django has no built in subtraction method - which I needed for the charactersheet white dots
 @register.filter
 def subtract(value, arg):
     return value - arg
 
-#Django has no built in range filter - which I needed for the character sheet black dots
+
+# Django has no built in range filter - which I needed for the character sheet black dots
 @register.filter
 def get_range(value):
     """

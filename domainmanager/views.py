@@ -93,6 +93,7 @@ def charactersheet(request, character_id):
     influences = characterTools.getCharacterProportiesOfType(character, PropertyType.STATUS.influences)
     xpleft = characterTools.getXPforCharacter(character)
     xpearned = Xpearned.objects.filter(characters__in=[character]).aggregate(Sum('value'))['value__sum']
+    characterCreation = get_object_or_404(CharacterCreation, character=character)
 
     if xpearned == None:
         xpearned = 0
@@ -100,7 +101,7 @@ def charactersheet(request, character_id):
     context = {'character': character, 'disciplines': disciplines, 'rituals': rituals,
                'thaumaturgicpaths': thaumaturgicpaths, 'necromanticpaths': necromanticpaths, 'xpleft': xpleft, 'xpearned': xpearned,
                'skills': skills, 'talents': talents, 'knowledges': knowledges, 'merits': merits, 'flaws': flaws, 'physical': physical,
-               'social': social, 'mental': mental, 'influences': influences, 'backgrounds': backgrounds}
+               'social': social, 'mental': mental, 'influences': influences, 'backgrounds': backgrounds, 'characterCreation': characterCreation}
 
     request.session['active_character_id'] = character.pk
     request.session['active_character_name'] = character.firstname + " " + character.lastname
@@ -135,12 +136,27 @@ def character_create(request):
 
         if form.is_valid():
             character = form.save()
+            character.finished = False
             character.save()
+
+            if character.domain.advancedcharactercreation == True:
+                characterCreation = CharacterCreation()
+                characterCreation.character = character
+                characterCreation.abilities = 0
+                characterCreation.skills = 0
+                characterCreation.disciplines = 0
+                characterCreation.backgrounds = 0
+                characterCreation.influences = 0
+                characterCreation.secrets = 0
+                characterCreation.save()
+            else:
+                # If not advanced character creation rules, set finished True
+                character.finished = True
 
             characterTools.createInitialProperties(character)
             characterTools.createInitialXP(character)
 
-            return redirect('domainmanager:characters')
+            return redirect('domainmanager:charactersheet', character.pk)
     else:
 
         form = CharacterFormCreate()
@@ -332,14 +348,46 @@ def characterbasket(request, character_id):
 def lvlup(request, characterproperty_id):
     characterProperty = CharacterProperty.objects.get(pk=characterproperty_id)
     character_id = characterProperty.character.pk
-    characterProperties = CharacterProperty.objects.filter(pk=characterproperty_id)
 
     # Is it the correct user?
     if request.user.pk == characterProperty.character.player.pk:
+        characterProperties = CharacterProperty.objects.filter(pk=characterproperty_id)
         if characterTools.checkXP(characterProperty.character, characterProperties):
             characterProperty.value += 1
             characterProperty.save()
 
+    return redirect('domainmanager:charactersheet', character_id)
+
+
+@login_required()
+def advancedlvlup(request, characterproperty_id, action):
+    characterProperty = CharacterProperty.objects.get(pk=characterproperty_id)
+    character_id = characterProperty.character.pk
+
+    # Is it the correct user?
+    if request.user.pk == characterProperty.character.player.pk:
+        # characterProperties = CharacterProperty.objects.filter(pk=characterproperty_id)
+        if action == 'raise':
+            characterProperty.value += 1
+        # Allow setting values to 0 when they are not attributes
+        elif action == 'lower' and not characterProperty.property.type.stattype in (1, 2, 3) and not characterProperty.value == 0:
+            characterProperty.value -= 1
+        elif action == 'lower' and characterProperty.property.type.stattype in (1, 2, 3) and characterProperty.value == 2:
+            characterProperty.value -= 1
+        characterProperty.save()
+
+        if action == 'raise':
+            characterTools.changeCharacterCreation(character_id, characterProperty, 1)
+        else:
+            characterTools.changeCharacterCreation(character_id, characterProperty, -1)
+
+    return redirect('domainmanager:charactersheet', character_id)
+
+@login_required()
+def setfinish(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+    character.finished = True
+    character.save()
     return redirect('domainmanager:charactersheet', character_id)
 
 

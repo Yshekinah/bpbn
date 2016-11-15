@@ -1,5 +1,6 @@
 from django.db import transaction
 from django.db.models import Sum
+from django.shortcuts import get_object_or_404
 
 from domainmanager.models import *
 
@@ -128,3 +129,17 @@ def addPropertytoCharacter(property, character):
 
         xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=xpcost, property=property.property)
         xpSpent.save()
+
+# Change the value in characterCreation table corresponding to the raised or lowered value
+def changeCharacterCreationValue(character_id, characterProperty, value):
+
+    characterCreation = get_object_or_404(CharacterCreation, character_id=character_id)
+
+    if characterProperty.property.type.stattype == PropertyType.STATUS.abilites:
+        characterCreation.abilities += value
+
+    if characterProperty.property.type.stattype in (PropertyType.STATUS.skills, PropertyType.STATUS.talents, PropertyType.STATUS.knowledges):
+        characterCreation.skills += value
+
+    if characterProperty.property.type.disciplines == PropertyType.STATUS.disciplines:
+        characterCreation.disciplines += value

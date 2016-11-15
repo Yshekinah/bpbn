@@ -1,0 +1,12 @@
+{% if raiseButton %}
+    <button type="button" class="btn btn-sm btn-level-up" style="margin-bottom: 5px"
+            onClick='window.location.href = "http://127.0.0.1:8000/domainmanager/advancedlvlup/" + {{ characterproperty.pk }}+"/raise";'>
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+{% endif %}
+{% if lowerButton %}
+    <button type="button" class="btn btn-sm btn-level-down" style="margin-bottom: 5px"
+            onClick='window.location.href = "http://127.0.0.1:8000/domainmanager/advancedlvlup/" + {{ characterproperty.pk }} + "/lower";'>
+        <span class="glyphicon glyphicon-minus"></span>
+    </button>
+{% endif %}
