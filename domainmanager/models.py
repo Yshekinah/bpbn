@@ -293,6 +293,8 @@ class Character(models.Model):
     active = models.IntegerField(choices=STATUS_active, default=STATUS_active.active)
     sire = models.CharField(max_length=250, blank=True, null=True)
     finished = models.BooleanField(default=False)
+    levelup = models.BooleanField(default=False)
+    quickedit = models.BooleanField(default=False)
     hasvisions = models.IntegerField(choices=STATUS_visions, default=STATUS_visions.no, verbose_name="Visions",
                                      help_text="Has the character visions?")
     properties = models.ManyToManyField(Property, through='CharacterProperty')
@@ -320,7 +322,8 @@ class PropertyType(models.Model):
                      (11, 'rituals', 'Rituals'),
                      (12, 'thaumaturgicpaths', 'Thaumaturgic Paths'),
                      (13, 'necromanticpaths', 'Necromantic Paths'),
-                     (14, 'influences', 'Influences'))
+                     (14, 'influences', 'Influences'),
+                     (15, 'secrets', 'Secrets'))
 
     name = models.CharField(max_length=100)
     domain = models.ForeignKey('Domain', related_name='propertytype_domain', default=1)

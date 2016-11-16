@@ -24,3 +24,11 @@
         display: table;
         table-layout: fixed;
 }
+
+.advancedCharacterCreationSectionLimit{
+    color:#337618;
+}
+
+.advancedCharacterCreationSection{
+    color: #761c19;
+}

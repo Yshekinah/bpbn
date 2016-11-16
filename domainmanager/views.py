@@ -17,7 +17,7 @@ from .models import *
 # handy decorator so only superusers and users who own the correspondng character
 # are allowed to manipulate or view content regarding the character
 def hasCharacter(func):
-    def func_wrapper(request, character_id):
+    def func_wrapper(request, character_id, *args, **kwargs):
 
         characters = Character.objects.filter(player__pk=request.user.pk)
         found = False
@@ -27,7 +27,7 @@ def hasCharacter(func):
                 found = True
 
         if found or request.user.is_superuser:
-            return func(request, character_id)
+            return func(request, character_id, *args, **kwargs)
         else:
             return render(request, 'domainmanager/base.html')
 
@@ -377,16 +377,41 @@ def advancedlvlup(request, characterproperty_id, action):
         characterProperty.save()
 
         if action == 'raise':
-            characterTools.changeCharacterCreation(character_id, characterProperty, 1)
+            characterTools.changeCharacterCreationValue(character_id, characterProperty, 1)
         else:
-            characterTools.changeCharacterCreation(character_id, characterProperty, -1)
+            characterTools.changeCharacterCreationValue(character_id, characterProperty, -1)
 
     return redirect('domainmanager:charactersheet', character_id)
 
+
 @login_required()
+@hasCharacter
 def setfinish(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
     character.finished = True
+    character.save()
+    return redirect('domainmanager:charactersheet', character_id)
+
+
+@login_required()
+@hasCharacter
+def setlevelup(request, character_id, action):
+    character = get_object_or_404(Character, pk=character_id)
+    if action == 'yes':
+        character.levelup = True
+    else:
+        character.levelup = False
+    character.save()
+    return redirect('domainmanager:charactersheet', character_id)
+
+@login_required()
+@hasCharacter
+def setquickedit(request, character_id, action):
+    character = get_object_or_404(Character, pk=character_id)
+    if action == 'yes':
+        character.quickedit = True
+    else:
+        character.quickedit = False
     character.save()
     return redirect('domainmanager:charactersheet', character_id)
 

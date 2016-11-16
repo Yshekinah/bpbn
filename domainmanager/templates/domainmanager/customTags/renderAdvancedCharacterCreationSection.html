@@ -1,0 +1,9 @@
+{% load customTags %}
+{% linebreakless %}
+    {{ caption }}:
+    {% if borderValue == currentValue %}
+        <span class="advancedCharacterCreationSectionLimit">
+    {% else %}
+        <span class="advancedCharacterCreationSection">
+    {% endif %}{{ borderValue }} / {{ currentValue }}</span>
+{% endlinebreakless %}

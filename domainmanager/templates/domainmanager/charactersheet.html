@@ -65,38 +65,41 @@
                                         class="glyphicon glyphicon-pencil"></span></a>
                                 <a href="#" onclick="javascript:window.print()" class="top-menu"><span class="glyphicon glyphicon-print"></span></a>
                             </h3>
+                            {% if not character.finished %}
+                                <!-- If advanced character creation ist used show the finish button -->
+                                <div class="row">
+                                    <div class="col-md-3">Finish character creation <span class="glyphicon glyphicon-info-sign"
+                                                                                          onclick="javascript:showInfoDialog('Finish Character','WARNING - when checked the character is finished and can only be altered with XP')"></span>
+                                    </div>
+                                    <div class="col-md-3"><input type="checkbox" id="finish" onchange="setFinished()" data-reverse disabled
+                                                                 {% if character.finished %}checked{% endif %}></div>
+                                    <div class="col-md-4">
+                                        {% renderAdvancedCharacterCreationSection caption="Abilities" borderValue=character.age_category.startingabilities currentValue=characterCreation.abilities %}<br/>
+                                        {% renderAdvancedCharacterCreationSection caption="Skills" borderValue=character.age_category.startingskills currentValue=characterCreation.skills %}<br/>
+                                        {% renderAdvancedCharacterCreationSection caption="Disciplines" borderValue=character.age_category.startingdisciplines currentValue=characterCreation.disciplines %}<br/>
+                                        {% comment %}{% renderAdvancedCharacterCreationSection caption="Backgrounds" borderValue=character.age_category.startingbackgrounds currentValue=characterCreation.backgrounds %}<br/>{% endcomment %}
+                                        {% renderAdvancedCharacterCreationSection caption="Influences" borderValue=character.age_category.startinginfluences currentValue=characterCreation.influences %}<br/>
+                                    </div>
+                                </div>
+                            {% endif %}
                             {% if character.finished %}
-                                <!-- If character is finisehd show the level up buttons -->
+                                <!-- If character is set in levelup mode and has enough XP show the level up buttons -->
                                 {% if xpleft > 0 %}
                                     <div class="row">
                                         <div class="col-md-3">Level up <span class="glyphicon glyphicon-info-sign"
                                                                              onclick="javascript:showInfoDialog('Level up','When checked you can level up your character')"></span>
                                         </div>
-                                        <div class="col-md-3"><input type="checkbox" id="level-up" onchange="setLevelUp()" data-reverse></div>
+                                        <div class="col-md-3"><input type="checkbox" id="level-up" onchange="setLevelUp()" data-reverse
+                                                                     {% if character.levelup %}checked{% endif %} %}></div>
                                     </div>
                                     <div id="div-quick-edit" class="row" style="padding-top: 4px">
                                         <div class="col-md-3">Quick edit <span class="glyphicon glyphicon-info-sign"
                                                                                onclick="javascript:showInfoDialog('Quick edit','When checked the character editor will not ask for confirmation to level up.')"></span>
                                         </div>
-                                        <div class="col-md-3"><input type="checkbox" id="quick-edit" onchange="setQuickEdit()" data-reverse></div>
-
+                                        <div class="col-md-3"><input type="checkbox" id="quick-edit" onchange="setQuickEdit()" data-reverse
+                                                                     {% if character.quickedit %}checked{% endif %}></div>
                                     </div>
                                 {% endif %}
-                            {% else %}
-                                <!-- If character is NOT finisehd show the finish button -->
-                                <div class="row">
-                                    <div class="col-md-3">Finish character creation <span class="glyphicon glyphicon-info-sign"
-                                                                                          onclick="javascript:showInfoDialog('Finish Character','WARNING - when checked the character is finished and can only be altered with XP')"></span>
-                                    </div>
-                                    <div class="col-md-3"><input type="checkbox" id="finish" onchange="setFinished()" data-reverse></div>
-                                    <div class="col-md-4">
-                                        Abilities: {{ character.age_category.startingabilities }} / {{ characterCreation.abilities }}<br/>
-                                        Skills: {{ character.age_category.startingskills }} / {{ characterCreation.skills}}<br/>
-                                        Disciplines {{ character.age_category.startingdisciplines }} / {{ characterCreation.disciplines}}<br/>
-                                        Backgrounds {{ character.age_category.startingbackgrounds }} / {{ characterCreation.backgrounds }}<br/>
-                                        Influences {{ character.age_category.startinginfluences }} / {{ characterCreation.influences }}<br/>
-                                    </div>
-                                </div>
                             {% endif %}
                         </div>
 
@@ -309,7 +312,6 @@
                 if ($('#quick-edit').is(':checked')) {
                     window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
                 } else {
-
                     BootstrapDialog.show({
                         message: 'Do you really want to raise ' + propName + " to " + (propValue + 1) + "?\n" + 'This will cost ' + xpCost + ' XP',
                         buttons: [{
@@ -332,102 +334,84 @@
 
             $(document).ready(function () {
 
+                console.log("document ready");
                 $(':checkbox').checkboxpicker();
+
+                /* The user is only allowed to enable the finish dropdown when all requirements have been met
+                 Requirements: All age limits have to be spent. except secrets and backgrounds
+                 */
+                {% if character.age_category.startingabilities == characterCreation.abilities %}
+                    {% if character.age_category.startingskills == characterCreation.skills %}
+                        {% if character.age_category.startingdisciplines == characterCreation.disciplines %}
+                            {% if character.age_category.startinginfluences == characterCreation.influences %}
+                                $('#finish').prop('disabled', false);
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
                 updateVisibility();
             });
 
             function setFinished() {
-
-                cFinish = $('#finish').is(':checked');
-                if (cFinish == true) {
-                    Cookies.set('finish', 'yes', {expires: 7});
-
-                    BootstrapDialog.show({
-                        message: 'Do you really want to finish the character generation? This step is final.',
-                        buttons: [{
-                            label: 'Ok',
-                            cssClass: 'btn-primary',
-                            action: function () {
-                                window.location.href = "http://{{ request.get_host }}/domainmanager/setfinish/" + "{{ character.pk }}";
-                            }
-                        }, {
-                            icon: 'glyphicon glyphicon-ban-circle',
-                            label: 'Cancel',
-                            cssClass: 'btn-warning',
-                            action: function (dialogItself) {
-                                $('#finish').prop('checked', false);
-                                Cookies.set('finish', 'no', {expires: 7});
-                                dialogItself.close();
-                            }
-                        }]
-                    });
-                } else {
-                    Cookies.set('finish', 'no', {expires: 7});
-                }
-                updateVisibility();
+                console.log("setfinished");
+                {% if not character.finished %}
+                    if ($('#finish').is(':checked')) {
+                        BootstrapDialog.show({
+                            message: 'Do you really want to finish the character generation? This step is final.',
+                            buttons: [{
+                                label: 'Ok',
+                                cssClass: 'btn-primary',
+                                action: function () {
+                                    window.location.href = "http://{{ request.get_host }}/domainmanager/setfinish/" + "{{ character.pk }}";
+                                }
+                            }, {
+                                icon: 'glyphicon glyphicon-ban-circle',
+                                label: 'Cancel',
+                                cssClass: 'btn-warning',
+                                action: function (dialogItself) {
+                                    dialogItself.close();
+                                }
+                            }]
+                        });
+                    }
+                {% endif %}
             }
 
 
             function setLevelUp() {
-
+                console.log("setlevelup");
                 value = $('#level-up').is(':checked');
                 if (value == true) {
-                    Cookies.set('level-up', 'yes', {expires: 7});
+                    window.location.href = "http://{{ request.get_host }}/domainmanager/setlevelup/" + "{{ character.pk }}/yes";
                 } else {
-                    Cookies.set('level-up', 'no', {expires: 7});
+                    window.location.href = "http://{{ request.get_host }}/domainmanager/setlevelup/" + "{{ character.pk }}/no";
                 }
-                updateVisibility();
             }
 
             function setQuickEdit() {
-
+                console.log("setquickedit");
                 value = $('#quick-edit').is(':checked');
                 if (value == true) {
-                    Cookies.set('quick-edit', 'yes', {expires: 7});
+                    window.location.href = "http://{{ request.get_host }}/domainmanager/setquickedit/" + "{{ character.pk }}/yes";
                 } else {
-                    Cookies.set('quick-edit', 'no', {expires: 7});
+                    window.location.href = "http://{{ request.get_host }}/domainmanager/setquickedit/" + "{{ character.pk }}/no";
                 }
-                updateVisibility();
             }
 
             function updateVisibility() {
-
+                console.log("updatevisibility");
                 /**
                  * Are we still in character creation mode?
-                 * Hier muß ich darauf achten, dass das finished Attribut ja nur durch Python gesetzt werden kann - weil DB
                  */
-                cFinish = Cookies.get('finish');
-                if (cFinish == 'yes') {
-                    $('#finish').prop('checked', true);
+                {% if character.levelup %}
                     $('#div-quick-edit').show();
                     $('.btn-level-up').show();
                     $('.col-level-up').show();
-                } else {
-                    $('#finish').prop('checked', false);
-                    $('.btn-level-up').show();
-                    $('.col-level-up').show();
-                }
-
-                cLevel = Cookies.get('level-up');
-                if (cLevel == 'yes' && cFinish == 'yes') {
-                    $('#level-up').prop('checked', true);
-                    $('#div-quick-edit').show();
-                    $('.btn-level-up').show();
-                    $('.col-level-up').show();
-                }
-                if (cLevel == 'no' && cFinish == 'yes') {
-                    $('#level-up').prop('checked', false);
+                {% else %}
                     $('#div-quick-edit').hide();
                     $('.btn-level-up').hide();
                     $('.col-level-up').hide();
-                }
-
-                cQuick = Cookies.get('quick-edit');
-                if (cLevel == 'yes' && cQuick == 'yes') {
-                    $('#quick-edit').prop('checked', true);
-                } else {
-                    $('#quick-edit').prop('checked', false);
-                }
+                {% endif %}
             }
 
         {% endautoescape %}

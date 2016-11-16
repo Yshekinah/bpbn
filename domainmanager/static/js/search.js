@@ -30,7 +30,6 @@ $.ajaxSetup({
 
 
 $(function () {
-
     $('#sireSearch').keyup(function () {
         $.ajax({
 

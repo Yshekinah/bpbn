@@ -1,5 +1,7 @@
 from django import template
 from django.shortcuts import get_object_or_404
+from django.template.base import Node
+from django.utils.functional import allow_lazy
 
 from domainmanager.logic import adminTools, characterTools
 from domainmanager.models import Character, CharacterProperty, Event, News, Person, PropertyType
@@ -113,6 +115,12 @@ def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showVa
             'finished': finished}
 
 
+# Render the overview sections for the advanced characterCreatiojn option
+@register.inclusion_tag('customTags/renderAdvancedCharacterCreationSection.html')
+def renderAdvancedCharacterCreationSection(caption, borderValue, currentValue):
+    return {'caption': caption, 'borderValue': borderValue, 'currentValue': currentValue}
+
+
 # Render the admin boons table: Current and already validated boons
 @register.inclusion_tag('customTags/renderAdminBoonsTable.html')
 def renderAdminBoonsTable(querySet):
@@ -210,3 +218,21 @@ def get_range(value):
       Instead of 3 one may use the variable set in the views
     """
     return range(value)
+
+
+# Copied from: http://stackoverflow.com/questions/32201408/writing-py2-x-and-py3-x-compatible-code-without-six-text-type
+# Left out the six module and used a str instead
+@register.tag
+def linebreakless(parser, token):
+    nodelist = parser.parse(('endlinebreakless',))
+    parser.delete_first_token()
+    return LinebreaklessNode(nodelist)
+
+
+class LinebreaklessNode(Node):
+    def __init__(self, nodelist):
+        self.nodelist = nodelist
+
+    def render(self, context):
+        strip_line_breaks = allow_lazy(lambda x: x.replace('\n', ''), str)
+        return strip_line_breaks(self.nodelist.render(context).strip())

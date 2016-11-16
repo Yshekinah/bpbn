@@ -128,7 +128,7 @@ class CharacterAdmin(admin.ModelAdmin):
     empty_value_display = '-empty-'
     list_display = ('firstname', 'lastname', 'get_clan', 'generation', 'get_player')
     list_filter = (('clan', admin.RelatedOnlyFieldListFilter), 'generation', ('function', admin.RelatedOnlyFieldListFilter), 'humanity', 'hasvisions',
-                   'schrecknetlevel')
+                   'schrecknetlevel', 'levelup', 'finished')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):

@@ -87,6 +87,14 @@ urlpatterns = [
     # ex: /domainmanager/setfinish/55
     url(r'^setfinish/(?P<character_id>[0-9]+)$', views.setfinish, name='setfinish'),
 
+    # Toggle the levelup mode for a character
+    # ex: /domainmanager/setfinish/55/yes
+    url(r'^setlevelup/(?P<character_id>[0-9]+)/(?P<action>[A-Za-z]+)$', views.setlevelup, name='setlevelup'),
+
+    # Toggle the quickedit mode for a character
+    # ex: /domainmanager/setquickedit/55/yes
+    url(r'^setquickedit/(?P<character_id>[0-9]+)/(?P<action>[A-Za-z]+)$', views.setquickedit, name='setquickedit'),
+
     # View of the genealogy
     #  ex: /domainmanager/genealogy
     url(r'^genealogy$', views.genealogy, name='genealogy'),
