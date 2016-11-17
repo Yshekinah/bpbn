@@ -404,7 +404,7 @@
                 /**
                  * Are we still in character creation mode?
                  */
-                {% if character.levelup %}
+                {% if character.levelup or not character.finished %}
                     $('#div-quick-edit').show();
                     $('.btn-level-up').show();
                     $('.col-level-up').show();

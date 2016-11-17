@@ -130,27 +130,7 @@ def addPropertytoCharacter(property, character):
         xpSpent = Xpspent(oldvalue=0, newvalue=1, character=character, xpcost=xpcost, property=property.property)
         xpSpent.save()
 
+
 # Change the value in characterCreation table corresponding to the raised or lowered value
 def changeCharacterCreationValue(character_id, characterProperty, value):
-
-    characterCreation = get_object_or_404(CharacterCreation, character_id=character_id)
-
-    if characterProperty.property.type.stattype in (PropertyType.STATUS.physical, PropertyType.STATUS.social, PropertyType.STATUS.mental):
-        characterCreation.abilities += value
-
-    if characterProperty.property.type.stattype in (PropertyType.STATUS.skills, PropertyType.STATUS.talents, PropertyType.STATUS.knowledges):
-        characterCreation.skills += value
-
-    if characterProperty.property.type.stattype == PropertyType.STATUS.disciplines:
-        characterCreation.disciplines += value
-
-    if characterProperty.property.type.stattype == PropertyType.STATUS.influences:
-        characterCreation.influences += value
-
-    if characterProperty.property.type.stattype == PropertyType.STATUS.backgrounds:
-        characterCreation.backgrounds += value
-
-    if characterProperty.property.type.stattype == PropertyType.STATUS.secrets:
-        characterCreation.secrets += value
-
-    characterCreation.save()
+    pass

@@ -64,10 +64,6 @@ def renderCharacterCreationButton(characterproperty_id):
 
     raiseButton = False
     lowerButton = True
-    border = 0
-    treshold = 0
-    initialProperties = 0
-    characterAttributes = None
 
     if characterProperty.property.type.stattype in (PropertyType.STATUS.physical, PropertyType.STATUS.social, PropertyType.STATUS.mental):
 

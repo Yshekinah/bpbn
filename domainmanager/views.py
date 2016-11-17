@@ -363,23 +363,79 @@ def lvlup(request, characterproperty_id):
 def advancedlvlup(request, characterproperty_id, action):
     characterProperty = CharacterProperty.objects.get(pk=characterproperty_id)
     character_id = characterProperty.character.pk
+    characterCreation = get_object_or_404(CharacterCreation, character_id=character_id)
+
+    if action == 'raise':
+        value = 1
+    else:
+        value = -1
 
     # Is it the correct user?
     if request.user.pk == characterProperty.character.player.pk:
         # characterProperties = CharacterProperty.objects.filter(pk=characterproperty_id)
-        if action == 'raise':
-            characterProperty.value += 1
-        # Allow setting values to 0 when they are not attributes
-        elif action == 'lower' and not characterProperty.property.type.stattype in (1, 2, 3) and not characterProperty.value == 0:
-            characterProperty.value -= 1
-        elif action == 'lower' and characterProperty.property.type.stattype in (1, 2, 3) and characterProperty.value == 2:
-            characterProperty.value -= 1
-        characterProperty.save()
 
-        if action == 'raise':
-            characterTools.changeCharacterCreationValue(character_id, characterProperty, 1)
-        else:
-            characterTools.changeCharacterCreationValue(character_id, characterProperty, -1)
+        if characterProperty.property.type.stattype in (PropertyType.STATUS.physical, PropertyType.STATUS.social, PropertyType.STATUS.mental):
+            if characterProperty.character.age_category.startingabilities >= characterCreation.abilities + value:
+
+                if action == 'lower' and not characterProperty.value == 1:
+                    characterProperty.value += value
+                    characterCreation.abilities += value
+                elif action == 'raise':
+                    characterProperty.value += value
+                    characterCreation.abilities += value
+
+        elif characterProperty.property.type.stattype in (PropertyType.STATUS.skills, PropertyType.STATUS.talents, PropertyType.STATUS.knowledges):
+            if characterProperty.character.age_category.startingskills >= characterCreation.skills + value:
+
+                if action == 'lower' and not characterProperty.value == 0 and not characterCreation.skills == 0:
+                    characterProperty.value += value
+                    characterCreation.skills += value
+                elif action == 'raise':
+                    characterProperty.value += value
+                    characterCreation.skills += value
+
+        elif characterProperty.property.type.stattype == PropertyType.STATUS.disciplines:
+            if characterProperty.character.age_category.startingdisciplines >= characterCreation.disciplines + value:
+
+                if action == 'lower' and not characterProperty.value == 0 and not characterCreation.disciplines == 0:
+                    characterProperty.value += value
+                    characterCreation.disciplines += value
+                elif action == 'raise':
+                    characterProperty.value += value
+                    characterCreation.disciplines += value
+
+        elif characterProperty.property.type.stattype == PropertyType.STATUS.influences:
+            if characterProperty.character.age_category.startinginfluences >= characterCreation.influences + value:
+
+                if action == 'lower' and not characterProperty.value == 0 and not characterCreation.influences == 0:
+                    characterProperty.value += value
+                    characterCreation.influences += value
+                elif action == 'raise':
+                    characterProperty.value += value
+                    characterCreation.influences += value
+
+        elif characterProperty.property.type.stattype == PropertyType.STATUS.backgrounds:
+            if characterProperty.character.age_category.startingbackgrounds >= characterCreation.backgrounds + value:
+
+                if action == 'lower' and not characterProperty.value == 0 and not characterCreation.backgrounds == 0:
+                    characterProperty.value += value
+                    characterCreation.backgrounds += value
+                elif action == 'raise':
+                    characterProperty.value += value
+                    characterCreation.backgrounds += value
+
+        elif characterProperty.property.type.stattype == PropertyType.STATUS.secrets:
+            if characterProperty.character.age_category.startingsecrets >= characterCreation.secrets + value:
+
+                if action == 'lower' and not characterProperty.value == 0 and not characterCreation.secrets == 0:
+                    characterProperty.value += value
+                    characterCreation.secrets += value
+                elif action == 'raise':
+                    characterProperty.value += value
+                    characterCreation.secrets += value
+
+        characterCreation.save()
+        characterProperty.save()
 
     return redirect('domainmanager:charactersheet', character_id)
 
@@ -403,6 +459,7 @@ def setlevelup(request, character_id, action):
         character.levelup = False
     character.save()
     return redirect('domainmanager:charactersheet', character_id)
+
 
 @login_required()
 @hasCharacter

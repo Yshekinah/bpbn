@@ -31,6 +31,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
+    <!-- Custom JS -->
+    <script type="text/javascript" href="{% static 'js/base.js' %}"></script>
+
     <!-- Calendar -->
     <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
 
@@ -47,10 +50,10 @@
     <!-- self written little lib for creating dialogs -->
     <script type="text/javascript" src="{% static 'js/renderDialog.js' %}"></script>
 
-    <!-- Checkbox bootstrap style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
+    <!-- Checkbox bootstrap style -->
     <script src="{% static 'js/bootstrap-checkbox.min.js' %}" defer></script>
 
     <!-- Load custom templates and filters -->
@@ -61,10 +64,12 @@
     {% endblock %}
 
     <title>{% block title %}My amazing site{% endblock %}</title>
+
 </head>
 
 
 <body>
+<div class="se-pre-con"></div>
 
 <nav class="navbar navbar-default" id="top_menu" style="margin-bottom: 15px">
     <div class="container">
