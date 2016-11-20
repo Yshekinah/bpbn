@@ -58,7 +58,7 @@ def renderLvlUpButton(characterproperty_id, oldValue, propName=None):
 
 # Render the lvlUp Buttons while in character creation mode
 @register.inclusion_tag('customTags/renderCharacterCreationButton.html')
-def renderCharacterCreationButton(characterproperty_id):
+def renderCharacterCreationButton(characterproperty_id, request):
     characterProperty = CharacterProperty.objects.get(pk=characterproperty_id)
     character = characterProperty.character
 
@@ -101,14 +101,14 @@ def renderCharacterCreationButton(characterproperty_id):
     else:
         print("ERROR: Character creation exception - wanted to change: " + str(characterProperty) + " with freebies")
 
-    return {'characterproperty': characterProperty, 'raiseButton': raiseButton, 'lowerButton': lowerButton}
+    return {'characterproperty': characterProperty, 'raiseButton': raiseButton, 'lowerButton': lowerButton, 'request': request}
 
 
 # Render a section in the charactersheet: e.g. Skills, Physical or Disciplines
 @register.inclusion_tag('customTags/renderCharacterSheetSection.html')
-def renderCharacterSheetSection(sectionName, querySet, renderButton=True, showValue=True, maxValue=5, finished=True):
+def renderCharacterSheetSection(sectionName, querySet, request, renderButton=True, showValue=True, maxValue=5, finished=True):
     return {'sectionName': sectionName, 'querySet': querySet, 'renderButton': renderButton, 'showValue': showValue, 'maxValue': maxValue,
-            'finished': finished}
+            'finished': finished, 'request': request}
 
 
 # Render the overview sections for the advanced characterCreatiojn option

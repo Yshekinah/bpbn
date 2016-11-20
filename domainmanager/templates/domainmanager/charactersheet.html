@@ -214,56 +214,56 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection sectionName='Physical' querySet=physical finished=character.finished %}
+                        {% renderCharacterSheetSection sectionName='Physical' querySet=physical finished=character.finished request=request %}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection sectionName='Social' querySet=social finished=character.finished %}
+                        {% renderCharacterSheetSection sectionName='Social' querySet=social finished=character.finished request=request %}
                     </div>
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection sectionName='Mental' querySet=mental finished=character.finished %}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection sectionName='Talents' querySet=talents finished=character.finished %}
-                    </div>
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection sectionName='Skills' querySet=skills finished=character.finished %}
-                    </div>
-                    <div class="col-md-4">
-                        {% renderCharacterSheetSection sectionName='Knowledges' querySet=knowledges finished=character.finished %}
+                        {% renderCharacterSheetSection sectionName='Mental' querySet=mental finished=character.finished request=request %}
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
-                        {% renderCharacterSheetSection sectionName='Disciplines' querySet=disciplines finished=character.finished %}
+                        {% renderCharacterSheetSection sectionName='Talents' querySet=talents finished=character.finished request=request %}
+                    </div>
+                    <div class="col-md-4">
+                        {% renderCharacterSheetSection sectionName='Skills' querySet=skills finished=character.finished request=request %}
+                    </div>
+                    <div class="col-md-4">
+                        {% renderCharacterSheetSection sectionName='Knowledges' querySet=knowledges finished=character.finished request=request %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        {% renderCharacterSheetSection sectionName='Disciplines' querySet=disciplines finished=character.finished request=request %}
                     </div>
                     {% if influences %}
                         <div class="col-md-4">
-                            {% renderCharacterSheetSection sectionName='Influences' querySet=influences renderButton=True maxValue=3 finished=character.finished %}
+                            {% renderCharacterSheetSection sectionName='Influences' querySet=influences renderButton=True maxValue=3 finished=character.finished request=request %}
                         </div>
                     {% endif %}
                     <div class="col-md-4">
                         {% if backgrounds %}
                             <div class="row">
                                 <div class="col-md-12">
-                                    {% renderCharacterSheetSection 'Backgrounds' backgrounds showValue=True %}
+                                    {% renderCharacterSheetSection sectionName='Backgrounds' querySet=backgrounds showValue=True request=request %}
                                 </div>
                             </div>
                         {% endif %}
                         {% if merits %}
                             <div class="row">
                                 <div class="col-md-12">
-                                    {% renderCharacterSheetSection 'Merits' merits showValue=False %}
+                                    {% renderCharacterSheetSection sectionName='Merits' querySet=merits showValue=False request=request %}
                                 </div>
                             </div>
                         {% endif %}
                         {% if flaws %}
                             <div class="row">
                                 <div class="col-md-12">
-                                    {% renderCharacterSheetSection 'Flaws' flaws showValue=False %}
+                                    {% renderCharacterSheetSection sectionName='Flaws' querySet=flaws showValue=False request=request %}
                                 </div>
                             </div>
                         {% endif %}
@@ -272,17 +272,17 @@
                 <div class="row">
                     {% if thaumaturgicpaths %}
                         <div class="col-md-4">
-                            {% renderCharacterSheetSection 'Thaumaturgic paths' thaumaturgicpaths %}
+                            {% renderCharacterSheetSection sectionName='Thaumaturgic paths' querySet=thaumaturgicpaths showValue=True request=request %}
                         </div>
                     {% endif %}
                     {% if rituals %}
                         <div class="col-md-4">
-                            {% renderCharacterSheetSection 'Rituals' rituals %}
+                            {% renderCharacterSheetSection sectionName='Rituals' querySet=rituals showValue=True request=request %}
                         </div>
                     {% endif %}
                     {% if necromanticpaths %}
                         <div class="col-md-4">
-                            {% renderCharacterSheetSection 'Necromantic paths' necromanticpaths %}
+                            {% renderCharacterSheetSection sectionName='Necromantic paths' querySet=necromanticpaths showValue=True request=request %}
                         </div>
                     {% endif %}
                 </div>
@@ -310,7 +310,8 @@
             function showLvlDialog(propId, propValue, propName, xpCost) {
 
                 if ($('#quick-edit').is(':checked')) {
-                    window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
+                    {% comment %}window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;{% endcomment %}
+                    window.location.href = "{% url 'domainmanager:lvlup' characterproperty_id='12345' %}".replace('12345', propId);
                 } else {
                     BootstrapDialog.show({
                         message: 'Do you really want to raise ' + propName + " to " + (propValue + 1) + "?\n" + 'This will cost ' + xpCost + ' XP',
@@ -318,7 +319,7 @@
                             label: 'Ok',
                             cssClass: 'btn-primary',
                             action: function () {
-                                window.location.href = "http://{{ request.get_host }}/domainmanager/lvlup/" + propId;
+                                window.location.href = "{% url 'domainmanager:lvlup' characterproperty_id='12345' %}".replace('12345', propId);
                             }
                         }, {
                             icon: 'glyphicon glyphicon-ban-circle',
@@ -362,7 +363,7 @@
                                 label: 'Ok',
                                 cssClass: 'btn-primary',
                                 action: function () {
-                                    window.location.href = "http://{{ request.get_host }}/domainmanager/setfinish/" + "{{ character.pk }}";
+                                    window.location.href = "{% url 'domainmanager:setfinish' character.pk %}";
                                 }
                             }, {
                                 icon: 'glyphicon glyphicon-ban-circle',
@@ -383,9 +384,9 @@
                 console.log("setlevelup");
                 value = $('#level-up').is(':checked');
                 if (value == true) {
-                    window.location.href = "http://{{ request.get_host }}/domainmanager/setlevelup/" + "{{ character.pk }}/yes";
+                    window.location.href = "{% url 'domainmanager:setlevelup' character.pk 'yes' %}";
                 } else {
-                    window.location.href = "http://{{ request.get_host }}/domainmanager/setlevelup/" + "{{ character.pk }}/no";
+                    window.location.href = "{% url 'domainmanager:setlevelup' character.pk 'no' %}";
                 }
             }
 
@@ -393,9 +394,9 @@
                 console.log("setquickedit");
                 value = $('#quick-edit').is(':checked');
                 if (value == true) {
-                    window.location.href = "http://{{ request.get_host }}/domainmanager/setquickedit/" + "{{ character.pk }}/yes";
+                    window.location.href = "{% url 'domainmanager:setquickedit' character.pk 'yes' %}";
                 } else {
-                    window.location.href = "http://{{ request.get_host }}/domainmanager/setquickedit/" + "{{ character.pk }}/no";
+                    window.location.href = "{% url 'domainmanager:setquickedit' character.pk 'no' %}";
                 }
             }
 

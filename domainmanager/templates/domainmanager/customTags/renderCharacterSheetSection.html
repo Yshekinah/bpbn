@@ -27,9 +27,9 @@
         <div class="col-md-1 col-level-up">
             {% if renderButton %}
                 {% if finished %}
-                    {% renderLvlUpButton field.id field.value field.property.name %}
+                    {% renderLvlUpButton field.id field.value field.property.name%}
                 {% else %}
-                    {% renderCharacterCreationButton field.id %}
+                    {% renderCharacterCreationButton field.id request%}
                 {% endif %}
             {% endif %}
         </div>

@@ -1,12 +1,24 @@
 {% if raiseButton %}
     <button type="button" class="btn btn-sm btn-level-up" style="margin-bottom: 5px"
-            onClick='window.location.href = "http://127.0.0.1:8000/domainmanager/advancedlvlup/" + {{ characterproperty.pk }}+"/raise";'>
+            onClick='window.location.href = "{% url 'domainmanager:advancedlvlup' characterproperty.pk 'raise' %}"'>
+
         <span class="glyphicon glyphicon-plus"></span>
     </button>
+
+    <script>
+        {% comment %}
+        console.log("1 + " + "{{ request.get_full_path }}");
+        console.log("2 + " + "{{ request.get_host }}");
+        console.log("3 + " + "{{ build_absolute_uri }}");
+        console.log("4 + " + "{% url 'domainmanager:characterxps' characterproperty.pk %}");
+        onClick='window.location.href = "http://127.0.0.1:8000/domainmanager/advancedlvlup/" + {{ characterproperty.pk }}+"/raise";
+        {% endcomment %}
+
+    </script>
 {% endif %}
 {% if lowerButton %}
     <button type="button" class="btn btn-sm btn-level-down" style="margin-bottom: 5px"
-            onClick='window.location.href = "http://127.0.0.1:8000/domainmanager/advancedlvlup/" + {{ characterproperty.pk }} + "/lower";'>
+            onClick='window.location.href = "{% url 'domainmanager:advancedlvlup' characterproperty.pk 'lower' %}";'>
         <span class="glyphicon glyphicon-minus"></span>
     </button>
 {% endif %}
