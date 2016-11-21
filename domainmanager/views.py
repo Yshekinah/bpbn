@@ -187,8 +187,13 @@ def character_create(request):
 def characterinformation_edit(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
 
+    #    action = form.save(commit=False)
+    #    action.character = actionObject.character
+    #    action.downtime = actionObject.downtime
+    #    action.save()
+
     if request.method == "POST":
-        form = CharacterFormEdit(request.POST)
+        form = CharacterFormEdit(request.POST, request.FILES, instance=character)
 
         if form.is_valid():
             character = form.save()

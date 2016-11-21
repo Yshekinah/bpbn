@@ -10,7 +10,7 @@
                     <h3>Embrace the night, childe of darkness</h3>
                 </div>
                 <div class="panel-body">
-                    <form method="POST" class="post-form">
+                    <form method="POST" class="post-form" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in form %}
                             {% if field.is_hidden != True %}

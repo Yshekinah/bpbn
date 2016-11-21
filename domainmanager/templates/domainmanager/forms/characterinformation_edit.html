@@ -1,8 +1,10 @@
 <div class="container">
 
-    <form method="post" action="{% url 'domainmanager:characterinformation_edit' character.pk %}" id="characterForm" data-parsley-validate="">
+    <form method="post" action="{% url 'domainmanager:characterinformation_edit' character.pk %}" id="characterForm" data-parsley-validate=""
+          enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.non_field_errors }}
+        {% comment %}
         <div class="row" style="padding-top: 2px;padding-bottom: 3px">
             <div class="col-md-2">
                 <div class="fieldWrapper">
@@ -34,13 +36,36 @@
                 {{ form.nickname }}
             </div>
         </div>
-        <div class="row" style="padding-top: 2px;padding-bottom: 3px">
-            <div class="col-md-2">&nbsp;</div>
-            <div class="col-md-4">
-                <button type="submit" class="save btn btn-default">Save</button>
-            </div>
-        </div>
-    </form>
+        {% endcomment %}
+
+        {% for field in form %}
+            {% if field.is_hidden != True %}
+                <div class="row">
+              <div class="col-md-2">
+                  <div class="fieldWrapper">
+                      {{ field.label_tag }}
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  {{ field }}
+              </div>
+              <div class="col-md-4">
+                  {% if field.errors %}
+                      <div class="alert alert-warning">{{ field.errors }}</div>
+                  {% endif %}
+              </div>
+              </div>
+          {% endif %}
+          {% endfor %}
+
+
+<div class="row" style="padding-top: 2px;padding-bottom: 3px">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4">
+        <button type="submit" class="save btn btn-default">Save</button>
+    </div>
+</div>
+</form>
 
 </div>
 

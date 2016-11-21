@@ -105,6 +105,9 @@
 
 
                         <div class="col-md-*" align="right" style="padding-right:10px">
+                            {% if character.image %}
+                                <img src="{{ character.image.url }}" alt="Player thumbnail" height="100px" width="auto"/>
+                            {% endif %}
                             {% if character.clan.image %}
                                 <img src="{{ character.clan.image.url }}" alt="Clan logo" height="100px" width="auto"/>
                             {% endif %}

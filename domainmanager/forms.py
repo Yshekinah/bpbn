@@ -19,7 +19,7 @@ class CharacterFormCreate(forms.ModelForm):
 class CharacterFormEdit(forms.ModelForm):
     class Meta:
         model = Character
-        fields = ['firstname', 'lastname', 'nickname']
+        fields = ['firstname', 'lastname', 'nickname', 'image']
 
 
 class BoonForm(ModelForm):
