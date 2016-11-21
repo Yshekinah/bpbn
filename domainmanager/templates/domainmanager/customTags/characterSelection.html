@@ -1,3 +1,5 @@
 {% for character in characters %}
-    <li><a href="{% url 'domainmanager:charactersheet' character.id %}">{{ character.firstname }} {{ character.lastname }}</a></li>
+    <li><a href="{% url 'domainmanager:charactersheet' character.id %}">{% if character.image %}
+        <img src="{{ character.image.url }}" alt="Player thumbnail" height="25px"
+             width="auto"/> {% endif %}{{ character.firstname }} {{ character.lastname }}</a></li>
 {% endfor %}
