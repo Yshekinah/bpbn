@@ -20,9 +20,6 @@ DOMAIN_PRAHA = 3
 DOMAIN_ZAGREB = 4
 
 
-# DOMAIN_GRAZ = 5
-# DOMAIN_VIENNA = 9
-
 # user in characterboons.html to get the
 # triplets in STATUS array for the approvals
 @register.filter
@@ -50,7 +47,7 @@ def renderLvlUpButton(characterproperty_id, oldValue, propName=None):
     newValue = int(oldValue) + 1
     xPCost = newValue * characterProperty.property.type.xpmultiplier
 
-    if characterXP > xPCost:
+    if characterXP > xPCost and characterProperty.value < characterProperty.character.age_category.lvluplimit:
         return {'characterproperty': characterProperty, 'xpCost': xPCost}
     else:
         pass
@@ -68,7 +65,7 @@ def renderCharacterCreationButton(characterproperty_id, request):
     if characterProperty.property.type.stattype in (PropertyType.STATUS.physical, PropertyType.STATUS.social, PropertyType.STATUS.mental):
 
         border = character.age_category.startingabilities
-        if character.charactercreation.abilities < border:
+        if character.charactercreation.abilities < border and characterProperty.value < character.age_category.advancedlvluplimit:
             raiseButton = True
 
         if characterProperty.value == 1:
@@ -76,7 +73,7 @@ def renderCharacterCreationButton(characterproperty_id, request):
 
     elif characterProperty.property.type.stattype in (PropertyType.STATUS.talents, PropertyType.STATUS.skills, PropertyType.STATUS.knowledges):
         border = character.age_category.startingskills
-        if character.charactercreation.skills < border:
+        if character.charactercreation.skills < border and characterProperty.value < character.age_category.advancedlvluplimit:
             raiseButton = True
 
         if characterProperty.value == 0:
@@ -84,7 +81,7 @@ def renderCharacterCreationButton(characterproperty_id, request):
 
     elif characterProperty.property.type.stattype == PropertyType.STATUS.disciplines:
         border = character.age_category.startingdisciplines
-        if character.charactercreation.disciplines < border:
+        if character.charactercreation.disciplines < border and characterProperty.value < character.age_category.advancedlvluplimit:
             raiseButton = True
 
         if characterProperty.value == 0:
@@ -92,7 +89,7 @@ def renderCharacterCreationButton(characterproperty_id, request):
     elif characterProperty.property.type.stattype == PropertyType.STATUS.influences:
 
         border = character.age_category.startinginfluences
-        if character.charactercreation.influences < border:
+        if character.charactercreation.influences < border and characterProperty.value < character.age_category.advancedlvluplimit:
             raiseButton = True
 
         if characterProperty.value == 0:

@@ -75,6 +75,8 @@ class AgeCategory(models.Model):
     startinginfluences = models.IntegerField(default=4)
     startingxp = models.IntegerField(default=25)
     startingsecrets = models.IntegerField(default=4)
+    lvluplimit = models.IntegerField(default=5)
+    advancedlvluplimit = models.IntegerField(default=3)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
     domain = models.ForeignKey('Domain', default=1)
