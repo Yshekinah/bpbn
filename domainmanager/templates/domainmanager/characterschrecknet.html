@@ -1,0 +1,53 @@
+{% extends 'charactersheet.html' %}
+{% load staticfiles %}
+{% load customTags %}
+
+{% block title %}Your SchreckNet messages for {{ character.firstname }} {{ character.lastname }}{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-12">
+
+            {% block panel-nav %}
+                {{ block.super }}
+            {% endblock panel-nav %}
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h3>Your SchreckNet messages</h3>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Caption</th>
+                        <th>Preface</th>
+                        <th>Content</th>
+                        <th>Level</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% autoescape off %}
+                        {% for message in messages %}
+                            <tr>
+                                <td> {{ message.caption }} </td>
+                                <td> {{ message.preface }} </td>
+                                <td> {{ message.content }} </td>
+                                <td> {{ message.schrecknetlevel }} </td>
+                            </tr>
+                        {% endfor %}
+                    {% endautoescape %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
