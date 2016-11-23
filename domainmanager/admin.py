@@ -127,8 +127,9 @@ class CharacterAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = ('firstname', 'lastname', 'get_clan', 'generation', 'get_player')
-    list_filter = (('clan', admin.RelatedOnlyFieldListFilter), 'generation', ('function', admin.RelatedOnlyFieldListFilter), 'humanity', 'hasvisions',
-                   'schrecknetlevel', 'levelup', 'finished')
+    list_filter = (
+        ('clan', admin.RelatedOnlyFieldListFilter), 'generation', ('function', admin.RelatedOnlyFieldListFilter), 'humanity', 'visionlevel',
+        'schrecknetlevel', 'levelup', 'finished')
 
     # Show staff users only the properties they are allowed to edit
     def get_queryset(self, request):
@@ -380,9 +381,9 @@ class NewsAdmin(admin.ModelAdmin):
     actions_selection_counter = True
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
-    list_display = ('caption', 'content', 'displayDomains', 'validfrom', 'validuntil', 'isvision', 'schreknetlevel')
+    list_display = ('caption', 'content', 'displayDomains', 'validfrom', 'validuntil')
     list_filter = (
-        'isvision', 'schreknetlevel', ('domains', admin.RelatedOnlyFieldListFilter), ('author', admin.RelatedOnlyFieldListFilter), 'validfrom',
+        ('domains', admin.RelatedOnlyFieldListFilter), ('author', admin.RelatedOnlyFieldListFilter), 'validfrom',
         'validuntil')
 
     fieldsets = (
@@ -391,7 +392,7 @@ class NewsAdmin(admin.ModelAdmin):
         }),
         ('Advanced options', {
             'classes': ('collapse',),
-            'fields': ('schreknetlevel', 'limittoclan', 'isvision', 'image', 'thumb', 'attachment'),
+            'fields': ('limittoclan', 'image', 'thumb', 'attachment'),
         }),
     )
 
@@ -547,7 +548,7 @@ class DomainAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
     empty_value_display = '-empty-'
     list_display = (
-    'name', 'get_gm', 'get_substitute', 'street', 'postcode', 'boons', 'secrets', 'downtimes', 'influences', 'advancedcharactercreation')
+        'name', 'get_gm', 'get_substitute', 'street', 'postcode', 'boons', 'secrets', 'downtimes', 'influences', 'advancedcharactercreation', 'schrecknetmessages', 'visions')
     list_filter = (('gm', admin.RelatedOnlyFieldListFilter), ('substitute', admin.RelatedOnlyFieldListFilter))
 
     # Show staff users only the properties they are allowed to edit
@@ -943,12 +944,11 @@ class PersonAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             pass
         else:
-            pass
-        # get only the domain - the user is a member of
-        form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
-        form.base_fields['user'].queryset = form.base_fields['user'].queryset.filter(person__domain=request.user.person.domain)
-        form.base_fields['salutation'].queryset = form.base_fields['salutation'].queryset.filter(
-            person__salutation__domain=request.user.person.domain)
+            # get only the domain - the user is a member of
+            form.base_fields['domain'].queryset = form.base_fields['domain'].queryset.filter(pk=request.user.person.domain.id)
+            form.base_fields['user'].queryset = form.base_fields['user'].queryset.filter(person__domain=request.user.person.domain)
+            form.base_fields['salutation'].queryset = form.base_fields['salutation'].queryset.filter(
+                person__salutation__domain=request.user.person.domain)
         return form
 
     def get_firstname(self, obj):
@@ -963,6 +963,87 @@ class PersonAdmin(admin.ModelAdmin):
     get_lastname.short_description = 'Lastname'
     get_lastname.admin_order_field = 'user__last_name'
 
+
+class VisionAdmin(admin.ModelAdmin):
+    search_fields = ('caption', 'preface', 'content',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('caption', 'preface', 'content', 'get_domain')
+    list_filter = (
+        ('domain', admin.RelatedOnlyFieldListFilter), ('author', admin.RelatedOnlyFieldListFilter))
+
+    fieldsets = (
+        (None, {
+            'fields': ('caption', 'preface', 'content', 'author', 'domain')
+        }),
+    )
+
+    # Let staff persons only select authors from their own domain who are staff themselves
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(VisionAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # give the user only the option to select the domain - the user is a member of
+            form.base_fields['author'].queryset = form.base_fields['author'].queryset.filter(domain=request.user.person.domain).filter(
+                user__is_staff=True)
+        return form
+
+    # Show staff users only the news they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(VisionAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(author__domain=request.user.person.domain)
+
+    def get_domain(self, obj):
+        return obj.domain.name
+
+    get_domain.short_description = 'Domain'
+    get_domain.admin_order_field = 'domain__name'
+
+
+class SchreckNetAdmin(admin.ModelAdmin):
+    search_fields = ('caption', 'preface', 'content',)
+    actions_selection_counter = True
+    date_hierarchy = 'created'
+    empty_value_display = '-empty-'
+    list_display = ('caption', 'preface', 'content', 'get_domain')
+    list_filter = (
+        ('domain', admin.RelatedOnlyFieldListFilter), ('author', admin.RelatedOnlyFieldListFilter))
+
+    fieldsets = (
+        (None, {
+            'fields': ('caption', 'preface', 'content', 'author', 'domain')
+        }),
+    )
+
+    # Let staff persons only select authors from their own domain who are staff themselves
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(SchreckNetAdmin, self).get_form(request, obj, **kwargs)
+        # form class is created per request by modelform_factory function so it's safe to modify the the queryset
+        if request.user.is_superuser:
+            pass
+        else:
+            # give the user only the option to select the domain - the user is a member of
+            form.base_fields['author'].queryset = form.base_fields['author'].queryset.filter(domain=request.user.person.domain).filter(
+                user__is_staff=True)
+        return form
+
+    # Show staff users only the news they are allowed to edit
+    def get_queryset(self, request):
+        qs = super(SchreckNetAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(author__domain=request.user.person.domain)
+
+    def get_domain(self, obj):
+        return obj.domain.name
+
+    get_domain.short_description = 'Domain'
+    get_domain.admin_order_field = 'domain__name'
 
 admin.site.register(Action, ActionAdmin)
 admin.site.register(AgeCategory, AgeCategoryAdmin)
@@ -987,7 +1068,9 @@ admin.site.register(Property, PropertyAdmin)
 admin.site.register(PropertyType, PropertyTypeAdmin)
 admin.site.register(Rank, RankAdmin)
 admin.site.register(Salutation, SalutationAdmin)
+admin.site.register(SchreckNet, SchreckNetAdmin)
 admin.site.register(Secret, SecretAdmin)
 admin.site.register(Sect, SectAdmin)
 admin.site.register(Xpearned, XpearnedAdmin)
 admin.site.register(Xpspent, XpspentAdmin)
+admin.site.register(Vision, VisionAdmin)

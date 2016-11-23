@@ -36,6 +36,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'domainmanager.apps.DomainmanagerConfig',
+#    'grappelli',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -186,3 +188,11 @@ MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "domainmanager/upload")
 
 LOGIN_URL = '/admin/login/'
+
+TINYMCE_JS_URL = os.path.join(STATIC_URL, 'js/tinymce/tinymce.min.js')
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins' :'table, spellchecker, paste, searchreplace',
+    'theme' : 'modern',
+    'cleanup_on_startup':True ,
+    'custom_undo_redo_levels':10 ,
+}

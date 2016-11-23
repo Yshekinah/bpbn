@@ -8,6 +8,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from model_utils import Choices
+from tinymce.models import HTMLField
 
 
 def set_upload_directory_path(instance, filename):
@@ -120,7 +121,7 @@ class Person(models.Model):
     country = models.ForeignKey(Country)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
     date_of_birth = models.DateField()
-    description = models.TextField(blank=True)
+    description = HTMLField(blank=True)
     active = models.BooleanField(default=True)
     nickname = models.CharField(blank=True, null=True, max_length=100)
     created = models.DateTimeField(auto_now_add=True)
@@ -144,6 +145,8 @@ class Domain(models.Model):
     country = models.ForeignKey(Country, related_name='domain_country')
     gm = models.ForeignKey('Person', related_name='gm')
     substitute = models.ForeignKey('Person', related_name='substitute')
+    schrecknetmessages = models.BooleanField(default=True)
+    visions = models.BooleanField(default=True)
     secrets = models.BooleanField(default=True)
     boons = models.BooleanField(default=True)
     advancedcharactercreation = models.BooleanField(default=True)
@@ -237,7 +240,7 @@ class CharacterCreation(models.Model):
     class Meta:
         verbose_name_plural = 'Character creation entries'
 
-    character = models.OneToOneField('Character', on_delete=models.CASCADE,)
+    character = models.OneToOneField('Character', on_delete=models.CASCADE, )
     abilities = models.IntegerField(default=0)
     skills = models.IntegerField(default=0)
     disciplines = models.IntegerField(default=0)
@@ -248,7 +251,8 @@ class CharacterCreation(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.character.firstname + " " + self.character.lastname + ", abilites: " + str(self.abilities) + ", skills: " + str(self.skills) + ", disc. " + str(self.disciplines)
+        return self.character.firstname + " " + self.character.lastname + ", abilites: " + str(self.abilities) + ", skills: " + str(
+            self.skills) + ", disc. " + str(self.disciplines)
 
 
 class Character(models.Model):
@@ -272,7 +276,7 @@ class Character(models.Model):
     schrecknetlevel = models.IntegerField(
         default=0,
         validators=[
-            MaxValueValidator(20),
+            MaxValueValidator(10),
             MinValueValidator(0)
         ],
         help_text="What is the Schrecknet level of the character?",
@@ -297,8 +301,15 @@ class Character(models.Model):
     finished = models.BooleanField(default=False)
     levelup = models.BooleanField(default=False)
     quickedit = models.BooleanField(default=False)
-    hasvisions = models.IntegerField(choices=STATUS_visions, default=STATUS_visions.no, verbose_name="Visions",
-                                     help_text="Has the character visions?")
+    visionlevel = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(0)
+        ],
+        help_text="What is the vision level of the character?",
+        verbose_name='Vision level'
+    )
     properties = models.ManyToManyField(Property, through='CharacterProperty')
     secretclan = models.ForeignKey(Clan, related_name='secretclan', blank=True, null=True)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
@@ -567,26 +578,16 @@ class News(models.Model):
         verbose_name_plural = 'News'
 
     caption = models.CharField(max_length=250, null=False)
-    preface = models.TextField(default="Add an introduction here")
-    content = models.TextField(default="Add the main content here")
+    preface = HTMLField(default="Add an introduction here")
+    content = HTMLField(default="Add the main content here")
     link = models.CharField(max_length=250, null=True, blank=True)
     validfrom = models.DateField(blank=True, null=True)
     validuntil = models.DateField(blank=True, null=True)
-    limittoclan = models.ManyToManyField(Clan, blank=True)
     domains = models.ManyToManyField(Domain)
     author = models.ForeignKey(Person)
     thumb = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
     image = models.ImageField(upload_to=set_upload_directory_path, blank=True, null=True)
-    schreknetlevel = models.IntegerField(
-        help_text='Does it require SchrekNet access?',
-        default=0,
-        validators=[
-            MaxValueValidator(10),
-            MinValueValidator(0)
-        ]
-    )
     attachment = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
-    isvision = models.BooleanField(default=False, help_text='Is it a vision?')
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 
@@ -605,6 +606,54 @@ class News(models.Model):
                 returnValue += ", " + domain.name
 
         return returnValue
+
+
+class Vision(models.Model):
+    class Meta:
+        verbose_name_plural = 'Visions'
+
+    caption = models.CharField(max_length=250, null=False)
+    preface = HTMLField(default="Add an introduction here")
+    content = HTMLField(default="Add the main content here")
+    domain = models.ForeignKey('Domain')
+    author = models.ForeignKey(Person)
+    attachment = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+    visionlevel = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ]
+    )
+
+    def __str__(self):
+        return self.caption + ": " + self.preface + "..."
+
+
+class SchreckNet(models.Model):
+    class Meta:
+        verbose_name_plural = 'SchreckNet messages'
+
+    caption = models.CharField(max_length=250, null=False)
+    preface = HTMLField(default="Add an introduction here")
+    content = HTMLField(default="Add the main content here")
+    domain = models.ForeignKey('Domain')
+    author = models.ForeignKey(Person)
+    attachment = models.FileField(upload_to=set_upload_directory_path, blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
+    schrecknetlevel = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ]
+    )
+
+    def __str__(self):
+        return self.caption + ": " + self.preface + "..."
 
 
 ################################ GENEALOGY ################################

@@ -6,6 +6,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^domainmanager/', include('domainmanager.urls')),
+#    url(r'^grappelli/', include('grappelli.urls')), # for clean backend editor
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/', admin.site.urls),
 ]
 

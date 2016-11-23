@@ -534,6 +534,30 @@ def charactersecrets(request, character_id):
 
 
 @login_required()
+@hasCharacter
+def charactervisions(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+
+    visions = Vision.objects.filter(visionlevel__lte=character.visionlevel).filter(domain=character.domain).order_by('visionlevel')
+
+    context = {'character': character, 'visions': visions}
+
+    return render(request, 'domainmanager/charactervisions.html', context)
+
+
+@login_required()
+@hasCharacter
+def characterschrecknet(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+
+    messages = SchreckNet.objects.filter(schrecknetlevel__lte=character.schrecknetlevel).filter(domain=character.domain).order_by('schrecknetlevel')
+
+    context = {'character': character, 'messages': messages}
+
+    return render(request, 'domainmanager/characterschrecknet.html', context)
+
+
+@login_required()
 def genealogy(request):
     return render(request, 'domainmanager/genealogy.html')
 

@@ -1,2140 +1,2484 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Django default">
-  <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
-    <schema id="1">
-      <visible>1</visible>
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1">
+      <Current>1</Current>
+      <Visible>1</Visible>
     </schema>
-    <table id="2" parent="1" name="auth_group"/>
-    <table id="3" parent="1" name="auth_group_permissions"/>
-    <table id="4" parent="1" name="auth_permission"/>
-    <table id="5" parent="1" name="auth_user"/>
-    <table id="6" parent="1" name="auth_user_groups"/>
-    <table id="7" parent="1" name="auth_user_user_permissions"/>
-    <table id="8" parent="1" name="django_admin_log"/>
-    <table id="9" parent="1" name="django_content_type"/>
-    <table id="10" parent="1" name="django_migrations"/>
-    <table id="11" parent="1" name="django_session"/>
-    <table id="12" parent="1" name="domainmanager_action"/>
-    <table id="13" parent="1" name="domainmanager_agecategory"/>
-    <table id="14" parent="1" name="domainmanager_boon"/>
-    <table id="15" parent="1" name="domainmanager_booncategory"/>
-    <table id="16" parent="1" name="domainmanager_character"/>
-    <table id="17" parent="1" name="domainmanager_charactercreation"/>
-    <table id="18" parent="1" name="domainmanager_characterproperty"/>
-    <table id="19" parent="1" name="domainmanager_charactersecret"/>
-    <table id="20" parent="1" name="domainmanager_charactershopping"/>
-    <table id="21" parent="1" name="domainmanager_clan"/>
-    <table id="22" parent="1" name="domainmanager_clanproperty"/>
-    <table id="23" parent="1" name="domainmanager_country"/>
-    <table id="24" parent="1" name="domainmanager_domain"/>
-    <table id="25" parent="1" name="domainmanager_downtime"/>
-    <table id="26" parent="1" name="domainmanager_event"/>
-    <table id="27" parent="1" name="domainmanager_gender"/>
-    <table id="28" parent="1" name="domainmanager_genealogy"/>
-    <table id="29" parent="1" name="domainmanager_news"/>
-    <table id="30" parent="1" name="domainmanager_news_domains"/>
-    <table id="31" parent="1" name="domainmanager_news_limittoclan"/>
-    <table id="32" parent="1" name="domainmanager_person"/>
-    <table id="33" parent="1" name="domainmanager_politicalfuntion"/>
-    <table id="34" parent="1" name="domainmanager_property"/>
-    <table id="35" parent="1" name="domainmanager_propertytype"/>
-    <table id="36" parent="1" name="domainmanager_rank"/>
-    <table id="37" parent="1" name="domainmanager_salutation"/>
-    <table id="38" parent="1" name="domainmanager_secret"/>
-    <table id="39" parent="1" name="domainmanager_sect"/>
-    <table id="40" parent="1" name="domainmanager_xpearned"/>
-    <table id="41" parent="1" name="domainmanager_xpearned_characters"/>
-    <table id="42" parent="1" name="domainmanager_xpspent"/>
-    <table id="43" parent="1" name="sqlite_sequence"/>
-    <column id="44" parent="2" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <table id="3" parent="2" name="auth_group"/>
+    <table id="4" parent="2" name="auth_group_permissions"/>
+    <table id="5" parent="2" name="auth_permission"/>
+    <table id="6" parent="2" name="auth_user"/>
+    <table id="7" parent="2" name="auth_user_groups"/>
+    <table id="8" parent="2" name="auth_user_user_permissions"/>
+    <table id="9" parent="2" name="django_admin_log"/>
+    <table id="10" parent="2" name="django_content_type"/>
+    <table id="11" parent="2" name="django_migrations"/>
+    <table id="12" parent="2" name="django_session"/>
+    <table id="13" parent="2" name="domainmanager_action"/>
+    <table id="14" parent="2" name="domainmanager_agecategory"/>
+    <table id="15" parent="2" name="domainmanager_boon"/>
+    <table id="16" parent="2" name="domainmanager_booncategory"/>
+    <table id="17" parent="2" name="domainmanager_character"/>
+    <table id="18" parent="2" name="domainmanager_charactercreation"/>
+    <table id="19" parent="2" name="domainmanager_characterproperty"/>
+    <table id="20" parent="2" name="domainmanager_charactersecret"/>
+    <table id="21" parent="2" name="domainmanager_charactershopping"/>
+    <table id="22" parent="2" name="domainmanager_clan"/>
+    <table id="23" parent="2" name="domainmanager_clanproperty"/>
+    <table id="24" parent="2" name="domainmanager_country"/>
+    <table id="25" parent="2" name="domainmanager_domain"/>
+    <table id="26" parent="2" name="domainmanager_downtime"/>
+    <table id="27" parent="2" name="domainmanager_event"/>
+    <table id="28" parent="2" name="domainmanager_gender"/>
+    <table id="29" parent="2" name="domainmanager_genealogy"/>
+    <table id="30" parent="2" name="domainmanager_news"/>
+    <table id="31" parent="2" name="domainmanager_news_domains"/>
+    <table id="32" parent="2" name="domainmanager_news_limittoclan"/>
+    <table id="33" parent="2" name="domainmanager_person"/>
+    <table id="34" parent="2" name="domainmanager_politicalfuntion"/>
+    <table id="35" parent="2" name="domainmanager_property"/>
+    <table id="36" parent="2" name="domainmanager_propertytype"/>
+    <table id="37" parent="2" name="domainmanager_rank"/>
+    <table id="38" parent="2" name="domainmanager_salutation"/>
+    <table id="39" parent="2" name="domainmanager_secret"/>
+    <table id="40" parent="2" name="domainmanager_sect"/>
+    <table id="41" parent="2" name="domainmanager_xpearned"/>
+    <table id="42" parent="2" name="domainmanager_xpearned_characters"/>
+    <table id="43" parent="2" name="domainmanager_xpspent"/>
+    <table id="44" parent="2" name="sqlite_sequence"/>
+    <column id="45" parent="3" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="2" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(80)(0,-1)|12</data-type>
+    <column id="46" parent="3" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(80)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="46" parent="2" name="sqlite_autoindex_auth_group_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>name</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="47" parent="3" name="sqlite_autoindex_auth_group_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="47" parent="2">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="48" parent="3">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <column id="48" parent="3" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="49" parent="4" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="49" parent="3" name="group_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="50" parent="4" name="group_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="50" parent="3" name="permission_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="51" parent="4" name="permission_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="51" parent="3" name="auth_group_permissions_group_id_0cd325b0_uniq">
-      <columns>group_id
-permission_id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="52" parent="4" name="auth_group_permissions_group_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="52" parent="3">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="53" parent="4">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="53" parent="3" name="#FAKE_auth_group_permissions_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>group_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_group.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="54" parent="4" name="#FAKE_auth_group_permissions_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="54" parent="3" name="#FAKE_auth_group_permissions_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>permission_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_permission.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="55" parent="4" name="#FAKE_auth_group_permissions_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>permission_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="55" parent="4" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="56" parent="5" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="56" parent="4" name="content_type_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="57" parent="5" name="content_type_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="57" parent="4" name="codename">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="58" parent="5" name="codename">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="58" parent="4" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(255)(0,-1)|12</data-type>
+    <column id="59" parent="5" name="name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="59" parent="4" name="auth_permission_content_type_id_01ab375a_uniq">
-      <columns>content_type_id
-codename</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="60" parent="5" name="auth_permission_content_type_id_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="60" parent="4">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="61" parent="5">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="61" parent="4" name="#FAKE_auth_permission_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>content_type_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.django_content_type.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="62" parent="5" name="#FAKE_auth_permission_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>content_type_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="62" parent="5" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="63" parent="6" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="63" parent="5" name="password">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(128)(0,-1)|12</data-type>
+    <column id="64" parent="6" name="password">
+      <Position>1</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="64" parent="5" name="last_login">
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="65" parent="6" name="last_login">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
     </column>
-    <column id="65" parent="5" name="is_superuser">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="66" parent="6" name="is_superuser">
+      <Position>3</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="66" parent="5" name="first_name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(30)(0,-1)|12</data-type>
+    <column id="67" parent="6" name="first_name">
+      <Position>4</Position>
+      <DataType>VARCHAR(30)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="67" parent="5" name="last_name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(30)(0,-1)|12</data-type>
+    <column id="68" parent="6" name="last_name">
+      <Position>5</Position>
+      <DataType>VARCHAR(30)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="5" name="email">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(254)(0,-1)|12</data-type>
+    <column id="69" parent="6" name="email">
+      <Position>6</Position>
+      <DataType>VARCHAR(254)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="69" parent="5" name="is_staff">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="70" parent="6" name="is_staff">
+      <Position>7</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="70" parent="5" name="is_active">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="71" parent="6" name="is_active">
+      <Position>8</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="71" parent="5" name="date_joined">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="72" parent="6" name="date_joined">
+      <Position>9</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="72" parent="5" name="username">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(150)(0,-1)|12</data-type>
+    <column id="73" parent="6" name="username">
+      <Position>10</Position>
+      <DataType>VARCHAR(150)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="73" parent="5" name="sqlite_autoindex_auth_user_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>username</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="74" parent="6" name="sqlite_autoindex_auth_user_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="74" parent="5">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="75" parent="6">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <column id="75" parent="6" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="76" parent="7" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="76" parent="6" name="user_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="77" parent="7" name="user_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="77" parent="6" name="group_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="78" parent="7" name="group_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="78" parent="6" name="auth_user_groups_user_id_94350c0c_uniq">
-      <columns>user_id
-group_id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="79" parent="7" name="auth_user_groups_user_id_94350c0c_uniq">
+      <ColNames>user_id
+group_id</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="79" parent="6">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="80" parent="7">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="80" parent="6" name="#FAKE_auth_user_groups_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>user_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_user.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="81" parent="7" name="#FAKE_auth_user_groups_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="81" parent="6" name="#FAKE_auth_user_groups_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>group_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_group.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="82" parent="7" name="#FAKE_auth_user_groups_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="82" parent="7" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="83" parent="8" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="83" parent="7" name="user_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="84" parent="8" name="user_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="84" parent="7" name="permission_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="85" parent="8" name="permission_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="85" parent="7" name="auth_user_user_permissions_user_id_14a6b632_uniq">
-      <columns>user_id
-permission_id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="86" parent="8" name="auth_user_user_permissions_user_id_14a6b632_uniq">
+      <ColNames>user_id
+permission_id</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="86" parent="7">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="87" parent="8">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="87" parent="7" name="#FAKE_auth_user_user_permissions_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>user_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_user.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="88" parent="8" name="#FAKE_auth_user_user_permissions_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="88" parent="7" name="#FAKE_auth_user_user_permissions_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>permission_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_permission.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="89" parent="8" name="#FAKE_auth_user_user_permissions_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>permission_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="89" parent="8" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="90" parent="9" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="90" parent="8" name="object_id">
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="91" parent="9" name="object_id">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
     </column>
-    <column id="91" parent="8" name="object_repr">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="92" parent="9" name="object_repr">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="92" parent="8" name="action_flag">
-      <mandatory>1</mandatory>
-      <data-type>SMALLINT UNSIGNED(0,-1)|4</data-type>
+    <column id="93" parent="9" name="action_flag">
+      <Position>3</Position>
+      <DataType>SMALLINT UNSIGNED(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="93" parent="8" name="change_message">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="94" parent="9" name="change_message">
+      <Position>4</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="94" parent="8" name="content_type_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="95" parent="9" name="content_type_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="95" parent="8" name="user_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="96" parent="9" name="user_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="96" parent="8" name="action_time">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="97" parent="9" name="action_time">
+      <Position>7</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="97" parent="8">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="98" parent="9">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="98" parent="8" name="#FAKE_django_admin_log_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>content_type_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.django_content_type.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="99" parent="9" name="#FAKE_django_admin_log_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>content_type_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="99" parent="8" name="#FAKE_django_admin_log_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>user_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_user.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="100" parent="9" name="#FAKE_django_admin_log_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="100" parent="9" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="101" parent="10" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="9" name="app_label">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="102" parent="10" name="app_label">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="102" parent="9" name="model">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="103" parent="10" name="model">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="103" parent="9" name="django_content_type_app_label_76bd3d3b_uniq">
-      <columns>app_label
-model</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="104" parent="10" name="django_content_type_app_label_76bd3d3b_uniq">
+      <ColNames>app_label
+model</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="104" parent="9">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="105" parent="10">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <column id="105" parent="10" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="106" parent="11" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="106" parent="10" name="app">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(255)(0,-1)|12</data-type>
+    <column id="107" parent="11" name="app">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="107" parent="10" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(255)(0,-1)|12</data-type>
+    <column id="108" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="108" parent="10" name="applied">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="109" parent="11" name="applied">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="109" parent="10">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="110" parent="11">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <column id="110" parent="11" name="session_key">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(40)(0,-1)|12</data-type>
+    <column id="111" parent="12" name="session_key">
+      <DataType>VARCHAR(40)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="111" parent="11" name="session_data">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="112" parent="12" name="session_data">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="112" parent="11" name="expire_date">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="113" parent="12" name="expire_date">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="113" parent="11" name="django_session_de54fa62">
-      <columns>expire_date</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="114" parent="12" name="django_session_de54fa62">
+      <ColNames>expire_date</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="114" parent="11">
-      <columns>session_key</columns>
-      <primary>1</primary>
+    <key id="115" parent="12">
+      <ColNames>session_key</ColNames>
+      <Primary>1</Primary>
     </key>
-    <column id="115" parent="12" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="116" parent="13" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="116" parent="12" name="action">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="117" parent="13" name="action">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="117" parent="12" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="118" parent="13" name="created">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="118" parent="12" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="119" parent="13" name="timestamp">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="119" parent="12" name="character_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="120" parent="13" name="character_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="120" parent="12" name="result">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="121" parent="13" name="result">
+      <Position>5</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="121" parent="12" name="downtime_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="122" parent="13" name="downtime_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="122" parent="12">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="123" parent="13">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="123" parent="12" name="#FAKE_domainmanager_action_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="124" parent="13" name="#FAKE_domainmanager_action_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="124" parent="12" name="#FAKE_domainmanager_action_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>downtime_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_downtime.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="125" parent="13" name="#FAKE_domainmanager_action_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>downtime_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_downtime</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="125" parent="13" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="126" parent="14" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="126" parent="13" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="127" parent="14" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="127" parent="13" name="startingxp">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="128" parent="14" name="startingxp">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="128" parent="13" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="129" parent="14" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="129" parent="13" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="130" parent="14" name="timestamp">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="130" parent="13" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="131" parent="14" name="domain_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="131" parent="13" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="132" parent="14" name="image">
+      <Position>6</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="132" parent="13" name="startingsecrets">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="133" parent="14" name="startingsecrets">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="133" parent="13" name="startingdisciplines">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="134" parent="14" name="startingabilities">
+      <Position>8</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="134" parent="13" name="startingskills">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="135" parent="14" name="startingdisciplines">
+      <Position>9</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="135" parent="13" name="startingbackgrounds">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="136" parent="14" name="startingskills">
+      <Position>10</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="136" parent="13" name="startinginfluences">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="137" parent="14" name="startingbackgrounds">
+      <Position>11</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="137" parent="13" name="startingabilities">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="138" parent="14" name="startinginfluences">
+      <Position>12</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="138" parent="13">
-      <columns>id</columns>
-      <primary>1</primary>
+    <column id="139" parent="14" name="lvluplimit">
+      <Position>13</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="140" parent="14" name="advancedlvluplimit">
+      <Position>14</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="141" parent="14">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="139" parent="13" name="#FAKE_domainmanager_agecategory_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="142" parent="14" name="#FAKE_domainmanager_agecategory_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="140" parent="14" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="143" parent="15" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="141" parent="14" name="category_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="144" parent="15" name="category_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="142" parent="14" name="master_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="145" parent="15" name="master_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="143" parent="14" name="slave_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="146" parent="15" name="slave_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="144" parent="14" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="147" parent="15" name="created">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="145" parent="14" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="148" parent="15" name="timestamp">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="146" parent="14" name="note">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="149" parent="15" name="note">
+      <Position>6</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="147" parent="14" name="approvedbygm">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="150" parent="15" name="approvedbygm">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="148" parent="14" name="approvedbygm_note">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="151" parent="15" name="approvedbygm_note">
+      <Position>8</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="149" parent="14" name="approvedbyslave_note">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="152" parent="15" name="approvedbyslave_note">
+      <Position>9</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="150" parent="14" name="hash_gm">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(20)(0,-1)|12</data-type>
+    <column id="153" parent="15" name="hash_gm">
+      <Position>10</Position>
+      <DataType>VARCHAR(20)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="151" parent="14" name="hash_slave">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(20)(0,-1)|12</data-type>
+    <column id="154" parent="15" name="hash_slave">
+      <Position>11</Position>
+      <DataType>VARCHAR(20)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="152" parent="14" name="approvedbymaster">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="155" parent="15" name="approvedbymaster">
+      <Position>12</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="153" parent="14" name="approvedbymaster_note">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="156" parent="15" name="approvedbymaster_note">
+      <Position>13</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="154" parent="14" name="hash_master">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(20)(0,-1)|12</data-type>
+    <column id="157" parent="15" name="hash_master">
+      <Position>14</Position>
+      <DataType>VARCHAR(20)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="155" parent="14" name="approvedbyslave">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="158" parent="15" name="approvedbyslave">
+      <Position>15</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="156" parent="14">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="159" parent="15">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="157" parent="14" name="#FAKE_domainmanager_boon_3">
-      <name-surrogate>1</name-surrogate>
-      <columns>category_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_booncategory.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="160" parent="15" name="#FAKE_domainmanager_boon_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>category_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_booncategory</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="158" parent="14" name="#FAKE_domainmanager_boon_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>master_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="161" parent="15" name="#FAKE_domainmanager_boon_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>master_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="159" parent="14" name="#FAKE_domainmanager_boon_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>slave_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="162" parent="15" name="#FAKE_domainmanager_boon_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>slave_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="160" parent="15" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="163" parent="16" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="161" parent="15" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="164" parent="16" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="162" parent="15" name="weight">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="165" parent="16" name="weight">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="163" parent="15" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="166" parent="16" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="164" parent="15" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="167" parent="16" name="domain_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="165" parent="15" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="168" parent="16" name="timestamp">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="166" parent="15">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="169" parent="16">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="167" parent="15" name="#FAKE_domainmanager_booncategory_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="170" parent="16" name="#FAKE_domainmanager_booncategory_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="168" parent="16" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="171" parent="17" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="169" parent="16" name="firstname">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="172" parent="17" name="firstname">
+      <Position>1</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="170" parent="16" name="lastname">
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="173" parent="17" name="lastname">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
     </column>
-    <column id="171" parent="16" name="generation">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="174" parent="17" name="generation">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="172" parent="16" name="date_of_birth">
-      <mandatory>1</mandatory>
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="175" parent="17" name="date_of_birth">
+      <Position>4</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="173" parent="16" name="date_of_death">
-      <mandatory>1</mandatory>
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="176" parent="17" name="date_of_death">
+      <Position>5</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="174" parent="16" name="clan_rank">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="177" parent="17" name="clan_rank">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="175" parent="16" name="willpower">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="178" parent="17" name="willpower">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="176" parent="16" name="humanity">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="179" parent="17" name="humanity">
+      <Position>8</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="177" parent="16" name="frenzy">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="180" parent="17" name="frenzy">
+      <Position>9</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="178" parent="16" name="bloodpool">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="181" parent="17" name="bloodpool">
+      <Position>10</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="179" parent="16" name="age_category_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="182" parent="17" name="age_category_id">
+      <Position>11</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="180" parent="16" name="clan_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="183" parent="17" name="clan_id">
+      <Position>12</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="181" parent="16" name="function_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="184" parent="17" name="function_id">
+      <Position>13</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="182" parent="16" name="gender_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="185" parent="17" name="gender_id">
+      <Position>14</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="183" parent="16" name="rank_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="186" parent="17" name="rank_id">
+      <Position>15</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="184" parent="16" name="salutation_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="187" parent="17" name="salutation_id">
+      <Position>16</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="185" parent="16" name="active">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="188" parent="17" name="active">
+      <Position>17</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="186" parent="16" name="player_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="189" parent="17" name="player_id">
+      <Position>18</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="187" parent="16" name="sire">
-      <data-type>VARCHAR(250)(0,-1)|12</data-type>
+    <column id="190" parent="17" name="sire">
+      <Position>19</Position>
+      <DataType>VARCHAR(250)(0,-1)|12</DataType>
     </column>
-    <column id="188" parent="16" name="sect_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="191" parent="17" name="sect_id">
+      <Position>20</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="189" parent="16" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="192" parent="17" name="domain_id">
+      <Position>21</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="190" parent="16" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="193" parent="17" name="created">
+      <Position>22</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="191" parent="16" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="194" parent="17" name="timestamp">
+      <Position>23</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="192" parent="16" name="nickname">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="195" parent="17" name="nickname">
+      <Position>24</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="193" parent="16" name="secretclan_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="196" parent="17" name="secretclan_id">
+      <Position>25</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="194" parent="16" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="197" parent="17" name="image">
+      <Position>26</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="195" parent="16" name="hasvisions">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="198" parent="17" name="hasvisions">
+      <Position>27</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="196" parent="16" name="schrecknetlevel">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="199" parent="17" name="schrecknetlevel">
+      <Position>28</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="197" parent="16" name="finished">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="200" parent="17" name="finished">
+      <Position>29</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="198" parent="16" name="levelup">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="201" parent="17" name="levelup">
+      <Position>30</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="199" parent="16" name="quickedit">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="202" parent="17" name="quickedit">
+      <Position>31</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="200" parent="16">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="203" parent="17">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="201" parent="16" name="#FAKE_domainmanager_character_10">
-      <name-surrogate>1</name-surrogate>
-      <columns>age_category_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_agecategory.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="204" parent="17" name="#FAKE_domainmanager_character_10">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>age_category_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_agecategory</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="202" parent="16" name="#FAKE_domainmanager_character_9">
-      <name-surrogate>1</name-surrogate>
-      <columns>clan_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_clan.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="205" parent="17" name="#FAKE_domainmanager_character_9">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clan_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_clan</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="203" parent="16" name="#FAKE_domainmanager_character_8">
-      <name-surrogate>1</name-surrogate>
-      <columns>function_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_politicalfuntion.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="206" parent="17" name="#FAKE_domainmanager_character_8">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>function_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_politicalfuntion</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="204" parent="16" name="#FAKE_domainmanager_character_7">
-      <name-surrogate>1</name-surrogate>
-      <columns>gender_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_gender.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="207" parent="17" name="#FAKE_domainmanager_character_7">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>gender_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_gender</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="205" parent="16" name="#FAKE_domainmanager_character_6">
-      <name-surrogate>1</name-surrogate>
-      <columns>rank_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_rank.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="208" parent="17" name="#FAKE_domainmanager_character_6">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>rank_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_rank</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="206" parent="16" name="#FAKE_domainmanager_character_5">
-      <name-surrogate>1</name-surrogate>
-      <columns>salutation_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_salutation.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="209" parent="17" name="#FAKE_domainmanager_character_5">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>salutation_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_salutation</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="207" parent="16" name="#FAKE_domainmanager_character_4">
-      <name-surrogate>1</name-surrogate>
-      <columns>player_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_person.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="210" parent="17" name="#FAKE_domainmanager_character_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>player_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_person</RefTableName>
+      <RefColNames>user_id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="208" parent="16" name="#FAKE_domainmanager_character_3">
-      <name-surrogate>1</name-surrogate>
-      <columns>sect_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_sect.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="211" parent="17" name="#FAKE_domainmanager_character_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sect_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_sect</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="209" parent="16" name="#FAKE_domainmanager_character_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="212" parent="17" name="#FAKE_domainmanager_character_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="210" parent="16" name="#FAKE_domainmanager_character_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>secretclan_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_clan.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="213" parent="17" name="#FAKE_domainmanager_character_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>secretclan_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_clan</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="211" parent="17" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="214" parent="18" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="212" parent="17" name="abilities">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="215" parent="18" name="abilities">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="213" parent="17" name="skills">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="216" parent="18" name="skills">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="214" parent="17" name="disciplines">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="217" parent="18" name="disciplines">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="215" parent="17" name="backgrounds">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="218" parent="18" name="backgrounds">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="216" parent="17" name="influences">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="219" parent="18" name="influences">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="217" parent="17" name="secrets">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="220" parent="18" name="secrets">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="218" parent="17" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="221" parent="18" name="created">
+      <Position>7</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="219" parent="17" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="222" parent="18" name="timestamp">
+      <Position>8</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="220" parent="17" name="character_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="223" parent="18" name="character_id">
+      <Position>9</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="221" parent="17">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="224" parent="18">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="222" parent="17" name="#FAKE_domainmanager_charactercreation_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="225" parent="18" name="#FAKE_domainmanager_charactercreation_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="223" parent="18" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="226" parent="19" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="224" parent="18" name="value">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="227" parent="19" name="value">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="225" parent="18" name="character_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="228" parent="19" name="character_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="226" parent="18" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="229" parent="19" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="227" parent="18" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="230" parent="19" name="timestamp">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="228" parent="18" name="property_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="231" parent="19" name="property_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="229" parent="18">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="232" parent="19">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="230" parent="18" name="#FAKE_domainmanager_characterproperty_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="233" parent="19" name="#FAKE_domainmanager_characterproperty_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="231" parent="18" name="#FAKE_domainmanager_characterproperty_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>property_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_property.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="234" parent="19" name="#FAKE_domainmanager_characterproperty_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>property_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_property</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="232" parent="19" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="235" parent="20" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="233" parent="19" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="236" parent="20" name="created">
+      <Position>1</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="234" parent="19" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="237" parent="20" name="timestamp">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="235" parent="19" name="character_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="238" parent="20" name="character_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="236" parent="19" name="secret_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="239" parent="20" name="secret_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="237" parent="19">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="240" parent="20">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="238" parent="19" name="#FAKE_domainmanager_charactersecret_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="241" parent="20" name="#FAKE_domainmanager_charactersecret_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="239" parent="19" name="#FAKE_domainmanager_charactersecret_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>secret_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_secret.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="242" parent="20" name="#FAKE_domainmanager_charactersecret_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>secret_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_secret</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="240" parent="20" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="243" parent="21" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="241" parent="20" name="character_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="244" parent="21" name="character_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="242" parent="20" name="approvedbygm">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="245" parent="21" name="approvedbygm">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="243" parent="20" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="246" parent="21" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="244" parent="20" name="hash_gm">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(20)(0,-1)|12</data-type>
+    <column id="247" parent="21" name="hash_gm">
+      <Position>4</Position>
+      <DataType>VARCHAR(20)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="245" parent="20" name="property_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="248" parent="21" name="property_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="246" parent="20" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="249" parent="21" name="timestamp">
+      <Position>6</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="247" parent="20" name="mentor">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="250" parent="21" name="mentor">
+      <Position>7</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="248" parent="20">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="251" parent="21">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="249" parent="20" name="#FAKE_domainmanager_charactershopping_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="252" parent="21" name="#FAKE_domainmanager_charactershopping_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="250" parent="20" name="#FAKE_domainmanager_charactershopping_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>property_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_property.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="253" parent="21" name="#FAKE_domainmanager_charactershopping_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>property_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_property</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="251" parent="21" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="254" parent="22" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="252" parent="21" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="255" parent="22" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="253" parent="21" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="256" parent="22" name="image">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="254" parent="21" name="standardclan">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="257" parent="22" name="standardclan">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="255" parent="21" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="258" parent="22" name="domain_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="256" parent="21" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="259" parent="22" name="created">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="257" parent="21" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="260" parent="22" name="timestamp">
+      <Position>6</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="258" parent="21" name="parent_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="261" parent="22" name="parent_id">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <key id="259" parent="21">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="262" parent="22">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="260" parent="21" name="#FAKE_domainmanager_clan_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="263" parent="22" name="#FAKE_domainmanager_clan_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="261" parent="21" name="#FAKE_domainmanager_clan_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>parent_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="264" parent="22" name="#FAKE_domainmanager_clan_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>parent_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_clan</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="262" parent="22" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="265" parent="23" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="263" parent="22" name="clan_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="266" parent="23" name="clan_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="264" parent="22" name="property_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="267" parent="23" name="property_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="265" parent="22" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="268" parent="23" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="266" parent="22" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="269" parent="23" name="timestamp">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="267" parent="22">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="270" parent="23">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="268" parent="22" name="#FAKE_domainmanager_clanproperty_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>clan_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_clan.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="271" parent="23" name="#FAKE_domainmanager_clanproperty_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clan_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_clan</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="269" parent="22" name="#FAKE_domainmanager_clanproperty_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>property_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_property.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="272" parent="23" name="#FAKE_domainmanager_clanproperty_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>property_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_property</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="270" parent="23" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="273" parent="24" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="271" parent="23" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="274" parent="24" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="272" parent="23" name="code">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(3)(0,-1)|12</data-type>
+    <column id="275" parent="24" name="code">
+      <Position>2</Position>
+      <DataType>VARCHAR(3)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="273" parent="23" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="276" parent="24" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="274" parent="23" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="277" parent="24" name="timestamp">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="275" parent="23" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="278" parent="24" name="domain_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="276" parent="23">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="279" parent="24">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="277" parent="23" name="#FAKE_domainmanager_country_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="280" parent="24" name="#FAKE_domainmanager_country_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="278" parent="24" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="281" parent="25" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="279" parent="24" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="282" parent="25" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="280" parent="24" name="street">
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="283" parent="25" name="street">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
     </column>
-    <column id="281" parent="24" name="postcode">
-      <data-type>VARCHAR(10)(0,-1)|12</data-type>
+    <column id="284" parent="25" name="postcode">
+      <Position>3</Position>
+      <DataType>VARCHAR(10)(0,-1)|12</DataType>
     </column>
-    <column id="282" parent="24" name="country_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="285" parent="25" name="country_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="283" parent="24" name="gm_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="286" parent="25" name="gm_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="284" parent="24" name="substitute_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="287" parent="25" name="substitute_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="285" parent="24" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="288" parent="25" name="created">
+      <Position>7</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="286" parent="24" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="289" parent="25" name="timestamp">
+      <Position>8</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="287" parent="24" name="downtimes">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="290" parent="25" name="downtimes">
+      <Position>9</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="288" parent="24" name="influences">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="291" parent="25" name="influences">
+      <Position>10</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="289" parent="24" name="secrets">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="292" parent="25" name="secrets">
+      <Position>11</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="290" parent="24" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="293" parent="25" name="image">
+      <Position>12</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="291" parent="24" name="boons">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="294" parent="25" name="boons">
+      <Position>13</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="292" parent="24" name="mentor">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="295" parent="25" name="mentor">
+      <Position>14</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="293" parent="24" name="mentorbonus">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="296" parent="25" name="mentorbonus">
+      <Position>15</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="294" parent="24" name="advancedcharactercreation">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="297" parent="25" name="advancedcharactercreation">
+      <Position>16</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="295" parent="24">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="298" parent="25">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="296" parent="24" name="#FAKE_domainmanager_domain_3">
-      <name-surrogate>1</name-surrogate>
-      <columns>country_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_country.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="299" parent="25" name="#FAKE_domainmanager_domain_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>country_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_country</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="297" parent="24" name="#FAKE_domainmanager_domain_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>gm_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_person.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="300" parent="25" name="#FAKE_domainmanager_domain_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>gm_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_person</RefTableName>
+      <RefColNames>user_id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="298" parent="24" name="#FAKE_domainmanager_domain_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>substitute_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_person.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="301" parent="25" name="#FAKE_domainmanager_domain_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>substitute_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_person</RefTableName>
+      <RefColNames>user_id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="299" parent="25" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="302" parent="26" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="300" parent="25" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    <column id="303" parent="26" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="301" parent="25" name="start">
-      <mandatory>1</mandatory>
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="304" parent="26" name="start">
+      <Position>2</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="302" parent="25" name="end">
-      <mandatory>1</mandatory>
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="305" parent="26" name="end">
+      <Position>3</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="303" parent="25" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="306" parent="26" name="created">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="304" parent="25" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="307" parent="26" name="timestamp">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="305" parent="25" name="domain_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="308" parent="26" name="domain_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="306" parent="25" name="event_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="309" parent="26" name="event_id">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="307" parent="25" name="description">
-      <data-type>VARCHAR(250)(0,-1)|12</data-type>
+    <column id="310" parent="26" name="description">
+      <Position>8</Position>
+      <DataType>VARCHAR(250)(0,-1)|12</DataType>
     </column>
-    <key id="308" parent="25">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="311" parent="26">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="309" parent="25" name="#FAKE_domainmanager_downtime_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="312" parent="26" name="#FAKE_domainmanager_downtime_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="310" parent="25" name="#FAKE_domainmanager_downtime_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>event_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_event.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="313" parent="26" name="#FAKE_domainmanager_downtime_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>event_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_event</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="311" parent="26" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="314" parent="27" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="312" parent="26" name="start_date">
-      <mandatory>1</mandatory>
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="315" parent="27" name="start_date">
+      <Position>1</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="313" parent="26" name="end_date">
-      <mandatory>1</mandatory>
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="316" parent="27" name="end_date">
+      <Position>2</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="314" parent="26" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="317" parent="27" name="domain_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="315" parent="26" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="318" parent="27" name="created">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="316" parent="26" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="319" parent="27" name="timestamp">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="317" parent="26" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="320" parent="27" name="name">
+      <Position>6</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="318" parent="26" name="description">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="321" parent="27" name="description">
+      <Position>7</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="319" parent="26">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="322" parent="27">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="320" parent="26" name="#FAKE_domainmanager_event_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="323" parent="27" name="#FAKE_domainmanager_event_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="321" parent="27" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="324" parent="28" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="322" parent="27" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="325" parent="28" name="created">
+      <Position>1</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="323" parent="27" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="326" parent="28" name="timestamp">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="324" parent="27" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="327" parent="28" name="domain_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="325" parent="27" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(25)(0,-1)|12</data-type>
+    <column id="328" parent="28" name="name">
+      <Position>4</Position>
+      <DataType>VARCHAR(25)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="326" parent="27">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="329" parent="28">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="327" parent="27" name="#FAKE_domainmanager_gender_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="330" parent="28" name="#FAKE_domainmanager_gender_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="328" parent="28" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="331" parent="29" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="329" parent="28" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="332" parent="29" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="330" parent="28" name="clan_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="333" parent="29" name="clan_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="331" parent="28" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="334" parent="29" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="332" parent="28" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="335" parent="29" name="timestamp">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="333" parent="28" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="336" parent="29" name="domain_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="334" parent="28" name="current_generation">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="337" parent="29" name="current_generation">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="335" parent="28" name="initial_generation">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="338" parent="29" name="initial_generation">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="336" parent="28" name="character_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="339" parent="29" name="character_id">
+      <Position>8</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="337" parent="28" name="sire_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="340" parent="29" name="sire_id">
+      <Position>9</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <key id="338" parent="28">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="341" parent="29">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="339" parent="28" name="#FAKE_domainmanager_genealogy_4">
-      <name-surrogate>1</name-surrogate>
-      <columns>clan_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_clan.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="342" parent="29" name="#FAKE_domainmanager_genealogy_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clan_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_clan</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="340" parent="28" name="#FAKE_domainmanager_genealogy_3">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="343" parent="29" name="#FAKE_domainmanager_genealogy_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="341" parent="28" name="#FAKE_domainmanager_genealogy_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="344" parent="29" name="#FAKE_domainmanager_genealogy_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="342" parent="28" name="#FAKE_domainmanager_genealogy_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>sire_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="345" parent="29" name="#FAKE_domainmanager_genealogy_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sire_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_genealogy</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="343" parent="29" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="346" parent="30" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="344" parent="29" name="preface">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="347" parent="30" name="preface">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="345" parent="29" name="content">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="348" parent="30" name="content">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="346" parent="29" name="link">
-      <data-type>VARCHAR(250)(0,-1)|12</data-type>
+    <column id="349" parent="30" name="link">
+      <Position>3</Position>
+      <DataType>VARCHAR(250)(0,-1)|12</DataType>
     </column>
-    <column id="347" parent="29" name="validfrom">
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="350" parent="30" name="validfrom">
+      <Position>4</Position>
+      <DataType>DATE(0,-1)|12</DataType>
     </column>
-    <column id="348" parent="29" name="validuntil">
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="351" parent="30" name="validuntil">
+      <Position>5</Position>
+      <DataType>DATE(0,-1)|12</DataType>
     </column>
-    <column id="349" parent="29" name="isvision">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="352" parent="30" name="isvision">
+      <Position>6</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="350" parent="29" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="353" parent="30" name="created">
+      <Position>7</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="29" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="354" parent="30" name="timestamp">
+      <Position>8</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="29" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="355" parent="30" name="image">
+      <Position>9</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="353" parent="29" name="thumb">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="356" parent="30" name="thumb">
+      <Position>10</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="354" parent="29" name="attachment">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="357" parent="30" name="attachment">
+      <Position>11</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="355" parent="29" name="author_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="358" parent="30" name="author_id">
+      <Position>12</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="356" parent="29" name="schreknetlevel">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="359" parent="30" name="schreknetlevel">
+      <Position>13</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="357" parent="29" name="caption">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(250)(0,-1)|12</data-type>
+    <column id="360" parent="30" name="caption">
+      <Position>14</Position>
+      <DataType>VARCHAR(250)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="358" parent="29">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="361" parent="30">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="359" parent="29" name="#FAKE_domainmanager_news_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>author_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_person.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="362" parent="30" name="#FAKE_domainmanager_news_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>author_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_person</RefTableName>
+      <RefColNames>user_id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="360" parent="30" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="363" parent="31" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="361" parent="30" name="news_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="364" parent="31" name="news_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="362" parent="30" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="365" parent="31" name="domain_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="363" parent="30" name="domainmanager_news_domains_news_id_6c79e2e8_uniq">
-      <columns>news_id
-domain_id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="366" parent="31" name="domainmanager_news_domains_news_id_6c79e2e8_uniq">
+      <ColNames>news_id
+domain_id</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="364" parent="30">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="367" parent="31">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="365" parent="30" name="#FAKE_domainmanager_news_domains_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>news_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_news.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="368" parent="31" name="#FAKE_domainmanager_news_domains_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>news_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_news</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="366" parent="30" name="#FAKE_domainmanager_news_domains_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="369" parent="31" name="#FAKE_domainmanager_news_domains_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="367" parent="31" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="370" parent="32" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="368" parent="31" name="news_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="371" parent="32" name="news_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="369" parent="31" name="clan_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="372" parent="32" name="clan_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="370" parent="31" name="domainmanager_news_limittoclan_news_id_4301390d_uniq">
-      <columns>news_id
-clan_id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="373" parent="32" name="domainmanager_news_limittoclan_news_id_4301390d_uniq">
+      <ColNames>news_id
+clan_id</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="371" parent="31">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="374" parent="32">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="372" parent="31" name="#FAKE_domainmanager_news_limittoclan_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>news_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_news.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="375" parent="32" name="#FAKE_domainmanager_news_limittoclan_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>news_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_news</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="373" parent="31" name="#FAKE_domainmanager_news_limittoclan_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>clan_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_clan.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="376" parent="32" name="#FAKE_domainmanager_news_limittoclan_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clan_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_clan</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="374" parent="32" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="377" parent="33" name="image">
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="375" parent="32" name="date_of_birth">
-      <mandatory>1</mandatory>
-      <data-type>DATE(0,-1)|12</data-type>
+    <column id="378" parent="33" name="date_of_birth">
+      <Position>1</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="376" parent="32" name="description">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="379" parent="33" name="description">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="377" parent="32" name="country_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="380" parent="33" name="country_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="378" parent="32" name="active">
-      <mandatory>1</mandatory>
-      <data-type>BOOL(0,-1)|4</data-type>
+    <column id="381" parent="33" name="active">
+      <Position>4</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="379" parent="32" name="user_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="382" parent="33" name="user_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="380" parent="32" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="383" parent="33" name="domain_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="381" parent="32" name="nickname">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="384" parent="33" name="nickname">
+      <Position>7</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="382" parent="32" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="385" parent="33" name="created">
+      <Position>8</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="383" parent="32" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="386" parent="33" name="timestamp">
+      <Position>9</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="384" parent="32" name="salutation_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="387" parent="33" name="salutation_id">
+      <Position>10</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="385" parent="32">
-      <columns>user_id</columns>
-      <primary>1</primary>
+    <key id="388" parent="33">
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="386" parent="32" name="#FAKE_domainmanager_person_4">
-      <name-surrogate>1</name-surrogate>
-      <columns>country_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_country.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="389" parent="33" name="#FAKE_domainmanager_person_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>country_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_country</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="387" parent="32" name="#FAKE_domainmanager_person_3">
-      <name-surrogate>1</name-surrogate>
-      <columns>user_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.auth_user.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="390" parent="33" name="#FAKE_domainmanager_person_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="388" parent="32" name="#FAKE_domainmanager_person_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="391" parent="33" name="#FAKE_domainmanager_person_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="389" parent="32" name="#FAKE_domainmanager_person_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>salutation_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_salutation.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="392" parent="33" name="#FAKE_domainmanager_person_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>salutation_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_salutation</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="390" parent="33" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="393" parent="34" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="391" parent="33" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="394" parent="34" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="392" parent="33" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="395" parent="34" name="created">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="393" parent="33" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="396" parent="34" name="timestamp">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="394" parent="33" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="397" parent="34" name="domain_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="395" parent="33" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="398" parent="34" name="image">
+      <Position>5</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <key id="396" parent="33">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="399" parent="34">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="397" parent="33" name="#FAKE_domainmanager_politicalfuntion_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="400" parent="34" name="#FAKE_domainmanager_politicalfuntion_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="398" parent="34" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="401" parent="35" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="399" parent="34" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="402" parent="35" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="400" parent="34" name="type_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="403" parent="35" name="type_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="401" parent="34" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="404" parent="35" name="domain_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="402" parent="34" name="initalizeatcharactercreation">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="405" parent="35" name="initalizeatcharactercreation">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="403" parent="34" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="406" parent="35" name="created">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="404" parent="34" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="407" parent="35" name="timestamp">
+      <Position>6</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="405" parent="34" name="xpprize">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="408" parent="35" name="xpprize">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="406" parent="34" name="description">
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="409" parent="35" name="description">
+      <Position>8</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
     </column>
-    <key id="407" parent="34">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="410" parent="35">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="408" parent="34" name="#FAKE_domainmanager_property_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>type_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_propertytype.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="411" parent="35" name="#FAKE_domainmanager_property_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>type_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_propertytype</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="409" parent="34" name="#FAKE_domainmanager_property_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="412" parent="35" name="#FAKE_domainmanager_property_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="410" parent="35" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="413" parent="36" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="411" parent="35" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="414" parent="36" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="412" parent="35" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="415" parent="36" name="domain_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="413" parent="35" name="xpmultiplier">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="416" parent="36" name="xpmultiplier">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="414" parent="35" name="xpinitialprize">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="417" parent="36" name="xpinitialprize">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="415" parent="35" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="418" parent="36" name="created">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="416" parent="35" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="419" parent="36" name="timestamp">
+      <Position>6</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="417" parent="35" name="stattype">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="420" parent="36" name="stattype">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="418" parent="35">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="421" parent="36">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="419" parent="35" name="#FAKE_domainmanager_propertytype_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="422" parent="36" name="#FAKE_domainmanager_propertytype_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="420" parent="36" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="423" parent="37" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="421" parent="36" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="424" parent="37" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="422" parent="36" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="425" parent="37" name="image">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="423" parent="36" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="426" parent="37" name="domain_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="424" parent="36" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="427" parent="37" name="created">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="425" parent="36" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="428" parent="37" name="timestamp">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="426" parent="36">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="429" parent="37">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="427" parent="36" name="#FAKE_domainmanager_rank_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="430" parent="37" name="#FAKE_domainmanager_rank_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="428" parent="37" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="431" parent="38" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="429" parent="37" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="432" parent="38" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="430" parent="37" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="433" parent="38" name="created">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="431" parent="37" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="434" parent="38" name="timestamp">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="432" parent="37" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="435" parent="38" name="domain_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="433" parent="37">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="436" parent="38">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="434" parent="37" name="#FAKE_domainmanager_salutation_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="437" parent="38" name="#FAKE_domainmanager_salutation_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="435" parent="38" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="438" parent="39" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="436" parent="38" name="rank">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="439" parent="39" name="rank">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="437" parent="38" name="description">
-      <mandatory>1</mandatory>
-      <data-type>TEXT(0,-1)|12</data-type>
+    <column id="440" parent="39" name="description">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="438" parent="38" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="441" parent="39" name="created">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="439" parent="38" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="442" parent="39" name="timestamp">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="440" parent="38" name="clan_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="443" parent="39" name="clan_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="441" parent="38" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="444" parent="39" name="domain_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="442" parent="38">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="445" parent="39">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="443" parent="38" name="#FAKE_domainmanager_secret_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>clan_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_clan.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="446" parent="39" name="#FAKE_domainmanager_secret_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>clan_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_clan</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="444" parent="38" name="#FAKE_domainmanager_secret_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="447" parent="39" name="#FAKE_domainmanager_secret_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="445" parent="39" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="448" parent="40" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="446" parent="39" name="name">
-      <mandatory>1</mandatory>
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="449" parent="40" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="447" parent="39" name="image">
-      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    <column id="450" parent="40" name="image">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
     </column>
-    <column id="448" parent="39" name="domain_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="451" parent="40" name="domain_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="449" parent="39" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="452" parent="40" name="created">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="450" parent="39" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="453" parent="40" name="timestamp">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="451" parent="39">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="454" parent="40">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="452" parent="39" name="#FAKE_domainmanager_sect_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>domain_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_domain.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="455" parent="40" name="#FAKE_domainmanager_sect_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>domain_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_domain</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="453" parent="40" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="456" parent="41" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="454" parent="40" name="value">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="457" parent="41" name="value">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="455" parent="40" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="458" parent="41" name="created">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="456" parent="40" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="459" parent="41" name="timestamp">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="457" parent="40" name="event_id">
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="460" parent="41" name="event_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
     </column>
-    <column id="458" parent="40" name="note">
-      <data-type>VARCHAR(250)(0,-1)|12</data-type>
+    <column id="461" parent="41" name="note">
+      <Position>5</Position>
+      <DataType>VARCHAR(250)(0,-1)|12</DataType>
     </column>
-    <key id="459" parent="40">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="462" parent="41">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="460" parent="40" name="#FAKE_domainmanager_xpearned_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>event_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_event.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="463" parent="41" name="#FAKE_domainmanager_xpearned_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>event_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_event</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="461" parent="41" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="464" parent="42" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="462" parent="41" name="xpearned_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="465" parent="42" name="xpearned_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="463" parent="41" name="character_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="466" parent="42" name="character_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="464" parent="41" name="domainmanager_xpearned_characters_xpearned_id_c0db54ff_uniq">
-      <columns>xpearned_id
-character_id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
+    <index id="467" parent="42" name="domainmanager_xpearned_characters_xpearned_id_c0db54ff_uniq">
+      <ColNames>xpearned_id
+character_id</ColNames>
+      <Unique>1</Unique>
     </index>
-    <key id="465" parent="41">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="468" parent="42">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="466" parent="41" name="#FAKE_domainmanager_xpearned_characters_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>xpearned_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_xpearned.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="469" parent="42" name="#FAKE_domainmanager_xpearned_characters_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>xpearned_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_xpearned</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="467" parent="41" name="#FAKE_domainmanager_xpearned_characters_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="470" parent="42" name="#FAKE_domainmanager_xpearned_characters_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="468" parent="42" name="id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="471" parent="43" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="469" parent="42" name="oldvalue">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="472" parent="43" name="oldvalue">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="470" parent="42" name="created">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="473" parent="43" name="created">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="471" parent="42" name="timestamp">
-      <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+    <column id="474" parent="43" name="timestamp">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="472" parent="42" name="character_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="475" parent="43" name="character_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="473" parent="42" name="property_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="476" parent="43" name="property_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="474" parent="42" name="newvalue">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="477" parent="43" name="newvalue">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="475" parent="42" name="xpcost">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
+    <column id="478" parent="43" name="xpcost">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="476" parent="42">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="479" parent="43">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <foreign-key id="477" parent="42" name="#FAKE_domainmanager_xpspent_2">
-      <name-surrogate>1</name-surrogate>
-      <columns>character_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_character.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="480" parent="43" name="#FAKE_domainmanager_xpspent_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>character_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_character</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <foreign-key id="478" parent="42" name="#FAKE_domainmanager_xpspent_1">
-      <name-surrogate>1</name-surrogate>
-      <columns>property_id</columns>
-      <deferrable>1</deferrable>
-      <initially-deferred>1</initially-deferred>
-      <ref-key>~.domainmanager_property.#1</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
+    <foreign-key id="481" parent="43" name="#FAKE_domainmanager_xpspent_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>property_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>domainmanager_property</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
     </foreign-key>
-    <column id="479" parent="43" name="name">
-      <data-type>(0,-1)|12</data-type>
+    <column id="482" parent="44" name="name">
+      <DataType>(0,-1)|12</DataType>
     </column>
-    <column id="480" parent="43" name="seq">
-      <data-type>(0,-1)|12</data-type>
+    <column id="483" parent="44" name="seq">
+      <Position>1</Position>
+      <DataType>(0,-1)|12</DataType>
     </column>
   </database-model>
 </dataSource>

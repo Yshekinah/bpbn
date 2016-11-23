@@ -29,6 +29,18 @@
                                 <li class="{% ancestor 'domainmanager:characteractions' character.id %}"><a
                                         href="{% url 'domainmanager:characteractions' character.id %}">Downtimes</a></li>
                             {% endif %}
+                            {% if character.domain.schrecknetmessages == True %}
+                                {% if character.schrecknetlevel > 0 %}
+                                    <li class="{% ancestor 'domainmanager:characterschrecknet' character.id %}"><a
+                                            href="{% url 'domainmanager:characterschrecknet' character.id %}">SchreckNet</a></li>
+                                {% endif %}
+                            {% endif %}
+                            {% if character.domain.visions == True %}
+                                {% if character.visionlevel > 0 %}
+                                    <li class="{% ancestor 'domainmanager:charactervisions' character.id %}"><a
+                                            href="{% url 'domainmanager:charactervisions' character.id %}">Visions</a></li>
+                                {% endif %}
+                            {% endif %}
                             {% if character.domain.secrets == True %}
                                 <li class="{% ancestor 'domainmanager:charactersecrets' character.id %}"><a
                                         href="{% url 'domainmanager:charactersecrets' character.id %}">Secrets</a></li>
