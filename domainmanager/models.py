@@ -356,6 +356,7 @@ class ClanProperty(models.Model):
 
     clan = models.ForeignKey(Clan)
     property = models.ForeignKey(Property, limit_choices_to={'type_id': PropertyType.STATUS.disciplines})
+    domain = models.ForeignKey('Domain', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     timestamp = models.DateTimeField(auto_now=True)
 

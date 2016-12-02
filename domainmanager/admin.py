@@ -392,7 +392,7 @@ class NewsAdmin(admin.ModelAdmin):
         }),
         ('Advanced options', {
             'classes': ('collapse',),
-            'fields': ('limittoclan', 'image', 'thumb', 'attachment'),
+            'fields': ('image', 'thumb', 'attachment'),
         }),
     )
 

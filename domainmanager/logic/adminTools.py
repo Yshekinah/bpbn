@@ -1,14 +1,25 @@
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 
-from domainmanager.models import Character, CharacterProperty, Domain, Person, Xpspent
+from domainmanager.models import Character, Person
+
 
 # return a list with ids of all the players domains where he has characters
 def getDomainsFromUserId(user_id):
-    domains = Domain.objects.filter(character_domain__player=user_id)
+    characters = Character.objects.filter(player=user_id)
+
     list = []
-    for domain in domains:
-        list.append(domain.pk)
+    for character in characters:
+        if character.domain.id not in list:
+            list.append(character.domain.id)
+
+    if len(list) == 0:
+        list.append(Person.objects.get(pk=user_id).domain.id)
+
+    # domains = Domain.objects.filter(character_domain__player=user_id)
+    # list = []
+    # for domain in domains:
+    #    list.append(domain.pk)
 
     return list
 

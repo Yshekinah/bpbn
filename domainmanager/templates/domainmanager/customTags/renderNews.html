@@ -22,8 +22,9 @@
              {% if article.image %}style="background-image:url('{{ article.image.url }}');height:{{ article.image.height }}px"{% endif %}>
             <div class="row">
                 <div class="col-md-8">
-                    Text: {{ article.text }}<br/>
-                    Link: {{ article.link }}<br/>
+                    Preface: <br/> {% autoescape off %}{{ article.preface }} {% endautoescape %}<br/>
+                    Content: <br/> {% autoescape off %}{{ article.content }} {% endautoescape %}<br/>
+                    {% if article.link %}Link: {{ article.link }}<br/>{% endif %}
                 </div>
             </div>
         </div>

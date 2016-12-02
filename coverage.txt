@@ -1,2 +1,0 @@
-(Domainmanager_virtualenv) C:\Users\David\Domainmanager_virtualenv\Scripts>coverage run D:\Stuff\Django_projects\bpbn_github\bpbn\manage.py test domainmanager -v 2 --coverage-exclude=D:\Stuff\Django_projects\bpbn_github\domainmanager\migrations\*
-(Domainmanager_virtualenv) C:\Users\David\Domainmanager_virtualenv\Scripts>coverage html

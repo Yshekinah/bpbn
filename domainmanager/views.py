@@ -173,7 +173,10 @@ def character_create(request):
             form.fields['rank'].queryset = Rank.objects.filter(domain=person.domain)
             form.fields['gender'].queryset = Gender.objects.filter(domain=person.domain)
             form.fields['function'].queryset = PoliticalFuntion.objects.filter(domain=person.domain)
-            form.fields['clan'].queryset = Clan.objects.filter(domain=person.domain).exclude(standardclan__exact=Clan.STATUS.restricted)
+
+            if not request.user.is_staff:
+                form.fields['clan'].queryset = Clan.objects.filter(domain=person.domain).exclude(standardclan__exact=Clan.STATUS.restricted)
+
             form.fields['age_category'].queryset = AgeCategory.objects.filter(domain=person.domain)
             form.fields['domain'].queryset = Domain.objects.filter(pk=person.domain.id)
             form.fields['sire'].queryset = Character.objects.filter(domain=person.domain)
