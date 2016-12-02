@@ -30,7 +30,7 @@ DECIMAL_SEPERATOR = ','
 USE_THOUSAND_SEPERATOR = True
 THOUSAND_SEPARATOR = '.'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['maunzinator.pythonanywhere.com','localhost', '127.0.0.1']
 
 # Application definition
 
